@@ -110,10 +110,49 @@ for(int boite=0;boite<9;boite++)
     
 }   
 //verifie chaque ligne contient une seule copie de chaque nombre
-//TODO
+    for(int ligne_boite=0;ligne_boite<3;ligne_boite++)
+    {
+        for(int ligne=0;ligne<3;ligne++)
+        {
+            array<int,9> nombres{};
+            for(int boite=0+ligne_boite*3;boite<3+ligne_boite*3;boite++)
+            {
+                for(int cases=0+ligne*3;cases<3+ligne*3;cases++)
+                {
+                    nombres.at(cases%3 + boite*3)=m_grille.at(boite).at(cases);
+                }
+            }
+            if(Grille::a_double(nombres))
+            {
+                return false;
+            }
+        }
+    }
     
 //verifie chaque colonne contient une seule copie de chaque nombre
-//TODO    
+    for(int colonne_boite=0;colonne_boite<3;colonne_boite++)
+    {
+        for(int colonne=0;colonne<3;colonne++)
+        {
+            array<int,9> nombres{};
+            int i=0;
+            for(int boite=0+colonne_boite*3;boite<9;boite+=3)
+            {
+                for(int cases=0+colonne;cases<9;cases+=3)
+                {
+                    nombres.at(i)=m_grille.at(boite).at(cases);
+                    i++;
+                }
+            }
+            if(Grille::a_double(nombres))
+            {
+                return false;
+            }
+        }
+    }
+        
+        
+    return true;
 }
 
 /***

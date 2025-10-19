@@ -1,4 +1,9 @@
-
+/***
+ * \file main.cpp
+ * \author Émil Lavoie-Leullier
+ * \date 2025-10-19
+ * \brief contient la fonction main
+ */
 #include "Grille.h"
 using namespace std;
 

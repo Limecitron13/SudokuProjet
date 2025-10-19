@@ -17,7 +17,3 @@ TEST(TestIndice,constructeur_indicesValides_objetValide)
 
 //TODO test des methodes classe Grille
 
-TEST(oK,OKOK)
-{
-    ASSERT_TRUE(true);
-}
