@@ -215,7 +215,7 @@ void Grille::verifieInvariant()
 }
 
 /***
- * \brief Vérifie si le fichier texte est dans le bon format (chaque ligne représente les valeurs d'une boîte)
+ * \brief Vérifie si le fichier texte est dans le bon format (chaque ligne représente les valeurs d'une boîte avec les nombres 0 à 9)
  * \param ifs est un flux qui contient le fichier texte de la grille de sudoku
  * \return true si le format est valide, false sinon
  */
