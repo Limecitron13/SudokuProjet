@@ -189,6 +189,17 @@ void Grille::afficher_grille()const
 }
 
 /***
+ * \brief ajoute les valeurs d'une grille sudoku qui provient d'un fichier texte
+ * \param ifs est un flux de fichier qui contient le fichier texte de la grille
+ */
+void asg_grille(std::ifstream ifs)
+{
+    //TODO
+}
+
+
+
+/***
  * \brief Vérifie les invariants de la classe
  */
 void Grille::verifieInvariant()
@@ -201,6 +212,16 @@ void Grille::verifieInvariant()
                 INVARIANT(valeur_case <= 9 && valeur_case >= 0);  //Les 0 représentes les cases vides
         }
     }
+}
+
+/***
+ * \brief Vérifie si le fichier texte est dans le bon format (chaque ligne représente les valeurs d'une boîte)
+ * \param ifs est un flux qui contient le fichier texte de la grille de sudoku
+ * \return true si le format est valide, false sinon
+ */
+bool verifier_format_fichier(std::ifstream)const
+{
+    //TODO
 }
 
 /***
