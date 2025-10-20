@@ -193,16 +193,25 @@ void Grille::afficher_grille()const
  * \brief ajoute les valeurs d'une grille sudoku qui provient d'un fichier texte
  * \param ifs est un flux de fichier qui contient le fichier texte de la grille
  */
-void Grille::asg_grille(std::ifstream ifs)
+void Grille::asg_grille(ifstream& ifs)
 {
-    //TODO
-    //preconditions et tout
+    PRECONDITION(verifier_format_fichier(ifs));
+    for(int boite=0;boite<9;boite++)
+    {
+        string boite_valeurs;
+        ifs>>boite_valeurs;
+        for(int cases=0;cases<9;cases++)
+        {
+            m_grille.at(boite).at(cases) = boite_valeurs.at(cases);
+        }
+    }
+    INVARIANTS();
 }
 
 
 
 /***
- * \brief Vérifie les invariants de la classe
+ * \brief Vérifie les invariants de la classe (nombres de 0 à 9)
  */
 void Grille::verifieInvariant()
 {
@@ -211,7 +220,7 @@ void Grille::verifieInvariant()
         for(int cases=0;cases<9;cases++)
         {
             int valeur_case =m_grille.at(boite).at(cases);
-                INVARIANT(valeur_case <= 9 && valeur_case >= 0);  //Les 0 représentes les cases vides
+            INVARIANT(valeur_case <= 9 && valeur_case >= 0);  //Les 0 représentes les cases vides
         }
     }
 }
@@ -221,7 +230,7 @@ void Grille::verifieInvariant()
  * \param ifs est un flux qui contient le fichier texte de la grille de sudoku
  * \return true si le format est valide, false sinon
  */
-bool Grille::verifier_format_fichier(ifstream ifs)const
+bool Grille::verifier_format_fichier(ifstream& ifs)
 {
     if(!ifs)
     {
@@ -229,7 +238,8 @@ bool Grille::verifier_format_fichier(ifstream ifs)const
         return false;
     }
     
-    for(int ligne=0;ligne<9;ligne++)
+    int nbr_lignes =9; //nbr lignes sans saut de ligne
+    for(int ligne=0;ligne<nbr_lignes;ligne++)
     {
         if(ifs.eof())       //Il manque une ou des boîtes dans le fichier
         {
@@ -237,7 +247,11 @@ bool Grille::verifier_format_fichier(ifstream ifs)const
         }
         string boite;
         ifs >> boite;
-        if(boite.length() !=9)  //Il manque un ou des nombres dans la boite
+        if(boite == "") //Ligne vide
+        {
+            nbr_lignes++;
+        }
+        else if(boite.length() !=9)  //Il manque un ou des nombres dans la boite
         {
             return false;
         }

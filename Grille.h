@@ -38,10 +38,10 @@ public:
     bool valider_grille()const;
     const int& req_val_case(Indice)const;
     void afficher_grille()const;
-    void asg_grille(std::ifstream);
+    void asg_grille(std::ifstream&);
 private:
     std::array<std::array<int,9>,9> m_grille;     //Un tableau de taille 9 qui contient chaque boîte du sudoku.
-    bool verifier_format_fichier(std::ifstream)const;
+    static bool verifier_format_fichier(std::ifstream&);
     static bool a_double(std::array<int,9>&);
     void verifieInvariant();
 };
