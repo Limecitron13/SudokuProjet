@@ -42,7 +42,7 @@ public:
 private:
     std::array<std::array<int,9>,9> m_grille;     //Un tableau de taille 9 qui contient chaque boîte du sudoku.
     bool verifier_format_fichier(std::ifstream)const;
-    static bool a_double(std::array<int,9>);
+    static bool a_double(std::array<int,9>&);
     void verifieInvariant();
 };
 

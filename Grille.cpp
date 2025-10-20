@@ -9,6 +9,7 @@
 #include "ContratException.h"
 #include <array>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -192,9 +193,10 @@ void Grille::afficher_grille()const
  * \brief ajoute les valeurs d'une grille sudoku qui provient d'un fichier texte
  * \param ifs est un flux de fichier qui contient le fichier texte de la grille
  */
-void asg_grille(std::ifstream ifs)
+void Grille::asg_grille(std::ifstream ifs)
 {
     //TODO
+    //preconditions et tout
 }
 
 
@@ -219,9 +221,29 @@ void Grille::verifieInvariant()
  * \param ifs est un flux qui contient le fichier texte de la grille de sudoku
  * \return true si le format est valide, false sinon
  */
-bool verifier_format_fichier(std::ifstream)const
+bool Grille::verifier_format_fichier(ifstream ifs)const
 {
-    //TODO
+    if(!ifs)
+    {
+        cout<<"Fichier n'existe pas ou ne peut être ouvert !";
+        return false;
+    }
+    
+    for(int ligne=0;ligne<9;ligne++)
+    {
+        if(ifs.eof())       //Il manque une ou des boîtes dans le fichier
+        {
+            return false;
+        }
+        string boite;
+        ifs >> boite;
+        if(boite.length() !=9)  //Il manque un ou des nombres dans la boite
+        {
+            return false;
+        }
+    }
+    return true;
+
 }
 
 /***
@@ -229,7 +251,7 @@ bool verifier_format_fichier(std::ifstream)const
  * \param liste est un tableau d'entiers
  * \return true si double, false sinon
  */
-bool Grille::a_double(array<int,9> liste)
+bool Grille::a_double(array<int,9>& liste)
 {
     //regarder entiers suivants
     // augmenter point départ 1
