@@ -104,7 +104,7 @@ for(int boite=0;boite<9;boite++)
     {
         nombres.at(cases)=m_grille.at(boite).at(cases);
     }
-    if(Grille::a_double(nombres))
+    if(a_double(nombres))
     {
         return false;
     }
@@ -123,7 +123,7 @@ for(int boite=0;boite<9;boite++)
                     nombres.at(cases%3 + boite*3)=m_grille.at(boite).at(cases);
                 }
             }
-            if(Grille::a_double(nombres))
+            if(a_double(nombres))
             {
                 return false;
             }
@@ -145,7 +145,7 @@ for(int boite=0;boite<9;boite++)
                     i++;
                 }
             }
-            if(Grille::a_double(nombres))
+            if(a_double(nombres))
             {
                 return false;
             }
@@ -230,7 +230,7 @@ void Grille::verifieInvariant()
  * \param ifs est un flux qui contient le fichier texte de la grille de sudoku
  * \return true si le format est valide, false sinon
  */
-bool Grille::verifier_format_fichier(ifstream& ifs)
+bool verifier_format_fichier(ifstream& ifs)
 {
     if(!ifs)
     {
@@ -265,7 +265,7 @@ bool Grille::verifier_format_fichier(ifstream& ifs)
  * \param liste est un tableau d'entiers
  * \return true si double, false sinon
  */
-bool Grille::a_double(array<int,9>& liste)
+bool a_double(array<int,9>& liste)
 {
     //regarder entiers suivants
     // augmenter point départ 1

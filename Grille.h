@@ -41,10 +41,11 @@ public:
     void asg_grille(std::ifstream&);
 private:
     std::array<std::array<int,9>,9> m_grille;     //Un tableau de taille 9 qui contient chaque boîte du sudoku.
-    static bool verifier_format_fichier(std::ifstream&);
-    static bool a_double(std::array<int,9>&);
     void verifieInvariant();
 };
 
+
+bool verifier_format_fichier(std::ifstream&);
+bool a_double(std::array<int,9>&);
 #endif /* GRILLE_H */
 

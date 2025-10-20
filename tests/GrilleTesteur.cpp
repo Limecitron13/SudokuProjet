@@ -16,13 +16,6 @@ TEST(TestIndice,constructeur_indicesValides_objetValide)
 }
 
 
-//TODO
-TEST(TestGrille,req_val_case_indiceValide_valeurAttendu)
-{
-    Grille g;
-
-}
-
 TEST(TestGrille,constructeur_parDefaut_objetValide)
 {
     Grille g;
@@ -45,30 +38,6 @@ TEST(TestGrille,asg_val_indiceEtValeurValide_succès)
 }
 
 //TODO
-TEST(TestGrille,asg_grille_grilleValide_Valide)
-{
-    Grille g;
-
-}
-
-//TODO
-TEST(TestGrille,asg_grille_grilleAvecZeros_Valide)
-{
-    Grille g;
-
-}
-
-
-//TODO
-TEST(TestGrille,asg_grille_grilleAvecZeros_Valide)
-{
-    Grille g;
-
-}
-
-
-
-//TODO
 TEST(TestGrille,validerGrille_grilleInvalide_invalide)
 {
     Grille g;
@@ -80,4 +49,54 @@ TEST(TestGrille,validerGrille_grilleValide_valide)
     Grille g;
 
 }
+
+//TODO
+TEST(TestFormatFichier,asg_grille_grilleValide_Valide)
+{
+    Grille g;
+    ifstream ifs("Grille_formatValide.txt",ifstream::in);
+
+}
+
+//TODO
+TEST(TestFormatFichier,asg_grille_grilleAvecZeros_Valide)
+{
+    Grille g;
+    ifstream ifs("Grille_avecZeros_formatValide.txt",ifstream::in);
+}
+
+
+//TODO
+TEST(TestFormatFichier,asg_grille_grilleAvecSautLigne_invalide)
+{
+    Grille g;
+    ifstream ifs("Grille_avecSautLigne_formatValide.txt",ifstream::in);
+}
+
+
+//TODO
+TEST(TestFormatFichier,asg_grille_grilleManqueBoîte_invalide)
+{
+    Grille g;
+    ifstream ifs("Grille_manqueBoite_formatInvalide.txt",ifstream::in);
+}
+
+
+//TODO
+TEST(TestFormatFichier,asg_grille_grilleManqueChiffres_invalide)
+{
+    Grille g;
+    ifstream ifs("Grille_manqueChiffre_formatInvalide.txt",ifstream::in);
+}
+
+
+//TODO
+TEST(TestFormatFichier,asg_grille_grilleVide_invalide)
+{
+    Grille g;
+    ifstream ifs("Grille_vide_formatInvalide.txt",ifstream::in);
+}
+
+
+
 
