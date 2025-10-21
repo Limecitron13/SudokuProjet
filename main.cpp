@@ -17,6 +17,7 @@ int main() {
     Grille g;
     g.asg_grille(ifs);
     g.afficher_grille();
+    cout<<endl<<g.valider_grille();
     return 0;
 }
 

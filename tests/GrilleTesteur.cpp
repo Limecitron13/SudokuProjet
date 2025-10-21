@@ -58,14 +58,23 @@ TEST(TestGrille,validerGrille_grilleValide_valide)
 
 }
 
-//TODO
+
 TEST(TestGrille,asg_grille_grilleValide_assignationCorrecte)
 {
     Grille g;
     ifstream ifs("Grille_formatValide.txt",ifstream::in);
     g.asg_grille(ifs);
-    ASSERT_TRUE(true);
-    /////*******/
+    ifs.seekg(0);
+    for(int boite=0;boite<9;boite++)
+    {
+        string boite_val;
+        ifs>>boite_val;
+        for(int cases=0;cases<9;cases++)
+        {
+            Indice i(boite,cases);
+            ASSERT_EQ(g.req_val_case(i),boite_val.at(cases)-48);
+        }
+    }
 
 }
 
