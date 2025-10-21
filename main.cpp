@@ -8,16 +8,23 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include "ContratException.h"
 using namespace std;
 
 
 int main() {
     string ligne;
-    ifstream ifs ("Grille_formatValide.txt", ifstream::in);
+    ifstream ifs ("fichiersTestsGrille/Grille_formatValide.txt", ifstream::in);
+    try{
     Grille g;
     g.asg_grille(ifs);
     g.afficher_grille();
     cout<<endl<<g.valider_grille();
+    }
+    catch(ContratException e)
+    {
+        cout<<e.what();
+    }
     return 0;
 }
 

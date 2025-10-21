@@ -93,6 +93,46 @@ TEST(TestGrille,asg_grille_grilleValide_assignationCorrecte)
 
 }
 
+
+
+
+/***
+ * \brief Teste si req_colonne retourne la bonne colonne
+ */
+TEST(TestGrille,req_colonne_indiceValide_colonneAttendue)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
+    g.asg_grille(ifs);
+    ASSERT_TRUE(g.req_colonne(4)=={5,1,3,8,9,7,6,2,4});
+
+}
+
+
+/***
+ * \brief Teste si req_boite retourne la bonne boîte
+ */
+TEST(TestGrille,req_boite_indiceValide_boiteAttendue)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
+    g.asg_grille(ifs);
+    ASSERT_TRUE(g.req_boite(3)=={3,5,4,6,7,2,9,1,8});
+
+}
+
+/***
+ * \brief Test si req_ligne retourne la bonne ligne
+ */
+TEST(TestGrille,req_ligne_indiceValide_ligneAttendue)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
+    g.asg_grille(ifs);
+    ASSERT_TRUE(g.req_ligne(8)=={8,2,7,3,4,5,9,6,1});
+
+}
+
 /***
  * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format valide
  */
