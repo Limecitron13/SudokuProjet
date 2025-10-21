@@ -104,7 +104,12 @@ TEST(TestGrille,req_colonne_indiceValide_colonneAttendue)
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
     g.asg_grille(ifs);
-    ASSERT_TRUE(g.req_colonne(4)=={5,1,3,8,9,7,6,2,4});
+    array<int,9> colonne=g.req_colonne(4);
+    array<int,9> colonne_attendue={5,1,3,8,9,7,6,2,4};
+    for(int i=0;i<9;i++)
+    {
+        ASSERT_TRUE(colonne.at(i)==colonne_attendue.at(i));
+    }
 
 }
 
@@ -117,7 +122,12 @@ TEST(TestGrille,req_boite_indiceValide_boiteAttendue)
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
     g.asg_grille(ifs);
-    ASSERT_TRUE(g.req_boite(3)=={3,5,4,6,7,2,9,1,8});
+    array<int,9> boite=g.req_boite(3);
+    array<int,9> boite_attendue={3,5,4,6,7,2,9,1,8};
+    for(int i=0;i<9;i++)
+    {
+        ASSERT_TRUE(boite.at(i)==boite_attendue.at(i));
+    }
 
 }
 
@@ -129,7 +139,12 @@ TEST(TestGrille,req_ligne_indiceValide_ligneAttendue)
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
     g.asg_grille(ifs);
-    ASSERT_TRUE(g.req_ligne(8)=={8,2,7,3,4,5,9,6,1});
+    array<int,9> ligne=g.req_ligne(8);
+    array<int,9> ligne_attendue={8,2,7,3,4,5,9,6,1};
+    for(int i=0;i<9;i++)
+    {
+        ASSERT_TRUE(ligne.at(i)==ligne_attendue.at(i));
+    }
 
 }
 

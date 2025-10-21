@@ -173,15 +173,17 @@ const int& Grille::req_val_case(Indice& i)const
  * \param indice est l'indice de la colonne (0 à 8) 
  * \return Un tableau de neuf entiers correspondant à ième colonne
  */
-array<int,9> Grille::req_colonnes(int indice)const
+array<int,9> Grille::req_colonne(int indice)const
 {
     PRECONDITION(indice>=0 && indice <=8);
     array<int,9> colonne;
+    int i=0;
     for(int boite=indice/3;boite<9;boite+=3)
     {
         for(int cases=indice%3;cases<9;cases+=3)      
         {
-            colonne.at(cases/3 + boite*3) = m_grille.at(boite).at(cases);
+            colonne.at(i) = m_grille.at(boite).at(cases);
+            i++;
         }
     }
     return colonne;
@@ -206,6 +208,18 @@ array<int,9> Grille::req_boite(int indice)const
 array<int,9> Grille::req_ligne(int indice)const
 {
     PRECONDITION(indice>=0 && indice <=8);
+    array<int,9> ligne;
+    int i=0;
+    for(int boite=indice/3;boite<9;boite++)
+    {
+        for(int cases=(indice%3)*3;cases<9;cases++)      
+        {
+            ligne.at(i) = m_grille.at(boite).at(cases);
+            i++;
+        }
+    }
+    return ligne;
+    
 }
 
 

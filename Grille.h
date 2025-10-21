@@ -37,7 +37,7 @@ public:
     void asg_val(Indice&,int valeur);
     bool valider_grille()const;
     const int& req_val_case(Indice&)const;
-    std::array<int,9> req_colonnes(int indice)const;
+    std::array<int,9> req_colonne(int indice)const;
     std::array<int,9> req_boite(int indice)const;
     std::array<int,9> req_ligne(int indice)const;
     void afficher_grille()const;
