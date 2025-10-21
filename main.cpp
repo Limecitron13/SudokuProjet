@@ -13,15 +13,10 @@ using namespace std;
 
 int main() {
     string ligne;
-    ifstream ifs ("Grille_formatInvalide.txt", ifstream::in);
-    ifs>> ligne;
-    cout << ligne<<endl;
-    
-    ifs>> ligne;
-    cout << ligne<<endl;
-    
-    ifs>> ligne;
-    cout << ligne<<endl;
+    ifstream ifs ("Grille_formatValide.txt", ifstream::in);
+    Grille g;
+    g.asg_grille(ifs);
+    g.afficher_grille();
     return 0;
 }
 

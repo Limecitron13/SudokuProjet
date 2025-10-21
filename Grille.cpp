@@ -120,7 +120,7 @@ for(int boite=0;boite<9;boite++)
             {
                 for(int cases=0+ligne*3;cases<3+ligne*3;cases++)
                 {
-                    nombres.at(cases%3 + boite*3)=m_grille.at(boite).at(cases);
+                    nombres.at(cases%3 + (boite%3)*3)=m_grille.at(boite).at(cases);
                 }
             }
             if(a_double(nombres))
@@ -131,26 +131,27 @@ for(int boite=0;boite<9;boite++)
     }
     
 //verifie chaque colonne contient une seule copie de chaque nombre
-    for(int colonne_boite=0;colonne_boite<3;colonne_boite++)
+for(int boite=0;boite<3;boite++)
+{
+    for(int colonne=0;colonne<3;colonne++)
     {
-        for(int colonne=0;colonne<3;colonne++)
+        array<int,9> nombres{};
+        int i=0;
+        for(int boite_ligne= boite ;boite_ligne<9;boite_ligne+=3)
         {
-            array<int,9> nombres{};
-            int i=0;
-            for(int boite=0+colonne_boite*3;boite<9;boite+=3)
+            for(int cases=0 + colonne;cases<9;cases+=3)
             {
-                for(int cases=0+colonne;cases<9;cases+=3)
-                {
-                    nombres.at(i)=m_grille.at(boite).at(cases);
-                    i++;
-                }
-            }
-            if(a_double(nombres))
-            {
-                return false;
+                nombres.at(i)=m_grille.at(boite_ligne).at(cases);
+                i++;
             }
         }
+        if(a_double(nombres))
+        {
+            return false;
+        }
     }
+
+}
         
         
     return true;
@@ -196,13 +197,14 @@ void Grille::afficher_grille()const
 void Grille::asg_grille(ifstream& ifs)
 {
     PRECONDITION(verifier_format_fichier(ifs));
+    ifs.seekg(0);
     for(int boite=0;boite<9;boite++)
     {
         string boite_valeurs;
         ifs>>boite_valeurs;
         for(int cases=0;cases<9;cases++)
         {
-            m_grille.at(boite).at(cases) = boite_valeurs.at(cases);
+            m_grille.at(boite).at(cases) = boite_valeurs.at(cases)-48; //convertion de valeur table ASCII en la vrai valeur
         }
     }
     INVARIANTS();
@@ -238,8 +240,7 @@ bool verifier_format_fichier(ifstream& ifs)
         return false;
     }
     
-    int nbr_lignes =9; //nbr lignes sans saut de ligne
-    for(int ligne=0;ligne<nbr_lignes;ligne++)
+    for(int ligne=0;ligne<9;ligne++)
     {
         if(ifs.eof())       //Il manque une ou des boîtes dans le fichier
         {
@@ -247,11 +248,7 @@ bool verifier_format_fichier(ifstream& ifs)
         }
         string boite;
         ifs >> boite;
-        if(boite == "") //Ligne vide
-        {
-            nbr_lignes++;
-        }
-        else if(boite.length() !=9)  //Il manque un ou des nombres dans la boite
+        if(boite.length() !=9)  //Il manque un ou des nombres dans la boite
         {
             return false;
         }
