@@ -83,7 +83,7 @@ Grille::Grille()
  */
 void Grille::asg_val(Indice i,int valeur)
 {
-    PRECONDITION(valeur<=9 && valeur>=1);
+    PRECONDITION(m_grille.at(i.req_indice_b()).at(i.req_indice())==0 && valeur<=9 && valeur>=1);
     m_grille.at(i.req_indice_b()).at(i.req_indice()) = valeur;
     POSTCONDITION(m_grille.at(i.req_indice_b()).at(i.req_indice()) == valeur);
     INVARIANTS();
