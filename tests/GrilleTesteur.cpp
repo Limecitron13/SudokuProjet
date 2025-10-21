@@ -96,11 +96,11 @@ TEST(TestFormatFichier,verifier_format_fichier_grilleAvecZeros_Valide)
 
 
 
-TEST(TestFormatFichier,verifier_format_fichier_grilleAvecSautLigne_invalide)
+TEST(TestFormatFichier,verifier_format_fichier_grilleAvecSautLigne_Valide)
 {
     Grille g;
-    ifstream ifs("Grille_avecSautLigne_formatInvalide.txt",ifstream::in);
-    ASSERT_FALSE(verifier_format_fichier(ifs));
+    ifstream ifs("Grille_avecSautLigne_formatValide.txt",ifstream::in);
+    ASSERT_TRUE(verifier_format_fichier(ifs));
 }
 
 
