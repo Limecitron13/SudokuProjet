@@ -264,7 +264,7 @@ bool verifier_format_fichier(ifstream& ifs)
  */
 bool a_double(array<int,9>& liste)
 {
-    PRECONDITION(liste.length()==9);
+    PRECONDITION(liste.size()==9);
     int valeur;
     for(int i=0;i<8;i++)
     {

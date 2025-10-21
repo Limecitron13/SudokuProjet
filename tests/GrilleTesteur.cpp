@@ -43,7 +43,7 @@ TEST(TestGrille,asg_val_indiceEtValeurValide_succès)
 TEST(TestGrille,validerGrille_grilleInvalide_invalide)
 {
     Grille g;
-    ifstream ifs("Grille_formatValide_grilleNonValide.txt",ifstream::in);
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide_grilleNonValide.txt",ifstream::in);
     g.asg_grille(ifs);
     ASSERT_FALSE(g.valider_grille());
 
@@ -52,7 +52,7 @@ TEST(TestGrille,validerGrille_grilleInvalide_invalide)
 TEST(TestGrille,validerGrille_grilleValide_valide)
 {
     Grille g;
-    ifstream ifs("Grille_formatValide.txt",ifstream::in);
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
     g.asg_grille(ifs);
     ASSERT_TRUE(g.valider_grille());
 
@@ -62,7 +62,7 @@ TEST(TestGrille,validerGrille_grilleValide_valide)
 TEST(TestGrille,asg_grille_grilleValide_assignationCorrecte)
 {
     Grille g;
-    ifstream ifs("Grille_formatValide.txt",ifstream::in);
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
     g.asg_grille(ifs);
     ifs.seekg(0);
     for(int boite=0;boite<9;boite++)
@@ -82,7 +82,7 @@ TEST(TestGrille,asg_grille_grilleValide_assignationCorrecte)
 TEST(TestFormatFichier,verifier_format_fichier_FormatValide_Valide)
 {
     Grille g;
-    ifstream ifs("Grille_formatValide.txt",ifstream::in);
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
     ASSERT_TRUE(verifier_format_fichier(ifs));
 
 }
@@ -90,7 +90,7 @@ TEST(TestFormatFichier,verifier_format_fichier_FormatValide_Valide)
 TEST(TestFormatFichier,verifier_format_fichier_FormatValideGrilleInvalide_Valide)
 {
     Grille g;
-    ifstream ifs("Grille_formatValide_grilleNonValide.txt",ifstream::in);
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide_grilleNonValide.txt",ifstream::in);
     ASSERT_TRUE(verifier_format_fichier(ifs));
 
 }
@@ -99,7 +99,7 @@ TEST(TestFormatFichier,verifier_format_fichier_FormatValideGrilleInvalide_Valide
 TEST(TestFormatFichier,verifier_format_fichier_grilleAvecZeros_Valide)
 {
     Grille g;
-    ifstream ifs("Grille_avecZeros_formatValide.txt",ifstream::in);
+    ifstream ifs("fichiersTestsGrille/Grille_avecZeros_formatValide.txt",ifstream::in);
     ASSERT_TRUE(verifier_format_fichier(ifs));
 }
 
@@ -108,7 +108,7 @@ TEST(TestFormatFichier,verifier_format_fichier_grilleAvecZeros_Valide)
 TEST(TestFormatFichier,verifier_format_fichier_grilleAvecSautLigne_Valide)
 {
     Grille g;
-    ifstream ifs("Grille_avecSautLigne_formatValide.txt",ifstream::in);
+    ifstream ifs("fichiersTestsGrille/Grille_avecSautLigne_formatValide.txt",ifstream::in);
     ASSERT_TRUE(verifier_format_fichier(ifs));
 }
 
@@ -117,7 +117,7 @@ TEST(TestFormatFichier,verifier_format_fichier_grilleAvecSautLigne_Valide)
 TEST(TestFormatFichier,verifier_format_fichier_grilleManqueBoîte_invalide)
 {
     Grille g;
-    ifstream ifs("Grille_manqueBoite_formatInvalide.txt",ifstream::in);
+    ifstream ifs("fichiersTestsGrille/Grille_manqueBoite_formatInvalide.txt",ifstream::in);
     ASSERT_FALSE(verifier_format_fichier(ifs));
 }
 
@@ -126,7 +126,7 @@ TEST(TestFormatFichier,verifier_format_fichier_grilleManqueBoîte_invalide)
 TEST(TestFormatFichier,verifier_format_fichier_grilleManqueChiffres_invalide)
 {
     Grille g;
-    ifstream ifs("Grille_manqueChiffre_formatInvalide.txt",ifstream::in);
+    ifstream ifs("fichiersTestsGrille/Grille_manqueChiffre_formatInvalide.txt",ifstream::in);
     ASSERT_FALSE(verifier_format_fichier(ifs));
 }
 
@@ -135,7 +135,7 @@ TEST(TestFormatFichier,verifier_format_fichier_grilleManqueChiffres_invalide)
 TEST(TestFormatFichier,verifier_format_fichier_grilleVide_invalide)
 {
     Grille g;
-    ifstream ifs("Grille_vide_formatInvalide.txt",ifstream::in);
+    ifstream ifs("fichiersTestsGrille/Grille_vide_formatInvalide.txt",ifstream::in);
     ASSERT_FALSE(verifier_format_fichier(ifs));
 }
 
