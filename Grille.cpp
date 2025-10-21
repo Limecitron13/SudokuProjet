@@ -229,6 +229,7 @@ void Grille::verifieInvariant()
 
 /***
  * \brief Vérifie si le fichier texte est dans le bon format (chaque ligne représente les valeurs d'une boîte avec les nombres 0 à 9)
+ *        Les sauts de lignes sont permis si et seulement si ils ne contiennent que le caractère de retour de chariot
  * \param ifs est un flux qui contient le fichier texte de la grille de sudoku
  * \return true si le format est valide, false sinon
  */

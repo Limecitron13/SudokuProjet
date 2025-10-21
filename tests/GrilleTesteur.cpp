@@ -10,6 +10,9 @@
 #include <fstream>
 using namespace std;
 
+/***
+ * \brief Teste si le constructeur assigne bien les valeurs (test indirectement les méthodes req_indice_b et req_indice)
+ */
 TEST(TestIndice,constructeur_indicesValides_objetValide)
 {
     Indice i(0,8);
@@ -17,7 +20,9 @@ TEST(TestIndice,constructeur_indicesValides_objetValide)
     ASSERT_EQ(i.req_indice(), 8);
 }
 
-
+/***
+ * \brief Teste si le constructeur par defaut assigne bien des zéros dans tous les cases.
+ */
 TEST(TestGrille,constructeur_parDefaut_objetValide)
 {
     Grille g;
@@ -31,6 +36,9 @@ TEST(TestGrille,constructeur_parDefaut_objetValide)
     }
 }
 
+/***
+ * \brief Teste si asg_val assigne la bonne valeur au bon indice
+ */
 TEST(TestGrille,asg_val_indiceEtValeurValide_succès)
 {
     Grille g;
@@ -39,7 +47,9 @@ TEST(TestGrille,asg_val_indiceEtValeurValide_succès)
     ASSERT_EQ(g.req_val_case(i),7);
 }
 
-
+/***
+ * \brief Teste si valider_grille peut déterminer qu'une grille est invalide
+ */
 TEST(TestGrille,validerGrille_grilleInvalide_invalide)
 {
     Grille g;
@@ -49,6 +59,9 @@ TEST(TestGrille,validerGrille_grilleInvalide_invalide)
 
 }
 
+/***
+ * \brief Teste si valider_grille peut déterminer qu'une grille est valide
+ */
 TEST(TestGrille,validerGrille_grilleValide_valide)
 {
     Grille g;
@@ -58,7 +71,9 @@ TEST(TestGrille,validerGrille_grilleValide_valide)
 
 }
 
-
+/***
+ * \brief Teste si asg_grille assigne les bonnes valeur aux bons endroits
+ */
 TEST(TestGrille,asg_grille_grilleValide_assignationCorrecte)
 {
     Grille g;
@@ -78,7 +93,9 @@ TEST(TestGrille,asg_grille_grilleValide_assignationCorrecte)
 
 }
 
-
+/***
+ * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format valide
+ */
 TEST(TestFormatFichier,verifier_format_fichier_FormatValide_Valide)
 {
     Grille g;
@@ -87,6 +104,9 @@ TEST(TestFormatFichier,verifier_format_fichier_FormatValide_Valide)
 
 }
 
+/***
+ * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format valide et ce même si la grille de sudoku est invalide
+ */
 TEST(TestFormatFichier,verifier_format_fichier_FormatValideGrilleInvalide_Valide)
 {
     Grille g;
@@ -95,7 +115,9 @@ TEST(TestFormatFichier,verifier_format_fichier_FormatValideGrilleInvalide_Valide
 
 }
 
-
+/***
+ * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format valide (celui-ci contient des zéros (cases vides) )
+ */
 TEST(TestFormatFichier,verifier_format_fichier_grilleAvecZeros_Valide)
 {
     Grille g;
@@ -104,7 +126,9 @@ TEST(TestFormatFichier,verifier_format_fichier_grilleAvecZeros_Valide)
 }
 
 
-
+/***
+ * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format valide (celui-ci contient des sauts de lignes)
+ */
 TEST(TestFormatFichier,verifier_format_fichier_grilleAvecSautLigne_Valide)
 {
     Grille g;
@@ -113,7 +137,9 @@ TEST(TestFormatFichier,verifier_format_fichier_grilleAvecSautLigne_Valide)
 }
 
 
-
+/***
+ * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format invalide (il manque une boîte)
+ */
 TEST(TestFormatFichier,verifier_format_fichier_grilleManqueBoîte_invalide)
 {
     Grille g;
@@ -122,7 +148,9 @@ TEST(TestFormatFichier,verifier_format_fichier_grilleManqueBoîte_invalide)
 }
 
 
-
+/***
+ * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format invalide (il manque des nombres)
+ */
 TEST(TestFormatFichier,verifier_format_fichier_grilleManqueChiffres_invalide)
 {
     Grille g;
@@ -131,7 +159,9 @@ TEST(TestFormatFichier,verifier_format_fichier_grilleManqueChiffres_invalide)
 }
 
 
-
+/***
+ * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format invalide (fichier vide)
+ */
 TEST(TestFormatFichier,verifier_format_fichier_grilleVide_invalide)
 {
     Grille g;
@@ -139,13 +169,18 @@ TEST(TestFormatFichier,verifier_format_fichier_grilleVide_invalide)
     ASSERT_FALSE(verifier_format_fichier(ifs));
 }
 
-
+/***
+ * \brief Vérifie si a_double peut déterminer qu'une liste ne contient pas d'éléments en double.
+ */
 TEST(TestADouble,a_double_listeSansDouble_faux)
 {
     array<int,9> a{1,2,3,4,5,6,7,8,9};
     ASSERT_FALSE(a_double(a));
 }
 
+/***
+ * \brief Vérifie si a_double peut déterminer qu'une liste contient un ou plusieurs éléments en double.
+ */
 TEST(TestADouble,a_double_listeAvecDouble_vrai)
 {
     array<int,9> a{1,2,9,4,5,6,7,8,9};
