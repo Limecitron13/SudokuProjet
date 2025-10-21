@@ -258,15 +258,13 @@ bool verifier_format_fichier(ifstream& ifs)
 }
 
 /***
- * \brief Vérifie si une liste contient des éléments en double
+ * \brief Vérifie si une liste de neuf éléments contient des éléments en double
  * \param liste est un tableau d'entiers
- * \return true si double, false sinon
+ * \return true si double
  */
 bool a_double(array<int,9>& liste)
 {
-    //regarder entiers suivants
-    // augmenter point départ 1
-    // stop à indice 8
+    PRECONDITION(liste.length()==9);
     int valeur;
     for(int i=0;i<8;i++)
     {
