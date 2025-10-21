@@ -13,18 +13,14 @@ using namespace std;
 
 
 int main() {
-    string ligne;
     ifstream ifs ("fichiersTestsGrille/Grille_formatValide.txt", ifstream::in);
-    try{
     Grille g;
     g.asg_grille(ifs);
     g.afficher_grille();
-    cout<<endl<<g.valider_grille();
-    }
-    catch(ContratException e)
-    {
-        cout<<e.what();
-    }
+    cout <<endl;
+    array<int,9> ligne =g.req_ligne(8);
+
+
     return 0;
 }
 

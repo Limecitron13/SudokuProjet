@@ -210,7 +210,7 @@ array<int,9> Grille::req_ligne(int indice)const
     PRECONDITION(indice>=0 && indice <=8);
     array<int,9> ligne;
     int i=0;
-    for(int boite=indice/3;boite<9;boite++)
+    for(int boite=3*(indice/3);boite<9;boite++)
     {
         for(int cases=(indice%3)*3;cases<9;cases++)      
         {
