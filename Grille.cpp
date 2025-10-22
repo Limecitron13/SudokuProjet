@@ -268,6 +268,8 @@ void Grille::asg_grille(ifstream& ifs)
 
 
 
+
+
 /***
  * \brief Vérifie les invariants de la classe (nombres de 0 à 9)
  */
@@ -284,6 +286,29 @@ void Grille::verifieInvariant()
 }
 
 //Fin de l'implantation de la classe Grille---------------------
+
+
+
+/***
+ * \brief Vérifie quels nombres peuvent être positionés à un certain indice. Rappel: Il peut seulement avoir une copie d'un nombre
+ * par boite, colonne et ligne.
+ * \param g est un objet Grille qui contient la grille de sudoku
+ * \param i_ligne est l'indice de la ligne
+ * \param i_colonne est l'indice de la colonne
+ * \param i_boite est l'indice de la boite
+ * \return un tableau de neuf entiers des nombres qui peuvent être placé dans cette case. Ex:{1,4,2,6,7,0,0,0,0}
+ */
+array<int,9> respecte_contraintes(Grille& g,int i_ligne,int i_colonne,int i_boite)
+{
+    //regarder pour mieux faire pour les indices (modifier classe indice?)
+    array<int,9> colonne = g.req_colonne(i_colonne);
+    array<int,9> ligne = g.req_ligne(i_ligne);
+    array<int,9> boite = g.req_boite(i_boite);
+    
+    //***TODO***
+}
+
+
 
 /***
  * \brief Vérifie si le fichier texte est dans le bon format (chaque ligne représente les valeurs d'une boîte avec les nombres 0 à 9)

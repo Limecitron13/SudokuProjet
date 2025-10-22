@@ -18,4 +18,5 @@ using namespace std;
 const Grille& resoudre(Grille& g)
 {
     
+    
 }

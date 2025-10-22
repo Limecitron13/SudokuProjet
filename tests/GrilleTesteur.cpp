@@ -149,6 +149,15 @@ TEST(TestGrille,req_ligne_indiceValide_ligneAttendue)
 }
 
 /***
+ * \brief respecte_contraintes ***TODO***
+ */
+TEST(TestGrille,respecte_contraintes)
+{
+
+
+}
+
+/***
  * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format valide
  */
 TEST(TestFormatFichier,verifier_format_fichier_FormatValide_Valide)
