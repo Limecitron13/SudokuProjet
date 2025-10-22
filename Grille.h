@@ -50,5 +50,6 @@ private:
 
 bool verifier_format_fichier(std::ifstream&);
 bool a_double(std::array<int,9>&);
+bool est_membre(std::array<int,9>&,int);
 #endif /* GRILLE_H */
 

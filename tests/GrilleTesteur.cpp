@@ -242,6 +242,20 @@ TEST(TestADouble,a_double_listeAvecDouble_vrai)
     ASSERT_TRUE(a_double(a));
 }
 
+/***
+ * \brief Vérifie si est_membre peut déterminer qu'un entier est dans le tableau
+ */
+TEST(TestEstMembre,est_membre_listeAvecEntier_vrai)
+{
+    array<int,9> liste {1,2,3,4,5,6,7,8,9};
+    ASSERT_TRUE(est_membre(liste,8));
+}
 
-
-
+/***
+ * \brief Vérifie si a_double peut déterminer qu'un entier n'est pas dans le tableau
+ */
+TEST(TestEstMembre,est_membre_listeSansEntier_faux)
+{
+    array<int,9> liste {1,2,3,4,5,6,7,8,9};
+    ASSERT_FALSE(est_membre(liste,0));
+}

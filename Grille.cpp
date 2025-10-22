@@ -2,7 +2,7 @@
  * \file Grille.cpp
  * \author Émil Lavoie-Leullier
  * \Date 2025-10-18
- * \brief Implantation des classes Indice et Grille
+ * \brief Implantation des classes Indice et Grille et quelques fonctions utiles
  */
 
 #include "Grille.h"
@@ -318,8 +318,8 @@ bool verifier_format_fichier(ifstream& ifs)
 
 /***
  * \brief Vérifie si une liste de neuf éléments contient des éléments en double
- * \param liste est un tableau d'entiers
- * \return true si double
+ * \param liste est un tableau d'entiers de taille 9
+ * \return true si double, false sinon
  */
 bool a_double(array<int,9>& liste)
 {
@@ -336,6 +336,25 @@ bool a_double(array<int,9>& liste)
             }
         }
         
+    }
+    return false;
+}
+
+
+/***
+ * \brief Vérifie si un entier est membre d'un tableau de taille 9
+ * \param liste est un tableau d'entiers de taille 9
+ * \param valeur est l'entier à vérifier si il est membre du tableau
+ * \return true si l'entier est membre,false sinon
+ */
+bool est_membre(array<int,9>& liste,int valeur)
+{
+    for(int i=0;i<9;i++)
+    {
+        if(liste.at(i)==valeur)
+        {
+            return true;
+        }
     }
     return false;
 }
