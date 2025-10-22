@@ -2,7 +2,7 @@
  * \file GrilleTesteur.cpp
  * \author Émil Lavoie-Leullier
  * \date 2025-10-18
- * \brief Contient les tests des méthodes des classes Indice et Grille
+ * \brief Contient les tests des méthodes des classes Indice et Grille et des fonctions dans Grille.h
  */
 
 #include <gtest/gtest.h>

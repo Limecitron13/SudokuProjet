@@ -19,6 +19,7 @@
       <itemPath>Grille.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>resoudre.cpp</itemPath>
+      <itemPath>resoudreTesteur.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -88,6 +89,8 @@
       </item>
       <item path="resoudre.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="resoudreTesteur.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="tests/GrilleTesteur.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -139,6 +142,8 @@
       <item path="resoudre.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="resoudre.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resoudreTesteur.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="tests/GrilleTesteur.cpp" ex="false" tool="1" flavor2="0">
       </item>
