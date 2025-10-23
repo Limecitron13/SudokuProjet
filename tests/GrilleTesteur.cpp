@@ -11,11 +11,23 @@
 using namespace std;
 
 /***
- * \brief Teste si le constructeur assigne bien les valeurs (test indirectement les méthodes req_indice_boite, req_indice_ligne, req_indice_col et req_indice)
+ * \brief Teste si le constructeur(à trois paramètres) assigne bien les valeurs (test indirectement les méthodes req_indice_boite, req_indice_ligne, req_indice_col et req_indice)
  */
-TEST(TestIndice,constructeur_indicesValides_objetValide)
+TEST(TestIndice,constructeur3_indicesValides_objetValide)
 {
     Indice i(0,2,1);
+    ASSERT_EQ(i.req_indice_boite(), 0);
+    ASSERT_EQ(i.req_indice_col(), 2);
+    ASSERT_EQ(i.req_indice_ligne(),1);
+    ASSERT_EQ(i.req_indice(),5);
+}
+
+/***
+ * \brief Teste si le constructeur (à deux paramètres assigne bien les valeurs (test indirectement les méthodes req_indice_boite, req_indice_ligne, req_indice_col et req_indice)
+ */
+TEST(TestIndice,constructeur2_indicesValides_objetValide)
+{
+    Indice i(0,5);
     ASSERT_EQ(i.req_indice_boite(), 0);
     ASSERT_EQ(i.req_indice_col(), 2);
     ASSERT_EQ(i.req_indice_ligne(),1);
@@ -27,12 +39,12 @@ TEST(TestIndice,constructeur_indicesValides_objetValide)
  */
 TEST(TestIndice,opérateur_indicesPermettentIncrémentation_incrémentation)
 {
-    Indice i(3,1,4);
+    Indice i(3,2,4);
     i++;
-    ASSERT_EQ(i.req_indice_boite(), 3);
-    ASSERT_EQ(i.req_indice_col(), 2);
+    ASSERT_EQ(i.req_indice_boite(), 4);
+    ASSERT_EQ(i.req_indice_col(), 3);
     ASSERT_EQ(i.req_indice_ligne(),4);
-    ASSERT_EQ(i.req_indice(),5);
+    ASSERT_EQ(i.req_indice(),3);
 }
 
 /***
@@ -42,10 +54,10 @@ TEST(TestIndice,opérateur_indicesNePermettentPasIncrémentation_aucuneIncrémen
 {
     Indice i(8,8,8);
     i++;
-    ASSERT_EQ(i.req_indice_boite(), 3);
-    ASSERT_EQ(i.req_indice_col(), 2);
-    ASSERT_EQ(i.req_indice_ligne(),4);
-    ASSERT_EQ(i.req_indice(),5);
+    ASSERT_EQ(i.req_indice_boite(), 8);
+    ASSERT_EQ(i.req_indice_col(), 8);
+    ASSERT_EQ(i.req_indice_ligne(),8);
+    ASSERT_EQ(i.req_indice(),8);
 }
 
 

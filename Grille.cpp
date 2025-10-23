@@ -29,7 +29,7 @@ Indice::Indice(int p_indice_boite,int p_indice_col,int p_indice_ligne):m_indice_
     PRECONDITION(p_indice_col <= 8 && p_indice_col >= 0);
     PRECONDITION(p_indice_ligne <= 8 && p_indice_ligne >= 0);
     PRECONDITION(p_indice_boite == p_indice_col/3 + (p_indice_ligne/3)*3 );   
-    m_indice = 3*(p_indice_col%3) + p_indice_ligne%3; 
+    m_indice = (p_indice_col%3) + 3*(p_indice_ligne%3); 
     POSTCONDITION(m_indice_boite == p_indice_boite && m_indice_col == p_indice_col && m_indice_ligne == p_indice_ligne);
     INVARIANTS();
 }
