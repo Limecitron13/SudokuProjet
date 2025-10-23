@@ -206,7 +206,7 @@ TEST(TestGrille,req_ligne_indiceValide_ligneAttendue)
 /***
  * \brief respecte_contraintes ***TODO***
  */
-TEST(TestGrille,respecte_contraintes)
+TEST(TestRespecte_contraintes,respecte_contraintes)
 {
 
 
