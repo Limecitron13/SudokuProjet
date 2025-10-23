@@ -17,11 +17,12 @@
 class Indice{
 public:
     Indice(int p_indice_boite,int p_indice_col,int p_indice_ligne);
+    Indice(int p_indice_boite,int p_indice_cases);
     const int& req_indice_boite()const;
     const int& req_indice()const;
     const int& req_indice_col()const;
     const int& req_indice_ligne()const;
-    void operator++();
+    void operator++(int);
 private:
     int m_indice_boite; //indice de la boîte dans la grille (0 à 8)
     int m_indice; //indice de la case dans la boîte (0 à 8)
@@ -30,6 +31,7 @@ private:
     
     void verifieInvariant()const;
 };
+
 
 
 /***

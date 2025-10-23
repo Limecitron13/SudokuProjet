@@ -35,6 +35,23 @@ Indice::Indice(int p_indice_boite,int p_indice_col,int p_indice_ligne):m_indice_
 }
 
 /***
+ * \brief Constructeur d'objets Indice
+ * \param p_indice_boite est l'indice de la boîte de la grille sudoku
+ * \param p_indice est l'indice de la cases de la boite à l'indice p_indice_boite
+ */
+Indice::Indice(int p_indice_boite,int p_indice):m_indice_boite(p_indice_boite),m_indice(p_indice)
+{
+    PRECONDITION(p_indice_boite <= 8 && p_indice_boite >= 0);
+    PRECONDITION(p_indice <=8 && p_indice >=0);
+    m_indice_col = 3*(p_indice_boite%3) + p_indice%3;
+    m_indice_ligne = 3*(p_indice_boite%3) + p_indice/3;  
+    POSTCONDITION(m_indice = 3*(m_indice_col%3) + m_indice_ligne%3);
+    POSTCONDITION(m_indice_boite == m_indice_col/3 + (m_indice_ligne/3)*3 );  
+    POSTCONDITION(m_indice_boite == p_indice_boite && m_indice == p_indice);
+    INVARIANTS();
+}
+
+/***
  * \brief Accesseur de m_indice_boite
  * \return m_indice_boite
  */
@@ -76,7 +93,7 @@ const int& Indice::req_indice_ligne()const
  * \brief Surcharge de l'opérateur ++.Cet opérateur incrémente l'indice de façon à parcourir la grille de gauche à droite et de haut en bas.
  * \brief Si l'indice colonne et ligne est 8, l'opérateur ne fait rien
  */
-void Indice::operator++()
+void Indice::operator++(int)
 {
     if(m_indice_col<=7)
     {
@@ -108,6 +125,8 @@ void Indice::verifieInvariant()const
     INVARIANT(m_indice_col <= 8 && m_indice_col >= 0);
     INVARIANT(m_indice_ligne <= 8 && m_indice_ligne >= 0);
     INVARIANT(m_indice <= 8 && m_indice >= 0);
+    INVARIANT(m_indice == 3*(m_indice_col%3) +m_indice_ligne%3); 
+    INVARIANT(m_indice_boite == m_indice_col%3 + 3*(m_indice_ligne%3) );
 }
 
 
@@ -136,9 +155,9 @@ Grille::Grille()
  */
 void Grille::asg_val(Indice& i,int valeur)
 {
-    PRECONDITION(m_grille.at(i.req_indice_b()).at(i.req_indice())==0 && valeur<=9 && valeur>=1);
-    m_grille.at(i.req_indice_b()).at(i.req_indice()) = valeur;
-    POSTCONDITION(m_grille.at(i.req_indice_b()).at(i.req_indice()) == valeur);
+    PRECONDITION(m_grille.at(i.req_indice_boite()).at(i.req_indice())==0 && valeur<=9 && valeur>=1);
+    m_grille.at(i.req_indice_boite()).at(i.req_indice()) = valeur;
+    POSTCONDITION(m_grille.at(i.req_indice_boite()).at(i.req_indice()) == valeur);
     INVARIANTS();
 }
 
@@ -217,7 +236,7 @@ for(int boite=0;boite<3;boite++)
  */
 const int& Grille::req_val_case(Indice& i)const
 {
-    return m_grille.at(i.req_indice_b()).at(i.req_indice());
+    return m_grille.at(i.req_indice_boite()).at(i.req_indice());
 }
 
 
