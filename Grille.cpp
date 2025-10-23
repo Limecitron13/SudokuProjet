@@ -29,7 +29,7 @@ Indice::Indice(int p_indice_boite,int p_indice_col,int p_indice_ligne):m_indice_
     PRECONDITION(p_indice_col <= 8 && p_indice_col >= 0);
     PRECONDITION(p_indice_ligne <= 8 && p_indice_ligne >= 0);
     PRECONDITION(p_indice_boite == p_indice_col/3 + (p_indice_ligne/3)*3 );   
-    m_indice = (p_indice_col%3) + 3*(p_indice_ligne%3); 
+    m_indice = m_indice_col%3 +3*(m_indice_ligne%3); 
     POSTCONDITION(m_indice_boite == p_indice_boite && m_indice_col == p_indice_col && m_indice_ligne == p_indice_ligne);
     INVARIANTS();
 }
@@ -44,9 +44,7 @@ Indice::Indice(int p_indice_boite,int p_indice):m_indice_boite(p_indice_boite),m
     PRECONDITION(p_indice_boite <= 8 && p_indice_boite >= 0);
     PRECONDITION(p_indice <=8 && p_indice >=0);
     m_indice_col = 3*(p_indice_boite%3) + p_indice%3;
-    m_indice_ligne = 3*(p_indice_boite%3) + p_indice/3;  
-    POSTCONDITION(m_indice = 3*(m_indice_col%3) + m_indice_ligne%3);
-    POSTCONDITION(m_indice_boite == m_indice_col/3 + (m_indice_ligne/3)*3 );  
+    m_indice_ligne = 3*(p_indice_boite%3) + p_indice/3;   
     POSTCONDITION(m_indice_boite == p_indice_boite && m_indice == p_indice);
     INVARIANTS();
 }
@@ -98,15 +96,15 @@ void Indice::operator++(int)
     if(m_indice_col<=7)
     {
         m_indice_col++;
-        m_indice = 3*(m_indice_col%3) +m_indice_ligne%3; 
-        m_indice_boite = m_indice_col%3 + 3*(m_indice_ligne%3);
+        m_indice = m_indice_col%3 +3*(m_indice_ligne%3); 
+        m_indice_boite = m_indice_col/3 + 3*(m_indice_ligne/3));
     }
     else if(m_indice_ligne<=7)
     {
         m_indice_col = 0;
         m_indice_ligne ++;
-        m_indice = 3*(m_indice_col%3) +m_indice_ligne%3; 
-        m_indice_boite = m_indice_col%3 + 3*(m_indice_ligne%3);
+        m_indice = m_indice_col%3 +3*(m_indice_ligne%3); 
+        m_indice_boite = m_indice_col/3 + 3*(m_indice_ligne/3);
     }
     else
     {
@@ -125,8 +123,8 @@ void Indice::verifieInvariant()const
     INVARIANT(m_indice_col <= 8 && m_indice_col >= 0);
     INVARIANT(m_indice_ligne <= 8 && m_indice_ligne >= 0);
     INVARIANT(m_indice <= 8 && m_indice >= 0);
-    INVARIANT(m_indice == 3*(m_indice_col%3) +m_indice_ligne%3); 
-    INVARIANT(m_indice_boite == m_indice_col%3 + 3*(m_indice_ligne%3) );
+    INVARIANT(m_indice == m_indice_col%3 +3*(m_indice_ligne%3) ); 
+    INVARIANT(m_indice_boite == m_indice_col/3 + 3*(m_indice_ligne/3) );
 }
 
 
