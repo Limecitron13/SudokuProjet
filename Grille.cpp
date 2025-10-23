@@ -53,11 +53,33 @@ const int& Indice::req_indice()const
 }
 
 /***
+ * \brief Accesseur de m_indice_col
+ * \return m_indice_col
+ */
+const int& Indice::req_indice_col()const
+{
+    return m_indice_col;
+}
+
+
+/***
+ * \brief Accesseur de m_indice_ligne
+ * \return m_indice_ligne
+ */
+const int& Indice::req_indice_ligne()const
+{
+    return m_indice_ligne;
+}
+
+
+/***
  * \brief Vérifie les invariants de la classe
  */
 void Indice::verifieInvariant()const
 {
-    INVARIANT(m_indice_b <= 8 && m_indice_b >= 0);
+    INVARIANT(m_indice_boite <= 8 && m_indice_boite >= 0);
+    INVARIANT(m_indice_col <= 8 && m_indice_col >= 0);
+    INVARIANT(m_indice_ligne <= 8 && m_indice_ligne >= 0);
     INVARIANT(m_indice <= 8 && m_indice >= 0);
 }
 
