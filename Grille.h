@@ -21,6 +21,7 @@ public:
     const int& req_indice()const;
     const int& req_indice_col()const;
     const int& req_indice_ligne()const;
+    void operator++();
 private:
     int m_indice_boite; //indice de la boîte dans la grille (0 à 8)
     int m_indice; //indice de la case dans la boîte (0 à 8)

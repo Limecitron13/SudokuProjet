@@ -73,6 +73,29 @@ const int& Indice::req_indice_ligne()const
 
 
 /***
+ * \brief Surcharge de l'opérateur ++.Cet opérateur incrémente l'indice de façon à parcourir la grille de gauche à droite et de haut en bas.
+ * \brief Si l'indice colonne et ligne est 8, l'opérateur ne fait rien
+ */
+void Indice::operator++()
+{
+    if(m_indice_col<=7)
+    {
+        m_indice_col++;
+    }
+    else if(m_indice_ligne<=7)
+    {
+        m_indice_col = 0;
+        m_indice_ligne ++;
+    }
+    else
+    {
+        // On ne fait rien indice colonne et ligne sont 8 (max)
+    }
+    
+    INVARIANTS();
+}
+
+/***
  * \brief Vérifie les invariants de la classe
  */
 void Indice::verifieInvariant()const
