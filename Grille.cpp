@@ -81,11 +81,15 @@ void Indice::operator++()
     if(m_indice_col<=7)
     {
         m_indice_col++;
+        m_indice = 3*(m_indice_col%3) +m_indice_ligne%3; 
+        m_indice_boite = m_indice_col%3 + 3*(m_indice_ligne%3);
     }
     else if(m_indice_ligne<=7)
     {
         m_indice_col = 0;
         m_indice_ligne ++;
+        m_indice = 3*(m_indice_col%3) +m_indice_ligne%3; 
+        m_indice_boite = m_indice_col%3 + 3*(m_indice_ligne%3);
     }
     else
     {
