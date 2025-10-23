@@ -18,9 +18,7 @@ int main() {
     g.asg_grille(ifs);
     g.afficher_grille();
     cout <<endl;
-    array<int,9> ligne =g.req_ligne(8);
-
-
+    
     return 0;
 }
 

@@ -74,6 +74,22 @@ TEST(TestIndice,opérateur_indicesNePermettentPasIncrémentation_aucuneIncrémen
 }
 
 
+/***
+ * \brief Teste si l'opérateur -- ***TODO***
+ */
+TEST(TestIndice,opérateurDecrementation_TODO)
+{
+    // ***TODO***
+   /* Indice i(8,8,8);
+    i++;
+    ASSERT_EQ(i.req_indice_boite(), 8);
+    ASSERT_EQ(i.req_indice_col(), 8);
+    ASSERT_EQ(i.req_indice_ligne(),8);
+    ASSERT_EQ(i.req_indice(),8);
+    */
+}
+
+
 
 /***
  * \brief Teste si le constructeur par defaut assigne bien des zéros dans tous les cases.
@@ -204,11 +220,40 @@ TEST(TestGrille,req_ligne_indiceValide_ligneAttendue)
 }
 
 /***
- * \brief respecte_contraintes ***TODO***
+ * \brief Teste si respecte_contrainte peut déterminer les nombres qui peuvent être placés dans cette case
  */
-TEST(TestRespecte_contraintes,respecte_contraintes)
+TEST(TestRespecte_contraintes,respecte_contraintes_grilleNonRemplis_nombresAttendus)
 {
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_avecZeros_formatValide.txt",ifstream::in);
+    g.asg_grille(ifs);
+    Indice i(0,4);
+    array<int,9> nombres_valides = respecte_contraintes(g,i);
+    array<int,9> nombres_attendus = {0,2,0,4,0,0,7,0,0};
+    for(int k=0;k<9;k++)
+    {
+        ASSERT_EQ(nombres_valides.at(k),nombres_attendus.at(k));
+    }
 
+}
+
+
+
+/***
+ * \brief Teste si respecte_contrainte peut déterminer les nombres qui peuvent être placés dans cette case
+ */
+TEST(TestRespecte_contraintes,respecte_contraintes_grilleRemplis_TableauDeZéros)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
+    g.asg_grille(ifs);
+    Indice i(4,4);
+    array<int,9> nombres_valides = respecte_contraintes(g,i);
+    array<int,9> nombres_attendus = {0,0,0,0,0,0,0,0,0};
+    for(int k=0;k<9;k++)
+    {
+        ASSERT_EQ(nombres_valides.at(k),nombres_attendus.at(k));
+    }
 
 }
 

@@ -108,7 +108,36 @@ void Indice::operator++(int)
     }
     else
     {
-        // On ne fait rien indice colonne et ligne sont 8 (max)
+        // On ne fait rien. L'indice colonne et ligne sont 8 (max)
+    }
+    
+    INVARIANTS();
+}
+
+
+
+/***
+ * \brief Surcharge de l'opérateur --.Cet opérateur décrémente l'indice de façon à parcourir la grille de droite à gauche et de bas en haut.
+ * \brief Si l'indice colonne et ligne est 0, l'opérateur ne fait rien
+ */
+void Indice::operator--(int)
+{
+    if(m_indice_col>=1)
+    {
+        m_indice_col--;
+        m_indice = m_indice_col%3 +3*(m_indice_ligne%3); 
+        m_indice_boite = m_indice_col/3 + 3*(m_indice_ligne/3);
+    }
+    else if(m_indice_ligne>=1)
+    {
+        m_indice_col = 8;
+        m_indice_ligne --;
+        m_indice = m_indice_col%3 +3*(m_indice_ligne%3); 
+        m_indice_boite = m_indice_col/3 + 3*(m_indice_ligne/3);
+    }
+    else
+    {
+        // On ne fait rien. L'indice colonne et ligne sont 0 (min)
     }
     
     INVARIANTS();
@@ -145,6 +174,9 @@ Grille::Grille()
     }
     INVARIANTS();
 }
+
+
+
 
 /***
  * \brief Assigne une valeur à un indice spécifique
@@ -243,7 +275,7 @@ const int& Grille::req_val_case(Indice& i)const
  * \param indice est l'indice de la colonne (0 à 8) 
  * \return Un tableau de neuf entiers correspondant à ième colonne
  */
-array<int,9> Grille::req_colonne(int indice)const
+array<int,9> Grille::req_colonne(Indice i)const
 {
     PRECONDITION(indice>=0 && indice <=8);
     array<int,9> colonne;
@@ -264,7 +296,7 @@ array<int,9> Grille::req_colonne(int indice)const
  * \param indice est l'indice de la boîte (0 à 8) 
  * \return Un tableau de neuf entiers correspondant à ième boîte
  */
-array<int,9> Grille::req_boite(int indice)const
+array<int,9> Grille::req_boite(Indice& i)const
 {
     PRECONDITION(indice>=0 && indice <=8);
     return m_grille.at(indice);
@@ -275,19 +307,11 @@ array<int,9> Grille::req_boite(int indice)const
  * \param indice est l'indice de la ligne (0 à 8) 
  * \return Un tableau de neuf entiers correspondant à ième ligne
  */
-array<int,9> Grille::req_ligne(int indice)const
+array<int,9> Grille::req_ligne(Indice& i)const
 {
-    PRECONDITION(indice>=0 && indice <=8);
     array<int,9> ligne;
-    int i=0;
-    for(int boite=3*(indice/3);boite<9;boite++)
-    {
-        for(int cases=(indice%3)*3;cases<9;cases++)      
-        {
-            ligne.at(i) = m_grille.at(boite).at(cases);
-            i++;
-        }
-    }
+    int ligne_depart = i.req_indice_ligne;
+    while(i.req_indice_ligne == ligne_depart){}
     return ligne;
     
 }
@@ -363,19 +387,24 @@ void Grille::verifieInvariant()
  * \brief Vérifie quels nombres peuvent être positionés à un certain indice. Rappel: Il peut seulement avoir une copie d'un nombre
  * par boite, colonne et ligne.
  * \param g est un objet Grille qui contient la grille de sudoku
- * \param i_ligne est l'indice de la ligne
- * \param i_colonne est l'indice de la colonne
- * \param i_boite est l'indice de la boite
- * \return un tableau de neuf entiers des nombres qui peuvent être placé dans cette case. Ex:{1,4,2,6,7,0,0,0,0}
+ * \param i est un objet Indice qui contient les informations de l'indice d'une case
+ * \return un tableau de neuf entiers des nombres qui peuvent être placé dans cette case. Ex:{1,2,0,4,0,0,6,0,0} les zéros sont un «buffer» et les nombres sont placés à l'indice (nombre-1)
  */
-array<int,9> respecte_contraintes(Grille& g,int i_ligne,int i_colonne,int i_boite)
+array<int,9> respecte_contraintes(Grille& g,Indice& i)
 {
-    //regarder pour mieux faire pour les indices (modifier classe indice?)
-    array<int,9> colonne = g.req_colonne(i_colonne);
-    array<int,9> ligne = g.req_ligne(i_ligne);
-    array<int,9> boite = g.req_boite(i_boite);
+    array<int,9> colonne = g.req_colonne(i.req_indice_col());
+    array<int,9> ligne = g.req_ligne(i.req_indice_ligne());
+    array<int,9> boite = g.req_boite(i.req_indice_boite());
     
-    //***TODO***
+    array<int,9> nombres_possibles{};      // le tableau est remplis de 0
+    for(int nombre=1;nombre<=9;nombre++)
+    {
+        if(!est_membre(colonne,nombre) && !est_membre(ligne,nombre) && !est_membre(boite,nombre) && nombres_possibles.at(nombre-1)==0)
+        {
+            nombres_possibles.at(nombre-1)=nombre;
+        }
+    }
+    return nombres_possibles;
 }
 
 

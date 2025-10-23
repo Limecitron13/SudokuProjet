@@ -23,6 +23,7 @@ public:
     const int& req_indice_col()const;
     const int& req_indice_ligne()const;
     void operator++(int);
+    void operator--(int);
 private:
     int m_indice_boite; //indice de la boîte dans la grille (0 à 8)
     int m_indice; //indice de la case dans la boîte (0 à 8)
@@ -44,9 +45,9 @@ public:
     void asg_val(Indice&,int valeur);
     bool valider_grille()const;
     const int& req_val_case(Indice&)const;
-    std::array<int,9> req_colonne(int indice)const;
-    std::array<int,9> req_boite(int indice)const;
-    std::array<int,9> req_ligne(int indice)const;
+    std::array<int,9> req_colonne(Indice&)const;
+    std::array<int,9> req_boite(Indice&)const;
+    std::array<int,9> req_ligne(Indice&)const;
     void afficher_grille()const;
     void asg_grille(std::ifstream&);
 private:
@@ -54,7 +55,7 @@ private:
     void verifieInvariant();
 };
 
-std::array<int,9>respecte_contraintes(Grille&,int ligne,int colonne,int boite);
+std::array<int,9>respecte_contraintes(Grille&,Indice&);
 bool verifier_format_fichier(std::ifstream&);
 bool a_double(std::array<int,9>&);
 bool est_membre(std::array<int,9>&,int);
