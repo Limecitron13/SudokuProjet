@@ -48,6 +48,19 @@ TEST(TestIndice,opérateur_indicesPermettentIncrémentation_incrémentation)
 }
 
 /***
+ * \brief Teste si l'opérateur ++ incrémente un indice qui peut être incrémenté
+ */
+TEST(TestIndice,opérateur_indicesPermettentIncrémentation2_incrémentation)
+{
+    Indice i(8,2);
+    i++;
+    ASSERT_EQ(i.req_indice_boite(), 6);
+    ASSERT_EQ(i.req_indice_col(), 0);
+    ASSERT_EQ(i.req_indice_ligne(),7);
+    ASSERT_EQ(i.req_indice(),3);
+}
+
+/***
  * \brief Teste si l'opérateur ++ n'incrémente pas un indice qui ne peut pas être incrémenté
  */
 TEST(TestIndice,opérateur_indicesNePermettentPasIncrémentation_aucuneIncrémentation)

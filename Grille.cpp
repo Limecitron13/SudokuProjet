@@ -44,7 +44,7 @@ Indice::Indice(int p_indice_boite,int p_indice):m_indice_boite(p_indice_boite),m
     PRECONDITION(p_indice_boite <= 8 && p_indice_boite >= 0);
     PRECONDITION(p_indice <=8 && p_indice >=0);
     m_indice_col = 3*(p_indice_boite%3) + p_indice%3;
-    m_indice_ligne = 3*(p_indice_boite%3) + p_indice/3;   
+    m_indice_ligne = 3*(p_indice_boite/3) + p_indice/3;   
     POSTCONDITION(m_indice_boite == p_indice_boite && m_indice == p_indice);
     INVARIANTS();
 }
@@ -97,7 +97,7 @@ void Indice::operator++(int)
     {
         m_indice_col++;
         m_indice = m_indice_col%3 +3*(m_indice_ligne%3); 
-        m_indice_boite = m_indice_col/3 + 3*(m_indice_ligne/3));
+        m_indice_boite = m_indice_col/3 + 3*(m_indice_ligne/3);
     }
     else if(m_indice_ligne<=7)
     {
@@ -115,7 +115,7 @@ void Indice::operator++(int)
 }
 
 /***
- * \brief Vérifie les invariants de la classe
+ * \brief Vérifie les invariants de la classe Indice
  */
 void Indice::verifieInvariant()const
 {
