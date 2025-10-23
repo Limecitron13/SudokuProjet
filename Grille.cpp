@@ -19,24 +19,28 @@ using namespace std;
 
 /***
  * \brief Constructeur d'objets Indice
- * \param p_indice_b est l'indice de la boîte de la grille sudoku
- * \param p_indice est l'indice de la case dans la boîte p_indice_b
+ * \param p_indice_boite est l'indice de la boîte de la grille sudoku
+ * \param p_indice_col est l'indice de la colonne
+ * \param p_indice_ligne est l'indice de la ligne
  */
-Indice::Indice(int p_indice_b,int p_indice):m_indice_b(p_indice_b),m_indice(p_indice)
+Indice::Indice(int p_indice_boite,int p_indice_col,int p_indice_ligne):m_indice_boite(p_indice_boite),m_indice_col(p_indice_col),m_indice_ligne(p_indice_ligne)
 {
-    PRECONDITION(m_indice_b <= 8 && m_indice_b >= 0);
-    PRECONDITION(m_indice <= 8 && m_indice >= 0);
-    POSTCONDITION(m_indice_b == p_indice_b && m_indice == p_indice);
+    PRECONDITION(p_indice_boite <= 8 && p_indice_boite >= 0);
+    PRECONDITION(p_indice_col <= 8 && p_indice_col >= 0);
+    PRECONDITION(p_indice_ligne <= 8 && p_indice_ligne >= 0);
+    PRECONDITION(p_indice_boite == p_indice_col/3 + (p_indice_ligne/3)*3 );   
+    m_indice = 3*(p_indice_col%3) + p_indice_ligne%3; 
+    POSTCONDITION(m_indice_boite == p_indice_boite && m_indice_col == p_indice_col && m_indice_ligne == p_indice_ligne);
     INVARIANTS();
 }
 
 /***
- * \brief Accesseur de m_indice_b
- * \return m_indice_b
+ * \brief Accesseur de m_indice_boite
+ * \return m_indice_boite
  */
-const int& Indice::req_indice_b()const
+const int& Indice::req_indice_boite()const
 {
-    return m_indice_b;
+    return m_indice_boite;
 }
 
 /***
