@@ -88,6 +88,35 @@ const int& Indice::req_indice_ligne()const
 
 
 /***
+ * \brief Trouve l'indice de la cases par rapport à sa ligne. Ex:{3,6,8,1,2,7,9,4,5} l'indice de 1 est 3
+ * \return m_indice_col
+ */
+const int& Indice::req_indice_dans_ligne()const
+{
+    return m_indice_col;
+}
+
+/***
+ * \brief Trouve l'indice de la cases par rapport à sa colonne. Ex:{3,6,8,1,2,7,9,4,5} l'indice de 1 est 3
+ * \return m_indice_ligne
+ */
+const int& Indice::req_indice_dans_col()const
+{
+    return m_indice_ligne;
+}
+
+/***
+ * \brief Trouve l'indice de la cases par rapport à sa boite. Ex:{3,6,8,1,2,7,9,4,5} l'indice de 1 est 3
+ * \return m_indice
+ */
+const int& Indice::req_indice_dans_boite()const
+{
+    return m_indice;
+}
+
+
+
+/***
  * \brief Surcharge de l'opérateur ++.Cet opérateur incrémente l'indice de façon à parcourir la grille de gauche à droite et de haut en bas.
  * \brief Si l'indice colonne et ligne est 8, l'opérateur ne fait rien
  */
@@ -311,7 +340,11 @@ array<int,9> Grille::req_ligne(Indice& i)const
 {
     array<int,9> ligne;
     int ligne_depart = i.req_indice_ligne;
-    while(i.req_indice_ligne == ligne_depart){}
+    int pos = i.req_indice
+    while(i.req_indice_ligne == ligne_depart)
+    {
+        ligne.at(pos)
+    }
     return ligne;
     
 }

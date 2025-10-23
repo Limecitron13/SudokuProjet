@@ -22,6 +22,9 @@ public:
     const int& req_indice()const;
     const int& req_indice_col()const;
     const int& req_indice_ligne()const;
+    const int& req_indice_dans_ligne()const;
+    const int& req_indice_dans_col()const;
+    const int& req_indice_dans_boite()const;
     void operator++(int);
     void operator--(int);
 private:

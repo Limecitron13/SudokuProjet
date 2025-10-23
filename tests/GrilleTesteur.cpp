@@ -34,6 +34,35 @@ TEST(TestIndice,constructeur2_indicesValides_objetValide)
     ASSERT_EQ(i.req_indice(),5);
 }
 
+
+
+/***
+ * \brief ***TODO***
+ */
+TEST(TestIndice,req_indice_dans_col_TODO)
+{
+    //TODO
+}
+
+
+/***
+ * \brief ***TODO***
+ */
+TEST(TestIndice,req_indice_dans_boite_TODO)
+{
+    //TODO
+}
+
+
+/***
+ * \brief ***TODO***
+ */
+TEST(TestIndice,req_indice_dans_ligne_TODO)
+{
+    //TODO
+}
+
+
 /***
  * \brief Teste si l'opérateur ++ incrémente un indice qui peut être incrémenté
  */
