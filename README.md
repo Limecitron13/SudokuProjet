@@ -1,5 +1,46 @@
-#Liste des choses à faire:
+# 🌐 Nom du projet
 
--Compléter les tests de la classe Indice
--Vérifier que chaque méthode de la classe est testée (pour les classes Indice et Grille)
--Faire de meilleurs test pour la classe Grille (inclure boucle pour tester plusieurs lignes de sudoku...)
+> **Description du projet**  
+> *(Ajoutez ici une présentation concise : objectif, contexte, et fonctionnalités principales.)*
+
+
+---
+
+## ⚙️ Fonctionnalités principales
+
+- Fonctionnalité 1  
+- Fonctionnalité 2  
+- Fonctionnalité 3  
+- (Ajoutez ou modifiez selon votre projet)
+
+
+---
+
+## 🧾 Tâches à faire
+
+> Liste des éléments à compléter, corriger ou améliorer.
+
+- [ ] Mettre en place la base du projet  
+- [ ] Ajouter la documentation complète  
+- [ ] Optimiser les performances  
+- [ ] Écrire des tests unitaires  
+- [ ] Déployer la version finale  
+
+
+---
+
+## 💡 Idées pour le futur
+
+> Pistes d’évolution ou d’améliorations à explorer.
+
+- Ajouter une interface utilisateur plus moderne  
+- Intégrer de l’automatisation ou de l’IA  
+- Créer une version mobile  
+- Ajouter la prise en charge de plusieurs langues  
+- Développer une API publique  
+
+
+---
+
+
+
