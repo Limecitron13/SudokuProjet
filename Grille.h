@@ -2,7 +2,7 @@
  * \file Grille.h
  * \Author Émil Lavoie-Leullier
  * \Date 2025-10-18
- * \brief Contient l'interface des classes Indice et Grille. 
+ * \brief Contient l'interface de la classe Grille. 
  */
 
 #ifndef GRILLE_H
@@ -10,33 +10,6 @@
 
 #include <array>
 #include <fstream>
-/***
- * \class Indice
- * \brief Permet la gestion des indices dans une grille de sudoku
- */
-class Indice{
-public:
-    Indice(int p_indice_boite,int p_indice_col,int p_indice_ligne);
-    Indice(int p_indice_boite,int p_indice_cases);
-    const int& req_indice_boite()const;
-    const int& req_indice()const;
-    const int& req_indice_col()const;
-    const int& req_indice_ligne()const;
-    const int& req_indice_dans_ligne()const;
-    const int& req_indice_dans_col()const;
-    const int& req_indice_dans_boite()const;
-    void operator++(int);
-    void operator--(int);
-private:
-    int m_indice_boite; //indice de la boîte dans la grille (0 à 8)
-    int m_indice; //indice de la case dans la boîte (0 à 8)
-    int m_indice_col; //indice de la colonne (0 à 8)
-    int m_indice_ligne; //indice de la ligne (0 à 8)
-    
-    void verifieInvariant()const;
-};
-
-
 
 /***
  * \class Grille

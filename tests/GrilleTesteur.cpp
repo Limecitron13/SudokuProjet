@@ -7,6 +7,7 @@
 
 #include <gtest/gtest.h>
 #include "Grille.h"
+#include "Indice.h"
 #include <fstream>
 using namespace std;
 
@@ -117,6 +118,8 @@ TEST(TestIndice,opérateurDecrementation_TODO)
     ASSERT_EQ(i.req_indice(),8);
     */
 }
+
+//faire un test qui combine les deux opérateurs ************
 
 
 
