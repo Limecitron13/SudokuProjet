@@ -111,7 +111,7 @@ const int& Indice::req_indice_dans_boite()const
 
 
 /***
- * \brief Surcharge de l'opérateur ++.Cet opérateur incrémente l'indice de façon à parcourir la grille de gauche à droite et de haut en bas.
+ * \brief Surcharge de l'opérateur ++(postincémentation).Cet opérateur incrémente l'indice de façon à parcourir la grille par ses lignes de gauche à droite et de haut en bas.
  * \brief Si l'indice colonne et ligne est 8, l'opérateur ne fait rien
  */
 void Indice::operator++(int)
@@ -140,7 +140,7 @@ void Indice::operator++(int)
 
 
 /***
- * \brief Surcharge de l'opérateur --.Cet opérateur décrémente l'indice de façon à parcourir la grille de droite à gauche et de bas en haut.
+ * \brief Surcharge de l'opérateur -- (postincémentation).Cet opérateur décrémente l'indice de façon à parcourir la grille par ses lignes de droite à gauche et de bas en haut.
  * \brief Si l'indice colonne et ligne est 0, l'opérateur ne fait rien
  */
 void Indice::operator--(int)
@@ -165,9 +165,60 @@ void Indice::operator--(int)
     
     INVARIANTS();
 }
+/***
+ * \brief Surcharge de l'opérateur -- (préincémentation).Cet opérateur décrémente l'indice de façon à parcourir la grille par ses colonnes de haut en bas et de gauche à droite.
+ * \brief Si l'indice colonne et ligne est 8, l'opérateur ne fait rien
+ */
+void Indice::operator++(void)
+{
+        if(m_indice_ligne<=7)
+    {
+        m_indice_ligne++;
+        m_indice = m_indice_col%3 +3*(m_indice_ligne%3); 
+        m_indice_boite = m_indice_col/3 + 3*(m_indice_ligne/3);
+    }
+    else if(m_indice_col<=7)
+    {
+        m_indice_ligne = 0;
+        m_indice_col ++;
+        m_indice = m_indice_col%3 +3*(m_indice_ligne%3); 
+        m_indice_boite = m_indice_col/3 + 3*(m_indice_ligne/3);
+    }
+    else
+    {
+        // On ne fait rien. L'indice colonne et ligne sont 8 (max)
+    }
+    
+    INVARIANTS();
+}
 
-void operator++(void);
-void operator--(void);
+/***
+ * \brief Surcharge de l'opérateur -- (préincémentation).Cet opérateur décrémente l'indice de façon à parcourir la grille par ses colonnes de bas en haut et de droite à gauche.
+ * \brief Si l'indice colonne et ligne est 0, l'opérateur ne fait rien
+ */
+void Indice::operator--(void)
+{
+    if(m_indice_ligne>=1)
+    {
+        m_indice_ligne--;
+        m_indice = m_indice_col%3 +3*(m_indice_ligne%3); 
+        m_indice_boite = m_indice_col/3 + 3*(m_indice_ligne/3);
+    }
+    else if(m_indice_col>=1)
+    {
+        m_indice_ligne = 8;
+        m_indice_col --;
+        m_indice = m_indice_col%3 +3*(m_indice_ligne%3); 
+        m_indice_boite = m_indice_col/3 + 3*(m_indice_ligne/3);
+    }
+    else
+    {
+        // On ne fait rien. L'indice colonne et ligne sont 0 (min)
+    }
+    
+    INVARIANTS();
+}
+
 
 /***
  * \brief Vérifie les invariants de la classe Indice

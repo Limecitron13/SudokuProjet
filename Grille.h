@@ -8,6 +8,7 @@
 #ifndef GRILLE_H
 #define GRILLE_H
 
+#include "Indice.h"
 #include <array>
 #include <fstream>
 

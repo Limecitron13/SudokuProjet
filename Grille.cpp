@@ -6,6 +6,7 @@
  */
 
 #include "Grille.h"
+#include "Indice.h"
 #include "ContratException.h"
 #include <array>
 #include <iostream>
@@ -129,20 +130,9 @@ const int& Grille::req_val_case(Indice& i)const
  * \param indice est l'indice de la colonne (0 à 8) 
  * \return Un tableau de neuf entiers correspondant à ième colonne
  */
-array<int,9> Grille::req_colonne(Indice i)const
+array<int,9> Grille::req_colonne(Indice& i)const
 {
-    PRECONDITION(indice>=0 && indice <=8);
-    array<int,9> colonne;
-    int i=0;
-    for(int boite=indice/3;boite<9;boite+=3)
-    {
-        for(int cases=indice%3;cases<9;cases+=3)      
-        {
-            colonne.at(i) = m_grille.at(boite).at(cases);
-            i++;
-        }
-    }
-    return colonne;
+ 
 }
 
 /***
@@ -152,8 +142,7 @@ array<int,9> Grille::req_colonne(Indice i)const
  */
 array<int,9> Grille::req_boite(Indice& i)const
 {
-    PRECONDITION(indice>=0 && indice <=8);
-    return m_grille.at(indice);
+    return m_grille.at(i.req_indice_boite());
 }
 
 /***
@@ -164,8 +153,8 @@ array<int,9> Grille::req_boite(Indice& i)const
 array<int,9> Grille::req_ligne(Indice& i)const
 {
     array<int,9> ligne;
-    int ligne_depart = i.req_indice_ligne;
-    int pos = i.req_indice_dans_ligne;
+    int ligne_depart = i.req_indice_ligne();
+    int pos = i.req_indice_dans_ligne();
     for(int j=0;j<pos;j++)
     {
         i--;
@@ -256,9 +245,9 @@ void Grille::verifieInvariant()
  */
 array<int,9> respecte_contraintes(Grille& g,Indice& i)
 {
-    array<int,9> colonne = g.req_colonne(i.req_indice_col());
-    array<int,9> ligne = g.req_ligne(i.req_indice_ligne());
-    array<int,9> boite = g.req_boite(i.req_indice_boite());
+    array<int,9> colonne = g.req_colonne(i);
+    array<int,9> ligne = g.req_ligne(i);
+    array<int,9> boite = g.req_boite(i);
     
     array<int,9> nombres_possibles{};      // le tableau est remplis de 0
     for(int nombre=1;nombre<=9;nombre++)

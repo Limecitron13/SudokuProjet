@@ -120,6 +120,12 @@ TEST(TestIndice,opérateurDecrementation_TODO)
 }
 
 //faire un test qui combine les deux opérateurs ************
+//ajouter test de préincrémentation --i et ++i********
+
+
+
+
+
 
 
 
