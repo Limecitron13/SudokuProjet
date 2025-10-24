@@ -2,7 +2,7 @@
  * \file GrilleTesteur.cpp
  * \author Émil Lavoie-Leullier
  * \date 2025-10-18
- * \brief Contient les tests des méthodes des classes Indice et Grille et des fonctions dans Grille.h
+ * \brief Contient les tests des méthodes de la classe Grille et des fonctions dans Grille.h
  */
 
 #include <gtest/gtest.h>
@@ -10,123 +10,6 @@
 #include "Indice.h"
 #include <fstream>
 using namespace std;
-
-/***
- * \brief Teste si le constructeur(à trois paramètres) assigne bien les valeurs (test indirectement les méthodes req_indice_boite, req_indice_ligne, req_indice_col et req_indice)
- */
-TEST(TestIndice,constructeur3_indicesValides_objetValide)
-{
-    Indice i(0,2,1);
-    ASSERT_EQ(i.req_indice_boite(), 0);
-    ASSERT_EQ(i.req_indice_col(), 2);
-    ASSERT_EQ(i.req_indice_ligne(),1);
-    ASSERT_EQ(i.req_indice(),5);
-}
-
-/***
- * \brief Teste si le constructeur (à deux paramètres assigne bien les valeurs (test indirectement les méthodes req_indice_boite, req_indice_ligne, req_indice_col et req_indice)
- */
-TEST(TestIndice,constructeur2_indicesValides_objetValide)
-{
-    Indice i(0,5);
-    ASSERT_EQ(i.req_indice_boite(), 0);
-    ASSERT_EQ(i.req_indice_col(), 2);
-    ASSERT_EQ(i.req_indice_ligne(),1);
-    ASSERT_EQ(i.req_indice(),5);
-}
-
-
-
-/***
- * \brief ***TODO***
- */
-TEST(TestIndice,req_indice_dans_col_TODO)
-{
-    //TODO
-}
-
-
-/***
- * \brief ***TODO***
- */
-TEST(TestIndice,req_indice_dans_boite_TODO)
-{
-    //TODO
-}
-
-
-/***
- * \brief ***TODO***
- */
-TEST(TestIndice,req_indice_dans_ligne_TODO)
-{
-    //TODO
-}
-
-
-/***
- * \brief Teste si l'opérateur ++ incrémente un indice qui peut être incrémenté
- */
-TEST(TestIndice,opérateur_indicesPermettentIncrémentation_incrémentation)
-{
-    Indice i(3,2,4);
-    i++;
-    ASSERT_EQ(i.req_indice_boite(), 4);
-    ASSERT_EQ(i.req_indice_col(), 3);
-    ASSERT_EQ(i.req_indice_ligne(),4);
-    ASSERT_EQ(i.req_indice(),3);
-}
-
-/***
- * \brief Teste si l'opérateur ++ incrémente un indice qui peut être incrémenté
- */
-TEST(TestIndice,opérateur_indicesPermettentIncrémentation2_incrémentation)
-{
-    Indice i(8,2);
-    i++;
-    ASSERT_EQ(i.req_indice_boite(), 6);
-    ASSERT_EQ(i.req_indice_col(), 0);
-    ASSERT_EQ(i.req_indice_ligne(),7);
-    ASSERT_EQ(i.req_indice(),3);
-}
-
-/***
- * \brief Teste si l'opérateur ++ n'incrémente pas un indice qui ne peut pas être incrémenté
- */
-TEST(TestIndice,opérateur_indicesNePermettentPasIncrémentation_aucuneIncrémentation)
-{
-    Indice i(8,8,8);
-    i++;
-    ASSERT_EQ(i.req_indice_boite(), 8);
-    ASSERT_EQ(i.req_indice_col(), 8);
-    ASSERT_EQ(i.req_indice_ligne(),8);
-    ASSERT_EQ(i.req_indice(),8);
-}
-
-
-/***
- * \brief Teste si l'opérateur -- ***TODO***
- */
-TEST(TestIndice,opérateurDecrementation_TODO)
-{
-    // ***TODO***
-   /* Indice i(8,8,8);
-    i++;
-    ASSERT_EQ(i.req_indice_boite(), 8);
-    ASSERT_EQ(i.req_indice_col(), 8);
-    ASSERT_EQ(i.req_indice_ligne(),8);
-    ASSERT_EQ(i.req_indice(),8);
-    */
-}
-
-//faire un test qui combine les deux opérateurs ************
-//ajouter test de préincrémentation --i et ++i********
-
-
-
-
-
-
 
 
 /***
@@ -213,7 +96,8 @@ TEST(TestGrille,req_colonne_indiceValide_colonneAttendue)
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
     g.asg_grille(ifs);
-    array<int,9> colonne=g.req_colonne(4);
+    Indice ind(2,4,1);
+    array<int,9> colonne=g.req_colonne(ind);
     array<int,9> colonne_attendue={5,1,3,8,9,7,6,2,4};
     for(int i=0;i<9;i++)
     {
@@ -231,7 +115,8 @@ TEST(TestGrille,req_boite_indiceValide_boiteAttendue)
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
     g.asg_grille(ifs);
-    array<int,9> boite=g.req_boite(3);
+    Indice ind(3,2);
+    array<int,9> boite=g.req_boite(ind);
     array<int,9> boite_attendue={3,5,4,6,7,2,9,1,8};
     for(int i=0;i<9;i++)
     {
@@ -248,7 +133,8 @@ TEST(TestGrille,req_ligne_indiceValide_ligneAttendue)
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
     g.asg_grille(ifs);
-    array<int,9> ligne=g.req_ligne(8);
+    Indice ind(7,4,8);
+    array<int,9> ligne =g.req_ligne(ind);
     array<int,9> ligne_attendue={8,2,7,3,4,5,9,6,1};
     for(int i=0;i<9;i++)
     {

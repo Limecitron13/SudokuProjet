@@ -145,7 +145,7 @@ array<int,9> Grille::req_colonne(Indice& i)const
         colonne.at(k)=m_grille.at(i.req_indice_boite()).at(i.req_indice());
         ++i;
     }
-    return ligne;
+    return colonne;
 }
 
 /***
