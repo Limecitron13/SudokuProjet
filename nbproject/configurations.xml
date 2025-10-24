@@ -19,7 +19,6 @@
       <itemPath>ContratException.cpp</itemPath>
       <itemPath>Grille.cpp</itemPath>
       <itemPath>Indice.cpp</itemPath>
-      <itemPath>IndiceTesteur.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>resoudre.cpp</itemPath>
     </logicalFolder>
@@ -38,6 +37,7 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>tests/IndiceTesteur.cpp</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -60,8 +60,6 @@
       <item path="Indice.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Indice.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="IndiceTesteur.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <folder path="TestFiles">
         <ccTool>
@@ -100,6 +98,8 @@
       </item>
       <item path="tests/GrilleTesteur.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="tests/IndiceTesteur.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="tests/resoudreTesteur.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -135,8 +135,6 @@
       </item>
       <item path="Indice.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="IndiceTesteur.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <folder path="TestFiles/f1">
         <cTool>
           <incDir>
@@ -159,6 +157,8 @@
       <item path="resoudre.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="tests/GrilleTesteur.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/IndiceTesteur.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="tests/resoudreTesteur.cpp" ex="false" tool="1" flavor2="0">
       </item>
