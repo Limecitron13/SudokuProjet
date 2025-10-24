@@ -132,7 +132,20 @@ const int& Grille::req_val_case(Indice& i)const
  */
 array<int,9> Grille::req_colonne(Indice& i)const
 {
- 
+     array<int,9> colonne;
+    int colonne_depart = i.req_indice_col();
+    int pos = i.req_indice_dans_col();
+    for(int j=0;j<pos;j++)
+    {
+        --i;
+    }
+    
+    for(int k=0;k<9;k++)
+    {
+        colonne.at(k)=m_grille.at(i.req_indice_boite()).at(i.req_indice());
+        ++i;
+    }
+    return ligne;
 }
 
 /***
