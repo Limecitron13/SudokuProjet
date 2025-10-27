@@ -158,9 +158,7 @@ array<int,9> Grille::req_boite(Indice& i)const
 array<int,9> Grille::req_ligne(Indice& i)const
 {
     array<int,9> ligne;
-    int ligne_depart = i.req_indice_ligne();
-    int pos = i.req_indice_dans_ligne();
-    for(int j=0;j<pos;j++)
+    while(i.req_indice_dans_ligne() != 0)  //On revient au début de la ligne
     {
         i--;
     }
