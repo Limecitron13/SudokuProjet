@@ -9,7 +9,7 @@
 #ifndef RESOUDRE_H
 #define RESOUDRE_H
 
-const Grille& resoudre(Grille&);
+void resoudre(Grille&);
 
 #endif /* RESOUDRE_H */
 
