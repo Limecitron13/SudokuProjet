@@ -38,11 +38,12 @@ TEST(TestIndice,constructeur2_indicesValides_objetValide)
 
 
 /***
- * \brief ***TODO***
+ * \brief Vérifie si la méthode req_indice_dans_col retourne le bon indice 
  */
-TEST(TestIndice,req_indice_dans_col_TODO)
+TEST(TestIndice,req_indice_dans_col_IndiceValide_IndiceAttendu)
 {
-    //TODO
+    Indice i(3,8);
+    ASSERT_EQ(i.req_indice_dans_col(),5);
 }
 
 

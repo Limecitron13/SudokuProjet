@@ -44,6 +44,14 @@ Indice::Indice(int p_indice_boite,int p_indice):m_indice_boite(p_indice_boite),m
 }
 
 /***
+ * \brief Constructeur d'objets Indice par défaut
+ */
+Indice::Indice():m_indice_boite(0),m_indice(0),m_indice_col(0),m_indice_ligne(0)
+{
+    INVARIANTS();
+}
+
+/***
  * \brief Accesseur de m_indice_boite
  * \return m_indice_boite
  */
