@@ -26,8 +26,6 @@
 
 ## 💡 Idées à implémenter dans le futur
 
-> Pistes d’évolution ou d’améliorations à explorer.
-
 - Ajouter une interface graphique  
 - Ajouter une gestion des exceptions  
 - Ajouter des variantes de sudoku(killer,knight move, king move,etc.)  

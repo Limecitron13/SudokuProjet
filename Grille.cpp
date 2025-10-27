@@ -53,66 +53,60 @@ void Grille::asg_val(Indice& i,int valeur)
 bool Grille::valider_grille()const
 {
     
-//verifie chaque boite contient une seule copie de chaque nombre
-for(int boite=0;boite<9;boite++)
-{
-    array<int,9> nombres{};
-    for(int cases=0;cases<9;cases++)
-    {
-        nombres.at(cases)=m_grille.at(boite).at(cases);
-    }
-    if(a_double(nombres))
-    {
-        return false;
-    }
-    
-}   
-//verifie chaque ligne contient une seule copie de chaque nombre
-    for(int ligne_boite=0;ligne_boite<3;ligne_boite++)
-    {
-        for(int ligne=0;ligne<3;ligne++)
-        {
-            array<int,9> nombres{};
-            for(int boite=0+ligne_boite*3;boite<3+ligne_boite*3;boite++)
-            {
-                for(int cases=0+ligne*3;cases<3+ligne*3;cases++)
-                {
-                    nombres.at(cases%3 + (boite%3)*3)=m_grille.at(boite).at(cases);
-                }
-            }
-            if(a_double(nombres))
-            {
-                return false;
-            }
-        }
-    }
-    
-//verifie chaque colonne contient une seule copie de chaque nombre
-for(int boite=0;boite<3;boite++)
-{
-    for(int colonne=0;colonne<3;colonne++)
+    //verifie chaque boite contient une seule copie de chaque nombre
+    for(int boite=0;boite<9;boite++)
     {
         array<int,9> nombres{};
-        int i=0;
-        for(int boite_ligne= boite ;boite_ligne<9;boite_ligne+=3)
+        for(int cases=0;cases<9;cases++)
         {
-            for(int cases=0 + colonne;cases<9;cases+=3)
-            {
-                nombres.at(i)=m_grille.at(boite_ligne).at(cases);
-                i++;
-            }
+            nombres.at(cases)=m_grille.at(boite).at(cases);
         }
         if(a_double(nombres))
         {
             return false;
         }
+    
+    }   
+    //verifie chaque ligne contient une seule copie de chaque nombre
+    Indice i;
+    for(int lignes = 0; lignes<9;lignes++)
+    {
+        array<int,9> nombres{};
+        for(int nbrs=0;nbrs<9;nbrs++)   //On traite la ligne au complet
+        {
+            nombres.at(i.req_indice_dans_ligne())=m_grille.at(i.req_indice_boite()).at(i.req_indice());
+            i++;   
+        }
+    
+        if(a_double(nombres)) //Vérification si il y a une contradiction
+        {
+            return false;
+        }
+    
     }
 
-}
+    //verifie chaque colonne contient une seule copie de chaque nombre
+    Indice j;
+    for(int colonnes = 0; colonnes<9;colonnes++)
+    {
+        array<int,9> nombres{};
+        for(int nbrs=0;nbrs<9;nbrs++) //On traite la colonne au complet
+        {
+            nombres.at(j.req_indice_dans_col())=m_grille.at(j.req_indice_boite()).at(j.req_indice());
+            ++j;   
+        } 
+    
+        if(a_double(nombres)) //Vérification si il y a une contradiction
+        {
+            return false;
+        }
+    
+    }
         
         
-    return true;
+    return true; //Aucune contradiction donc la grille est valide
 }
+
 
 /***
  * \brief Accesseur d'une valeur de la grille à un indice spécifique
