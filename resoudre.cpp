@@ -6,6 +6,7 @@
  */
 
 #include "Grille.h"
+#include <array>
 using namespace std;
 
 
@@ -13,9 +14,21 @@ using namespace std;
 /***
  * \brief     ***TODO***
  * \param g est un objet Grille qui représente la grille de sudoku à résoudre
+ * \return retourne 0 si il y a un échec sinon retourne une valeur différente de 0 selon le type d'échec ( 1 : la grille est pleine,2 : ***TODO***
  */
-void resoudre(Grille& g)
+int resoudre(Grille& g)
 {
+    Indice i;
+    while(g.req_val_case(i) !=0 )  //Trouver la première case vide
+    {
+        if(i.req_indice == 8 && i.req_indice_boite == 8)
+        {
+            return 1;  //La grille est pleine (contient aucun 0)
+        }
+        i++;
+    }
+    
+    
     /*
      * 1- Trouver la première case vide
      * 2- Tant grille est invalide:
