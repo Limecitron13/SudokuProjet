@@ -32,6 +32,23 @@ Grille::Grille()
 
 
 
+/***
+ * \brief Constructeur d'objets Grille à partir d'un autre objet Grille
+ */
+Grille::Grille(const Grille& g)
+{
+    Indice i;
+        for(int nbr_case=0;nbr_case<81;nbr_case++)
+        {
+            m_grille.at(i.req_indice_boite()).at(i.req_indice()) = g.req_val_case(i);
+            POSTCONDITION(m_grille.at(i.req_indice_boite()).at(i.req_indice()) == g.req_val_case(i)); //Un peu redondant, mais vaut mieux être sûr!
+            i++;
+        }
+    INVARIANTS();
+}
+
+
+
 
 /***
  * \brief Assigne une valeur à un indice spécifique

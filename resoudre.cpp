@@ -21,12 +21,19 @@ int resoudre(Grille& g)
     Indice i;
     while(g.req_val_case(i) !=0 )  //Trouver la première case vide
     {
-        if(i.req_indice == 8 && i.req_indice_boite == 8)
+        if(i.req_indice() == 8 && i.req_indice_boite() == 8)
         {
             return 1;  //La grille est pleine (contient aucun 0)
         }
         i++;
     }
+    
+    array<int,9> cases_touchee{};
+    array<int,9> nombres_possibles = respecte_contraintes(g,i);
+    
+    
+
+    
     
     
     /*
@@ -39,16 +46,16 @@ int resoudre(Grille& g)
      * 7-         Revenir en arrière en effaçant les cases modifiées jusqu'à la première case qui ne cause pas de contradiction
      * 8-         Continuer la boucle
      * 9-
-     * 10-    Si grille valide:
+     * 10-    Si possibilités épuisés
      * 11-        Arrêter
      * 12-    
-     * 13-    si possibilités épuisés
-     * 14-        Arrêter
-     * 15-
-     * 16-    Passer à la prochaine case
+     * 13-    Passer à la prochaine case
+     * 14-        
      * 
      * 
      */
     
     
 }
+
+

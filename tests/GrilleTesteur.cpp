@@ -18,14 +18,32 @@ using namespace std;
 TEST(TestGrille,constructeur_parDefaut_objetValide)
 {
     Grille g;
-    for(int boite=0;boite<9;boite++)
-    {
-        for(int cases=0;cases<9;cases++)
+    Indice i;
+        for(int nbr_case=0;nbr_case<81;nbr_case++)
         {
-            Indice i(boite,cases);
-            ASSERT_EQ(g.req_val_case(i),0);
+            ASSERT_EQ(g.req_val_case(i) ,0 );
+            i++;
         }
-    }
+}
+
+
+
+/***
+ * \brief Teste si le constructeur avec un paramètre Grille assigne bien les valeurs attendues
+ */
+TEST(TestGrille,constructeur_parametre_objetValide)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
+    g.asg_grille(ifs);
+    
+    Grille t(g);
+    Indice i;
+        for(int nbr_case=0;nbr_case<81;nbr_case++)
+        {
+            ASSERT_EQ(t.req_val_case(i) , g.req_val_case(i) );
+            i++;
+        }
 }
 
 /***
@@ -47,9 +65,9 @@ TEST(TestGrille,asg_val_indiceEtValeurValide_succès)
 TEST(TestGrille,asg_val_indiceEtValeurValide2_succès)
 {
     Grille g;
-    Indice i(1,3,3);
-    g.asg_val(i,0);
-    ASSERT_EQ(g.req_val_case(i),0);
+    Indice i(1,3,2);
+    g.asg_val(i,9);
+    ASSERT_EQ(g.req_val_case(i),9);
 }
 
 /***

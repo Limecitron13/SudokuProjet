@@ -19,6 +19,7 @@
 class Grille {
 public:
     Grille();
+    Grille(const Grille&);
     void asg_val(const Indice&,int valeur);
     bool valider_grille()const;
     const int& req_val_case(const Indice&)const;
