@@ -15,8 +15,6 @@
 
 ## 🧾 Tâches à faire
 
-- Vérifier que chaque méthode de la classe Grille est testée  
-- Améliorer les tests de la classe Grille(boucle et autre...)  
 - Implémenter la fonction resoudre  
 
 

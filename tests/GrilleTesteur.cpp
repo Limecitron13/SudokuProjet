@@ -29,7 +29,7 @@ TEST(TestGrille,constructeur_parDefaut_objetValide)
 }
 
 /***
- * \brief Teste si asg_val assigne la bonne valeur au bon indice
+ * \brief Teste si asg_val assigne la bonne valeur au bon indice 
  */
 TEST(TestGrille,asg_val_indiceEtValeurValide_succès)
 {
@@ -37,6 +37,19 @@ TEST(TestGrille,asg_val_indiceEtValeurValide_succès)
     Indice i(8,8);
     g.asg_val(i,7);
     ASSERT_EQ(g.req_val_case(i),7);
+}
+
+
+
+/***
+ * \brief Teste si asg_val assigne la bonne valeur au bon indice
+ */
+TEST(TestGrille,asg_val_indiceEtValeurValide2_succès)
+{
+    Grille g;
+    Indice i(1,3,3);
+    g.asg_val(i,0);
+    ASSERT_EQ(g.req_val_case(i),0);
 }
 
 /***
