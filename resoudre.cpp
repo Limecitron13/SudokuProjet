@@ -32,8 +32,25 @@ int resoudre(Grille& g)
     array<int,9> nombres_possibles = respecte_contraintes(g,i);
     
     
-    
-    //if(nombres_possibles)
+    //Section qui gère le retour en arrière
+    if(est_zero(nombres_possibles) && g_copie.req_val_case(i) == 0) //Contradiction. Aucun chiffre peut aller dans cette case
+    {
+        while(true) //on sort de la boucle si on trouve une case qui a des possibilités de nombres
+        {
+            if(g_copie.req_val_case(i) == 0) //Si la case peut être modifié (pas une case initiale)
+            {
+                g.asg_val(i,0);     
+            }
+            i--;
+            
+            nombres_possibles = respecte_contraintes(g,i);
+            if(!est_zero(nombres_possibles) && g_copie.req_val_case(i) == 0 )   //On sort de la boucle si il y a une possiblité
+            {
+                break;
+            }
+        }
+        
+    }
     
 
     
