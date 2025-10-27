@@ -178,21 +178,28 @@ array<int,9> Grille::req_ligne(Indice& i)const
  */
 void Grille::afficher_grille()const
 {
-    for(int ligne_boite=0;ligne_boite<3;ligne_boite++)
+    Indice i;
+    
+    cout<<endl;
+    for(int nbr_cases=0;nbr_cases<81;nbr_cases++)  //nombres de cases de la grille en entier
     {
-        for(int ligne=0;ligne<3;ligne++)
+        if(i.req_indice_col() == 0 && i.req_indice_ligne()%3 == 0 && i.req_indice_ligne() != 0)
         {
-            for(int boite=0+ligne_boite*3;boite<3+ligne_boite*3;boite++)
-            {
-                cout<<"|";
-                for(int cases=0+ligne*3;cases<3+ligne*3;cases++)
-                {
-                    cout<<" "<<m_grille.at(boite).at(cases)<<" ";
-                }
-            }
+            cout<<"-------------------------"<<endl;
+        }
+        
+        if(i.req_indice_col()%3 == 0)
+        {
+            cout<<"| ";
+        }
+        
+        cout<<m_grille.at(i.req_indice_boite()).at(i.req_indice());
+        cout<<" ";
+        if(i.req_indice_col() == 8)
+        {
             cout<<"|"<<endl;
         }
-        cout<<"-------------------------------"<<endl;
+        i++;
     }
 }
 
