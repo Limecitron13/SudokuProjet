@@ -10,3 +10,5 @@ TEST(TestResoudre,testNoncomplété)
     ASSERT_TRUE(true);
 }
 
+
+//Vérifier dans les tests que la fonction n'a pas modifiée les cases initiales 
