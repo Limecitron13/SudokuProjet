@@ -28,6 +28,7 @@
                    kind="TEST_LOGICAL_FOLDER">
       <logicalFolder name="f1" displayName="test" projectFiles="true" kind="TEST">
         <itemPath>tests/GrilleTesteur.cpp</itemPath>
+        <itemPath>tests/IndiceTesteur.cpp</itemPath>
         <itemPath>tests/resoudreTesteur.cpp</itemPath>
       </logicalFolder>
     </logicalFolder>
@@ -37,7 +38,6 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>tests/IndiceTesteur.cpp</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

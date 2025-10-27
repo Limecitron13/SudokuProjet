@@ -16,6 +16,7 @@
 ## 🧾 Tâches à faire
 
 - Compléter les tests unitaires de la classe Indice  
+- Simplifier les méthodes de grille à l'aide de la classe Indice améliorée  
 - Vérifier que chaque méthode de la classe Indice et Grille est testée  
 - Améliorer les tests de la classe Grille(boucle et autre...)  
 - Implémenter la fonction resoudre  
@@ -29,6 +30,8 @@
 > Pistes d’évolution ou d’améliorations à explorer.
 
 - Ajouter une interface graphique  
+- Ajouter une gestion des exceptions  
+- Ajouter des variantes de sudoku(killer,knight move, king move,etc.)  
 
 
 
