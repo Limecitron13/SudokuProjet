@@ -15,9 +15,8 @@
 
 ## 🧾 Tâches à faire
 
-- Compléter les tests unitaires de la classe Indice  
 - Simplifier les méthodes de grille à l'aide de la classe Indice améliorée  
-- Vérifier que chaque méthode de la classe Indice et Grille est testée  
+- Vérifier que chaque méthode de la classe Grille est testée  
 - Améliorer les tests de la classe Grille(boucle et autre...)  
 - Implémenter la fonction resoudre  
 
