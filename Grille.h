@@ -37,5 +37,6 @@ std::array<int,9>respecte_contraintes(Grille&,Indice&);
 bool verifier_format_fichier(std::ifstream&);
 bool a_double(std::array<int,9>&);
 bool est_membre(std::array<int,9>&,int);
+bool est_zero(std::array<int,9>&);
 #endif /* GRILLE_H */
 

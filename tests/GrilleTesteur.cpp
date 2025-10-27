@@ -324,4 +324,22 @@ TEST(TestEstMembre,est_membre_listeSansEntier_faux)
     ASSERT_FALSE(est_membre(liste,0));
 }
 
+/***
+ * \brief Vérifie si est_zero peut déterminer qu'un tableau est composé entièrement de zéros
+ */
+TEST(TestEstMembre,est_zero_listeZeros_vrai)
+{
+    array<int,9> liste {0,0,0,0,0,0,0,0,0};
+    ASSERT_TRUE(est_zero(liste));
+}
+
+
+/***
+ * \brief Vérifie si est_zero peut déterminer qu'un tableau n'est pas composé entièrement de zéros
+ */
+TEST(TestEstMembre,est_zero_listeZeros_faux)
+{
+    array<int,9> liste {0,0,0,0,0,0,0,0,4};
+    ASSERT_FALSE(est_zero(liste));
+}
 

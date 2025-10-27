@@ -372,3 +372,21 @@ bool est_membre(array<int,9>& liste,int valeur)
 
 
 
+/***
+ * \brief Vérifie si un tableau de taille 9 est composé de seulement des zéros
+ * \param liste est un tableau d'entiers de taille 9
+ * \return true si seulement des zéros et false sinon
+ */
+bool est_zero(std::array<int,9>& liste)
+{
+    for(int i=0;i<9;i++)
+    {
+        if(liste.at(i)!=0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+

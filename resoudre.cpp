@@ -28,9 +28,12 @@ int resoudre(Grille& g)
         i++;
     }
     
-    array<int,9> cases_touchee{};
+    Grille g_copie(g);
     array<int,9> nombres_possibles = respecte_contraintes(g,i);
     
+    
+    
+    //if(nombres_possibles)
     
 
     
