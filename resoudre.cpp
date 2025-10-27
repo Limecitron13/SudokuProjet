@@ -29,27 +29,32 @@ int resoudre(Grille& g)
     }
     
     Grille g_copie(g);
-    array<int,9> nombres_possibles = respecte_contraintes(g,i);
     
     
-    //Section qui gère le retour en arrière
-    if(est_zero(nombres_possibles) && g_copie.req_val_case(i) == 0) //Contradiction. Aucun chiffre peut aller dans cette case
+    while(!g.valider_grille())
     {
-        while(true) //on sort de la boucle si on trouve une case qui a des possibilités de nombres
-        {
-            if(g_copie.req_val_case(i) == 0) //Si la case peut être modifié (pas une case initiale)
-            {
-                g.asg_val(i,0);     
-            }
-            i--;
-            
-            nombres_possibles = respecte_contraintes(g,i);
-            if(!est_zero(nombres_possibles) && g_copie.req_val_case(i) == 0 )   //On sort de la boucle si il y a une possiblité
-            {
-                break;
-            }
-        }
         
+        array<int,9> nombres_possibles = respecte_contraintes(g,i);
+    
+        //Section qui gère le retour en arrière
+        if(est_zero(nombres_possibles) && g_copie.req_val_case(i) == 0) //Contradiction. Aucun chiffre peut aller dans cette case
+        {
+            while(true) //on sort de la boucle si on trouve une case qui a des possibilités de nombres
+            {
+                if(g_copie.req_val_case(i) == 0) //Si la case peut être modifié (pas une case initiale)
+                {
+                    g.asg_val(i,0);     
+                }
+                i--;
+            
+                nombres_possibles = respecte_contraintes(g,i);
+                if(!est_zero(nombres_possibles) && g_copie.req_val_case(i) == 0 )   //On sort de la boucle si il y a une possiblité
+                {
+                    break;
+                }
+            }
+        
+        }
     }
     
 
@@ -60,7 +65,7 @@ int resoudre(Grille& g)
      * 1- Trouver la première case vide
      * 2- Tant grille est invalide:
      * 3-     Regarder quels nombres vont dans cette case (liste)
-     * 4-     Essayer un nombre de la liste
+     * 4-     Essayer le nombre suivant dans la liste
      * 5-     
      * 6-     Si contradiction:
      * 7-         Revenir en arrière en effaçant les cases modifiées jusqu'à la première case qui ne cause pas de contradiction
