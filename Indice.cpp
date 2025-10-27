@@ -112,6 +112,7 @@ const int& Indice::req_indice_dans_boite()const
 
 /***
  * \brief Surcharge de l'opérateur ++(postincémentation).Cet opérateur incrémente l'indice de façon à parcourir la grille par ses lignes de gauche à droite et de haut en bas.
+ * \brief Voici un résumé : →  si fin( ↓ et colonne = 0 )
  * \brief Si l'indice colonne et ligne est 8, l'opérateur ne fait rien
  */
 void Indice::operator++(int)
@@ -141,6 +142,7 @@ void Indice::operator++(int)
 
 /***
  * \brief Surcharge de l'opérateur -- (postincémentation).Cet opérateur décrémente l'indice de façon à parcourir la grille par ses lignes de droite à gauche et de bas en haut.
+ * \brief Voici un résumé : ←  si fin( ↑ et colonne = 8 )
  * \brief Si l'indice colonne et ligne est 0, l'opérateur ne fait rien
  */
 void Indice::operator--(int)
@@ -166,7 +168,8 @@ void Indice::operator--(int)
     INVARIANTS();
 }
 /***
- * \brief Surcharge de l'opérateur -- (préincémentation).Cet opérateur décrémente l'indice de façon à parcourir la grille par ses colonnes de haut en bas et de gauche à droite.
+ * \brief Surcharge de l'opérateur -- (préincémentation).Cet opérateur incrémente l'indice de façon à parcourir la grille par ses colonnes de haut en bas et de gauche à droite.
+ * \brief Voici un résumé : ↓  si fin( → et ligne = 0 )
  * \brief Si l'indice colonne et ligne est 8, l'opérateur ne fait rien
  */
 void Indice::operator++(void)
@@ -194,6 +197,7 @@ void Indice::operator++(void)
 
 /***
  * \brief Surcharge de l'opérateur -- (préincémentation).Cet opérateur décrémente l'indice de façon à parcourir la grille par ses colonnes de bas en haut et de droite à gauche.
+ * \brief Voici un résumé :  ↑  si fin( ← et ligne = 8)
  * \brief Si l'indice colonne et ligne est 0, l'opérateur ne fait rien
  */
 void Indice::operator--(void)
@@ -221,7 +225,7 @@ void Indice::operator--(void)
 
 
 /***
- * \brief Vérifie les invariants de la classe Indice
+ * \brief Vérifie les invariants de la classe Indice. Les indices doivent être entre 0 et 8 et doivent être cohérents entre eux.
  */
 void Indice::verifieInvariant()const
 {
@@ -229,7 +233,7 @@ void Indice::verifieInvariant()const
     INVARIANT(m_indice_col <= 8 && m_indice_col >= 0);
     INVARIANT(m_indice_ligne <= 8 && m_indice_ligne >= 0);
     INVARIANT(m_indice <= 8 && m_indice >= 0);
-    INVARIANT(m_indice == m_indice_col%3 +3*(m_indice_ligne%3) ); 
-    INVARIANT(m_indice_boite == m_indice_col/3 + 3*(m_indice_ligne/3) );
+    INVARIANT(m_indice == m_indice_col%3 +3*(m_indice_ligne%3) );  //vérifie la cohérence entre les indices de ligne et colonne avec l'indice dans une boîte
+    INVARIANT(m_indice_boite == m_indice_col/3 + 3*(m_indice_ligne/3) ); //vérifie la cohérence entre les indices de ligne et colonne avec l'indice de la boîte
 }
 
