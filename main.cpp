@@ -16,8 +16,7 @@ int main() {
     ifstream ifs ("fichiersTestsGrille/Grille_formatValide.txt", ifstream::in);
     Grille g;
     g.asg_grille(ifs);
-    g.afficher_grille();
-    cout <<endl;
+    cout <<g<<endl;
     
     return 0;
 }

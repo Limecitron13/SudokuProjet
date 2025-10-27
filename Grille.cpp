@@ -174,34 +174,39 @@ array<int,9> Grille::req_ligne(Indice i)const
 
 
 /***
- * \brief affiche la grille de sudoku dans la console
+ * \brief affiche la grille de sudoku
+ * \param os est un flux de sortie ostream
+ * \param grille est l'objet grille à afficher
+ * \return un ostream qui contient la grille de sudoku à afficher
  */
-void Grille::afficher_grille()const
+ostream& operator<<(ostream& os,const Grille& grille)
 {
     Indice i;
     
-    cout<<endl;
+    os<<endl;
     for(int nbr_cases=0;nbr_cases<81;nbr_cases++)  //nombres de cases de la grille en entier
     {
         if(i.req_indice_col() == 0 && i.req_indice_ligne()%3 == 0 && i.req_indice_ligne() != 0)
         {
-            cout<<"-------------------------"<<endl;
+            os<<"-------------------------"<<endl;
         }
         
         if(i.req_indice_col()%3 == 0)
         {
-            cout<<"| ";
+            os<<"| ";
         }
         
-        cout<<m_grille.at(i.req_indice_boite()).at(i.req_indice());
-        cout<<" ";
+        os<<grille.req_val_case(i);
+        os<<" ";
         if(i.req_indice_col() == 8)
         {
-            cout<<"|"<<endl;
+            os<<"|"<<endl;
         }
         i++;
     }
+    return os;
 }
+
 
 /***
  * \brief ajoute les valeurs d'une grille sudoku qui provient d'un fichier texte

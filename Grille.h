@@ -25,7 +25,7 @@ public:
     std::array<int,9> req_col(Indice)const;
     std::array<int,9> req_boite(Indice)const;
     std::array<int,9> req_ligne(Indice)const;
-    void afficher_grille()const;
+    friend std::ostream& operator<<(std::ostream& p_os,const Grille& p_grille);
     void asg_grille(std::ifstream&);
 private:
     std::array<std::array<int,9>,9> m_grille;     //Un tableau de taille 9 qui contient chaque boîte du sudoku.
