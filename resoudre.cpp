@@ -23,7 +23,7 @@ void resoudre(Grille& g)
      * 4-     Essayer un nombre de la liste
      * 5-     
      * 6-     Si contradiction:
-     * 7-         Revenir en arrière jusqu'à la première case qui ne cause pas de contradiction
+     * 7-         Revenir en arrière en effaçant les cases modifiées jusqu'à la première case qui ne cause pas de contradiction
      * 8-         Continuer la boucle
      * 9-
      * 10-    Si grille valide:
@@ -33,6 +33,7 @@ void resoudre(Grille& g)
      * 14-        Arrêter
      * 15-
      * 16-    Passer à la prochaine case
+     * 
      * 
      */
     
