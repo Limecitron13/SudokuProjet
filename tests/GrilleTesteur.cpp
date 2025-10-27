@@ -97,7 +97,7 @@ TEST(TestGrille,req_colonne_indiceValide_colonneAttendue)
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
     g.asg_grille(ifs);
     Indice ind(1,4,1);
-    array<int,9> colonne=g.req_colonne(ind);
+    array<int,9> colonne=g.req_col(ind);
     array<int,9> colonne_attendue={5,1,3,8,9,7,6,2,4};
     for(int i=0;i<9;i++)
     {

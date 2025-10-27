@@ -13,7 +13,7 @@ using namespace std;
 
 
 int main() {
-    ifstream ifs ("fichiersTestsGrille/Grille_avecZeros_formatValide.txt", ifstream::in);
+    ifstream ifs ("fichiersTestsGrille/Grille_formatValide.txt", ifstream::in);
     Grille g;
     g.asg_grille(ifs);
     g.afficher_grille();

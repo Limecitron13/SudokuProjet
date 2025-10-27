@@ -1,7 +1,7 @@
 /***
  * \file Grille.h
- * \Author Émil Lavoie-Leullier
- * \Date 2025-10-18
+ * \author Émil Lavoie-Leullier
+ * \date 2025-10-18
  * \brief Contient l'interface de la classe Grille. 
  */
 
@@ -19,12 +19,12 @@
 class Grille {
 public:
     Grille();
-    void asg_val(Indice&,int valeur);
+    void asg_val(const Indice&,int valeur);
     bool valider_grille()const;
-    const int& req_val_case(Indice&)const;
-    std::array<int,9> req_colonne(Indice&)const;
-    std::array<int,9> req_boite(Indice&)const;
-    std::array<int,9> req_ligne(Indice&)const;
+    const int& req_val_case(const Indice&)const;
+    std::array<int,9> req_col(Indice)const;
+    std::array<int,9> req_boite(Indice)const;
+    std::array<int,9> req_ligne(Indice)const;
     void afficher_grille()const;
     void asg_grille(std::ifstream&);
 private:

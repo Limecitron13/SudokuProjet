@@ -1,7 +1,7 @@
 /***
  * \file Grille.cpp
  * \author Émil Lavoie-Leullier
- * \Date 2025-10-18
+ * \date 2025-10-18
  * \brief Implantation de la classe Grille et quelques fonctions utiles
  */
 
@@ -38,7 +38,7 @@ Grille::Grille()
  * \param i est un objet Indice qui contient l'indice de la case à modifier
  * \param valeur est la valeur à assigner
  */
-void Grille::asg_val(Indice& i,int valeur)
+void Grille::asg_val(const Indice& i,int valeur)
 {
     PRECONDITION(m_grille.at(i.req_indice_boite()).at(i.req_indice())==0 && valeur<=9 && valeur>=1);
     m_grille.at(i.req_indice_boite()).at(i.req_indice()) = valeur;
@@ -113,7 +113,7 @@ bool Grille::valider_grille()const
  * \param i est un objet Indice qui contient l'indice de la case 
  * \return Valeur de la case à l'indice i
  */
-const int& Grille::req_val_case(Indice& i)const
+const int& Grille::req_val_case(const Indice& i)const
 {
     return m_grille.at(i.req_indice_boite()).at(i.req_indice());
 }
@@ -124,7 +124,7 @@ const int& Grille::req_val_case(Indice& i)const
  * \param indice est l'indice de la colonne (0 à 8) 
  * \return Un tableau de neuf entiers correspondant à ième colonne
  */
-array<int,9> Grille::req_colonne(Indice& i)const
+array<int,9> Grille::req_col(Indice i)const
 {
     array<int,9> colonne;
     while(i.req_indice_dans_col() != 0)  //On revient au début de la colonne
@@ -145,7 +145,7 @@ array<int,9> Grille::req_colonne(Indice& i)const
  * \param indice est l'indice de la boîte (0 à 8) 
  * \return Un tableau de neuf entiers correspondant à ième boîte
  */
-array<int,9> Grille::req_boite(Indice& i)const
+array<int,9> Grille::req_boite(Indice i)const
 {
     return m_grille.at(i.req_indice_boite());
 }
@@ -155,7 +155,7 @@ array<int,9> Grille::req_boite(Indice& i)const
  * \param indice est l'indice de la ligne (0 à 8) 
  * \return Un tableau de neuf entiers correspondant à ième ligne
  */
-array<int,9> Grille::req_ligne(Indice& i)const
+array<int,9> Grille::req_ligne(Indice i)const
 {
     array<int,9> ligne;
     while(i.req_indice_dans_ligne() != 0)  //On revient au début de la ligne
@@ -210,14 +210,15 @@ void Grille::afficher_grille()const
 void Grille::asg_grille(ifstream& ifs)
 {
     PRECONDITION(verifier_format_fichier(ifs));
-    ifs.seekg(0);
+    
+    ifs.seekg(0);             //On revient au début du flux de fichier
     for(int boite=0;boite<9;boite++)
     {
         string boite_valeurs;
         ifs>>boite_valeurs;
         for(int cases=0;cases<9;cases++)
         {
-            m_grille.at(boite).at(cases) = boite_valeurs.at(cases)-48; //convertion de valeur table ASCII en la vrai valeur
+            m_grille.at(boite).at(cases) = boite_valeurs.at(cases)-48; //convertion de valeur table ASCII(valeur de caractère) en la vrai valeur du nombre
         }
     }
     INVARIANTS();
@@ -255,14 +256,15 @@ void Grille::verifieInvariant()
  */
 array<int,9> respecte_contraintes(Grille& g,Indice& i)
 {
-    array<int,9> colonne = g.req_colonne(i);
+    array<int,9> colonne = g.req_col(i);
     array<int,9> ligne = g.req_ligne(i);
     array<int,9> boite = g.req_boite(i);
     
     array<int,9> nombres_possibles{};      // le tableau est remplis de 0
     for(int nombre=1;nombre<=9;nombre++)
     {
-        if(!est_membre(colonne,nombre) && !est_membre(ligne,nombre) && !est_membre(boite,nombre) && nombres_possibles.at(nombre-1)==0)
+        //On s'assure que le nombre n'est pas dans la ligne colonne ou boite et que celui-ci n'a pas déjà été trouvé
+        if(nombres_possibles.at(nombre-1)==0 && !est_membre(colonne,nombre) && !est_membre(ligne,nombre) && !est_membre(boite,nombre))
         {
             nombres_possibles.at(nombre-1)=nombre;
         }
