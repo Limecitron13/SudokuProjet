@@ -12,7 +12,7 @@
 using namespace std;
 
 /***
- * \brief Teste si le constructeur(à trois paramètres) assigne bien les valeurs (test indirectement les méthodes req_indice_boite, req_indice_ligne, req_indice_col et req_indice)
+ * \brief Teste si le constructeur à trois paramètres assigne bien les valeurs (test indirectement les méthodes req_indice_boite, req_indice_ligne, req_indice_col et req_indice)
  */
 TEST(TestIndice,constructeur3_indicesValides_objetValide)
 {
@@ -24,7 +24,7 @@ TEST(TestIndice,constructeur3_indicesValides_objetValide)
 }
 
 /***
- * \brief Teste si le constructeur (à deux paramètres assigne bien les valeurs (test indirectement les méthodes req_indice_boite, req_indice_ligne, req_indice_col et req_indice)
+ * \brief Teste si le constructeur à deux paramètres assigne bien les valeurs (test indirectement les méthodes req_indice_boite, req_indice_ligne, req_indice_col et req_indice)
  */
 TEST(TestIndice,constructeur2_indicesValides_objetValide)
 {
@@ -33,6 +33,20 @@ TEST(TestIndice,constructeur2_indicesValides_objetValide)
     ASSERT_EQ(i.req_indice_col(), 2);
     ASSERT_EQ(i.req_indice_ligne(),1);
     ASSERT_EQ(i.req_indice(),5);
+}
+
+
+
+/***
+ * \brief Teste si le constructeur par défaut (test indirectement les méthodes req_indice_boite, req_indice_ligne, req_indice_col et req_indice)
+ */
+TEST(TestIndice,constructeur_Defaut_objetValide)
+{
+    Indice i;
+    ASSERT_EQ(i.req_indice_boite(), 0);
+    ASSERT_EQ(i.req_indice_col(), 0);
+    ASSERT_EQ(i.req_indice_ligne(),0);
+    ASSERT_EQ(i.req_indice(),0);
 }
 
 
@@ -48,27 +62,30 @@ TEST(TestIndice,req_indice_dans_col_IndiceValide_IndiceAttendu)
 
 
 /***
- * \brief ***TODO***
+ * \brief Vérifie si la méthode req_indice_dans_boite retourne le bon indice
  */
-TEST(TestIndice,req_indice_dans_boite_TODO)
+TEST(TestIndice,req_indice_dans_boite_IndiceValide_IndiceAttendu)
 {
-    //TODO
+    Indice i(8,8,8);
+    ASSERT_EQ(i.req_indice_dans_boite(),8);
+    
 }
 
 
 /***
- * \brief ***TODO***
+ * \brief Vérifie si la méthode req_indice_dans_ligne retourne le bon indice
  */
-TEST(TestIndice,req_indice_dans_ligne_TODO)
+TEST(TestIndice,req_indice_dans_ligne_IndiceValide_IndiceAttendu)
 {
-    //TODO
+    Indice i(4,7);
+    ASSERT_EQ(i.req_indice_dans_ligne(),4);
 }
 
 
 /***
- * \brief Teste si l'opérateur ++ incrémente un indice qui peut être incrémenté
+ * \brief Teste si l'opérateur ++(Post) incrémente un indice
  */
-TEST(TestIndice,opérateur_indicesPermettentIncrémentation_incrémentation)
+TEST(TestIndice,opérateurPostInc_indicesPermettentIncrémentation_incrémentation)
 {
     Indice i(3,2,4);
     i++;
@@ -79,9 +96,9 @@ TEST(TestIndice,opérateur_indicesPermettentIncrémentation_incrémentation)
 }
 
 /***
- * \brief Teste si l'opérateur ++ incrémente un indice qui peut être incrémenté
+ * \brief Teste si l'opérateur ++(Post) incrémente un indice
  */
-TEST(TestIndice,opérateur_indicesPermettentIncrémentation2_incrémentation)
+TEST(TestIndice,opérateurPostInc_indicesPermettentIncrémentation2_incrémentation)
 {
     Indice i(8,2);
     i++;
@@ -92,9 +109,9 @@ TEST(TestIndice,opérateur_indicesPermettentIncrémentation2_incrémentation)
 }
 
 /***
- * \brief Teste si l'opérateur ++ n'incrémente pas un indice qui ne peut pas être incrémenté
+ * \brief Teste si l'opérateur ++(Post) n'incrémente pas un indice qui ne peut l'être
  */
-TEST(TestIndice,opérateur_indicesNePermettentPasIncrémentation_aucuneIncrémentation)
+TEST(TestIndice,opérateurPostInc_indicesNePermettentPasIncrémentation_aucuneIncrémentation)
 {
     Indice i(8,8,8);
     i++;
@@ -106,19 +123,131 @@ TEST(TestIndice,opérateur_indicesNePermettentPasIncrémentation_aucuneIncrémen
 
 
 /***
- * \brief Teste si l'opérateur -- ***TODO***
+ * \brief Teste si l'opérateur --(Post) peut décrémenter un indice
  */
-TEST(TestIndice,opérateurDecrementation_TODO)
+TEST(TestIndice,opérateurPostDec_indicesPermettentDécrémentation_Décrémentation)
 {
-    // ***TODO***
-   /* Indice i(8,8,8);
-    i++;
+    Indice i(2,5);
+    i--;
+    ASSERT_EQ(i.req_indice_boite(), 2);
+    ASSERT_EQ(i.req_indice_col(), 7);
+    ASSERT_EQ(i.req_indice_ligne(),1);
+    ASSERT_EQ(i.req_indice(),4);
+    
+}
+
+/***
+ * \brief Teste si l'opérateur --(Post) peut décrémenter un indice
+ */
+TEST(TestIndice,opérateurPostDec_indicesPermettentDécrémentation2_Décrémentation)
+{
+    Indice i(6,0,6);
+    i--;
+    ASSERT_EQ(i.req_indice_boite(), 5);
+    ASSERT_EQ(i.req_indice_col(), 8);
+    ASSERT_EQ(i.req_indice_ligne(),5);
+    ASSERT_EQ(i.req_indice(),8);
+    
+}
+
+/***
+ * \brief Teste si l'opérateur --(Post) ne décrémente pas un indice qui ne peut l'être
+ */
+TEST(TestIndice,opérateurPostDec_indicesNePermettentPasDécrémentation_aucunedécrémentation)
+{
+    Indice i(0,0,0);
+    i--;
+    ASSERT_EQ(i.req_indice_boite(), 0);
+    ASSERT_EQ(i.req_indice_col(), 0);
+    ASSERT_EQ(i.req_indice_ligne(),0);
+    ASSERT_EQ(i.req_indice(),0);
+    
+}
+
+
+/***
+ * \brief Teste si l'opérateur ++(Pré) incrémente un indice
+ */
+TEST(TestIndice,opérateurPreInc_indicesPermettentIncrémentation_incrémentation)
+{
+    Indice i(3,2,4);
+    ++i;
+    ASSERT_EQ(i.req_indice_boite(), 3);
+    ASSERT_EQ(i.req_indice_col(), 2);
+    ASSERT_EQ(i.req_indice_ligne(),5);
+    ASSERT_EQ(i.req_indice(),8);
+}
+
+/***
+ * \brief Teste si l'opérateur ++(Pré) incrémente un indice
+ */
+TEST(TestIndice,opérateurPreInc_indicesPermettentIncrémentation2_incrémentation)
+{
+    Indice i(7,8);
+    ++i;
+    ASSERT_EQ(i.req_indice_boite(), 2);
+    ASSERT_EQ(i.req_indice_col(), 6);
+    ASSERT_EQ(i.req_indice_ligne(),0);
+    ASSERT_EQ(i.req_indice(),0);
+}
+
+/***
+ * \brief Teste si l'opérateur ++(Pré) n'incrémente pas un indice qui ne peut être incrémenté
+ */
+TEST(TestIndice,opérateurPreInc_indicesNePermettentPasIncrémentation_aucuneIncrémentation)
+{
+    Indice i(8,8,8);
+    ++i;
     ASSERT_EQ(i.req_indice_boite(), 8);
     ASSERT_EQ(i.req_indice_col(), 8);
     ASSERT_EQ(i.req_indice_ligne(),8);
     ASSERT_EQ(i.req_indice(),8);
-    */
 }
+
+
+/***
+ * \brief Teste si l'opérateur --(Pré) peut décrémenter un indice
+ */
+TEST(TestIndice,opérateurPreDec_indicesPermettentDécrémentation_Décrémentation)
+{
+    Indice i(2,5);
+    --i;
+    ASSERT_EQ(i.req_indice_boite(), 2);
+    ASSERT_EQ(i.req_indice_col(), 8);
+    ASSERT_EQ(i.req_indice_ligne(),0);
+    ASSERT_EQ(i.req_indice(),2);
+    
+}
+
+/***
+ * \brief Teste si l'opérateur --(Pré) peut décrémenter un indice
+ */
+TEST(TestIndice,opérateurPreDec_indicesPermettentDécrémentation2_Décrémentation)
+{
+    Indice i(1,3,0);
+    --i;
+    ASSERT_EQ(i.req_indice_boite(), 6);
+    ASSERT_EQ(i.req_indice_col(), 2);
+    ASSERT_EQ(i.req_indice_ligne(),8);
+    ASSERT_EQ(i.req_indice(),8);
+    
+}
+
+/***
+ * \brief Teste si l'opérateur --(Pré) ne décrémente pas un indice qui ne peut l'être
+ */
+TEST(TestIndice,opérateurPreDec_indicesNePermettentPasDécrémentation_aucunedécrémentation)
+{
+    Indice i(0,0,0);
+    --i;
+    ASSERT_EQ(i.req_indice_boite(), 0);
+    ASSERT_EQ(i.req_indice_col(), 0);
+    ASSERT_EQ(i.req_indice_ligne(),0);
+    ASSERT_EQ(i.req_indice(),0);
+    
+}
+
+
 
 //faire un test qui combine les deux opérateurs ************
 //ajouter test de préincrémentation --i et ++i********
