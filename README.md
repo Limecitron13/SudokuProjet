@@ -15,7 +15,7 @@
 
 ## 🧾 Tâches à faire
 
-- Implémenter la fonction resoudre  
+- Implémenter les tests de la fonction resoudre  
 
 
 
