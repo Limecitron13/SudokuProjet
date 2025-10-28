@@ -25,6 +25,7 @@ int resoudre(Grille& g)
      * 
      * 
      * Si la grille est valide:
+     *     afficher la grille
      *     retourner 1
      * 
      * Trouver la prochaine case vide
