@@ -21,7 +21,7 @@ TEST(TestGrille,constructeur_parDefaut_objetValide)
     Indice i;
         for(int nbr_case=0;nbr_case<81;nbr_case++)
         {
-            ASSERT_EQ(g.req_val_case(i) ,0 );
+            ASSERT_EQ(g.req_val(i) ,0 );
             i++;
         }
 }
@@ -41,7 +41,7 @@ TEST(TestGrille,constructeur_parametre_objetValide)
     Indice i;
         for(int nbr_case=0;nbr_case<81;nbr_case++)
         {
-            ASSERT_EQ(t.req_val_case(i) , g.req_val_case(i) );
+            ASSERT_EQ(t.req_val(i) , g.req_val(i) );
             i++;
         }
 }
@@ -54,7 +54,7 @@ TEST(TestGrille,asg_val_indiceEtValeurValide_succès)
     Grille g;
     Indice i(8,8);
     g.asg_val(i,7);
-    ASSERT_EQ(g.req_val_case(i),7);
+    ASSERT_EQ(g.req_val(i),7);
 }
 
 
@@ -67,7 +67,7 @@ TEST(TestGrille,asg_val_indiceEtValeurValide2_succès)
     Grille g;
     Indice i(1,3,2);
     g.asg_val(i,9);
-    ASSERT_EQ(g.req_val_case(i),9);
+    ASSERT_EQ(g.req_val(i),9);
 }
 
 /***
@@ -110,7 +110,7 @@ TEST(TestGrille,asg_grille_grilleValide_assignationCorrecte)
         for(int cases=0;cases<9;cases++)
         {
             Indice i(boite,cases);
-            ASSERT_EQ(g.req_val_case(i),boite_val.at(cases)-48);
+            ASSERT_EQ(g.req_val(i),boite_val.at(cases)-48);
         }
     }
 

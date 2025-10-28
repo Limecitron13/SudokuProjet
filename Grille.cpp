@@ -40,8 +40,8 @@ Grille::Grille(const Grille& g)
     Indice i;
         for(int nbr_case=0;nbr_case<81;nbr_case++)
         {
-            m_grille.at(i.req_indice_boite()).at(i.req_indice()) = g.req_val_case(i);
-            POSTCONDITION(m_grille.at(i.req_indice_boite()).at(i.req_indice()) == g.req_val_case(i)); //Un peu redondant, mais vaut mieux être sûr!
+            m_grille.at(i.req_indice_boite()).at(i.req_indice()) = g.req_val(i);
+            POSTCONDITION(m_grille.at(i.req_indice_boite()).at(i.req_indice()) == g.req_val(i)); //Un peu redondant, mais vaut mieux être sûr!
             i++;
         }
     INVARIANTS();
@@ -130,7 +130,7 @@ bool Grille::valider_grille()const
  * \param i est un objet Indice qui contient l'indice de la case 
  * \return Valeur de la case à l'indice i
  */
-const int& Grille::req_val_case(const Indice& i)const
+const int& Grille::req_val(const Indice& i)const
 {
     return m_grille.at(i.req_indice_boite()).at(i.req_indice());
 }
@@ -213,7 +213,7 @@ ostream& operator<<(ostream& os,const Grille& grille)
             os<<"| ";
         }
         
-        os<<grille.req_val_case(i);
+        os<<grille.req_val(i);
         os<<" ";
         if(i.req_indice_col() == 8)
         {

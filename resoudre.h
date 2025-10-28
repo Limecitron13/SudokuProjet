@@ -9,7 +9,7 @@
 #ifndef RESOUDRE_H
 #define RESOUDRE_H
 
-void resoudre(Grille&);
+int resoudre(Grille,Indice&);
 
 #endif /* RESOUDRE_H */
 
