@@ -57,7 +57,7 @@ Grille::Grille(const Grille& g)
  */
 void Grille::asg_val(const Indice& i,int valeur)
 {
-    PRECONDITION(m_grille.at(i.req_indice_boite()).at(i.req_indice())==0 && valeur<=9 && valeur>=1);
+    PRECONDITION(valeur<=9 && valeur>=1);
     m_grille.at(i.req_indice_boite()).at(i.req_indice()) = valeur;
     POSTCONDITION(m_grille.at(i.req_indice_boite()).at(i.req_indice()) == valeur);
     INVARIANTS();
@@ -78,7 +78,7 @@ bool Grille::valider_grille()const
         {
             nombres.at(cases)=m_grille.at(boite).at(cases);
         }
-        if(a_double(nombres))
+        if(a_double(nombres) || est_membre(nombres,0))
         {
             return false;
         }
@@ -95,7 +95,7 @@ bool Grille::valider_grille()const
             i++;   
         }
     
-        if(a_double(nombres)) //Vérification si il y a une contradiction
+        if(a_double(nombres)|| est_membre(nombres,0)) //Vérification si il y a une contradiction
         {
             return false;
         }
@@ -113,7 +113,7 @@ bool Grille::valider_grille()const
             ++j;   
         } 
     
-        if(a_double(nombres)) //Vérification si il y a une contradiction
+        if(a_double(nombres)|| est_membre(nombres,0)) //Vérification si il y a une contradiction
         {
             return false;
         }

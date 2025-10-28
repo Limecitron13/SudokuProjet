@@ -18,11 +18,11 @@ using namespace std;
  * \param i est un objet Indice qui ****TODO****
  * \return retourne 1 si la grille a été résolu et 0 si les possiblités ont été épuisées
  */
-int resoudre(Grille g,Indice& i)
+int resoudre(Grille g,Indice i)
 {
     if(g.valider_grille())   //Vérifier si la grille est résolue
     {
-        cout << g;
+        cout <<"La grille Valide:"<<endl<< g;
         return 1;
     }
     
@@ -39,13 +39,15 @@ int resoudre(Grille g,Indice& i)
     }
     
     int indice_nbr_a_test = 0;
-    while(nombres_possibles.at(indice_nbr_a_test) != 0) //Trouver le prochain nombre a tester dans le tableau
+    while(nombres_possibles.at(indice_nbr_a_test) == 0) //Trouver le prochain nombre a tester dans le tableau
     {
         indice_nbr_a_test++;
     }
     
     g.asg_val(i,nombres_possibles.at(indice_nbr_a_test)); //On test la valeur
     int nombre = resoudre(g, i);   //appel récursif
+    indice_nbr_a_test++;
+    
     
     while(true)  
     {
@@ -53,9 +55,15 @@ int resoudre(Grille g,Indice& i)
         {
             return 1;
         }
+        
         if(nombre == 0)  //On a épuisé la possibilitées avec le nombre précédent
         {
-            while(nombres_possibles.at(indice_nbr_a_test) != 0) //Trouver le prochain nombre a tester dans le tableau
+            if(indice_nbr_a_test >=9)
+            {
+                return 0;   //Il n'y a plus de possibilitées pour cette case
+            }
+            
+            while(nombres_possibles.at(indice_nbr_a_test) == 0 ) //Trouver le prochain nombre a tester dans le tableau
             {
                 if(indice_nbr_a_test == 8)
                 {
@@ -66,6 +74,7 @@ int resoudre(Grille g,Indice& i)
             
             g.asg_val(i,nombres_possibles.at(indice_nbr_a_test));
             nombre = resoudre(g,i);
+            indice_nbr_a_test++;
             
         }
     }

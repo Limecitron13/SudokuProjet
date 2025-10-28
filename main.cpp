@@ -5,6 +5,8 @@
  * \brief contient la fonction main
  */
 #include "Grille.h"
+#include "Indice.h"
+#include "resoudre.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -13,11 +15,18 @@ using namespace std;
 
 
 int main() {
-    ifstream ifs ("fichiersTestsGrille/Grille_formatValide.txt", ifstream::in);
+    try{
+    ifstream ifs ("fichiersTestsGrille/Grille_avecZeros_formatValide.txt", ifstream::in);
     Grille g;
     g.asg_grille(ifs);
-    cout <<g<<endl;
-    
+    Indice i;
+    cout << g<<endl<<endl;
+    resoudre(g,i);
+    }
+    catch(ContratException& e)
+    {
+        cout<<e.reqTexteException();
+    }
     return 0;
 }
 
