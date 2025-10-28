@@ -117,6 +117,21 @@ const int& Indice::req_indice_dans_boite()const
 }
 
 
+/***
+ * \brief Permet l'affichage de l'indice
+ * \param os est un ostream à qui on ajoute le formatage de l'indice
+ * \param p_indice est l'objet Indice à formater
+ * \retrun un ostream qui contient le formatage de l'indice
+ */
+ostream& operator<<(ostream& os,const Indice& p_indice)
+{
+    os<<"Boîte : "<<p_indice.req_indice_boite()<<" À l'indice : "<<p_indice.req_indice()<<endl;
+    os<<"Colonne : "<<p_indice.req_indice_col()<<endl;
+    os<<"Ligne : "<<p_indice.req_indice_ligne()<<endl;
+    return os;
+}
+
+
 
 /***
  * \brief Surcharge de l'opérateur ++(postincémentation).Cet opérateur incrémente l'indice de façon à parcourir la grille par ses lignes de gauche à droite et de haut en bas.

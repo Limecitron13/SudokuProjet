@@ -7,6 +7,7 @@
 
 #ifndef INDICE_H
 #define INDICE_H
+#include<iostream>
 
 /***
  * \class Indice
@@ -24,6 +25,7 @@ public:
     const int& req_indice_dans_ligne()const;
     const int& req_indice_dans_col()const;
     const int& req_indice_dans_boite()const;
+    friend std::ostream& operator<<(std::ostream& os,const Indice& p_indice);
     void operator++(int);
     void operator--(int);
     void operator++(void);
