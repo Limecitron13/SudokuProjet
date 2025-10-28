@@ -20,9 +20,10 @@ using namespace std;
  */
 int resoudre(Grille g,Indice i)
 {
+    //cout<<i;
     if(g.valider_grille())   //Vérifier si la grille est résolue
     {
-        cout <<"La grille Valide:"<<endl<< g;
+        cout <<"La grille résolue:"<<endl<< g;
         return 1;
     }
     

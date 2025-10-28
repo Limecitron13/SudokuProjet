@@ -15,6 +15,7 @@
 
 ## 🧾 Tâches à faire
 
+- Implémenter un operateur de comparaison (==) entre deux Grilles  
 - Implémenter les tests de la fonction resoudre  
 
 

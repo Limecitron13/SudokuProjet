@@ -16,7 +16,7 @@ using namespace std;
 
 int main() {
     try{
-    ifstream ifs ("fichiersTestsGrille/Grille_avecZeros_formatValide.txt", ifstream::in);
+    ifstream ifs ("fichiersTestsResoudre/grille1_a_resoudre", ifstream::in);
     Grille g;
     g.asg_grille(ifs);
     Indice i;
