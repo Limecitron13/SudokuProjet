@@ -18,68 +18,39 @@ using namespace std;
  */
 int resoudre(Grille& g)
 {
-    Indice i;
-    while(g.req_val_case(i) !=0 )  //Trouver la première case vide
-    {
-        if(i.req_indice() == 8 && i.req_indice_boite() == 8)
-        {
-            return 1;  //La grille est pleine (contient aucun 0)
-        }
-        i++;
-    }
-    
-    Grille g_copie(g);
-    
-    
-    while(!g.valider_grille())
-    {
-        
-        array<int,9> nombres_possibles = respecte_contraintes(g,i);
-    
-        //Section qui gère le retour en arrière
-        if(est_zero(nombres_possibles) && g_copie.req_val_case(i) == 0) //Contradiction. Aucun chiffre peut aller dans cette case
-        {
-            while(true) //on sort de la boucle si on trouve une case qui a des possibilités de nombres
-            {
-                if(g_copie.req_val_case(i) == 0) //Si la case peut être modifié (pas une case initiale)
-                {
-                    g.asg_val(i,0);     
-                }
-                i--;
-            
-                nombres_possibles = respecte_contraintes(g,i);
-                if(!est_zero(nombres_possibles) && g_copie.req_val_case(i) == 0 )   //On sort de la boucle si il y a une possiblité
-                {
-                    break;
-                }
-            }
-        
-        }
-    }
-    
-
-    
+  
     
     
     /*
-     * 1- Trouver la première case vide
-     * 2- Tant grille est invalide:
-     * 3-     Regarder quels nombres vont dans cette case (liste)
-     * 4-     Essayer le nombre suivant dans la liste
-     * 5-     
-     * 6-     Si contradiction:
-     * 7-         Revenir en arrière en effaçant les cases modifiées jusqu'à la première case qui ne cause pas de contradiction
-     * 8-         Continuer la boucle
-     * 9-
-     * 10-    Si possibilités épuisés
-     * 11-        Arrêter
-     * 12-    
-     * 13-    Passer à la prochaine case
-     * 14-        
      * 
+     * 
+     * Si la grille est valide:
+     *     retourner 1
+     * 
+     * Trouver la prochaine case vide
+     * Regarder quels nombres vont dans cette case (liste)
+     * 
+     * 
+     * Si il n'y a plus d'options de nombres pour cette case:
+     *     retourner 0
+     * 
+     * Essayer un nombre dans la liste 
+     * nombre = Appel récursif
+     * 
+     * while(true):
+     *     Si nombre = 1:
+     *         retourner 1
+     * 
+     *     Si nombre = 0:
+     *         Si il ne reste plus de nombres dans la liste:
+     *             retourner 0;
+     *         Essayer le nombre suivant dans la liste
+     *         nombre = Appel récursif
      * 
      */
     
+    
+
     
 }
 
