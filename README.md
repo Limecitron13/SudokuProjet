@@ -15,7 +15,7 @@
 
 ## 🧾 Tâches à faire
 
-- Ajouter les tâches à faire ici  
+- Simplifier les tests unitaires à l'aide des nouvelles méthodes et fonctions  
 
 
 
@@ -27,7 +27,8 @@
 - Ajouter une façon de sauvegarder une grille de sudoku dans un fichier texte avec le bon format  
 - Ajouter une gestion des exceptions  
 - Ajouter une algorithme de résolution différent  
-- Ajouter des variantes de sudoku(killer,knight move, king move,etc.)  
+- Ajouter des variantes de sudoku(killer,knight move, king move,etc.)
+
 
 
 
