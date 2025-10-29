@@ -28,6 +28,7 @@ public:
     std::array<int,9> req_boite(Indice)const;
     std::array<int,9> req_ligne(Indice)const;
     friend std::ostream& operator<<(std::ostream& p_os,const Grille& p_grille);
+    bool operator==(const Grille& p_grille);
     void asg_grille(std::ifstream&);
     std::array<int,9>respecte_contraintes(Indice&)const;
 private:

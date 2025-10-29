@@ -237,6 +237,27 @@ ostream& operator<<(ostream& os,const Grille& grille)
 }
 
 
+
+
+
+/***
+ * \brief Opérateur de comparaison entre deux grilles
+ * \param p_grille est la grille avec qui on compare
+ * \return true si tous les éléments sont identique entre les deux grilles, false sinon
+ */
+bool Grille::operator==(const Grille& p_grille)
+{
+    Indice i;
+    for(int j=0;j<81;j++)  //On regarde tous les cases
+    {
+        if(p_grille.req_val(i) != this->req_val(i))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 /***
  * \brief ajoute les valeurs d'une grille sudoku qui provient d'un fichier texte
  * \param ifs est un flux de fichier qui contient le fichier texte de la grille

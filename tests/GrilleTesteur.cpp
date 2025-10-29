@@ -94,6 +94,41 @@ TEST(TestGrille,validerGrille_grilleValide_valide)
 
 }
 
+
+
+/***
+ * \brief Teste si l'opérateur == peut déterminer que deux grille sont identiques
+ */
+TEST(TestGrille,operateurEgalite_grilleIdentiques_vrai)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
+    g.asg_grille(ifs);
+    
+    Grille b;
+    ifstream ifs2("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
+    b.asg_grille(ifs2);
+    ASSERT_TRUE(g==b);
+}
+
+
+/***
+ * \brief Teste si l'opérateur == peut déterminer que deux grille sont différentes
+ */
+TEST(TestGrille,operateurEgalite_grilleDifférentes_faux)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
+    g.asg_grille(ifs);
+    
+    Grille b;
+    ifstream ifs2("fichiersTestsGrille/Grille_avecZeros_formatValide.txt",ifstream::in);
+    b.asg_grille(ifs2);
+    ASSERT_FALSE(g==b);
+}
+
+
+
 /***
  * \brief Teste si asg_grille assigne les bonnes valeur aux bons endroits
  */

@@ -5,6 +5,7 @@
  * \brief Contient les tests de la fonction resoudre et d'autres fonctions dans resourdre.h
  */
 #include <gtest/gtest.h>
+#include "resoudre.h"
 TEST(TestResoudre,testNoncomplété)
 {
     ASSERT_TRUE(true);
