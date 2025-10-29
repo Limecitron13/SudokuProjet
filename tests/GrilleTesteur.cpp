@@ -120,6 +120,32 @@ TEST(TestGrille,asg_grille_grilleValide_assignationCorrecte)
 
 
 /***
+ * \brief Teste si req_validite retourne la bonne valeur avec une grille invalide
+ */
+TEST(TestGrille,req_validite_grilleInvalide_invalide)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide_grilleNonValide.txt",ifstream::in);
+    g.asg_grille(ifs);
+    ASSERT_FALSE(g.req_validite());
+
+}
+
+/***
+ * \brief Teste si req_validite retourne la bonne valeur avec une grille valide
+ */
+TEST(TestGrille,req_validite_grilleValide_valide)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
+    g.asg_grille(ifs);
+    ASSERT_TRUE(g.req_validite());
+
+}
+
+
+
+/***
  * \brief Teste si req_colonne retourne la bonne colonne
  */
 TEST(TestGrille,req_colonne_indiceValide_colonneAttendue)
