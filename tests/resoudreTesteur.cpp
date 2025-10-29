@@ -5,11 +5,83 @@
  * \brief Contient les tests de la fonction resoudre et d'autres fonctions dans resourdre.h
  */
 #include <gtest/gtest.h>
+#include <fstream>
 #include "resoudre.h"
-TEST(TestResoudre,testNoncomplété)
+#include "Indice.h"
+#include "Grille.h"
+using namespace std;
+
+/***
+ * \brief Teste si la fonctino resoudre peut resoudre une grille de sudoku
+ */
+TEST(TestResoudre,resoudre_grilleARésoudre1_grilleRésolue)
 {
-    ASSERT_TRUE(true);
+    Grille g;
+    ifstream ifs("fichiersTestsResoudre/grille1_a_resoudre.txt",ifstream::in);
+    g.asg_grille(ifs);
+    
+    Grille b;
+    ifstream ifs2("fichiersTestsResoudre/grille1_solu.txt",ifstream::in);
+    b.asg_grille(ifs2);
+    
+    Indice i;
+    Grille g_resolue = resoudre(g,i);
+    ASSERT_TRUE(g_resolue==b);
 }
 
 
-//Vérifier dans les tests que la fonction n'a pas modifiée les cases initiales 
+/***
+ * \brief Teste si la fonctino resoudre peut resoudre une grille de sudoku
+ */
+TEST(TestResoudre,resoudre_grilleARésoudre2_grilleRésolue)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsResoudre/grille2_a_resoudre.txt",ifstream::in);
+    g.asg_grille(ifs);
+    
+    Grille b;
+    ifstream ifs2("fichiersTestsResoudre/grille2_solu.txt",ifstream::in);
+    b.asg_grille(ifs2);
+    
+    Indice i;
+    Grille g_resolue = resoudre(g,i);
+    ASSERT_TRUE(g_resolue==b);
+}
+
+
+/***
+ * \brief Teste si la fonctino resoudre peut resoudre une grille de sudoku
+ */
+TEST(TestResoudre,resoudre_grilleARésoudre3_grilleRésolue)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsResoudre/grille3_a_resoudre.txt",ifstream::in);
+    g.asg_grille(ifs);
+    
+    Grille b;
+    ifstream ifs2("fichiersTestsResoudre/grille3_solu.txt",ifstream::in);
+    b.asg_grille(ifs2);
+    
+    Indice i;
+    Grille g_resolue = resoudre(g,i);
+    ASSERT_TRUE(g_resolue==b);
+}
+
+
+/***
+ * \brief Teste si la fonctino resoudre peut resoudre une grille de sudoku
+ */
+TEST(TestResoudre,resoudre_grilleARésoudre4_grilleRésolue)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsResoudre/grille4_a_resoudre.txt",ifstream::in);
+    g.asg_grille(ifs);
+    
+    Grille b;
+    ifstream ifs2("fichiersTestsResoudre/grille4_solu.txt",ifstream::in);
+    b.asg_grille(ifs2);
+    
+    Indice i;
+    Grille g_resolue = resoudre(g,i);
+    ASSERT_TRUE(g_resolue==b);
+}

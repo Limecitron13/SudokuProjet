@@ -340,7 +340,7 @@ bool verifier_format_fichier(ifstream& ifs)
 {
     if(!ifs)
     {
-        cout<<"Fichier n'existe pas ou ne peut être ouvert !";
+        cout<<endl<<"Fichier n'existe pas ou ne peut être ouvert !"<<endl;
         return false;
     }
     
