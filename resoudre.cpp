@@ -18,12 +18,11 @@ using namespace std;
  * \param i est un objet Indice qui ****TODO****
  * \return retourne 1 si la grille a été résolu et 0 si les possiblités ont été épuisées
  */
-int resoudre(Grille g,Indice i)
+Grille resoudre(Grille g,Indice i)
 {
-    if(g.valider_grille())   //Vérifier si la grille est résolue
+    if(g.req_validite())   //Vérifier si la grille est résolue
     {
-        cout <<"La grille résolue:"<<endl<< g;
-        return 1;
+        return g;
     }
     
     while(g.req_val(i) != 0)   //Trouver la prochaine case vide
@@ -35,7 +34,7 @@ int resoudre(Grille g,Indice i)
     
     if(est_zero(nombres_possibles) )  //Il n'y a plus de possibilités pour cette case
     {
-        return 0;
+        return g;
     }
     
     int indice_nbr_a_test = 0;
@@ -45,35 +44,35 @@ int resoudre(Grille g,Indice i)
     }
     
     g.asg_val(i,nombres_possibles.at(indice_nbr_a_test)); //On test la valeur
-    int nombre = resoudre(g, i);   //appel récursif
+    Grille g_appel = resoudre(g, i);   //appel récursif
     indice_nbr_a_test++;
     
     
     while(true)  
     {
-        if(nombre == 1)  //On a une grille valide
+        if(g_appel.req_validite())  //On a une grille valide
         {
-            return 1;
+            return g_appel;
         }
         
-        if(nombre == 0)  //On a épuisé la possibilitées avec le nombre précédent
+        if(!g_appel.req_validite())  //On a épuisé la possibilitées avec le nombre précédent
         {
             if(indice_nbr_a_test >=9)
             {
-                return 0;   //Il n'y a plus de possibilitées pour cette case
+                return g_appel;   //Il n'y a plus de possibilitées pour cette case
             }
             
             while(nombres_possibles.at(indice_nbr_a_test) == 0 ) //Trouver le prochain nombre a tester dans le tableau
             {
                 if(indice_nbr_a_test == 8)
                 {
-                    return 0; //Il n'y a plus de possibilitées pour cette case
+                    return g_appel; //Il n'y a plus de possibilitées pour cette case
                 }
                 indice_nbr_a_test++;
             }
             
             g.asg_val(i,nombres_possibles.at(indice_nbr_a_test));
-            nombre = resoudre(g,i);
+            g_appel = resoudre(g,i);
             indice_nbr_a_test++;
             
         }

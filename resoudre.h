@@ -9,7 +9,7 @@
 #ifndef RESOUDRE_H
 #define RESOUDRE_H
 
-int resoudre(Grille,Indice);
+Grille resoudre(Grille,Indice);
 
 #endif /* RESOUDRE_H */
 

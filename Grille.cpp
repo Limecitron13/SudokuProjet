@@ -58,7 +58,7 @@ Grille::Grille(const Grille& g)
  */
 void Grille::asg_val(const Indice& i,int valeur)
 {
-    PRECONDITION(valeur<=9 && valeur>=1);
+    PRECONDITION(valeur<=9 && valeur>=0);
     m_grille.at(i.req_indice_boite()).at(i.req_indice()) = valeur;
     m_est_valide = this->valider_grille();
     POSTCONDITION(m_grille.at(i.req_indice_boite()).at(i.req_indice()) == valeur);
@@ -136,6 +136,16 @@ const int& Grille::req_val(const Indice& i)const
 {
     return m_grille.at(i.req_indice_boite()).at(i.req_indice());
 }
+
+/***
+ * \brief Accesseur de la valeur m_est_valide
+ * \return m_est_valide
+ */
+const bool& Grille::req_validite()const
+{
+    return m_est_valide;
+}
+
 
 
 /***
