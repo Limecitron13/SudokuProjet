@@ -15,8 +15,7 @@
 
 ## 🧾 Tâches à faire
 
-- Implémenter un operateur de comparaison (==) entre deux Grilles  
-- Implémenter les tests de la fonction resoudre  
+- Ajouter les tâches à faire ici  
 
 
 
@@ -24,8 +23,10 @@
 
 ## 💡 Idées à implémenter dans le futur
 
-- Ajouter une interface graphique  
+- Ajouter une interface graphique pour pouvoir jouer au sudoku et pour voir la résolution de la grille en temps réel  
+- Ajouter une façon de sauvegarder une grille de sudoku dans un fichier texte avec le bon format  
 - Ajouter une gestion des exceptions  
+- Ajouter une algorithme de résolution différent  
 - Ajouter des variantes de sudoku(killer,knight move, king move,etc.)  
 
 
