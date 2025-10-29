@@ -17,7 +17,7 @@ using namespace std;
 /***
  * \brief Constructeur d'objets Grille. Remplie la grille de zéros
  */
-Grille::Grille()
+Grille::Grille():m_est_valide(false)
 {
     for(int boite=0;boite<9;boite++)
     {
@@ -44,6 +44,7 @@ Grille::Grille(const Grille& g)
             POSTCONDITION(m_grille.at(i.req_indice_boite()).at(i.req_indice()) == g.req_val(i)); //Un peu redondant, mais vaut mieux être sûr!
             i++;
         }
+    m_est_valide = g.valider_grille();
     INVARIANTS();
 }
 
@@ -59,6 +60,7 @@ void Grille::asg_val(const Indice& i,int valeur)
 {
     PRECONDITION(valeur<=9 && valeur>=1);
     m_grille.at(i.req_indice_boite()).at(i.req_indice()) = valeur;
+    m_est_valide = this->valider_grille();
     POSTCONDITION(m_grille.at(i.req_indice_boite()).at(i.req_indice()) == valeur);
     INVARIANTS();
 }
@@ -243,7 +245,34 @@ void Grille::asg_grille(ifstream& ifs)
             m_grille.at(boite).at(cases) = boite_valeurs.at(cases)-48; //convertion de valeur table ASCII(valeur de caractère) en la vrai valeur du nombre
         }
     }
+    m_est_valide = this->valider_grille();
     INVARIANTS();
+}
+
+
+
+/***
+ * \brief Vérifie quels nombres peuvent être positionés à un certain indice. Rappel: Il peut seulement avoir une copie d'un nombre
+ * par boite, colonne et ligne.
+ * \param i est un objet Indice qui contient les informations de l'indice d'une case
+ * \return un tableau de neuf entiers des nombres qui peuvent être placé dans cette case. Ex:{1,2,0,4,0,0,6,0,0} les zéros sont un «buffer» et les nombres sont placés à l'indice (nombre-1)
+ */
+array<int,9> Grille::respecte_contraintes(Indice& i)const
+{
+    array<int,9> colonne = this->req_col(i);
+    array<int,9> ligne = this->req_ligne(i);
+    array<int,9> boite = this->req_boite(i);
+    
+    array<int,9> nombres_possibles{};      // le tableau est remplis de 0
+    for(int nombre=1;nombre<=9;nombre++)
+    {
+        //On s'assure que le nombre n'est pas dans la ligne colonne ou boite et que celui-ci n'a pas déjà été trouvé
+        if(nombres_possibles.at(nombre-1)==0 && !est_membre(colonne,nombre) && !est_membre(ligne,nombre) && !est_membre(boite,nombre))
+        {
+            nombres_possibles.at(nombre-1)=nombre;
+        }
+    }
+    return nombres_possibles;
 }
 
 
@@ -267,32 +296,6 @@ void Grille::verifieInvariant()
 
 //Fin de l'implantation de la classe Grille---------------------
 
-
-
-/***
- * \brief Vérifie quels nombres peuvent être positionés à un certain indice. Rappel: Il peut seulement avoir une copie d'un nombre
- * par boite, colonne et ligne.
- * \param g est un objet Grille qui contient la grille de sudoku
- * \param i est un objet Indice qui contient les informations de l'indice d'une case
- * \return un tableau de neuf entiers des nombres qui peuvent être placé dans cette case. Ex:{1,2,0,4,0,0,6,0,0} les zéros sont un «buffer» et les nombres sont placés à l'indice (nombre-1)
- */
-array<int,9> respecte_contraintes(Grille& g,Indice& i)
-{
-    array<int,9> colonne = g.req_col(i);
-    array<int,9> ligne = g.req_ligne(i);
-    array<int,9> boite = g.req_boite(i);
-    
-    array<int,9> nombres_possibles{};      // le tableau est remplis de 0
-    for(int nombre=1;nombre<=9;nombre++)
-    {
-        //On s'assure que le nombre n'est pas dans la ligne colonne ou boite et que celui-ci n'a pas déjà été trouvé
-        if(nombres_possibles.at(nombre-1)==0 && !est_membre(colonne,nombre) && !est_membre(ligne,nombre) && !est_membre(boite,nombre))
-        {
-            nombres_possibles.at(nombre-1)=nombre;
-        }
-    }
-    return nombres_possibles;
-}
 
 
 

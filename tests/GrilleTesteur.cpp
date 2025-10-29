@@ -183,7 +183,7 @@ TEST(TestRespecte_contraintes,respecte_contraintes_grilleNonRemplis_nombresAtten
     ifstream ifs("fichiersTestsGrille/Grille_avecZeros_formatValide.txt",ifstream::in);
     g.asg_grille(ifs);
     Indice i(0,4);
-    array<int,9> nombres_valides = respecte_contraintes(g,i);
+    array<int,9> nombres_valides = g.respecte_contraintes(i);
     array<int,9> nombres_attendus = {0,2,0,4,0,0,7,0,0};
     for(int k=0;k<9;k++)
     {
@@ -203,7 +203,7 @@ TEST(TestRespecte_contraintes,respecte_contraintes_grilleRemplis_TableauDeZéros
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
     g.asg_grille(ifs);
     Indice i(4,4);
-    array<int,9> nombres_valides = respecte_contraintes(g,i);
+    array<int,9> nombres_valides = g.respecte_contraintes(i);
     array<int,9> nombres_attendus = {0,0,0,0,0,0,0,0,0};
     for(int k=0;k<9;k++)
     {

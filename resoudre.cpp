@@ -31,7 +31,7 @@ int resoudre(Grille g,Indice i)
         i++;
     }
     
-    array<int,9>nombres_possibles = respecte_contraintes(g,i); //Les nombres qui peuvent aller dans cette case
+    array<int,9>nombres_possibles = g.respecte_contraintes(i); //Les nombres qui peuvent aller dans cette case
     
     if(est_zero(nombres_possibles) )  //Il n'y a plus de possibilités pour cette case
     {
@@ -82,31 +82,32 @@ int resoudre(Grille g,Indice i)
      * 
      * 
      * Si la grille est valide:
-     *     afficher la grille
-     *     retourner 1
+     *     retourner la grille valide
      * 
      * Trouver la prochaine case vide
      * Regarder quels nombres vont dans cette case (liste)
      * 
      * 
      * Si il n'y a plus d'options de nombres pour cette case:
-     *     retourner 0
+     *     ajouter un zéro à la première case de la première boîte (pour la rendre invalide)
+     *     retourner cette grille
      * 
      * Essayer un nombre dans la liste 
-     * nombre = Appel récursif
+     * grille_copie = Appel récursif
      * 
      * while(true):
-     *     Si nombre = 1:
-     *         retourner 1
+     *     Si grille_copie est valide:
+     *         retourner grille_copie
      * 
-     *     Si nombre = 0:
+     *     Si grille_copie est invalide:
      *         Trouver le nombre suivant dans la liste
      * 
      *         Si il ne reste plus de nombres dans la liste:
-     *             retourner 0;
+     *             ajouter un zéro à la première case de la première boîte (pour la rendre invalide)
+     *             retourner cette grille;
      * 
      *         Essayer ce nombre suivant dans la liste
-     *         nombre = Appel récursif
+     *         grille_copie = Appel récursif
      * 
      */
     
