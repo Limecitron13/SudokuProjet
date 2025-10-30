@@ -78,7 +78,7 @@ Grille resoudre(Grille g,Indice i)
         }
     }
     /*
-     * ***S'assurer que ce pseudo code est à jour et valide
+     * ***S'assurer que ce pseudo code est à jour et valide***
      * 
      * Si la grille est valide:
      *     retourner la grille valide
