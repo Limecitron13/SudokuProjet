@@ -9,6 +9,7 @@
 #include "Grille.h"
 #include "Indice.h"
 #include <fstream>
+#include <cstdio>
 using namespace std;
 
 
@@ -289,6 +290,27 @@ TEST(TestGrille,save_grilleValide_sauvegardeGrille)
     Grille h;
     ifstream ifs2("GrillesSauvegarde/fichierTest.txt",ifstream::in);
     h.asg_grille(ifs2);
+    remove("GrillesSauvegarde/fichierTest.txt");
+    ASSERT_TRUE(g==h);
+}
+
+
+/***
+ * Teste si la méthode save peut sauvegarder une grille sudoku dans un fichier texte
+ */
+TEST(TestGrille,save_grilleValide2_sauvegardeGrille)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
+    g.asg_grille(ifs);
+    Indice i(5,5);
+    g.asg_val(i,9);
+    g.save("fichierTest1.txt");
+    
+    Grille h;
+    ifstream ifs2("GrillesSauvegarde/fichierTest1.txt",ifstream::in);
+    h.asg_grille(ifs2);
+    remove("GrillesSauvegarde/fichierTest1.txt");
     ASSERT_TRUE(g==h);
 }
 

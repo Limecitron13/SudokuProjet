@@ -15,7 +15,6 @@
 
 ## 🧾 Tâches à faire
 
-- Implémenter la fonction save de la classe Grille
 - Simplifier les tests unitaires à l'aide des nouvelles méthodes et fonctions
 - S'assurer que la documentation est complète
 
