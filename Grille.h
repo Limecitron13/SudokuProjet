@@ -31,7 +31,7 @@ public:
     bool operator==(const Grille& p_grille);
     void asg_grille(std::ifstream&);
     std::array<int,9>respecte_contraintes(const Indice&)const;
-    void save(std::string& nom)const;
+    void save(std::string nom)const;
     
 private:
     std::array<std::array<int,9>,9> m_grille;     //Un tableau de taille 9 qui contient chaque boîte du sudoku.
@@ -43,5 +43,6 @@ bool verifier_format_fichier(std::ifstream&);
 bool a_double(std::array<int,9>&);
 bool est_membre(std::array<int,9>&,int);
 bool est_zero(std::array<int,9>&);
+
 #endif /* GRILLE_H */
 

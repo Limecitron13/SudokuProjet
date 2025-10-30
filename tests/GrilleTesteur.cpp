@@ -238,7 +238,7 @@ TEST(TestGrille,req_ligne_indiceValide_ligneAttendue)
 /***
  * \brief Teste si respecte_contrainte peut déterminer les nombres qui peuvent être placés dans cette case
  */
-TEST(TestRespecte_contraintes,respecte_contraintes_grilleNonRemplis_nombresAttendus)
+TEST(TestGrille,respecte_contraintes_grilleNonRemplis_nombresAttendus)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_avecZeros_formatValide.txt",ifstream::in);
@@ -258,7 +258,7 @@ TEST(TestRespecte_contraintes,respecte_contraintes_grilleNonRemplis_nombresAtten
 /***
  * \brief Teste si respecte_contrainte peut déterminer les nombres qui peuvent être placés dans cette case
  */
-TEST(TestRespecte_contraintes,respecte_contraintes_grilleRemplis_TableauDeZéros)
+TEST(TestGrille,respecte_contraintes_grilleRemplis_TableauDeZéros)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
@@ -272,6 +272,27 @@ TEST(TestRespecte_contraintes,respecte_contraintes_grilleRemplis_TableauDeZéros
     }
 
 }
+
+
+/***
+ * Teste si la méthode save peut sauvegarder une grille sudoku dans un fichier texte
+ */
+TEST(TestGrille,save_grilleValide_sauvegardeGrille)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
+    g.asg_grille(ifs);
+    Indice i;
+    g.asg_val(i,0);
+    g.save("fichierTest.txt");
+    
+    Grille h;
+    ifstream ifs2("GrillesSauvegarde/fichierTest.txt",ifstream::in);
+    h.asg_grille(ifs2);
+    ASSERT_TRUE(g==h);
+}
+
+
 
 /***
  * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format valide
