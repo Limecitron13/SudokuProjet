@@ -288,7 +288,7 @@ void Grille::asg_grille(ifstream& ifs)
  * \param i est un objet Indice qui contient les informations de l'indice d'une case
  * \return un tableau de neuf entiers des nombres qui peuvent être placé dans cette case. Ex:{1,2,0,4,0,0,6,0,0} les zéros sont un «buffer» et les nombres sont placés à l'indice (nombre-1)
  */
-array<int,9> Grille::respecte_contraintes(Indice& i)const
+array<int,9> Grille::respecte_contraintes(const Indice& i)const
 {
     array<int,9> colonne = this->req_col(i);
     array<int,9> ligne = this->req_ligne(i);
@@ -307,6 +307,15 @@ array<int,9> Grille::respecte_contraintes(Indice& i)const
 }
 
 
+/***
+ * \brief Enregistre la grille de sudoku sous le bon format dans un fichier texte dans le dossier GrillesSauvegarde
+ * \param nom est une chaîne de caractère du nom du fichier texte
+ */
+void save(std::string& nom)const
+{
+    
+}
+
 
 
 
@@ -324,6 +333,7 @@ void Grille::verifieInvariant()
         }
     }
 }
+
 
 //Fin de l'implantation de la classe Grille---------------------
 

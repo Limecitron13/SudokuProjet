@@ -30,7 +30,9 @@ public:
     friend std::ostream& operator<<(std::ostream& p_os,const Grille& p_grille);
     bool operator==(const Grille& p_grille);
     void asg_grille(std::ifstream&);
-    std::array<int,9>respecte_contraintes(Indice&)const;
+    std::array<int,9>respecte_contraintes(const Indice&)const;
+    void save(std::string& nom)const;
+    
 private:
     std::array<std::array<int,9>,9> m_grille;     //Un tableau de taille 9 qui contient chaque boîte du sudoku.
     bool m_est_valide;
