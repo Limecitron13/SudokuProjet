@@ -202,7 +202,7 @@ array<int,9> Grille::req_col(Indice i)const
     
     for(int k=0;k<9;k++)
     {
-        colonne.at(k)=m_grille.at(i.req_indice_boite()).at(i.req_indice());  //On parcourt la colonne
+        colonne.at(k)=this->req_val(i);  //On parcourt la colonne
         ++i;
     }
     return colonne;
@@ -233,7 +233,7 @@ array<int,9> Grille::req_ligne(Indice i)const
     
     for(int k=0;k<9;k++)
     {
-        ligne.at(k)=m_grille.at(i.req_indice_boite()).at(i.req_indice());
+        ligne.at(k)=this->req_val(i);
         i++;
     }
     return ligne;
@@ -287,12 +287,13 @@ ostream& operator<<(ostream& os,const Grille& grille)
 bool Grille::operator==(const Grille& p_grille)
 {
     Indice i;
-    for(int j=0;j<81;j++)  //On regarde tous les cases
+    for(int nbr_cases=0;nbr_cases<81;nbr_cases++)  //On regarde tous les cases
     {
         if(p_grille.req_val(i) != this->req_val(i))
         {
             return false;
         }
+        i++;
     }
     return true;
 }
@@ -373,13 +374,11 @@ void Grille::save(string nom)const
  */
 void Grille::verifieInvariant()
 {
-    for(int boite=0;boite<9;boite++)
+    Indice i;
+    for(int nbr_cases=0; nbr_cases<81;nbr_cases++)
     {
-        for(int cases=0;cases<9;cases++)
-        {
-            int valeur_case =m_grille.at(boite).at(cases);
-            INVARIANT(valeur_case <= 9 && valeur_case >= 0);  //Les 0 représentes les cases vides
-        }
+        INVARIANT(this->req_val(i)>=0 && this->req_val(i)<=9);
+        i++;
     }
 }
 
