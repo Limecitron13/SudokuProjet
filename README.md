@@ -13,7 +13,7 @@
 
 ---
 
-## 🧾 Tâches à faire
+## 🧾 Tâches à compléter
 
 - Resoudre set up
 - Ajouter nom par défaut lors de la sauvegarde d'une grille
