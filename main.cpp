@@ -21,7 +21,7 @@ int main() {
     g.asg_grille(ifs);
     Indice i;
     cout << g<<endl<<endl;
-    cout<<resoudre(g,i);
+    cout<<resoudre(g);
     }
     catch(ContratException& e)
     {

@@ -6,6 +6,7 @@
  */
 
 #include "Grille.h"
+#include "resoudre.h"
 #include <array>
 #include <iostream>
 using namespace std;
@@ -16,7 +17,7 @@ using namespace std;
  * \param g est une objet Grille de la grille à résoudre
  * \return la grille résolue
  */
-Grille(Grille& g)
+Grille resoudre(Grille& g)
 {
     Indice i;
     return resoudre_recherche(g,i);

@@ -25,7 +25,7 @@ TEST(TestResoudre,resoudre_grilleARésoudre1_grilleRésolue)
     b.asg_grille(ifs2);
     
     Indice i;
-    Grille g_resolue = resoudre(g,i);
+    Grille g_resolue = resoudre(g);
     ASSERT_TRUE(g_resolue==b);
 }
 
@@ -44,7 +44,7 @@ TEST(TestResoudre,resoudre_grilleARésoudre2_grilleRésolue)
     b.asg_grille(ifs2);
     
     Indice i;
-    Grille g_resolue = resoudre(g,i);
+    Grille g_resolue = resoudre(g);
     ASSERT_TRUE(g_resolue==b);
 }
 
@@ -63,7 +63,7 @@ TEST(TestResoudre,resoudre_grilleARésoudre3_grilleRésolue)
     b.asg_grille(ifs2);
     
     Indice i;
-    Grille g_resolue = resoudre(g,i);
+    Grille g_resolue = resoudre(g);
     ASSERT_TRUE(g_resolue==b);
 }
 
@@ -82,6 +82,6 @@ TEST(TestResoudre,resoudre_grilleARésoudre4_grilleRésolue)
     b.asg_grille(ifs2);
     
     Indice i;
-    Grille g_resolue = resoudre(g,i);
+    Grille g_resolue = resoudre(g);
     ASSERT_TRUE(g_resolue==b);
 }
