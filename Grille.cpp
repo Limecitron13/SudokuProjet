@@ -15,25 +15,31 @@
 using namespace std;
 
 /***
- * \brief Constructeur d'objets Grille. Remplie la grille de zéros
+ * \brief Constructeur par défaut de la classe Grille. Assigne un zéro à chaque case.
  */
 Grille::Grille():m_est_valide(false)
 {
-    for(int boite=0;boite<9;boite++)
+    Indice i;
+    for(int nbr_cases =0;nbr_cases<81;nbr_cases++)
     {
-        for(int cases=0;cases<9;cases++)
-        {
-            m_grille.at(boite).at(cases) = 0;
-            POSTCONDITION(m_grille.at(boite).at(cases) == 0);
-        }
+        m_grille.at(i.req_indice_boite()).at(i.req_indice()) = 0;
+        +i;
+    }
+    
+    
+    #if !defined(NDEBUG)  //Si en mode debug
+    for(int boites=0;boites<9;boites++)
+    {
+        POSTCONDITION(est_zero( m_grille.at(boites) ) );
     }
     INVARIANTS();
+    #endif
 }
 
 
 
 /***
- * \brief Constructeur d'objets Grille à partir d'un autre objet Grille
+ * \brief Constructeur copie de la classe Grille
  */
 Grille::Grille(const Grille& g)
 {
@@ -41,11 +47,20 @@ Grille::Grille(const Grille& g)
         for(int nbr_case=0;nbr_case<81;nbr_case++)
         {
             m_grille.at(i.req_indice_boite()).at(i.req_indice()) = g.req_val(i);
-            POSTCONDITION(m_grille.at(i.req_indice_boite()).at(i.req_indice()) == g.req_val(i)); //Un peu redondant, mais vaut mieux être sûr!
-            i++;
+            +i;
         }
     m_est_valide = g.valider_grille();
+    
+    
+    #if !defined(NDEBUG)  //Si en mode debug
+    Indice j;
+    for(int nbr_cases=0;nbr_cases<81;nbr_cases++)
+    {
+        POSTCONDITION(this->req_val(j) == g.req_val(j) );
+        j++;
+    }
     INVARIANTS();
+    #endif
 }
 
 
