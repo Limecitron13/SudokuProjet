@@ -249,8 +249,99 @@ TEST(TestIndice,opérateurPreDec_indicesNePermettentPasDécrémentation_aucuned�
 
 
 
-//faire un test qui combine les deux opérateurs ************
-//ajouter test de préincrémentation --i et ++i********
 
+/***
+ * \brief Teste si l'opérateur +(unaire) peut incrémenter un indice 
+ */
+TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation_incrémentation)
+{
+    Indice i(1,5);
+    +i;
+    ASSERT_EQ(i.req_indice_boite(),1 );
+    ASSERT_EQ(i.req_indice_col(),3 );
+    ASSERT_EQ(i.req_indice_ligne(),2);
+    ASSERT_EQ(i.req_indice(),6);
+    
+}
+
+
+
+/***
+ * \brief Teste si l'opérateur +(unaire) peut incrémenter un indice 
+ */
+TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation2_incrémentation)
+{
+    Indice i(2,8);
+    +i;
+    ASSERT_EQ(i.req_indice_boite(),3 );
+    ASSERT_EQ(i.req_indice_col(), 0);
+    ASSERT_EQ(i.req_indice_ligne(),3);
+    ASSERT_EQ(i.req_indice(),0);
+    
+}
+
+/***
+ * \brief Teste si l'opérateur +(unaire) n'incrémente pas un indice qui ne peut l'être
+ */
+TEST(TestIndice,opérateurIncUna_indicesNePermettentPasIncrémentation_aucuneIncrémentation)
+{
+    Indice i(8,8);
+    +i;
+    ASSERT_EQ(i.req_indice_boite(), 8);
+    ASSERT_EQ(i.req_indice_col(),8 );
+    ASSERT_EQ(i.req_indice_ligne(),8);
+    ASSERT_EQ(i.req_indice(),8);
+    
+}
+
+
+
+
+
+
+
+/***
+ * \brief Teste si l'opérateur -(unaire peut Decrémenter un indice 
+ */
+TEST(TestIndice,opérateurDecUna_indicesPermettentDecrémentation_Decrémentation)
+{
+    Indice i(7,3);
+    -i;
+    ASSERT_EQ(i.req_indice_boite(), 7);
+    ASSERT_EQ(i.req_indice_col(),5 );
+    ASSERT_EQ(i.req_indice_ligne(),6);
+    ASSERT_EQ(i.req_indice(),2);
+    
+}
+
+
+
+/***
+ * \brief Teste si l'opérateur -(unaire) peut Decrémenter un indice 
+ */
+TEST(TestIndice,opérateurDecUna_indicesPermettentDecrémentation2_Decrémentation)
+{
+    Indice i(3,0);
+    -i;
+    ASSERT_EQ(i.req_indice_boite(),2 );
+    ASSERT_EQ(i.req_indice_col(),8 );
+    ASSERT_EQ(i.req_indice_ligne(),2);
+    ASSERT_EQ(i.req_indice(),8);
+    
+}
+
+/***
+ * \brief Teste si l'opérateur + (unaire) n'incrémente pas un indice qui ne peut l'être
+ */
+TEST(TestIndice,opérateurDecUna_indicesNePermettentPasDecrémentation_aucuneDecrémentation)
+{
+    Indice i(0,0);
+    -i;
+    ASSERT_EQ(i.req_indice_boite(),0 );
+    ASSERT_EQ(i.req_indice_col(), 0);
+    ASSERT_EQ(i.req_indice_ligne(),0);
+    ASSERT_EQ(i.req_indice(),0);
+    
+}
 
 

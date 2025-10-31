@@ -248,6 +248,61 @@ void Indice::operator--(void)
 
 
 /***
+ * \brief Surcharge de l'opérateur +(unaire) Permet de voyager la grille de sudoku par ses boite (0 à 8) de haut en bas
+ */
+void Indice::operator+(void)
+{
+    if(m_indice_col%3 < 2)  //Si on n'est pas sur le point de changer de boîte
+    {
+        (*this)++;
+    }
+    else if(m_indice_col%3 == 2 && m_indice_ligne%3 <2) //Si on est sur le point de changer de boite, mais pas sur la dernière ligne de celle-ci
+    {
+        (*this)--; //recule de deux cases horizontalement
+        (*this)--;
+        ++(*this); //descendre d'une case verticalement
+    }
+    else if(m_indice_col%3 == 2 && m_indice_ligne%3 == 2 && m_indice_boite !=8)//Si on est sur le point de changer de boite et sur la dernière ligne de celle-ci
+    {
+        (*this)++; //avance d'une case horizontalement (l'opérateur ++ change déjà de boite et de ligne et colonne)
+    }
+    else
+    {
+        //On ne fait rien l'indice est maximal (boite 8, indice 8)
+    }
+    INVARIANTS();
+}
+
+
+/***
+ * \brief Surcharge de l'opérateur -(unaire) Permet de voyager la grille de sudoku par ses boite (8 à 0) de bas en haut
+ */
+void Indice::operator-(void)
+{
+    if(m_indice_col%3 > 0)  //Si on n'est pas sur le point de changer de boîte
+    {
+        (*this)--;
+    }
+    else if(m_indice_col%3 == 0 && m_indice_ligne%3 > 0) //Si on est sur le point de changer de boite, mais pas sur la première ligne de celle-ci
+    {
+        (*this)++; //avance de deux cases horizontalement
+        (*this)++;
+        --(*this); //monte d'une case verticalement
+    }
+    else if(m_indice_col%3 == 0 && m_indice_ligne%3 == 0 && m_indice_boite !=0)//Si on est sur le point de changer de boite et sur la première ligne de celle-ci
+    {
+        (*this)--; //recule d'une case horizontalement (l'opérateur -- change déjà de ligne et boite et colonne)
+    }
+    else
+    {
+        //On ne fait rien l'indice est minimal (boite 0, indice 0)
+    }
+    INVARIANTS();
+}
+
+
+
+/***
  * \brief Vérifie les invariants de la classe Indice. Les indices doivent être entre 0 et 8 et doivent être cohérents entre eux.
  */
 void Indice::verifieInvariant()const

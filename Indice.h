@@ -30,6 +30,8 @@ public:
     void operator--(int);
     void operator++(void);
     void operator--(void);
+    void operator+(void);
+    void operator-(void);
 private:
     int m_indice_boite; //indice de la boîte dans la grille (0 à 8)
     int m_indice; //indice de la case dans la boîte (0 à 8)
