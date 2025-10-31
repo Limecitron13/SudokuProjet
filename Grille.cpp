@@ -314,18 +314,15 @@ array<int,9> Grille::respecte_contraintes(const Indice& i)const
 void Grille::save(string nom)const
 {
     ofstream ofs("GrillesSauvegarde/"+nom,ofstream::out);
-    for(int boite=0;boite<9;boite++)
+    Indice i;
+    for(int nbr_cases=0;nbr_cases<81;nbr_cases++)
     {
-        if(boite>=1)
+        if(i.req_indice_boite()!=0 && i.req_indice() == 0)
         {
             ofs<<endl;
         }
-       
-        for(int cases=0;cases<9;cases++)
-        {
-            Indice i(boite,cases);
-            ofs<<this->req_val(i);
-        }
+        ofs<<this->req_val(i);
+        +i;
     }
 }
 

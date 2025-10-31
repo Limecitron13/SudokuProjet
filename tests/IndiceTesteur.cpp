@@ -269,6 +269,22 @@ TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation_incrémentatio
 /***
  * \brief Teste si l'opérateur +(unaire) peut incrémenter un indice 
  */
+TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation1_incrémentation)
+{
+    Indice i(1,8);
+    +i;
+    ASSERT_EQ(i.req_indice_boite(),2 );
+    ASSERT_EQ(i.req_indice_col(),6 );
+    ASSERT_EQ(i.req_indice_ligne(),0);
+    ASSERT_EQ(i.req_indice(),0);
+    
+}
+
+
+
+/***
+ * \brief Teste si l'opérateur +(unaire) peut incrémenter un indice 
+ */
 TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation2_incrémentation)
 {
     Indice i(2,8);
@@ -311,6 +327,22 @@ TEST(TestIndice,opérateurDecUna_indicesPermettentDecrémentation_Decrémentatio
     ASSERT_EQ(i.req_indice_col(),5 );
     ASSERT_EQ(i.req_indice_ligne(),6);
     ASSERT_EQ(i.req_indice(),2);
+    
+}
+
+
+
+/***
+ * \brief Teste si l'opérateur -(unaire peut Decrémenter un indice 
+ */
+TEST(TestIndice,opérateurDecUna_indicesPermettentDecrémentation1_Decrémentation)
+{
+    Indice i(7,0);
+    -i;
+    ASSERT_EQ(i.req_indice_boite(), 6);
+    ASSERT_EQ(i.req_indice_col(),2 );
+    ASSERT_EQ(i.req_indice_ligne(),8);
+    ASSERT_EQ(i.req_indice(),8);
     
 }
 

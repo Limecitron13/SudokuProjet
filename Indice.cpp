@@ -262,7 +262,13 @@ void Indice::operator+(void)
         (*this)--;
         ++(*this); //descendre d'une case verticalement
     }
-    else if(m_indice_col%3 == 2 && m_indice_ligne%3 == 2 && m_indice_boite !=8)//Si on est sur le point de changer de boite et sur la dernière ligne de celle-ci
+    else if(m_indice_col%3 == 2 && m_indice_ligne%3 == 2 && m_indice_boite !=8 && m_indice_col !=8 )//Si on est sur le point de changer de boite et sur la dernière ligne de celle-ci
+    {
+        (*this)++; //avance d'une case horizontalement 
+        --(*this); //monte de deux cases verticalement
+        --(*this);
+    }
+    else if(m_indice_col%3 == 2 && m_indice_ligne%3 == 2 && m_indice_boite !=8 && m_indice_col == 8)//Si on est sur le point de changer de boite et sur la dernière ligne et dernière colonne de la grille 
     {
         (*this)++; //avance d'une case horizontalement (l'opérateur ++ change déjà de boite et de ligne et colonne)
     }
@@ -289,7 +295,13 @@ void Indice::operator-(void)
         (*this)++;
         --(*this); //monte d'une case verticalement
     }
-    else if(m_indice_col%3 == 0 && m_indice_ligne%3 == 0 && m_indice_boite !=0)//Si on est sur le point de changer de boite et sur la première ligne de celle-ci
+    else if(m_indice_col%3 == 0 && m_indice_ligne%3 == 0 && m_indice_boite !=0 && m_indice_col !=0)//Si on est sur le point de changer de boite et sur la première ligne 
+    {
+        (*this)--; //recule d'une case horizontalement 
+        ++(*this); //descendre de deux cases verticalement
+        ++(*this);
+    }
+    else if(m_indice_col%3 == 0 && m_indice_ligne%3 == 0 && m_indice_boite !=0 && m_indice_col ==0)//Si on est sur le point de changer de boite et sur la première ligne et première colonne de la grille
     {
         (*this)--; //recule d'une case horizontalement (l'opérateur -- change déjà de ligne et boite et colonne)
     }
