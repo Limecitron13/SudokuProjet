@@ -81,26 +81,37 @@ void Grille::asg_val(const Indice& i,int valeur)
 }
 
 /***
- * \brief Valide si la grille est un sudoku valide
+ * \brief Détermine si la grille est un sudoku valide
  * \return true si la grille est valide et false sinon
  */
 bool Grille::valider_grille()const
 {
+    array<int,9> nombres{};
     
-    //verifie chaque boite contient une seule copie de chaque nombre
-    for(int boite=0;boite<9;boite++)
+    //verifie si chaque boite contient une seule copie de chaque nombre
+    Indice k;
+    for(int nbr_cases =0 ;nbr_cases<81;nbr_cases++)
     {
-        array<int,9> nombres{};
-        for(int cases=0;cases<9;cases++)
+        if(k.req_indice() == 0)
         {
-            nombres.at(cases)=m_grille.at(boite).at(cases);
+            array<int,9> nombres{};  //Nouvelle boîte
+            
         }
-        if(a_double(nombres) || est_membre(nombres,0))
+        nombres.at(k.req_indice())=m_grille.at(k.req_indice_boite()).at(k.req_indice());  //On ajoute le nombre à la liste
+        
+        if(this->req_val(k) == 0) //Contient une case vide
         {
             return false;
         }
+        
+        if(k.req_indice() == 8 && ( a_double(nombres) || est_membre(nombres,0) ) ) //Fin de la boîte et vérifications des contradictions
+        {
+            return false;
+        }
+        
+        +k; //On passe à la prochaine case
+    }
     
-    }   
     //verifie chaque ligne contient une seule copie de chaque nombre
     Indice i;
     for(int lignes = 0; lignes<9;lignes++)
@@ -111,14 +122,35 @@ bool Grille::valider_grille()const
             nombres.at(i.req_indice_dans_ligne())=m_grille.at(i.req_indice_boite()).at(i.req_indice());
             i++;   
         }
-    
+        
         if(a_double(nombres)|| est_membre(nombres,0)) //Vérification si il y a une contradiction
         {
             return false;
         }
     
     }
+   /* for(int nbr_cases =0 ;nbr_cases<81;nbr_cases++)
+    {
+        if(i.req_indice_dans_ligne() == 0)
+        {
+            array<int,9> nombres{};  //Nouvelle ligne
+            
+        }
+        nombres.at(i.req_indice())=m_grille.at(i.req_indice_boite()).at(i.req_indice());  //On ajoute le nombre à la liste
+        
+        if(this->req_val(i) == 0 ) //Contient une case vide
+        {
+            return false;
+        }
+        if(i.req_indice_dans_ligne() == 8 && a_double(nombres) || est_membre(nombres,0) )  //Fin de la boîte et vérifications des contradictions
+        {
+            return false;
+        }
+        
+        i++; //On passe à la prochaine case
+    }*/
 
+    
     //verifie chaque colonne contient une seule copie de chaque nombre
     Indice j;
     for(int colonnes = 0; colonnes<9;colonnes++)
@@ -130,7 +162,7 @@ bool Grille::valider_grille()const
             ++j;   
         } 
     
-        if(a_double(nombres)|| est_membre(nombres,0)) //Vérification si il y a une contradiction
+        if(this->req_val(j) == 0 || a_double(nombres)|| est_membre(nombres,0)) //Vérification si il y a une contradiction
         {
             return false;
         }
@@ -401,7 +433,7 @@ bool verifier_format_fichier(ifstream& ifs)
  * \param liste est un tableau d'entiers de taille 9
  * \return true si double, false sinon
  */
-bool a_double(array<int,9>& liste)
+bool a_double(const array<int,9>& liste)
 {
     PRECONDITION(liste.size()==9);
     int valeur;
@@ -427,7 +459,7 @@ bool a_double(array<int,9>& liste)
  * \param valeur est l'entier à vérifier si il est membre du tableau
  * \return true si l'entier est membre,false sinon
  */
-bool est_membre(array<int,9>& liste,int valeur)
+bool est_membre(const array<int,9>& liste,const int valeur)
 {
     for(int i=0;i<9;i++)
     {
@@ -446,7 +478,7 @@ bool est_membre(array<int,9>& liste,int valeur)
  * \param liste est un tableau d'entiers de taille 9
  * \return true si seulement des zéros et false sinon
  */
-bool est_zero(std::array<int,9>& liste)
+bool est_zero(const array<int,9>& liste)
 {
     for(int i=0;i<9;i++)
     {

@@ -40,9 +40,9 @@ private:
 };
 
 bool verifier_format_fichier(std::ifstream&);
-bool a_double(std::array<int,9>&);
-bool est_membre(std::array<int,9>&,int);
-bool est_zero(std::array<int,9>&);
+bool a_double(const std::array<int,9>&);
+bool est_membre(const std::array<int,9>&,const int);
+bool est_zero(const std::array<int,9>&);
 
 #endif /* GRILLE_H */
 
