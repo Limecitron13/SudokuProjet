@@ -15,7 +15,7 @@
 
 ## 🧾 Tâches à faire
 
-- Simplifier les tests unitaires à l'aide des nouvelles méthodes et fonctions
+- Simplifier les tests unitaires et méthodes de Grille à l'aide des nouvelles méthodes et fonctions
 - S'assurer que la documentation est complète
 
 
