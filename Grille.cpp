@@ -76,7 +76,7 @@ void Grille::asg_val(const Indice& i,int valeur)
     PRECONDITION(valeur<=9 && valeur>=0);
     m_grille.at(i.req_indice_boite()).at(i.req_indice()) = valeur;
     m_est_valide = this->valider_grille();
-    POSTCONDITION(m_grille.at(i.req_indice_boite()).at(i.req_indice()) == valeur);
+    POSTCONDITION(this->req_val(i) == valeur);
     INVARIANTS();
 }
 
@@ -87,86 +87,78 @@ void Grille::asg_val(const Indice& i,int valeur)
 bool Grille::valider_grille()const
 {
     array<int,9> nombres{};
-    
     //verifie si chaque boite contient une seule copie de chaque nombre
-    Indice k;
+    Indice i;
     for(int nbr_cases =0 ;nbr_cases<81;nbr_cases++)
     {
-        if(k.req_indice() == 0)
+        if(this->req_val(i) == 0) //Contient une case vide
+        {
+            return false;
+        }
+        
+        if(i.req_indice() == 0)
         {
             array<int,9> nombres{};  //Nouvelle boîte
             
         }
-        nombres.at(k.req_indice())=m_grille.at(k.req_indice_boite()).at(k.req_indice());  //On ajoute le nombre à la liste
         
-        if(this->req_val(k) == 0) //Contient une case vide
+        nombres.at(i.req_indice())=this->req_val(i);  //On ajoute le nombre à la liste
+      
+        if(i.req_indice() == 8 && a_double(nombres)  ) //Fin de la boîte et vérifications des contradictions
         {
             return false;
         }
         
-        if(k.req_indice() == 8 && ( a_double(nombres) || est_membre(nombres,0) ) ) //Fin de la boîte et vérifications des contradictions
-        {
-            return false;
-        }
-        
-        +k; //On passe à la prochaine case
+        +i; //On passe à la prochaine case
     }
     
     //verifie chaque ligne contient une seule copie de chaque nombre
-    Indice i;
-    for(int lignes = 0; lignes<9;lignes++)
+    i.asg_indice(0,0);
+    for(int nbr_cases =0 ;nbr_cases<81;nbr_cases++)
     {
-        array<int,9> nombres{};
-        for(int nbrs=0;nbrs<9;nbrs++)   //On traite la ligne au complet
-        {
-            nombres.at(i.req_indice_dans_ligne())=m_grille.at(i.req_indice_boite()).at(i.req_indice());
-            i++;   
-        }
-        
-        if(a_double(nombres)|| est_membre(nombres,0)) //Vérification si il y a une contradiction
+        if(this->req_val(i) == 0 ) //Contient une case vide
         {
             return false;
         }
-    
-    }
-   /* for(int nbr_cases =0 ;nbr_cases<81;nbr_cases++)
-    {
+     
         if(i.req_indice_dans_ligne() == 0)
         {
             array<int,9> nombres{};  //Nouvelle ligne
             
         }
-        nombres.at(i.req_indice())=m_grille.at(i.req_indice_boite()).at(i.req_indice());  //On ajoute le nombre à la liste
+        nombres.at(i.req_indice_dans_ligne())=this->req_val(i);  //On ajoute le nombre à la liste
         
-        if(this->req_val(i) == 0 ) //Contient une case vide
-        {
-            return false;
-        }
-        if(i.req_indice_dans_ligne() == 8 && a_double(nombres) || est_membre(nombres,0) )  //Fin de la boîte et vérifications des contradictions
+        if(i.req_indice_dans_ligne() == 8 &&  a_double(nombres)  )  //Fin de la boîte et vérifications des contradictions
         {
             return false;
         }
         
         i++; //On passe à la prochaine case
-    }*/
+    }
 
     
     //verifie chaque colonne contient une seule copie de chaque nombre
-    Indice j;
-    for(int colonnes = 0; colonnes<9;colonnes++)
+    i.asg_indice(0,0);
+    for(int nbr_cases =0 ;nbr_cases<81;nbr_cases++)
     {
-        array<int,9> nombres{};
-        for(int nbrs=0;nbrs<9;nbrs++) //On traite la colonne au complet
-        {
-            nombres.at(j.req_indice_dans_col())=m_grille.at(j.req_indice_boite()).at(j.req_indice());
-            ++j;   
-        } 
-    
-        if(this->req_val(j) == 0 || a_double(nombres)|| est_membre(nombres,0)) //Vérification si il y a une contradiction
+        if(this->req_val(i) == 0 ) //Contient une case vide
         {
             return false;
         }
-    
+     
+        if(i.req_indice_dans_col() == 0)
+        {
+            array<int,9> nombres{};  //Nouvelle colonne
+            
+        }
+        nombres.at(i.req_indice_dans_col())=this->req_val(i);  //On ajoute le nombre à la liste
+        
+        if(i.req_indice_dans_col() == 8 && a_double(nombres)  )  //Fin de la colonne et vérifications des contradictions
+        {
+            return false;
+        }
+        
+        ++i; //On passe à la prochaine case
     }
         
         

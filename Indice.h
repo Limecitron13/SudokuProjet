@@ -18,6 +18,7 @@ public:
     Indice(int p_indice_boite,int p_indice_col,int p_indice_ligne);
     Indice(int p_indice_boite,int p_indice_cases);
     Indice();
+    void asg_indice(int p_indice_boite,int p_indice);
     const int& req_indice_boite()const;
     const int& req_indice()const;
     const int& req_indice_col()const;

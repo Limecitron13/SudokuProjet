@@ -50,6 +50,16 @@ TEST(TestIndice,constructeur_Defaut_objetValide)
 }
 
 
+TEST(TestIndice,asg_indice_indiceValide_asignation)
+{
+    Indice i;
+    i.asg_indice(3,7);
+    ASSERT_EQ(i.req_indice_boite(),3);
+    ASSERT_EQ(i.req_indice(),7);
+    ASSERT_EQ(i.req_indice_ligne(),5);
+    ASSERT_EQ(i.req_indice_col(),1);
+}
+
 
 /***
  * \brief Vérifie si la méthode req_indice_dans_col retourne le bon indice 

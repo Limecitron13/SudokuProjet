@@ -52,6 +52,23 @@ Indice::Indice():m_indice_boite(0),m_indice(0),m_indice_col(0),m_indice_ligne(0)
 }
 
 /***
+ * \brief Mutateur d'indice
+ * \param p_indice_boite est l'indice de la boite
+ * \param p_indice est l'indice dans la boite
+ */
+void Indice::asg_indice(int p_indice_boite,int p_indice)
+{
+    PRECONDITION(p_indice_boite>=0 && p_indice_boite<=8);
+    PRECONDITION(p_indice>=0 && p_indice<=8);
+    m_indice_boite = (p_indice_boite);
+    m_indice = p_indice;
+    m_indice_col = 3*(p_indice_boite%3) + p_indice%3;
+    m_indice_ligne = 3*(p_indice_boite/3) + p_indice/3;  
+    POSTCONDITION(m_indice_boite == p_indice_boite && m_indice == p_indice);
+    INVARIANTS();
+}
+
+/***
  * \brief Accesseur de m_indice_boite
  * \return m_indice_boite
  */
