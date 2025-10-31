@@ -12,7 +12,7 @@
 #include <cstdio>
 using namespace std;
 
-testing::FLAGS_gtest_color = "yes";
+
 /***
  * \brief Teste si le constructeur par defaut assigne bien des zéros dans tous les cases.
  */

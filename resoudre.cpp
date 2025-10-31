@@ -11,6 +11,18 @@
 using namespace std;
 
 
+/***
+ * \brief Fait une préparation pour la résolution de la grille en initialisant l'indice
+ * \param g est une objet Grille de la grille à résoudre
+ * \return la grille résolue
+ */
+Grille(Grille& g)
+{
+    Indice i;
+    return resoudre_recherche(g,i);
+}
+
+
 
 /***
  * \brief     ***TODO***
@@ -18,7 +30,7 @@ using namespace std;
  * \param i est un objet Indice qui ****TODO****
  * \return retourne 1 si la grille a été résolu et 0 si les possiblités ont été épuisées
  */
-Grille resoudre(Grille g,Indice i)
+Grille resoudre_recherche(Grille g,Indice i)
 {
     if(g.req_validite())   //Vérifier si la grille est résolue
     {
@@ -44,7 +56,7 @@ Grille resoudre(Grille g,Indice i)
     }
     
     g.asg_val(i,nombres_possibles.at(indice_nbr_a_test)); //On test la valeur
-    Grille g_appel = resoudre(g, i);   //appel récursif
+    Grille g_appel = resoudre_recherche(g, i);   //appel récursif
     indice_nbr_a_test++;
     
     
@@ -72,47 +84,11 @@ Grille resoudre(Grille g,Indice i)
             }
             
             g.asg_val(i,nombres_possibles.at(indice_nbr_a_test));
-            g_appel = resoudre(g,i);
+            g_appel = resoudre_recherche(g,i);
             indice_nbr_a_test++;
             
         }
     }
-    /*
-     * ***S'assurer que ce pseudo code est à jour et valide***
-     * 
-     * Si la grille est valide:
-     *     retourner la grille valide
-     * 
-     * Trouver la prochaine case vide
-     * Regarder quels nombres vont dans cette case (liste)
-     * 
-     * 
-     * Si il n'y a plus d'options de nombres pour cette case:
-     *     ajouter un zéro à la première case de la première boîte (pour la rendre invalide)
-     *     retourner cette grille
-     * 
-     * Essayer un nombre dans la liste 
-     * grille_copie = Appel récursif
-     * 
-     * while(true):
-     *     Si grille_copie est valide:
-     *         retourner grille_copie
-     * 
-     *     Si grille_copie est invalide:
-     *         Trouver le nombre suivant dans la liste
-     * 
-     *         Si il ne reste plus de nombres dans la liste:
-     *             ajouter un zéro à la première case de la première boîte (pour la rendre invalide)
-     *             retourner cette grille;
-     * 
-     *         Essayer ce nombre suivant dans la liste
-     *         grille_copie = Appel récursif
-     * 
-     */
-    
-    
-
-    
 }
 
 
