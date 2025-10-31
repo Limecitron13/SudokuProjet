@@ -135,7 +135,7 @@ TEST(TestGrille,operateurEgalite_grilleDifférentes_faux)
  */
 TEST(TestGrille,asg_grille_grilleValide_assignationCorrecte)
 {
-    Grille g;
+Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
     g.asg_grille(ifs);
     ifs.seekg(0);
