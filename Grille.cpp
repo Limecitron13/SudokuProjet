@@ -343,6 +343,22 @@ array<int,9> Grille::respecte_contraintes(const Indice& i)const
             nombres_possibles.at(nombre-1)=nombre;
         }
     }
+    
+    
+    //Vérifications si il y des doubles dans les boites, colonnes et lignes
+    //Un double est lorsque deux nombres peuvent seulement aller dans ces deux cases en particulier
+    //Si il y a un double dans la boite, colonne ou ligne: on enlève les autres nombres des possibilités de ces cases
+    
+    
+    //Vérifications si il y des triplets dans les boites, colonnes et lignes
+    //Un triplet est lorsque trois nombres peuvent seulement aller dans ces trois cases en particulier
+    //Si il y a un triplet dans la boite, colonne ou ligne: on enlève les autres nombres des possibilités de ces cases
+    
+    
+    //implémenter les x wings?
+    //Est-ce que le temps supplémentaire à trouver ces nouvelles restrictions accélère réellement la résolution?
+    
+    
     return nombres_possibles;
 }
 
