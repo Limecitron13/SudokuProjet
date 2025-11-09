@@ -9,14 +9,18 @@
 #include "Grille.h"
 #include "Indice.h"
 #include <fstream>
-#include <cstdio>
+#include "ContratException.h"
 using namespace std;
 
 
-/***
- * \brief Teste si le constructeur par defaut assigne bien des zéros dans tous les cases.
+/**
+ * \brief Test du constructeur par défaut de la classe Grille\n
+ *  cas valides:\n
+ *      objetValide: L'objet est instancié de la bonne façon\n
+ *  cas invalide:\n
+ *      Aucun identifié
  */
-TEST(TestGrille,constructeur_parDefaut_objetValide)
+TEST(TestConstructeurGrille,Constructeur_ParDefaut_objetValide)
 {
     Grille g;
     Indice i;
@@ -29,10 +33,14 @@ TEST(TestGrille,constructeur_parDefaut_objetValide)
 
 
 
-/***
- * \brief Teste si le constructeur avec un paramètre Grille assigne bien les valeurs attendues
+/**
+ * \brief Test du constructeur copie de la classe Grille\n
+ *  cas valides:\n
+ *      objetValide: La grille est asgnigné correctement à partir d'une autre grille
+ *  cas invalide:\n
+ *      Aucun identifié
  */
-TEST(TestGrille,constructeur_parametre_objetValide)
+TEST(TestConstructeurGrille,constructeur_parametre_objetValide)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
@@ -47,10 +55,14 @@ TEST(TestGrille,constructeur_parametre_objetValide)
         }
 }
 
-/***
- * \brief Teste si asg_val assigne la bonne valeur au bon indice 
+/**
+ * \brief Test de la méthode asg_val \n
+ *  cas valides:\n
+ *      valeurValide: Assigne la valeur au bon indice
+ *  cas invalide:\n
+ *      valeurInvalide: Lance une erreur de precondition
  */
-TEST(TestGrille,asg_val_indiceEtValeurValide_succès)
+TEST(TestMutateurGrille,AssigneValeur_indiceEtValeurValide_AssignationValeurAuBonIndice)
 {
     Grille g;
     Indice i(8,8);
@@ -58,21 +70,33 @@ TEST(TestGrille,asg_val_indiceEtValeurValide_succès)
     ASSERT_EQ(g.req_val(i),7);
 }
 
-
-
-/***
- * \brief Teste si asg_val assigne la bonne valeur au bon indice
- */
-TEST(TestGrille,asg_val_indiceEtValeurValide2_succès)
+TEST(TestMutateurGrille,AssigneValeur_ValeurInvalide_PreconditionException)
 {
     Grille g;
-    Indice i(1,3,2);
-    g.asg_val(i,9);
-    ASSERT_EQ(g.req_val(i),9);
+    Indice i(8,8);
+    ASSERT_THROW(g.asg_val(i,10),PreconditionException);
 }
 
-/***
- * \brief Teste si valider_grille peut déterminer qu'une grille est invalide
+
+
+
+/**
+ * \class TODO ***********
+ * \brief TODO ***********
+ */
+class TestValiderGrille ::testing::Test
+{
+public:
+//TODO *********
+}
+
+
+/**
+ * \brief Test de la méthode validerGrille\n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestGrille,validerGrille_grilleInvalide_invalide)
 {
@@ -83,9 +107,6 @@ TEST(TestGrille,validerGrille_grilleInvalide_invalide)
 
 }
 
-/***
- * \brief Teste si valider_grille peut déterminer qu'une grille est valide
- */
 TEST(TestGrille,validerGrille_grilleValide_valide)
 {
     Grille g;
@@ -97,8 +118,12 @@ TEST(TestGrille,validerGrille_grilleValide_valide)
 
 
 
-/***
- * \brief Teste si l'opérateur == peut déterminer que deux grille sont identiques
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestGrille,operateurEgalite_grilleIdentiques_vrai)
 {
@@ -112,10 +137,6 @@ TEST(TestGrille,operateurEgalite_grilleIdentiques_vrai)
     ASSERT_TRUE(g==b);
 }
 
-
-/***
- * \brief Teste si l'opérateur == peut déterminer que deux grille sont différentes
- */
 TEST(TestGrille,operateurEgalite_grilleDifférentes_faux)
 {
     Grille g;
@@ -130,8 +151,13 @@ TEST(TestGrille,operateurEgalite_grilleDifférentes_faux)
 
 
 
-/***
- * \brief Teste si asg_grille assigne les bonnes valeur aux bons endroits
+
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestGrille,asg_grille_grilleValide_assignationCorrecte)
 {
@@ -155,8 +181,12 @@ Grille g;
 
 
 
-/***
- * \brief Teste si req_validite retourne la bonne valeur avec une grille invalide
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestGrille,req_validite_grilleInvalide_invalide)
 {
@@ -167,9 +197,6 @@ TEST(TestGrille,req_validite_grilleInvalide_invalide)
 
 }
 
-/***
- * \brief Teste si req_validite retourne la bonne valeur avec une grille valide
- */
 TEST(TestGrille,req_validite_grilleValide_valide)
 {
     Grille g;
@@ -181,8 +208,12 @@ TEST(TestGrille,req_validite_grilleValide_valide)
 
 
 
-/***
- * \brief Teste si req_colonne retourne la bonne colonne
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestGrille,req_colonne_indiceValide_colonneAttendue)
 {
@@ -200,8 +231,12 @@ TEST(TestGrille,req_colonne_indiceValide_colonneAttendue)
 }
 
 
-/***
- * \brief Teste si req_boite retourne la bonne boîte
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestGrille,req_boite_indiceValide_boiteAttendue)
 {
@@ -218,8 +253,13 @@ TEST(TestGrille,req_boite_indiceValide_boiteAttendue)
 
 }
 
-/***
- * \brief Test si req_ligne retourne la bonne ligne
+
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestGrille,req_ligne_indiceValide_ligneAttendue)
 {
@@ -236,8 +276,13 @@ TEST(TestGrille,req_ligne_indiceValide_ligneAttendue)
 
 }
 
-/***
- * \brief Teste si respecte_contrainte peut déterminer les nombres qui peuvent être placés dans cette case
+
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestGrille,respecte_contraintes_grilleNonRemplis_nombresAttendus)
 {
@@ -254,11 +299,6 @@ TEST(TestGrille,respecte_contraintes_grilleNonRemplis_nombresAttendus)
 
 }
 
-
-
-/***
- * \brief Teste si respecte_contrainte peut déterminer les nombres qui peuvent être placés dans cette case
- */
 TEST(TestGrille,respecte_contraintes_grilleRemplis_TableauDeZéros)
 {
     Grille g;
@@ -275,8 +315,12 @@ TEST(TestGrille,respecte_contraintes_grilleRemplis_TableauDeZéros)
 }
 
 
-/***
- * Teste si la méthode save peut sauvegarder une grille sudoku dans un fichier texte
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestGrille,save_grilleValide_sauvegardeGrille)
 {
@@ -294,10 +338,6 @@ TEST(TestGrille,save_grilleValide_sauvegardeGrille)
     ASSERT_TRUE(g==h);
 }
 
-
-/***
- * Teste si la méthode save peut sauvegarder une grille sudoku dans un fichier texte
- */
 TEST(TestGrille,save_grilleValide2_sauvegardeGrille)
 {
     Grille g;
@@ -316,8 +356,12 @@ TEST(TestGrille,save_grilleValide2_sauvegardeGrille)
 
 
 
-/***
- * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format valide
+/**
+ * \brief Test de la fonction \n
+ *  cas 
+ * 
+ * 
+ *      
  */
 TEST(TestFormatFichier,verifier_format_fichier_FormatValide_Valide)
 {
@@ -327,9 +371,6 @@ TEST(TestFormatFichier,verifier_format_fichier_FormatValide_Valide)
 
 }
 
-/***
- * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format valide et ce même si la grille de sudoku est invalide
- */
 TEST(TestFormatFichier,verifier_format_fichier_FormatValideGrilleInvalide_Valide)
 {
     Grille g;
@@ -338,9 +379,6 @@ TEST(TestFormatFichier,verifier_format_fichier_FormatValideGrilleInvalide_Valide
 
 }
 
-/***
- * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format valide (celui-ci contient des zéros (cases vides) )
- */
 TEST(TestFormatFichier,verifier_format_fichier_grilleAvecZeros_Valide)
 {
     Grille g;
@@ -348,10 +386,6 @@ TEST(TestFormatFichier,verifier_format_fichier_grilleAvecZeros_Valide)
     ASSERT_TRUE(verifier_format_fichier(ifs));
 }
 
-
-/***
- * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format valide (celui-ci contient des sauts de lignes)
- */
 TEST(TestFormatFichier,verifier_format_fichier_grilleAvecSautLigne_Valide)
 {
     Grille g;
@@ -359,10 +393,6 @@ TEST(TestFormatFichier,verifier_format_fichier_grilleAvecSautLigne_Valide)
     ASSERT_TRUE(verifier_format_fichier(ifs));
 }
 
-
-/***
- * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format invalide (il manque une boîte)
- */
 TEST(TestFormatFichier,verifier_format_fichier_grilleManqueBoîte_invalide)
 {
     Grille g;
@@ -370,10 +400,6 @@ TEST(TestFormatFichier,verifier_format_fichier_grilleManqueBoîte_invalide)
     ASSERT_FALSE(verifier_format_fichier(ifs));
 }
 
-
-/***
- * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format invalide (il manque des nombres)
- */
 TEST(TestFormatFichier,verifier_format_fichier_grilleManqueChiffres_invalide)
 {
     Grille g;
@@ -381,10 +407,6 @@ TEST(TestFormatFichier,verifier_format_fichier_grilleManqueChiffres_invalide)
     ASSERT_FALSE(verifier_format_fichier(ifs));
 }
 
-
-/***
- * \brief Teste si verifier_format_fichier peut déterminer qu'un fichier à un format invalide (fichier vide)
- */
 TEST(TestFormatFichier,verifier_format_fichier_grilleVide_invalide)
 {
     Grille g;
@@ -392,56 +414,61 @@ TEST(TestFormatFichier,verifier_format_fichier_grilleVide_invalide)
     ASSERT_FALSE(verifier_format_fichier(ifs));
 }
 
-/***
- * \brief Vérifie si a_double peut déterminer qu'une liste ne contient pas d'éléments en double.
+
+/**
+ * \brief Test de la fonction a_double\n
+ *  cas : \n
+ *      SansDouble: Le tableau contient aucun double \n
+ *      AvecDouble: Le tableau contient au moins un double \n
+ *       
+ *         
  */
-TEST(TestADouble,a_double_listeSansDouble_faux)
+TEST(TestADouble,ADouble_SansDouble_faux)
 {
     array<int,9> a{1,2,3,4,5,6,7,8,9};
     ASSERT_FALSE(a_double(a));
 }
 
-/***
- * \brief Vérifie si a_double peut déterminer qu'une liste contient un ou plusieurs éléments en double.
- */
-TEST(TestADouble,a_double_listeAvecDouble_vrai)
+TEST(TestADouble,ADouble_AvecDouble_vrai)
 {
     array<int,9> a{1,2,9,4,5,6,7,8,9};
     ASSERT_TRUE(a_double(a));
 }
 
-/***
- * \brief Vérifie si est_membre peut déterminer qu'un entier est dans le tableau
+
+/**
+ * \brief Test de la fonction est_membre \n
+ *  cas : \n
+ *      AvecEntier: Le tableau contient l'entier \n
+ *      SansEntier: Le tableau ne contient pas l'entier \n   
  */
-TEST(TestEstMembre,est_membre_listeAvecEntier_vrai)
+TEST(TestEstMembre,EstMembre_AvecEntier_vrai)
 {
     array<int,9> liste {1,2,3,4,5,6,7,8,9};
     ASSERT_TRUE(est_membre(liste,8));
 }
 
-/***
- * \brief Vérifie si a_double peut déterminer qu'un entier n'est pas dans le tableau
- */
-TEST(TestEstMembre,est_membre_listeSansEntier_faux)
+TEST(TestEstMembre,EstMembre_SansEntier_faux)
 {
     array<int,9> liste {1,2,3,4,5,6,7,8,9};
     ASSERT_FALSE(est_membre(liste,0));
 }
 
-/***
- * \brief Vérifie si est_zero peut déterminer qu'un tableau est composé entièrement de zéros
+
+/**
+ * \brief Test de la fonction est_zero \n
+ *  cas : \n
+ *      Zeros: Le tableau contient seulement des zéros \n
+ *      NonZeros: Le tableau contient au moins un entier différent de zéro \n
  */
-TEST(TestEstMembre,est_zero_listeZeros_vrai)
+TEST(TestEstZero,EstZero_Zeros_vrai)
 {
     array<int,9> liste {0,0,0,0,0,0,0,0,0};
     ASSERT_TRUE(est_zero(liste));
 }
 
 
-/***
- * \brief Vérifie si est_zero peut déterminer qu'un tableau n'est pas composé entièrement de zéros
- */
-TEST(TestEstMembre,est_zero_listeZeros_faux)
+TEST(TestEstZero,EstZero_NonZeros_faux)
 {
     array<int,9> liste {0,0,0,0,0,0,0,0,4};
     ASSERT_FALSE(est_zero(liste));

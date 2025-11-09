@@ -40,6 +40,7 @@ Grille::Grille():m_est_valide(false)
 
 /***
  * \brief Constructeur copie de la classe Grille
+ * \param g est la grille a asigner
  */
 Grille::Grille(const Grille& g)
 {
