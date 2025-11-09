@@ -11,8 +11,12 @@
 #include "Grille.h"
 using namespace std;
 
-/***
- * \brief Teste si la fonctino resoudre peut resoudre une grille de sudoku
+/**
+ * \brief Test de la fonction \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestResoudre,resoudre_grilleARésoudre1_grilleRésolue)
 {
@@ -29,10 +33,6 @@ TEST(TestResoudre,resoudre_grilleARésoudre1_grilleRésolue)
     ASSERT_TRUE(g_resolue==b);
 }
 
-
-/***
- * \brief Teste si la fonctino resoudre peut resoudre une grille de sudoku
- */
 TEST(TestResoudre,resoudre_grilleARésoudre2_grilleRésolue)
 {
     Grille g;
@@ -48,10 +48,6 @@ TEST(TestResoudre,resoudre_grilleARésoudre2_grilleRésolue)
     ASSERT_TRUE(g_resolue==b);
 }
 
-
-/***
- * \brief Teste si la fonctino resoudre peut resoudre une grille de sudoku
- */
 TEST(TestResoudre,resoudre_grilleARésoudre3_grilleRésolue)
 {
     Grille g;
@@ -67,10 +63,6 @@ TEST(TestResoudre,resoudre_grilleARésoudre3_grilleRésolue)
     ASSERT_TRUE(g_resolue==b);
 }
 
-
-/***
- * \brief Teste si la fonctino resoudre peut resoudre une grille de sudoku
- */
 TEST(TestResoudre,resoudre_grilleARésoudre4_grilleRésolue)
 {
     Grille g;

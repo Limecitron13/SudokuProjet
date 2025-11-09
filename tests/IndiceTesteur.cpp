@@ -9,10 +9,15 @@
 #include "Grille.h"
 #include "Indice.h"
 #include <fstream>
+#include "ContratException.h"
 using namespace std;
 
-/***
- * \brief Teste si le constructeur à trois paramètres assigne bien les valeurs (test indirectement les méthodes req_indice_boite, req_indice_ligne, req_indice_col et req_indice)
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestIndice,constructeur3_indicesValides_objetValide)
 {
@@ -23,8 +28,12 @@ TEST(TestIndice,constructeur3_indicesValides_objetValide)
     ASSERT_EQ(i.req_indice(),5);
 }
 
-/***
- * \brief Teste si le constructeur à deux paramètres assigne bien les valeurs (test indirectement les méthodes req_indice_boite, req_indice_ligne, req_indice_col et req_indice)
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestIndice,constructeur2_indicesValides_objetValide)
 {
@@ -37,8 +46,12 @@ TEST(TestIndice,constructeur2_indicesValides_objetValide)
 
 
 
-/***
- * \brief Teste si le constructeur par défaut (test indirectement les méthodes req_indice_boite, req_indice_ligne, req_indice_col et req_indice)
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestIndice,constructeur_Defaut_objetValide)
 {
@@ -50,6 +63,14 @@ TEST(TestIndice,constructeur_Defaut_objetValide)
 }
 
 
+
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
+ */
 TEST(TestIndice,asg_indice_indiceValide_asignation)
 {
     Indice i;
@@ -61,8 +82,12 @@ TEST(TestIndice,asg_indice_indiceValide_asignation)
 }
 
 
-/***
- * \brief Vérifie si la méthode req_indice_dans_col retourne le bon indice 
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestIndice,req_indice_dans_col_IndiceValide_IndiceAttendu)
 {
@@ -71,8 +96,12 @@ TEST(TestIndice,req_indice_dans_col_IndiceValide_IndiceAttendu)
 }
 
 
-/***
- * \brief Vérifie si la méthode req_indice_dans_boite retourne le bon indice
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestIndice,req_indice_dans_boite_IndiceValide_IndiceAttendu)
 {
@@ -82,8 +111,12 @@ TEST(TestIndice,req_indice_dans_boite_IndiceValide_IndiceAttendu)
 }
 
 
-/***
- * \brief Vérifie si la méthode req_indice_dans_ligne retourne le bon indice
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestIndice,req_indice_dans_ligne_IndiceValide_IndiceAttendu)
 {
@@ -92,8 +125,12 @@ TEST(TestIndice,req_indice_dans_ligne_IndiceValide_IndiceAttendu)
 }
 
 
-/***
- * \brief Teste si l'opérateur ++(Post) incrémente un indice
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestIndice,opérateurPostInc_indicesPermettentIncrémentation_incrémentation)
 {
@@ -105,9 +142,6 @@ TEST(TestIndice,opérateurPostInc_indicesPermettentIncrémentation_incrémentati
     ASSERT_EQ(i.req_indice(),3);
 }
 
-/***
- * \brief Teste si l'opérateur ++(Post) incrémente un indice
- */
 TEST(TestIndice,opérateurPostInc_indicesPermettentIncrémentation2_incrémentation)
 {
     Indice i(8,2);
@@ -118,9 +152,6 @@ TEST(TestIndice,opérateurPostInc_indicesPermettentIncrémentation2_incrémentat
     ASSERT_EQ(i.req_indice(),3);
 }
 
-/***
- * \brief Teste si l'opérateur ++(Post) n'incrémente pas un indice qui ne peut l'être
- */
 TEST(TestIndice,opérateurPostInc_indicesNePermettentPasIncrémentation_aucuneIncrémentation)
 {
     Indice i(8,8,8);
@@ -132,8 +163,12 @@ TEST(TestIndice,opérateurPostInc_indicesNePermettentPasIncrémentation_aucuneIn
 }
 
 
-/***
- * \brief Teste si l'opérateur --(Post) peut décrémenter un indice
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestIndice,opérateurPostDec_indicesPermettentDécrémentation_Décrémentation)
 {
@@ -146,9 +181,6 @@ TEST(TestIndice,opérateurPostDec_indicesPermettentDécrémentation_Décrémenta
     
 }
 
-/***
- * \brief Teste si l'opérateur --(Post) peut décrémenter un indice
- */
 TEST(TestIndice,opérateurPostDec_indicesPermettentDécrémentation2_Décrémentation)
 {
     Indice i(6,0,6);
@@ -160,9 +192,6 @@ TEST(TestIndice,opérateurPostDec_indicesPermettentDécrémentation2_Décrément
     
 }
 
-/***
- * \brief Teste si l'opérateur --(Post) ne décrémente pas un indice qui ne peut l'être
- */
 TEST(TestIndice,opérateurPostDec_indicesNePermettentPasDécrémentation_aucunedécrémentation)
 {
     Indice i(0,0,0);
@@ -175,8 +204,12 @@ TEST(TestIndice,opérateurPostDec_indicesNePermettentPasDécrémentation_aucuned
 }
 
 
-/***
- * \brief Teste si l'opérateur ++(Pré) incrémente un indice
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestIndice,opérateurPreInc_indicesPermettentIncrémentation_incrémentation)
 {
@@ -188,9 +221,6 @@ TEST(TestIndice,opérateurPreInc_indicesPermettentIncrémentation_incrémentatio
     ASSERT_EQ(i.req_indice(),8);
 }
 
-/***
- * \brief Teste si l'opérateur ++(Pré) incrémente un indice
- */
 TEST(TestIndice,opérateurPreInc_indicesPermettentIncrémentation2_incrémentation)
 {
     Indice i(7,8);
@@ -201,9 +231,6 @@ TEST(TestIndice,opérateurPreInc_indicesPermettentIncrémentation2_incrémentati
     ASSERT_EQ(i.req_indice(),0);
 }
 
-/***
- * \brief Teste si l'opérateur ++(Pré) n'incrémente pas un indice qui ne peut être incrémenté
- */
 TEST(TestIndice,opérateurPreInc_indicesNePermettentPasIncrémentation_aucuneIncrémentation)
 {
     Indice i(8,8,8);
@@ -215,8 +242,12 @@ TEST(TestIndice,opérateurPreInc_indicesNePermettentPasIncrémentation_aucuneInc
 }
 
 
-/***
- * \brief Teste si l'opérateur --(Pré) peut décrémenter un indice
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestIndice,opérateurPreDec_indicesPermettentDécrémentation_Décrémentation)
 {
@@ -229,9 +260,6 @@ TEST(TestIndice,opérateurPreDec_indicesPermettentDécrémentation_Décrémentat
     
 }
 
-/***
- * \brief Teste si l'opérateur --(Pré) peut décrémenter un indice
- */
 TEST(TestIndice,opérateurPreDec_indicesPermettentDécrémentation2_Décrémentation)
 {
     Indice i(1,3,0);
@@ -243,8 +271,12 @@ TEST(TestIndice,opérateurPreDec_indicesPermettentDécrémentation2_Décrémenta
     
 }
 
-/***
- * \brief Teste si l'opérateur --(Pré) ne décrémente pas un indice qui ne peut l'être
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestIndice,opérateurPreDec_indicesNePermettentPasDécrémentation_aucunedécrémentation)
 {
@@ -260,8 +292,12 @@ TEST(TestIndice,opérateurPreDec_indicesNePermettentPasDécrémentation_aucuned�
 
 
 
-/***
- * \brief Teste si l'opérateur +(unaire) peut incrémenter un indice 
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation_incrémentation)
 {
@@ -274,11 +310,6 @@ TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation_incrémentatio
     
 }
 
-
-
-/***
- * \brief Teste si l'opérateur +(unaire) peut incrémenter un indice 
- */
 TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation1_incrémentation)
 {
     Indice i(1,8);
@@ -290,11 +321,6 @@ TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation1_incrémentati
     
 }
 
-
-
-/***
- * \brief Teste si l'opérateur +(unaire) peut incrémenter un indice 
- */
 TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation2_incrémentation)
 {
     Indice i(2,8);
@@ -306,9 +332,6 @@ TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation2_incrémentati
     
 }
 
-/***
- * \brief Teste si l'opérateur +(unaire) n'incrémente pas un indice qui ne peut l'être
- */
 TEST(TestIndice,opérateurIncUna_indicesNePermettentPasIncrémentation_aucuneIncrémentation)
 {
     Indice i(8,8);
@@ -321,13 +344,12 @@ TEST(TestIndice,opérateurIncUna_indicesNePermettentPasIncrémentation_aucuneInc
 }
 
 
-
-
-
-
-
-/***
- * \brief Teste si l'opérateur -(unaire peut Decrémenter un indice 
+/**
+ * \brief Test de la méthode \n
+ *  cas valides:\n
+ *      
+ *  cas invalide:\n
+ *      
  */
 TEST(TestIndice,opérateurDecUna_indicesPermettentDecrémentation_Decrémentation)
 {
@@ -340,11 +362,6 @@ TEST(TestIndice,opérateurDecUna_indicesPermettentDecrémentation_Decrémentatio
     
 }
 
-
-
-/***
- * \brief Teste si l'opérateur -(unaire peut Decrémenter un indice 
- */
 TEST(TestIndice,opérateurDecUna_indicesPermettentDecrémentation1_Decrémentation)
 {
     Indice i(7,0);
@@ -356,11 +373,6 @@ TEST(TestIndice,opérateurDecUna_indicesPermettentDecrémentation1_Decrémentati
     
 }
 
-
-
-/***
- * \brief Teste si l'opérateur -(unaire) peut Decrémenter un indice 
- */
 TEST(TestIndice,opérateurDecUna_indicesPermettentDecrémentation2_Decrémentation)
 {
     Indice i(3,0);
@@ -372,9 +384,6 @@ TEST(TestIndice,opérateurDecUna_indicesPermettentDecrémentation2_Decrémentati
     
 }
 
-/***
- * \brief Teste si l'opérateur + (unaire) n'incrémente pas un indice qui ne peut l'être
- */
 TEST(TestIndice,opérateurDecUna_indicesNePermettentPasDecrémentation_aucuneDecrémentation)
 {
     Indice i(0,0);

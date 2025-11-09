@@ -84,12 +84,14 @@ TEST(TestMutateurGrille,AssigneValeur_ValeurInvalide_PreconditionException)
  * \class TODO ***********
  * \brief TODO ***********
  */
+
+/*
 class TestValiderGrille ::testing::Test
 {
 public:
 //TODO *********
 }
-
+*/
 
 /**
  * \brief Test de la méthode validerGrille\n
