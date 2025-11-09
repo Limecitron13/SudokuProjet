@@ -2,7 +2,7 @@
  * \file resoudreTesteur.cpp
  * \author Émil Lavoie-Leullier
  * \date 2025-10-22
- * \brief Contient les tests de la fonction resoudre et d'autres fonctions dans resourdre.h
+ * \brief Contient les tests de la fonction resoudre
  */
 #include <gtest/gtest.h>
 #include <fstream>
@@ -12,10 +12,9 @@
 using namespace std;
 
 /**
- * \brief Test de la fonction \n
- *  cas valides:\n
- *      
- *  cas invalide:\n
+ * \brief Test de la fonction resoudre\n
+ *  Dans le repertoire fichiersTestsResoudre,il y a des grilles de sudoku non résolus et leurs solutions.
+ *  Les tests s'assurent que chaque grille est correctement résolu.
  *      
  */
 TEST(TestResoudre,resoudre_grilleARésoudre1_grilleRésolue)
