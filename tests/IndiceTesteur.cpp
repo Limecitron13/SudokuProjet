@@ -112,7 +112,7 @@ TEST(TestConstructeurIndice,Constructeur_CasDefaut_ObjetValide)
  *      IndiceBoiteInvalide: L'indice de la boite n'est dans 0 à 8. Lance une erreur de précondition.\n
  *      IndiceDansBoiteInvalide: L'indice dans la boite n'est pas dans 0 à 8. Lance une erreur de précondition.\n
  */
-TEST(TestMutateurIndice, AsgIndice_IndicesValides_AsignationValide)
+TEST(TestMutateurIndice, AsgIndice2_IndicesValides_AsignationValide)
 {
     Indice i;
     i.asg_indice(3,7);
@@ -122,17 +122,74 @@ TEST(TestMutateurIndice, AsgIndice_IndicesValides_AsignationValide)
     ASSERT_EQ(i.req_indice_col(),1);
 }
 
-TEST(TestMutateurIndice, AsgIndice_IndiceBoiteInvalide_PreconditionException)
+TEST(TestMutateurIndice, AsgIndice2_IndiceBoiteInvalide_PreconditionException)
 {
     Indice i;
     ASSERT_THROW(i.asg_indice(9,7),PreconditionException);
 }
 
-TEST(TestMutateurIndice, AsgIndice_IndiceDansBoiteInvalide_PreconditionException)
+TEST(TestMutateurIndice, AsgIndice2_IndiceDansBoiteInvalide_PreconditionException)
 {
     Indice i;
     ASSERT_THROW(i.asg_indice(8,10),PreconditionException);
 }
+
+
+
+
+
+
+/**
+ * \brief Test de la méthode asg_indice à trois paramètres \n
+ *  cas valides:\n
+ *      IndicesValides: Les indices fournis sont valides et bien assignés
+ *  cas invalide:\n
+ *      IndiceBoiteInvalide: L'indice de la boite n'est pas dans 0 à 8. Lance une erreur de précondition.\n
+ *      IndiceColonneInvalide: L'indice de la colonne n'est pas dans 0 à 8. Lance une erreur de précondition.\n
+ *      IndiceLigneInvalide: L'indice de la ligne n'est pas dans 0 à 8. Lance une erreur de précondition.\n
+ *      IndiceCombinéInvalide: L'indice de la boite, colonne et ligne ne concorde pas. Lance une erreur de précondition.\n
+ */
+TEST(TestMutateurIndice, AsgIndice3_IndicesValides_AsignationValide)
+{
+    Indice i;
+    i.asg_indice(2,7,0);
+    ASSERT_EQ(i.req_indice_boite(),2);
+    ASSERT_EQ(i.req_indice(),1);
+    ASSERT_EQ(i.req_indice_ligne(),0);
+    ASSERT_EQ(i.req_indice_col(),7);
+}
+
+TEST(TestMutateurIndice, AsgIndice3_IndiceBoiteInvalide_PreconditionException)
+{
+    Indice i;
+    ASSERT_THROW(i.asg_indice(9,7,6),PreconditionException);
+}
+
+TEST(TestMutateurIndice, AsgIndice3_IndiceColonneInvalide_PreconditionException)
+{
+    Indice i;
+    ASSERT_THROW(i.asg_indice(0,9,0),PreconditionException);
+}
+
+TEST(TestMutateurIndice, AsgIndice3_IndiceLigneInvalide_PreconditionException)
+{
+    Indice i;
+    ASSERT_THROW(i.asg_indice(0,2,10),PreconditionException);
+}
+
+TEST(TestMutateurIndice, AsgIndice3_IndiceCombinéInvalide_PreconditionException)
+{
+    Indice i;
+    ASSERT_THROW(i.asg_indice(0,4,2),PreconditionException);
+}
+
+
+
+
+
+
+
+
 
 
 /**
