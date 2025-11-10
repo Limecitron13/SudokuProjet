@@ -422,13 +422,15 @@ TEST(TestOperateurIndice,OpérateurPreInc_FinDeLaGrille_AucuneIncrémentation)
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de l'opérateur -- (pré) \n
  *  cas valides:\n
- *      
+ *      AucunChangementCol: L'indice de la ligne est plus grand que 0 et donc aucun changement de colonne.\n
+ *      ChangementCol: L'indice de la ligne est 0 avant la décrémentation donc il y a un changement de colonne.\n
+ *      FinDeLaGrille: L'indice est (0,0) donc l'opérateur ne décrémente plus.\n
  *  cas invalide:\n
  *      Aucun identifié\n
  */
-TEST(TestOperateurIndice,opérateurPreDec_indicesPermettentDécrémentation_Décrémentation)
+TEST(TestOperateurIndice,OpérateurPreDec_AucunChangementCol_Décrémentation)
 {
     Indice i(2,5);
     --i;
@@ -439,7 +441,7 @@ TEST(TestOperateurIndice,opérateurPreDec_indicesPermettentDécrémentation_Déc
     
 }
 
-TEST(TestOperateurIndice,opérateurPreDec_indicesPermettentDécrémentation2_Décrémentation)
+TEST(TestOperateurIndice,OpérateurPreDec_ChangementCol_Décrémentation)
 {
     Indice i(1,3,0);
     --i;
@@ -450,7 +452,7 @@ TEST(TestOperateurIndice,opérateurPreDec_indicesPermettentDécrémentation2_Dé
     
 }
 
-TEST(TestOperateurIndice,opérateurPreDec_indicesNePermettentPasDécrémentation_aucunedécrémentation)
+TEST(TestOperateurIndice,OpérateurPreDec_FinDeLaGrille_aucunedécrémentation)
 {
     Indice i(0,0,0);
     --i;
@@ -465,13 +467,16 @@ TEST(TestOperateurIndice,opérateurPreDec_indicesNePermettentPasDécrémentation
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de l'opérateur + (unaire) \n
  *  cas valides:\n
- *      
+ *      AucunChangementBoite: L'indice dans la boite est plus petit que 8 et donc aucun changement de boite.\n
+ *      ChangementBoite: L'indice dans la boite est 8 avant l'incrémentation donc il y a un changement de boite.\n
+ *      ChangementBoiteLigne: L'indice dans la boite est 8 et la colonne 8 avant l'incrémentation donc il y a un changement de boite et ligne.\n
+ *      FinDeLaGrille: L'indice est (8,8) donc l'opérateur ne n'incrémente plus.\n
  *  cas invalide:\n
  *      Aucun identifié\n
  */
-TEST(TestOperateurIndice,opérateurIncUna_indicesPermettentIncrémentation_incrémentation)
+TEST(TestOperateurIndice,OpérateurIncUna_AucunChangementBoite_Incrémentation)
 {
     Indice i(1,5);
     +i;
@@ -482,7 +487,7 @@ TEST(TestOperateurIndice,opérateurIncUna_indicesPermettentIncrémentation_incr�
     
 }
 
-TEST(TestOperateurIndice,opérateurIncUna_indicesPermettentIncrémentation1_incrémentation)
+TEST(TestOperateurIndice,OpérateurIncUna_ChangementBoite_Incrémentation)
 {
     Indice i(1,8);
     +i;
@@ -493,7 +498,7 @@ TEST(TestOperateurIndice,opérateurIncUna_indicesPermettentIncrémentation1_incr
     
 }
 
-TEST(TestOperateurIndice,opérateurIncUna_indicesPermettentIncrémentation2_incrémentation)
+TEST(TestOperateurIndice,OpérateurIncUna_ChangementBoiteLigne_Incrémentation)
 {
     Indice i(2,8);
     +i;
@@ -504,7 +509,7 @@ TEST(TestOperateurIndice,opérateurIncUna_indicesPermettentIncrémentation2_incr
     
 }
 
-TEST(TestOperateurIndice,opérateurIncUna_indicesNePermettentPasIncrémentation_aucuneIncrémentation)
+TEST(TestOperateurIndice,OpérateurIncUna_FinDeLaGrille_Incrémentation)
 {
     Indice i(8,8);
     +i;
@@ -517,13 +522,16 @@ TEST(TestOperateurIndice,opérateurIncUna_indicesNePermettentPasIncrémentation_
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de l'opérateur - (unaire) \n
  *  cas valides:\n
- *      
+ *      AucunChangementBoite: L'indice dans la boite est plus grand que 0 et donc aucun changement de boite.\n
+ *      ChangementBoite: L'indice dans la boite est 0 avant la décrémentation donc il y a un changement de boite.\n
+ *      ChangementBoiteLigne: L'indice dans la boite est 0 avant la décrémentation et la colonne 0 donc il y a un changement de boite et ligne.\n
+ *      FinDeLaGrille: L'indice est (0,0) donc l'opérateur ne décrémente plus.\n
  *  cas invalide:\n
  *      Aucun identifié\n
  */
-TEST(TestOperateurIndice,opérateurDecUna_indicesPermettentDecrémentation_Decrémentation)
+TEST(TestOperateurIndice,OpérateurDecUna_AucunChangementBoite_Decrémentation)
 {
     Indice i(7,3);
     -i;
@@ -534,7 +542,7 @@ TEST(TestOperateurIndice,opérateurDecUna_indicesPermettentDecrémentation_Decr�
     
 }
 
-TEST(TestOperateurIndice,opérateurDecUna_indicesPermettentDecrémentation1_Decrémentation)
+TEST(TestOperateurIndice,OpérateurDecUna_ChangementBoite_Decrémentation)
 {
     Indice i(7,0);
     -i;
@@ -545,7 +553,7 @@ TEST(TestOperateurIndice,opérateurDecUna_indicesPermettentDecrémentation1_Decr
     
 }
 
-TEST(TestOperateurIndice,opérateurDecUna_indicesPermettentDecrémentation2_Decrémentation)
+TEST(TestOperateurIndice,OpérateurDecUna_ChangementBoiteLigne_Decrémentation)
 {
     Indice i(3,0);
     -i;
@@ -556,7 +564,7 @@ TEST(TestOperateurIndice,opérateurDecUna_indicesPermettentDecrémentation2_Decr
     
 }
 
-TEST(TestOperateurIndice,opérateurDecUna_indicesNePermettentPasDecrémentation_aucuneDecrémentation)
+TEST(TestOperateurIndice,OpérateurDecUna_FinDeLaGrille_AucuneDecrémentation)
 {
     Indice i(0,0);
     -i;
