@@ -48,6 +48,7 @@ Indice::Indice(int p_indice_boite,int p_indice):m_indice_boite(p_indice_boite),m
  */
 Indice::Indice():m_indice_boite(0),m_indice(0),m_indice_col(0),m_indice_ligne(0)
 {
+    POSTCONDITION(m_indice_boite == 0 && m_indice == 0 && m_indice_col == 0 && m_indice_ligne == 0);
     INVARIANTS();
 }
 

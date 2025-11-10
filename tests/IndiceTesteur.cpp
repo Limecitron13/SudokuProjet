@@ -58,8 +58,8 @@ TEST(TestConstructeurIndice,Constructeur3_IndiceCombinéInvalide_PreconditionExc
  *  cas valides:\n
  *      IndicesValides: Les indices fournis sont valides \n
  *  cas invalide:\n
- *      IndiceBoiteInvalide:  L'indice n'est pas dans 0 à 8. Lance une erreur de précondition.
- *      IndiceDansBoiteInvalide: L'indice n'est pas dans 0 à 8. Lance une erreur de précondition.
+ *      IndiceBoiteInvalide:  L'indice n'est pas dans 0 à 8. Lance une erreur de précondition.\n
+ *      IndiceDansBoiteInvalide: L'indice n'est pas dans 0 à 8. Lance une erreur de précondition.\n
  *      
  */
 TEST(TestConstructeurIndice,Constructeur2_IndicesValides_ObjetValide)
@@ -87,13 +87,13 @@ TEST(TestConstructeurIndice,Constructeur2_IndiceDansBoiteInvalide_PreconditionEx
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test du constructeur par défaut \n
  *  cas valides:\n
- *      
+ *      CasDefaut: L'indice est instancié correctement à l'indice (0,0,0,0)\n
  *  cas invalide:\n
- *      
+ *      Aucun identifié\n
  */
-TEST(TestIndice,constructeur_Defaut_objetValide)
+TEST(TestConstructeurIndice,Constructeur_CasDefaut_ObjetValide)
 {
     Indice i;
     ASSERT_EQ(i.req_indice_boite(), 0);
