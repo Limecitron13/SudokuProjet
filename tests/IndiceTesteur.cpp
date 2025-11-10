@@ -17,7 +17,7 @@ using namespace std;
  *  cas valides:\n
  *      indicesValides: Les indices fournis sont valides\n
  *  cas invalide:\n
- *      IndiceBoiteInvalide: L'indice de la boite n'est dans 0 à 8. Lance une erreur de précondition.\n
+ *      IndiceBoiteInvalide: L'indice de la boite n'est pas dans 0 à 8. Lance une erreur de précondition.\n
  *      IndiceColonneInvalide: L'indice de la colonne n'est pas dans 0 à 8. Lance une erreur de précondition.\n
  *      IndiceLigneInvalide: L'indice de la ligne n'est pas dans 0 à 8. Lance une erreur de précondition.\n
  *      IndiceCombinéInvalide: L'indice de la boite, colonne et ligne ne concorde pas. Lance une erreur de précondition.\n
@@ -105,13 +105,14 @@ TEST(TestConstructeurIndice,Constructeur_CasDefaut_ObjetValide)
 
 
 /**
- * \brief Test de la méthode asg_indice \n
+ * \brief Test de la méthode asg_indice à deux paramètres \n
  *  cas valides:\n
- *      IndicesValides
+ *      IndicesValides: Les indices fournis sont valides et bien assignés
  *  cas invalide:\n
- *      
+ *      IndiceBoiteInvalide: L'indice de la boite n'est dans 0 à 8. Lance une erreur de précondition.\n
+ *      IndiceDansBoiteInvalide: L'indice dans la boite n'est pas dans 0 à 8. Lance une erreur de précondition.\n
  */
-TEST(TestIndice,asg_indice_indiceValide_asignation)
+TEST(TestMutateurIndice, AsgIndice_IndicesValides_AsignationValide)
 {
     Indice i;
     i.asg_indice(3,7);
@@ -119,6 +120,18 @@ TEST(TestIndice,asg_indice_indiceValide_asignation)
     ASSERT_EQ(i.req_indice(),7);
     ASSERT_EQ(i.req_indice_ligne(),5);
     ASSERT_EQ(i.req_indice_col(),1);
+}
+
+TEST(TestMutateurIndice, AsgIndice_IndiceBoiteInvalide_PreconditionException)
+{
+    Indice i;
+    ASSERT_THROW(i.asg_indice(9,7),PreconditionException);
+}
+
+TEST(TestMutateurIndice, AsgIndice_IndiceDansBoiteInvalide_PreconditionException)
+{
+    Indice i;
+    ASSERT_THROW(i.asg_indice(8,10),PreconditionException);
 }
 
 

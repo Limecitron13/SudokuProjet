@@ -74,7 +74,7 @@ void Indice::asg_indice(int p_indice_boite,int p_indice)
  * \brief Mutateur d'indice à trois paramètres
  * \param p_indice_boite est l'indice de la boite
  * \param p_indice_col est l'indice de la colonne
- * \param p_indice_col est l'indice de la ligne
+ * \param p_indice_ligne est l'indice de la ligne
  */
 void Indice::asg_indice(int p_indice_boite,int p_indice_col,int p_indice_ligne)
 {
@@ -89,6 +89,7 @@ void Indice::asg_indice(int p_indice_boite,int p_indice_col,int p_indice_ligne)
     POSTCONDITION(m_indice_boite == p_indice_boite && m_indice_col == p_indice_col && m_indice_ligne == p_indice_ligne);
     INVARIANTS();
 }
+
 
 /***
  * \brief Accesseur de m_indice_boite
