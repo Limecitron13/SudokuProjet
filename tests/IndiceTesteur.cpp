@@ -13,13 +13,16 @@
 using namespace std;
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test du constructeur à trois paramètres\n
  *  cas valides:\n
- *      
+ *      indicesValides: Les indices fournis sont valides
  *  cas invalide:\n
- *      
+ *      IndiceBoiteInvalide: L'indice de la boite n'est dans 0 à 8. Lance une erreur de précondition.
+ *      IndiceColonneInvalide: L'indice de la colonne n'est pas dans 0 à 8. Lance une erreur de précondition.
+ *      IndiceLigneInvalide: L'indice de la ligne n'est pas dans 0 à 8. Lance une erreur de précondition.
+ *      IndiceCombinéInvalide: L'indice de la boite, colonne et ligne ne concorde pas. Lance une erreur de précondition.
  */
-TEST(TestIndice,constructeur3_indicesValides_objetValide)
+TEST(TestConstructeurIndice,Constructeur3_IndicesValides_ObjetValide)
 {
     Indice i(0,2,1);
     ASSERT_EQ(i.req_indice_boite(), 0);
@@ -27,6 +30,28 @@ TEST(TestIndice,constructeur3_indicesValides_objetValide)
     ASSERT_EQ(i.req_indice_ligne(),1);
     ASSERT_EQ(i.req_indice(),5);
 }
+
+TEST(TestConstructeurIndice,Constructeur3_IndiceBoiteInvalide_PreconditionException)
+{
+    ASSERT_THROW(Indice(9,2,1),PreconditionException);
+}
+
+TEST(TestConstructeurIndice,Constructeur3_IndiceColonneInvalide_PreconditionException)
+{
+    ASSERT_THROW(Indice(0,-1,1),PreconditionException);
+}
+
+TEST(TestConstructeurIndice,Constructeur3_IndiceLigneInvalide_PreconditionException)
+{
+    ASSERT_THROW(Indice(0,2,9),PreconditionException);
+}
+
+TEST(TestConstructeurIndice,Constructeur3_IndiceDansBoiteInvalide_PreconditionException)
+{
+    ASSERT_THROW(Indice(8,2,1),PreconditionException);
+}
+
+
 
 /**
  * \brief Test de la méthode \n
