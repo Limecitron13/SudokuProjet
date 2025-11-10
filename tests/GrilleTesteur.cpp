@@ -96,7 +96,7 @@ public:
 /**
  * \brief Test de la méthode validerGrille\n
  *  cas valides:\n
- *      
+ *      TODO *************************
  *  cas invalide:\n
  *      
  */
@@ -123,7 +123,7 @@ TEST(TestGrille,validerGrille_grilleValide_valide)
 /**
  * \brief Test de la méthode \n
  *  cas valides:\n
- *      
+ *      TODO *************************
  *  cas invalide:\n
  *      
  */
@@ -157,7 +157,7 @@ TEST(TestGrille,operateurEgalite_grilleDifférentes_faux)
 /**
  * \brief Test de la méthode \n
  *  cas valides:\n
- *      
+ *      TODO**********************
  *  cas invalide:\n
  *      
  */
@@ -186,7 +186,7 @@ Grille g;
 /**
  * \brief Test de la méthode \n
  *  cas valides:\n
- *      
+ *      TODO   ********************************
  *  cas invalide:\n
  *      
  */
@@ -213,7 +213,7 @@ TEST(TestGrille,req_validite_grilleValide_valide)
 /**
  * \brief Test de la méthode \n
  *  cas valides:\n
- *      
+ *      TODO ***************************
  *  cas invalide:\n
  *      
  */
@@ -236,7 +236,7 @@ TEST(TestGrille,req_colonne_indiceValide_colonneAttendue)
 /**
  * \brief Test de la méthode \n
  *  cas valides:\n
- *      
+ *      TODO ********************************
  *  cas invalide:\n
  *      
  */
@@ -259,7 +259,7 @@ TEST(TestGrille,req_boite_indiceValide_boiteAttendue)
 /**
  * \brief Test de la méthode \n
  *  cas valides:\n
- *      
+ *      TODO**********************************************
  *  cas invalide:\n
  *      
  */
@@ -282,7 +282,7 @@ TEST(TestGrille,req_ligne_indiceValide_ligneAttendue)
 /**
  * \brief Test de la méthode \n
  *  cas valides:\n
- *      
+ *      TODO ********************************************
  *  cas invalide:\n
  *      
  */
@@ -320,7 +320,7 @@ TEST(TestGrille,respecte_contraintes_grilleRemplis_TableauDeZéros)
 /**
  * \brief Test de la méthode \n
  *  cas valides:\n
- *      
+ *      TODO****************************************
  *  cas invalide:\n
  *      
  */
@@ -360,7 +360,7 @@ TEST(TestGrille,save_grilleValide2_sauvegardeGrille)
 
 /**
  * \brief Test de la fonction \n
- *  cas 
+ *  cas ****TODO******************
  * 
  * 
  *      
