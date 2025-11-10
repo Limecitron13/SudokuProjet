@@ -289,7 +289,7 @@ TEST(TestAccesseurIndice,ReqIndiceDansCol_ObjetValide_IndiceAttendu)
 TEST(TestAccesseurIndice,ReqIndiceDansBoite_ObjetValide_IndiceAttendu)
 {
     Indice i(4,7);
-    ASSERT_EQ(i.req_indice_dans_boite(),4);
+    ASSERT_EQ(i.req_indice_dans_boite(),7);
 }
 
 
@@ -299,13 +299,15 @@ TEST(TestAccesseurIndice,ReqIndiceDansBoite_ObjetValide_IndiceAttendu)
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de l'opérateur ++ (post) \n
  *  cas valides:\n
- *      
+ *      AucunChangementLigne: L'indice de la colonne est plus petit que 8 et donc aucun changement de ligne.\n
+ *      ChangementLigne: L'indice de la colonne est 8 avant l'incrémentation donc il y a un changement de ligne.\n
+ *      FinDeLaGrille: L'indice est (8,8) donc l'opérateur n'incrémente plus.\n
  *  cas invalide:\n
- *      
+ *      Aucun identifié\n
  */
-TEST(TestIndice,opérateurPostInc_indicesPermettentIncrémentation_incrémentation)
+TEST(TestOperateurIndice,OpérateurPostInc_AucunChangementLigne_Incrémentation)
 {
     Indice i(3,2,4);
     i++;
@@ -315,7 +317,7 @@ TEST(TestIndice,opérateurPostInc_indicesPermettentIncrémentation_incrémentati
     ASSERT_EQ(i.req_indice(),3);
 }
 
-TEST(TestIndice,opérateurPostInc_indicesPermettentIncrémentation2_incrémentation)
+TEST(TestOperateurIndice,OpérateurPostInc_ChangementLigne_Incrémentation)
 {
     Indice i(8,2);
     i++;
@@ -325,7 +327,7 @@ TEST(TestIndice,opérateurPostInc_indicesPermettentIncrémentation2_incrémentat
     ASSERT_EQ(i.req_indice(),3);
 }
 
-TEST(TestIndice,opérateurPostInc_indicesNePermettentPasIncrémentation_aucuneIncrémentation)
+TEST(TestOperateurIndice,OpérateurPostInc_FinDeLaGrille_AucuneIncrémentation)
 {
     Indice i(8,8,8);
     i++;
@@ -337,13 +339,15 @@ TEST(TestIndice,opérateurPostInc_indicesNePermettentPasIncrémentation_aucuneIn
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de l'opérateur -- (post) \n
  *  cas valides:\n
- *      
+ *      AucunChangementLigne: L'indice de la colonne est plus grand que 0 et donc aucun changement de ligne.\n
+ *      ChangementLigne: L'indice de la colonne est 0 avant la décrémentation donc il y a un changement de ligne.\n
+ *      FinDeLaGrille: L'indice est (0,0) donc l'opérateur ne décrémente plus.\n
  *  cas invalide:\n
- *      
+ *      Aucun identifié\n
  */
-TEST(TestIndice,opérateurPostDec_indicesPermettentDécrémentation_Décrémentation)
+TEST(TestOperateurIndice,OpérateurPostDec_AucunChangementLigne_Décrémentation)
 {
     Indice i(2,5);
     i--;
@@ -354,7 +358,7 @@ TEST(TestIndice,opérateurPostDec_indicesPermettentDécrémentation_Décrémenta
     
 }
 
-TEST(TestIndice,opérateurPostDec_indicesPermettentDécrémentation2_Décrémentation)
+TEST(TestOperateurIndice,OpérateurPostDec_ChangementLigne_Décrémentation)
 {
     Indice i(6,0,6);
     i--;
@@ -365,7 +369,7 @@ TEST(TestIndice,opérateurPostDec_indicesPermettentDécrémentation2_Décrément
     
 }
 
-TEST(TestIndice,opérateurPostDec_indicesNePermettentPasDécrémentation_aucunedécrémentation)
+TEST(TestOperateurIndice,OpérateurPostDec_FinDeLaGrille_Aucunedécrémentation)
 {
     Indice i(0,0,0);
     i--;
@@ -378,13 +382,15 @@ TEST(TestIndice,opérateurPostDec_indicesNePermettentPasDécrémentation_aucuned
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de l'opérateur ++ (pré) \n
  *  cas valides:\n
- *      
+ *      AucunChangementCol: L'indice de la ligne est plut petite que 8 et donc aucun changement de colonne.\n
+ *      ChangementCol: L'indice de la ligne est 8 avant l'incrémentation donc il y a un changement de colonne.\n
+ *      FinDeLaGrille: L'indice est (8,8) donc l'opérateur ne n'incrémente plus.\n
  *  cas invalide:\n
- *      
+ *      Aucun identifié\n
  */
-TEST(TestIndice,opérateurPreInc_indicesPermettentIncrémentation_incrémentation)
+TEST(TestOperateurIndice,OpérateurPreInc_AucunChangementCol_Incrémentation)
 {
     Indice i(3,2,4);
     ++i;
@@ -394,7 +400,7 @@ TEST(TestIndice,opérateurPreInc_indicesPermettentIncrémentation_incrémentatio
     ASSERT_EQ(i.req_indice(),8);
 }
 
-TEST(TestIndice,opérateurPreInc_indicesPermettentIncrémentation2_incrémentation)
+TEST(TestOperateurIndice,OpérateurPreInc_ChangementCol_Incrémentation)
 {
     Indice i(7,8);
     ++i;
@@ -404,7 +410,7 @@ TEST(TestIndice,opérateurPreInc_indicesPermettentIncrémentation2_incrémentati
     ASSERT_EQ(i.req_indice(),0);
 }
 
-TEST(TestIndice,opérateurPreInc_indicesNePermettentPasIncrémentation_aucuneIncrémentation)
+TEST(TestOperateurIndice,OpérateurPreInc_FinDeLaGrille_AucuneIncrémentation)
 {
     Indice i(8,8,8);
     ++i;
@@ -420,9 +426,9 @@ TEST(TestIndice,opérateurPreInc_indicesNePermettentPasIncrémentation_aucuneInc
  *  cas valides:\n
  *      
  *  cas invalide:\n
- *      
+ *      Aucun identifié\n
  */
-TEST(TestIndice,opérateurPreDec_indicesPermettentDécrémentation_Décrémentation)
+TEST(TestOperateurIndice,opérateurPreDec_indicesPermettentDécrémentation_Décrémentation)
 {
     Indice i(2,5);
     --i;
@@ -433,7 +439,7 @@ TEST(TestIndice,opérateurPreDec_indicesPermettentDécrémentation_Décrémentat
     
 }
 
-TEST(TestIndice,opérateurPreDec_indicesPermettentDécrémentation2_Décrémentation)
+TEST(TestOperateurIndice,opérateurPreDec_indicesPermettentDécrémentation2_Décrémentation)
 {
     Indice i(1,3,0);
     --i;
@@ -444,14 +450,7 @@ TEST(TestIndice,opérateurPreDec_indicesPermettentDécrémentation2_Décrémenta
     
 }
 
-/**
- * \brief Test de la méthode \n
- *  cas valides:\n
- *      
- *  cas invalide:\n
- *      
- */
-TEST(TestIndice,opérateurPreDec_indicesNePermettentPasDécrémentation_aucunedécrémentation)
+TEST(TestOperateurIndice,opérateurPreDec_indicesNePermettentPasDécrémentation_aucunedécrémentation)
 {
     Indice i(0,0,0);
     --i;
@@ -470,9 +469,9 @@ TEST(TestIndice,opérateurPreDec_indicesNePermettentPasDécrémentation_aucuned�
  *  cas valides:\n
  *      
  *  cas invalide:\n
- *      
+ *      Aucun identifié\n
  */
-TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation_incrémentation)
+TEST(TestOperateurIndice,opérateurIncUna_indicesPermettentIncrémentation_incrémentation)
 {
     Indice i(1,5);
     +i;
@@ -483,7 +482,7 @@ TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation_incrémentatio
     
 }
 
-TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation1_incrémentation)
+TEST(TestOperateurIndice,opérateurIncUna_indicesPermettentIncrémentation1_incrémentation)
 {
     Indice i(1,8);
     +i;
@@ -494,7 +493,7 @@ TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation1_incrémentati
     
 }
 
-TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation2_incrémentation)
+TEST(TestOperateurIndice,opérateurIncUna_indicesPermettentIncrémentation2_incrémentation)
 {
     Indice i(2,8);
     +i;
@@ -505,7 +504,7 @@ TEST(TestIndice,opérateurIncUna_indicesPermettentIncrémentation2_incrémentati
     
 }
 
-TEST(TestIndice,opérateurIncUna_indicesNePermettentPasIncrémentation_aucuneIncrémentation)
+TEST(TestOperateurIndice,opérateurIncUna_indicesNePermettentPasIncrémentation_aucuneIncrémentation)
 {
     Indice i(8,8);
     +i;
@@ -522,9 +521,9 @@ TEST(TestIndice,opérateurIncUna_indicesNePermettentPasIncrémentation_aucuneInc
  *  cas valides:\n
  *      
  *  cas invalide:\n
- *      
+ *      Aucun identifié\n
  */
-TEST(TestIndice,opérateurDecUna_indicesPermettentDecrémentation_Decrémentation)
+TEST(TestOperateurIndice,opérateurDecUna_indicesPermettentDecrémentation_Decrémentation)
 {
     Indice i(7,3);
     -i;
@@ -535,7 +534,7 @@ TEST(TestIndice,opérateurDecUna_indicesPermettentDecrémentation_Decrémentatio
     
 }
 
-TEST(TestIndice,opérateurDecUna_indicesPermettentDecrémentation1_Decrémentation)
+TEST(TestOperateurIndice,opérateurDecUna_indicesPermettentDecrémentation1_Decrémentation)
 {
     Indice i(7,0);
     -i;
@@ -546,7 +545,7 @@ TEST(TestIndice,opérateurDecUna_indicesPermettentDecrémentation1_Decrémentati
     
 }
 
-TEST(TestIndice,opérateurDecUna_indicesPermettentDecrémentation2_Decrémentation)
+TEST(TestOperateurIndice,opérateurDecUna_indicesPermettentDecrémentation2_Decrémentation)
 {
     Indice i(3,0);
     -i;
@@ -557,7 +556,7 @@ TEST(TestIndice,opérateurDecUna_indicesPermettentDecrémentation2_Decrémentati
     
 }
 
-TEST(TestIndice,opérateurDecUna_indicesNePermettentPasDecrémentation_aucuneDecrémentation)
+TEST(TestOperateurIndice,opérateurDecUna_indicesNePermettentPasDecrémentation_aucuneDecrémentation)
 {
     Indice i(0,0);
     -i;
