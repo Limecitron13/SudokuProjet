@@ -186,6 +186,64 @@ TEST(TestMutateurIndice, AsgIndice3_IndiceCombinéInvalide_PreconditionException
 
 
 
+/**
+ * \brief Test de la méthode req_indice_boite \n
+ *  cas valides:\n
+ *      ObjetValide: La valeur de l'attribut m_indice_boite est retourné\n
+ *  cas invalide:\n
+ *      Aucun identifié\n
+ */
+TEST(TestAccesseurIndice,ReqIndiceBoite_ObjetValide_IndiceAttendu)
+{
+    Indice i(8,8,8);
+    ASSERT_EQ(i.req_indice_boite(),8);
+    
+}
+
+/**
+ * \brief Test de la méthode req_indice \n
+ *  cas valides:\n
+ *       ObjetValide: La valeur de l'attribut m_indice est retourné\n
+ *  cas invalide:\n
+ *      Aucun identifié\n
+ */
+TEST(TestAccesseurIndice,ReqIndice_ObjetValide_IndiceAttendu)
+{
+    Indice i(8,8,8);
+    ASSERT_EQ(i.req_indice(),8);
+    
+}
+
+
+/**
+ * \brief Test de la méthode req_indice_col \n
+ *  cas valides:\n
+ *      ObjetValide: La valeur de l'attribut m_indice_col est retourné\n
+ *  cas invalide:\n
+ *      Aucun identifié\n
+ */
+TEST(TestAccesseurIndice,ReqIndiceColonne_ObjetValide_IndiceAttendu)
+{
+    Indice i(8,8,8);
+    ASSERT_EQ(i.req_indice_col(),8);
+    
+}
+
+
+
+/**
+ * \brief Test de la méthode req_indice_ligne \n
+ *  cas valides:\n
+ *      ObjetValide: La valeur de l'attribut m_indice_ligne est retourné\n
+ *  cas invalide:\n
+ *      Aucun identifié\n
+ */
+TEST(TestAccesseurIndice,ReqIndiceLigne_ObjetValide_IndiceAttendu)
+{
+    Indice i(8,8,8);
+    ASSERT_EQ(i.req_indice_ligne(),8);
+    
+}
 
 
 
@@ -193,46 +251,51 @@ TEST(TestMutateurIndice, AsgIndice3_IndiceCombinéInvalide_PreconditionException
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de la méthode req_indice_dans_ligne \n
  *  cas valides:\n
- *      
+ *      ObjetValide: La valeur de l'attribut m_indice_dans_ligne est retourné\n
  *  cas invalide:\n
- *      
+ *      Aucun identifié\n
  */
-TEST(TestIndice,req_indice_dans_col_IndiceValide_IndiceAttendu)
+TEST(TestAccesseurIndice,ReqIndiceDansLigne_ObjetValide_IndiceAttendu)
+{
+    Indice i(8,8,8);
+    ASSERT_EQ(i.req_indice_dans_ligne(),8);
+    
+}
+
+/**
+ * \brief Test de la méthode req_indice_dans_col \n
+ *  cas valides:\n
+ *      ObjetValide: La valeur de l'attribut m_indice_dans_col est retourné\n
+ *  cas invalide:\n
+ *      Aucun identifié\n
+ */
+TEST(TestAccesseurIndice,ReqIndiceDansCol_ObjetValide_IndiceAttendu)
 {
     Indice i(3,8);
     ASSERT_EQ(i.req_indice_dans_col(),5);
 }
 
 
-/**
- * \brief Test de la méthode \n
- *  cas valides:\n
- *      
- *  cas invalide:\n
- *      
- */
-TEST(TestIndice,req_indice_dans_boite_IndiceValide_IndiceAttendu)
-{
-    Indice i(8,8,8);
-    ASSERT_EQ(i.req_indice_dans_boite(),8);
-    
-}
-
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de la méthode req_indice_dans_boite \n
  *  cas valides:\n
- *      
+ *      ObjetValide: La valeur de l'attribut m_indice_dans_col est retourné\n
  *  cas invalide:\n
- *      
+ *      Aucun identifié\n
  */
-TEST(TestIndice,req_indice_dans_ligne_IndiceValide_IndiceAttendu)
+TEST(TestAccesseurIndice,ReqIndiceDansBoite_ObjetValide_IndiceAttendu)
 {
     Indice i(4,7);
-    ASSERT_EQ(i.req_indice_dans_ligne(),4);
+    ASSERT_EQ(i.req_indice_dans_boite(),4);
 }
+
+
+
+
+
 
 
 /**
