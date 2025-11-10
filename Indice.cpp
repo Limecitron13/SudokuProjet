@@ -12,7 +12,7 @@ using namespace std;
 
 
 /***
- * \brief Constructeur d'objets Indice
+ * \brief Constructeur d'objets Indice à trois paramètres
  * \param p_indice_boite est l'indice de la boîte de la grille sudoku
  * \param p_indice_col est l'indice de la colonne
  * \param p_indice_ligne est l'indice de la ligne
@@ -53,7 +53,7 @@ Indice::Indice():m_indice_boite(0),m_indice(0),m_indice_col(0),m_indice_ligne(0)
 }
 
 /***
- * \brief Mutateur d'indice
+ * \brief Mutateur d'indice à deux paramètres
  * \param p_indice_boite est l'indice de la boite
  * \param p_indice est l'indice dans la boite
  */
@@ -61,11 +61,32 @@ void Indice::asg_indice(int p_indice_boite,int p_indice)
 {
     PRECONDITION(p_indice_boite>=0 && p_indice_boite<=8);
     PRECONDITION(p_indice>=0 && p_indice<=8);
-    m_indice_boite = (p_indice_boite);
+    m_indice_boite = p_indice_boite;
     m_indice = p_indice;
     m_indice_col = 3*(p_indice_boite%3) + p_indice%3;
     m_indice_ligne = 3*(p_indice_boite/3) + p_indice/3;  
     POSTCONDITION(m_indice_boite == p_indice_boite && m_indice == p_indice);
+    INVARIANTS();
+}
+
+
+/***
+ * \brief Mutateur d'indice à trois paramètres
+ * \param p_indice_boite est l'indice de la boite
+ * \param p_indice_col est l'indice de la colonne
+ * \param p_indice_col est l'indice de la ligne
+ */
+void Indice::asg_indice(int p_indice_boite,int p_indice_col,int p_indice_ligne)
+{
+    PRECONDITION(p_indice_boite>=0 && p_indice_boite<=8);
+    PRECONDITION(p_indice_col>=0 && p_indice_col<=8);
+    PRECONDITION(p_indice_ligne>=0 && p_indice_ligne<=8);
+    PRECONDITION(p_indice_boite == p_indice_col/3 + (p_indice_ligne/3)*3 );
+    m_indice_boite = p_indice_boite;
+    m_indice_col = p_indice_col;
+    m_indice_ligne = p_indice_ligne;
+    m_indice = m_indice_col%3 +3*(m_indice_ligne%3); 
+    POSTCONDITION(m_indice_boite == p_indice_boite && m_indice_col == p_indice_col && m_indice_ligne == p_indice_ligne);
     INVARIANTS();
 }
 

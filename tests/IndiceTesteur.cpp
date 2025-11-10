@@ -105,9 +105,9 @@ TEST(TestConstructeurIndice,Constructeur_CasDefaut_ObjetValide)
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de la méthode asg_indice \n
  *  cas valides:\n
- *      
+ *      IndicesValides
  *  cas invalide:\n
  *      
  */
