@@ -27,7 +27,7 @@
 - Ajouter une interface graphique pour pouvoir jouer au sudoku et pour voir la résolution de la grille en temps réel
 - Ajouter une gestion des exceptions
 - Ajouter une algorithme de résolution différent
-- Ajouter des variantes de sudoku(killer,knight move, king move,etc.)
+- Ajouter des variantes de sudoku(killer,knight move, king move,etc.) et une façon d'encoder les cages dans le fichier texte
 - Ajouter une meilleure analyse des contraintes d'une case (doubles, triples, et autres techniques)
 - Ajouter une façon de générer de nouvelles grilles de sudoku avec des difficultés différentes
 - Ajouter une façon de déterminer le nombres de solutions possibles qu'une grilles incomplète engendre
