@@ -97,29 +97,7 @@ Grille resoudre_recherche(Grille g,Indice i)
 
 
 
-/*
- * 
- * Algo pour trouver le nombres de solutions qu'une grille de sudoku contient:
- * 
- * 
- * 
- * Commencer à une case
- * 
- * 
- * 
- * Tant que aucune contradiction:
- *     Si la grille est valide:
- *         Incrémentater le compteur de solutions
- *         Revenir à l'état précédent
- * 
- *     Si il ne reste plus d'options de nombres pour cette case:
- *          revenir à l'état précédent
- * 
- *     Essayer le nombre suivant dans la liste
- *     Passer à la prochaine case
- * 
- * //On a obtenus une contradiction
- * retourner en arrière de un état
- * 
- */
+
+
+
 

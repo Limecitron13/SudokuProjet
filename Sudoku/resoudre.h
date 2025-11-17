@@ -2,7 +2,7 @@
  * \file resoudre.h
  * \author Émil Lavoie-Leullier
  * \date 2025-10-21
- * \brief ***TODO***
+ * \brief ***TODO************
  */
 #include "Grille.h"
 
@@ -12,6 +12,7 @@
 Grille resoudre(Grille&);
 
 Grille resoudre_recherche(Grille,Indice);
+
 
 #endif /* RESOUDRE_H */
 
