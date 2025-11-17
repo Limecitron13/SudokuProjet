@@ -29,19 +29,19 @@
                      displayName="GrilleTesteur"
                      projectFiles="true"
                      kind="TEST">
-        <itemPath>GrilleTesteur.cpp</itemPath>
+        <itemPath>tests/GrilleTesteur.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f2"
                      displayName="IndiceTesteur"
                      projectFiles="true"
                      kind="TEST">
-        <itemPath>IndiceTesteur.cpp</itemPath>
+        <itemPath>tests/IndiceTesteur.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f3"
                      displayName="resoudreTesteur"
                      projectFiles="true"
                      kind="TEST">
-        <itemPath>resoudreTesteur.cpp</itemPath>
+        <itemPath>tests/resoudreTesteur.cpp</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -76,13 +76,9 @@
       </item>
       <item path="Grille.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="GrilleTesteur.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Indice.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Indice.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="IndiceTesteur.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <folder path="TestFiles">
         <linkerTool>
@@ -142,7 +138,11 @@
       </item>
       <item path="resoudre.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resoudreTesteur.cpp" ex="false" tool="1" flavor2="0">
+      <item path="tests/GrilleTesteur.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/IndiceTesteur.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/resoudreTesteur.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="3">
@@ -178,13 +178,9 @@
       </item>
       <item path="Grille.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="GrilleTesteur.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Indice.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Indice.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="IndiceTesteur.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <folder path="TestFiles/f1">
         <cTool>
@@ -235,7 +231,11 @@
       </item>
       <item path="resoudre.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resoudreTesteur.cpp" ex="false" tool="1" flavor2="0">
+      <item path="tests/GrilleTesteur.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/IndiceTesteur.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/resoudreTesteur.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>
