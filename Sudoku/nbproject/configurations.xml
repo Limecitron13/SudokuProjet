@@ -19,7 +19,6 @@
       <itemPath>ContratException.cpp</itemPath>
       <itemPath>Grille.cpp</itemPath>
       <itemPath>Indice.cpp</itemPath>
-      <itemPath>main.cpp</itemPath>
       <itemPath>resoudre.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -30,19 +29,19 @@
                      displayName="GrilleTesteur"
                      projectFiles="true"
                      kind="TEST">
-        <itemPath>tests/GrilleTesteur.cpp</itemPath>
+        <itemPath>GrilleTesteur.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f2"
                      displayName="IndiceTesteur"
                      projectFiles="true"
                      kind="TEST">
-        <itemPath>tests/IndiceTesteur.cpp</itemPath>
+        <itemPath>IndiceTesteur.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f3"
                      displayName="resoudreTesteur"
                      projectFiles="true"
                      kind="TEST">
-        <itemPath>tests/resoudreTesteur.cpp</itemPath>
+        <itemPath>resoudreTesteur.cpp</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -54,13 +53,20 @@
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
-    <conf name="Debug" type="1">
+    <conf name="Debug" type="3">
       <toolsSet>
         <compilerSet>default</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <incDir>
+            <pElem>/usr/src/gtest/include</pElem>
+          </incDir>
+        </ccTool>
+        <archiverTool>
+        </archiverTool>
       </compileType>
       <item path="ContratException.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -70,16 +76,15 @@
       </item>
       <item path="Grille.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="GrilleTesteur.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="Indice.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Indice.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="IndiceTesteur.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <folder path="TestFiles">
-        <ccTool>
-          <incDir>
-            <pElem>/usr/src/gtest/include</pElem>
-          </incDir>
-        </ccTool>
         <linkerTool>
           <linkerLibItems>
             <linkerLibLibItem>gtest_main</linkerLibLibItem>
@@ -133,20 +138,14 @@
           <output>${TESTDIR}/TestFiles/f3</output>
         </linkerTool>
       </folder>
-      <item path="main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="resoudre.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="resoudre.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="tests/GrilleTesteur.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="tests/IndiceTesteur.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="tests/resoudreTesteur.cpp" ex="false" tool="1" flavor2="0">
+      <item path="resoudreTesteur.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
-    <conf name="Release" type="1">
+    <conf name="Release" type="3">
       <toolsSet>
         <compilerSet>default</compilerSet>
         <dependencyChecking>true</dependencyChecking>
@@ -168,6 +167,8 @@
         <asmTool>
           <developmentMode>5</developmentMode>
         </asmTool>
+        <archiverTool>
+        </archiverTool>
       </compileType>
       <item path="ContratException.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -177,9 +178,13 @@
       </item>
       <item path="Grille.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="GrilleTesteur.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="Indice.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Indice.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="IndiceTesteur.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <folder path="TestFiles/f1">
         <cTool>
@@ -226,17 +231,11 @@
           <output>${TESTDIR}/TestFiles/f3</output>
         </linkerTool>
       </folder>
-      <item path="main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="resoudre.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="resoudre.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="tests/GrilleTesteur.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="tests/IndiceTesteur.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="tests/resoudreTesteur.cpp" ex="false" tool="1" flavor2="0">
+      <item path="resoudreTesteur.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>
