@@ -86,11 +86,12 @@ TEST(TestMutateurGrille,AssigneValeur_ValeurInvalide_PreconditionException)
 /**
  * \brief Test de la méthode validerGrille\n
  *  cas valides:\n
- *      TODO *************************
+ *      GrilleInvalide: Une grille de sudoku invalide est passé en paramètres (faux)\n
+ *      GrilleValide: Une grille de sudoku valide est passé en paramètres (vrai)\n
  *  cas invalide:\n
- *      
+ *      Aucun identifié
  */
-TEST(TestGrille,validerGrille_grilleInvalide_invalide)
+TEST(TestGrille,validerGrille_GrilleInvalide_faux)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide_grilleNonValide.txt",ifstream::in);
@@ -99,7 +100,7 @@ TEST(TestGrille,validerGrille_grilleInvalide_invalide)
 
 }
 
-TEST(TestGrille,validerGrille_grilleValide_valide)
+TEST(TestGrille,validerGrille_GrilleValide_vrai)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
@@ -111,13 +112,14 @@ TEST(TestGrille,validerGrille_grilleValide_valide)
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de l'opérateur d'égalité entre deux grilles \n
  *  cas valides:\n
- *      TODO *************************
+ *      GrillesIdentiques: Les deux grilles sont identiques (vrai)\n
+ *      GrillesDifférentes: Les deux grilles sont différentes (faux)\n
  *  cas invalide:\n
- *      
+ *      Aucun identifié\n
  */
-TEST(TestGrille,operateurEgalite_grilleIdentiques_vrai)
+TEST(TestGrille,OperateurEgalite_GrillesIdentiques_vrai)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
@@ -129,7 +131,7 @@ TEST(TestGrille,operateurEgalite_grilleIdentiques_vrai)
     ASSERT_TRUE(g==b);
 }
 
-TEST(TestGrille,operateurEgalite_grilleDifférentes_faux)
+TEST(TestGrille,OperateurEgalite_GrillesDifférentes_faux)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
@@ -145,13 +147,13 @@ TEST(TestGrille,operateurEgalite_grilleDifférentes_faux)
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de la méthode asg_grille \n
  *  cas valides:\n
- *      TODO**********************
+ *      FormatValide: La grille est assigner de la bonne façon \n
  *  cas invalide:\n
- *      
+ *      FormatInvalide: Le format du fichier est invalide (PreconditionException)\n
  */
-TEST(TestGrille,asg_grille_grilleValide_assignationCorrecte)
+TEST(TestGrille,AsgGrille_FormatValide_AssignationCorrecte)
 {
 Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
@@ -168,6 +170,13 @@ Grille g;
         }
     }
 
+}
+
+TEST(TestGrille,AsgGrille_FormatInvalide_PreconditionException)
+{
+Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_manqueBoite_formatInvalide.txt",ifstream::in);
+    ASSERT_THROW(g.asg_grille(ifs),PreconditionException)<<"Le format est invalide!";
 }
 
 

@@ -2,7 +2,7 @@
  * \file resoudre.cpp
  * \author Émil Lavoie-Leullier
  * \date 2025-10-21
- * \brief ***TODO***
+ * \brief Contient l'implémentation des fonctions permettant la résolution de grilles de sudokus
  */
 
 #include "Grille.h"

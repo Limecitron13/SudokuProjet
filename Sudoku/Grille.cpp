@@ -368,7 +368,8 @@ void Grille::save(string nom)const
 
 
 /***
- * \brief Vérifie les invariants de la classe (nombres de 0 à 9)
+ * \brief Vérifie les invariants de la classe Grille
+ * \invariant Les nombres dans la grille de sudoku doivent être dans l'intervalle [0,9]
  */
 void Grille::verifieInvariant()
 {
