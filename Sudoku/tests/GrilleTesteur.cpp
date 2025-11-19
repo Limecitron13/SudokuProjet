@@ -183,13 +183,14 @@ Grille g;
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de la méthode req_validite \n
  *  cas valides:\n
- *      TODO   ********************************
+ *      GrilleInvalide: La grille est invalide (faux)\n
+ *      GrilleValide: La grille est valide (vrai)\n
  *  cas invalide:\n
- *      
+ *      Aucun identifié\n
  */
-TEST(TestGrille,req_validite_grilleInvalide_invalide)
+TEST(TestGrille,ReqValidite_GrilleInvalide_faux)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide_grilleNonValide.txt",ifstream::in);
@@ -198,7 +199,7 @@ TEST(TestGrille,req_validite_grilleInvalide_invalide)
 
 }
 
-TEST(TestGrille,req_validite_grilleValide_valide)
+TEST(TestGrille,ReqValidite_GrilleValide_vrai)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
@@ -210,13 +211,13 @@ TEST(TestGrille,req_validite_grilleValide_valide)
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de la méthode req_colonne \n
  *  cas valides:\n
- *      TODO ***************************
+ *      Valide: L'indice donné et la colonne obtenue sont valides\n
  *  cas invalide:\n
- *      
+ *      Aucun identifié\n
  */
-TEST(TestGrille,req_colonne_indiceValide_colonneAttendue)
+TEST(TestGrille,ReqColonne_Valide_ColonneAttendue)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
@@ -233,13 +234,13 @@ TEST(TestGrille,req_colonne_indiceValide_colonneAttendue)
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de la méthode req_boite\n
  *  cas valides:\n
- *      TODO ********************************
+ *      Valide: L'indice donné et la boite obtenue sont valides\n
  *  cas invalide:\n
- *      
+ *      Aucun identifié\n
  */
-TEST(TestGrille,req_boite_indiceValide_boiteAttendue)
+TEST(TestGrille,ReqBoite_Valide_BoiteAttendue)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
@@ -256,13 +257,13 @@ TEST(TestGrille,req_boite_indiceValide_boiteAttendue)
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de la méthode req_ligne \n
  *  cas valides:\n
- *      TODO**********************************************
+ *      Valide: L'indice donnée et la ligne obtenue sont valides\n
  *  cas invalide:\n
- *      
+ *      Aucun identifié\n
  */
-TEST(TestGrille,req_ligne_indiceValide_ligneAttendue)
+TEST(TestGrille,ReqLigne_Valide_LigneAttendue)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
