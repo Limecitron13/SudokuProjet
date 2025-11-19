@@ -9,6 +9,7 @@
 #include "resoudre.h"
 #include <array>
 #include <iostream>
+#include <tuple>
 using namespace std;
 
 
@@ -26,10 +27,10 @@ Grille resoudre(Grille& g)
 
 
 /***
- * \brief     ***TODO***
+ * \brief Fonction qui permet la résolution d'une grille de sudoku à l'aide d'un algorithme de backtracking.
  * \param g est un objet Grille qui représente la grille de sudoku à résoudre
- * \param i est un objet Indice qui ****TODO****
- * \return retourne 1 si la grille a été résolu et 0 si les possiblités ont été épuisées
+ * \param i est un objet Indice qui indique à quelle case le programme tente de deviner la valeur
+ * \return retourne la première grille trouvé avec une solution valide (Une grille pourrait avoir plusieurs solutions)
  */
 Grille resoudre_recherche(Grille g,Indice i)
 {
@@ -43,54 +44,38 @@ Grille resoudre_recherche(Grille g,Indice i)
         i++;
     }
     
-    array<int,9>nombres_possibles = g.respecte_contraintes(i); //Les nombres qui peuvent aller dans cette case
-    
+    vector<int>nombres_possibles = g.respecte_contraintes(i); //Les nombres qui peuvent aller dans cette case
     if(est_zero(nombres_possibles) )  //Il n'y a plus de possibilités pour cette case
     {
         return g;
     }
     
     int indice_nbr_a_test = 0;
-    while(nombres_possibles.at(indice_nbr_a_test) == 0) //Trouver le prochain nombre a tester dans le tableau
+    Grille g_appel;
+    while(indice_nbr_a_test < nombres_possibles.size() )
     {
-        indice_nbr_a_test++;
-    }
-    
-    g.asg_val(i,nombres_possibles.at(indice_nbr_a_test)); //On test la valeur
-    Grille g_appel = resoudre_recherche(g, i);   //appel récursif
-    indice_nbr_a_test++;
-    
-    
-    while(true)  
-    {
-        if(g_appel.req_validite())  //On a une grille valide
+        g.asg_val(i,nombres_possibles.at(indice_nbr_a_test)); //On test la valeur
+        g_appel = resoudre_recherche(g, i);   //appel récursif
+        indice_nbr_a_test++;    //On a épuisé un autre cas
+        
+        if(g_appel.req_validite())    //Vérifier si la grille est résolue
         {
             return g_appel;
         }
-        
-        if(!g_appel.req_validite())  //On a épuisé la possibilitées avec le nombre précédent
-        {
-            if(indice_nbr_a_test >=9)
-            {
-                return g_appel;   //Il n'y a plus de possibilitées pour cette case
-            }
-            
-            while(nombres_possibles.at(indice_nbr_a_test) == 0 ) //Trouver le prochain nombre a tester dans le tableau
-            {
-                if(indice_nbr_a_test == 8)
-                {
-                    return g_appel; //Il n'y a plus de possibilitées pour cette case
-                }
-                indice_nbr_a_test++;
-            }
-            
-            g.asg_val(i,nombres_possibles.at(indice_nbr_a_test));
-            g_appel = resoudre_recherche(g,i);
-            indice_nbr_a_test++;
-            
-        }
+
     }
+    return g; //On a épuisé la possiblités 
+   
 }
+
+
+
+
+
+
+
+
+
 
 
 

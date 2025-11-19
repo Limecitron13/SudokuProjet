@@ -11,12 +11,16 @@
 #include "Grille.h"
 using namespace std;
 
+
+
 /**
  * \brief Test de la fonction resoudre\n
  *  Dans le repertoire fichiersTestsResoudre,il y a des grilles de sudoku non résolus et leurs solutions.
  *  Les tests s'assurent que chaque grille est correctement résolu.
  *      
  */
+
+
 TEST(TestResoudre,resoudre_grilleARésoudre1_grilleRésolue)
 {
     Grille g;
@@ -27,7 +31,6 @@ TEST(TestResoudre,resoudre_grilleARésoudre1_grilleRésolue)
     ifstream ifs2("fichiersTestsResoudre/grille1_solu.txt",ifstream::in);
     b.asg_grille(ifs2);
     
-    Indice i;
     Grille g_resolue = resoudre(g);
     ASSERT_TRUE(g_resolue==b);
 }
@@ -42,7 +45,6 @@ TEST(TestResoudre,resoudre_grilleARésoudre2_grilleRésolue)
     ifstream ifs2("fichiersTestsResoudre/grille2_solu.txt",ifstream::in);
     b.asg_grille(ifs2);
     
-    Indice i;
     Grille g_resolue = resoudre(g);
     ASSERT_TRUE(g_resolue==b);
 }
@@ -57,7 +59,6 @@ TEST(TestResoudre,resoudre_grilleARésoudre3_grilleRésolue)
     ifstream ifs2("fichiersTestsResoudre/grille3_solu.txt",ifstream::in);
     b.asg_grille(ifs2);
     
-    Indice i;
     Grille g_resolue = resoudre(g);
     ASSERT_TRUE(g_resolue==b);
 }
@@ -72,7 +73,40 @@ TEST(TestResoudre,resoudre_grilleARésoudre4_grilleRésolue)
     ifstream ifs2("fichiersTestsResoudre/grille4_solu.txt",ifstream::in);
     b.asg_grille(ifs2);
     
-    Indice i;
     Grille g_resolue = resoudre(g);
     ASSERT_TRUE(g_resolue==b);
 }
+
+
+
+
+//TEST(TestNbrSolu,METTRE_MEILLEUR_TITRES)
+//{
+//    Grille g;
+//    ifstream ifs("fichiersTestsResoudre/grille_nbr_solu:2.txt",ifstream::in);
+//    g.asg_grille(ifs);
+//    
+//    int g_resolue = nbr_solu(g);
+//    ASSERT_TRUE(g_resolue==2);
+//}
+//
+//
+//TEST(TestNbrSolu,METTRE_MEILLEUR_TITRES2)
+//{
+//    Grille g;
+//    ifstream ifs("fichiersTestsResoudre/grille_nbr_solu:3.txt",ifstream::in);
+//    g.asg_grille(ifs);
+//    
+//    int g_resolue = nbr_solu(g);
+//    ASSERT_TRUE(g_resolue==3);
+//}
+//
+//TEST(TestNbrSolu,METTRE_MEILLEUR_TITRES3)
+//{
+//    Grille g;
+//    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
+//    g.asg_grille(ifs);
+//    
+//    int g_resolue = nbr_solu(g);
+//    ASSERT_TRUE(g_resolue==1);
+//}
