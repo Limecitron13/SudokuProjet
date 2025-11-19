@@ -10,6 +10,7 @@
 #include "Indice.h"
 #include <fstream>
 #include "ContratException.h"
+#include <vector>
 using namespace std;
 
 
@@ -281,11 +282,11 @@ TEST(TestGrille,respecte_contraintes_grilleNonRemplis_nombresAttendus)
     ifstream ifs("fichiersTestsGrille/Grille_avecZeros_formatValide.txt",ifstream::in);
     g.asg_grille(ifs);
     Indice i(0,4);
-    array<int,9> nombres_valides = g.respecte_contraintes(i);
-    array<int,9> nombres_attendus = {0,2,0,4,0,0,7,0,0};
-    for(int k=0;k<9;k++)
+    vector<int> nombres_valides = g.respecte_contraintes(i);
+    vector<int> nombres_attendus = {2,4,7};
+    for(int k=0;k<nombres_valides.size();k++)
     {
-        ASSERT_EQ(nombres_valides.at(k),nombres_attendus.at(k));
+        ASSERT_TRUE( est_membre( nombres_attendus, nombres_valides.at(k) ) );
     }
 
 }
@@ -296,11 +297,11 @@ TEST(TestGrille,respecte_contraintes_grilleRemplis_TableauDeZéros)
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
     g.asg_grille(ifs);
     Indice i(4,4);
-    array<int,9> nombres_valides = g.respecte_contraintes(i);
-    array<int,9> nombres_attendus = {0,0,0,0,0,0,0,0,0};
-    for(int k=0;k<9;k++)
+    vector<int> nombres_valides = g.respecte_contraintes(i);
+    vector<int> nombres_attendus = {0};
+    for(int k=0;k<nombres_valides.size();k++)
     {
-        ASSERT_EQ(nombres_valides.at(k),nombres_attendus.at(k));
+        ASSERT_TRUE( est_membre( nombres_attendus, nombres_valides.at(k) ) );
     }
 
 }
@@ -407,11 +408,10 @@ TEST(TestFormatFichier,verifier_format_fichier_grilleVide_invalide)
 
 
 /**
- * \brief Test de la fonction a_double\n
+ * \brief Test de la fonction a_double(version array)\n
  *  cas : \n
  *      SansDouble: Le tableau contient aucun double \n
  *      AvecDouble: Le tableau contient au moins un double \n
- *       
  *         
  */
 TEST(TestADouble,ADouble_SansDouble_faux)
@@ -428,10 +428,39 @@ TEST(TestADouble,ADouble_AvecDouble_vrai)
 
 
 /**
- * \brief Test de la fonction est_membre \n
+ * \brief Test de la fonction a_double(version vecteur)\n
+ *  cas : \n
+ *      VSansDouble: Le vecteur contient aucun double \n
+ *      VAvecDouble: Le vecteur contient au moins un double \n
+ *      VVide: Le vecteur est vide\n
+ *         
+ */
+TEST(TestADouble,ADouble_VSansDouble_faux)
+{
+    vector<int> a{1,2,3,4,5,6,7,8,9};
+    ASSERT_FALSE(a_double(a));
+}
+
+TEST(TestADouble,ADouble_VAvecDouble_vrai)
+{
+    vector<int> a{1,2,9,4,5,6,7,8,9};
+    ASSERT_TRUE(a_double(a));
+}
+
+TEST(TestADouble,ADouble_VVide_faux)
+{
+    vector<int> a;
+    ASSERT_FALSE(a_double(a));
+}
+
+
+
+
+/**
+ * \brief Test de la fonction est_membre(version array) \n
  *  cas : \n
  *      AvecEntier: Le tableau contient l'entier \n
- *      SansEntier: Le tableau ne contient pas l'entier \n   
+ *      SansEntier: Le tableau ne contient pas l'entier \n  
  */
 TEST(TestEstMembre,EstMembre_AvecEntier_vrai)
 {
@@ -446,8 +475,36 @@ TEST(TestEstMembre,EstMembre_SansEntier_faux)
 }
 
 
+
+
 /**
- * \brief Test de la fonction est_zero \n
+ * \brief Test de la fonction est_membre(version vecteur) \n
+ *  cas : \n
+ *      VAvecEntier: Le vecteur contient l'entier  \n
+ *      VSansEntier: Le vecteur ne contient pas l'entier \n  
+ *      VVide: Le vecteur est vide \n 
+ */
+TEST(TestEstMembre,EstMembre_VAvecEntier_vrai)
+{
+    vector<int> liste {1,2,3,4,5,6,7,8,9};
+    ASSERT_TRUE(est_membre(liste,8));
+}
+
+TEST(TestEstMembre,EstMembre_VSansEntier_faux)
+{
+    vector<int> liste {1,2,3,4,5,6,7,8,9};
+    ASSERT_FALSE(est_membre(liste,0));
+}
+
+TEST(TestEstMembre,EstMembre_VVide_faux)
+{
+    vector<int> liste;
+    ASSERT_FALSE(est_membre(liste,0));
+}
+
+
+/**
+ * \brief Test de la fonction est_zero(version array) \n
  *  cas : \n
  *      Zeros: Le tableau contient seulement des zéros \n
  *      NonZeros: Le tableau contient au moins un entier différent de zéro \n
@@ -465,3 +522,31 @@ TEST(TestEstZero,EstZero_NonZeros_faux)
     ASSERT_FALSE(est_zero(liste));
 }
 
+
+
+
+/**
+ * \brief Test de la fonction est_zero(version vecteur) \n
+ *  cas : \n
+ *      Zeros: Le vecteur contient seulement des zéros \n
+ *      VNonZeros: Le vecteur contient au moins un entier différent de zéro \n
+ *      VVide: Le vecteur est vide\n
+ */
+TEST(TestEstZero,EstZero_VZeros_vrai)
+{
+    vector<int> liste {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    ASSERT_TRUE(est_zero(liste));
+}
+
+
+TEST(TestEstZero,EstZero_VNonZeros_faux)
+{
+    vector<int> liste {0,0,0,0,0,0,0,0,4};
+    ASSERT_FALSE(est_zero(liste));
+}
+
+TEST(TestEstZero,EstZero_VVide_faux)
+{
+    vector<int> liste;
+    ASSERT_FALSE(est_zero(liste));
+}

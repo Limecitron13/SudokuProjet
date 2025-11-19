@@ -11,6 +11,7 @@
 #include "Indice.h"
 #include <array>
 #include <fstream>
+#include <vector>
 
 /***
  * \class Grille
@@ -30,7 +31,7 @@ public:
     friend std::ostream& operator<<(std::ostream& p_os,const Grille& p_grille);
     bool operator==(const Grille& p_grille)const;
     void asg_grille(std::ifstream&);
-    std::array<int,9>respecte_contraintes(const Indice&)const;
+    std::vector<int>respecte_contraintes(const Indice&)const;
     void save(std::string nom)const;
     
 private:
@@ -40,8 +41,11 @@ private:
 };
 
 bool verifier_format_fichier(std::ifstream&);
+bool a_double(const std::vector<int>&);
 bool a_double(const std::array<int,9>&);
+bool est_membre(const std::vector<int>&,const int);
 bool est_membre(const std::array<int,9>&,const int);
+bool est_zero(const std::vector<int>&);
 bool est_zero(const std::array<int,9>&);
 
 #endif /* GRILLE_H */

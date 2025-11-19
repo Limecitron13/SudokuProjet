@@ -20,7 +20,7 @@ using namespace std;
 Grille::Grille():m_est_valide(false)
 {
     Indice i;
-    for(int nbr_cases =0;nbr_cases<81;nbr_cases++)
+    for(unsigned nbr_cases =0;nbr_cases<81;nbr_cases++)
     {
         m_grille.at(i.req_indice_boite()).at(i.req_indice()) = 0;
         +i;
@@ -28,7 +28,7 @@ Grille::Grille():m_est_valide(false)
     
     
     #if !defined(NDEBUG)  //Si en mode debug
-    for(int boites=0;boites<9;boites++)
+    for(unsigned boites=0;boites<9;boites++)
     {
         POSTCONDITION(est_zero( m_grille.at(boites) ) );
     }
@@ -45,7 +45,7 @@ Grille::Grille():m_est_valide(false)
 Grille::Grille(const Grille& g)
 {
     Indice i;
-        for(int nbr_case=0;nbr_case<81;nbr_case++)
+        for(unsigned nbr_case=0;nbr_case<81;nbr_case++)
         {
             m_grille.at(i.req_indice_boite()).at(i.req_indice()) = g.req_val(i);
             +i;
@@ -55,7 +55,7 @@ Grille::Grille(const Grille& g)
     
     #if !defined(NDEBUG)  //Si en mode debug
     Indice j;
-    for(int nbr_cases=0;nbr_cases<81;nbr_cases++)
+    for(unsigned nbr_cases=0;nbr_cases<81;nbr_cases++)
     {
         POSTCONDITION(this->req_val(j) == g.req_val(j) );
         j++;
@@ -90,7 +90,7 @@ bool Grille::valider_grille()const
     array<int,9> nombres{};
     //verifie si chaque boite contient une seule copie de chaque nombre
     Indice i;
-    for(int boites =0 ;boites<9;boites++)
+    for(unsigned boites =0 ;boites<9;boites++)
     {
         i.asg_indice(boites,0);
         nombres = req_boite(i);
@@ -103,7 +103,7 @@ bool Grille::valider_grille()const
     //verifie chaque ligne contient une seule copie de chaque nombre
     i.asg_indice(0,0);
     nombres={};
-    for(int lignes =0 ;lignes<9;lignes++)
+    for(unsigned lignes =0 ;lignes<9;lignes++)
     {
         nombres = req_ligne(i);
         if(est_membre(nombres,0) || a_double(nombres))
@@ -117,7 +117,7 @@ bool Grille::valider_grille()const
     //verifie chaque colonne contient une seule copie de chaque nombre
     i.asg_indice(0,0);
     nombres={};
-    for(int col =0 ;col<9;col++)
+    for(unsigned col =0 ;col<9;col++)
     {
         nombres = req_col(i);
         if(est_membre(nombres,0) || a_double(nombres))
@@ -166,7 +166,7 @@ array<int,9> Grille::req_col(Indice i)const
         --i;
     }
     
-    for(int k=0;k<9;k++)
+    for(unsigned k=0;k<9;k++)
     {
         colonne.at(k)=this->req_val(i);  //On parcourt la colonne
         ++i;
@@ -197,7 +197,7 @@ array<int,9> Grille::req_ligne(Indice i)const
         i--;
     }
     
-    for(int k=0;k<9;k++)
+    for(unsigned k=0;k<9;k++)
     {
         ligne.at(k)=this->req_val(i);
         i++;
@@ -218,7 +218,7 @@ ostream& operator<<(ostream& os,const Grille& grille)
     Indice i;
     
     os<<endl;
-    for(int nbr_cases=0;nbr_cases<81;nbr_cases++)  //nombres de cases de la grille en entier
+    for(unsigned nbr_cases=0;nbr_cases<81;nbr_cases++)  //nombres de cases de la grille en entier
     {
         if(i.req_indice_col() == 0 && i.req_indice_ligne()%3 == 0 && i.req_indice_ligne() != 0)
         {
@@ -253,7 +253,7 @@ ostream& operator<<(ostream& os,const Grille& grille)
 bool Grille::operator==(const Grille& p_grille)const
 {
     Indice i;
-    for(int nbr_cases=0;nbr_cases<81;nbr_cases++)  //On regarde tous les cases
+    for(unsigned nbr_cases=0;nbr_cases<81;nbr_cases++)  //On regarde tous les cases
     {
         if(p_grille.req_val(i) != this->req_val(i))
         {
@@ -273,11 +273,11 @@ void Grille::asg_grille(ifstream& ifs)
     PRECONDITION(verifier_format_fichier(ifs));
     
     ifs.seekg(0);             //On revient au début du flux de fichier
-    for(int boite=0;boite<9;boite++)
+    for(unsigned boite=0;boite<9;boite++)
     {
         string boite_valeurs;
         ifs>>boite_valeurs;
-        for(int cases=0;cases<9;cases++)
+        for(unsigned cases=0;cases<9;cases++)
         {
             m_grille.at(boite).at(cases) = boite_valeurs.at(cases)-48; //convertion de valeur table ASCII(valeur de caractère) en la vrai valeur du nombre
         }
@@ -292,25 +292,42 @@ void Grille::asg_grille(ifstream& ifs)
  * \brief Vérifie quels nombres peuvent être positionés à un certain indice. Rappel: Il peut seulement avoir une copie d'un nombre
  * par boite, colonne et ligne.
  * \param i est un objet Indice qui contient les informations de l'indice d'une case
- * \return un tableau de neuf entiers des nombres qui peuvent être placé dans cette case. Ex:{1,2,0,4,0,0,6,0,0} les zéros sont un «buffer» et les nombres sont placés à l'indice (nombre-1)
+ * \return un vecteur des nombres qui peuvent être placé dans cette case. Ex:{1,2,4,6} Si aucun nombre peut être placé à cet indice on retourne {0}
  */
-array<int,9> Grille::respecte_contraintes(const Indice& i)const
+vector<int> Grille::respecte_contraintes(const Indice& i)const
 {
     array<int,9> colonne = this->req_col(i);
     array<int,9> ligne = this->req_ligne(i);
     array<int,9> boite = this->req_boite(i);
     
-    array<int,9> nombres_possibles{};      // le tableau est remplis de 0
-    for(int nombre=1;nombre<=9;nombre++)
+    vector<int> nombres_possibles;
+    for(unsigned i=1;i<=9;i++) //i est un nombre possible
     {
-        //On s'assure que le nombre n'est pas dans la ligne colonne ou boite et que celui-ci n'a pas déjà été trouvé
-        if(nombres_possibles.at(nombre-1)==0 && !est_membre(colonne,nombre) && !est_membre(ligne,nombre) && !est_membre(boite,nombre))
+        if(nombres_possibles.size()==9) //Tous les nombres peuvent aller dans la case
         {
-            nombres_possibles.at(nombre-1)=nombre;
+            break;
         }
+        
+        if( !est_membre(colonne,i) && !est_membre(nombres_possibles,i))  //Le nombre n'est pas déjà dans la colonne et le vecteur
+        {
+            if( !est_membre(ligne,i) && !est_membre(nombres_possibles,i))  //Le nombre n'est pas déjà dans la ligne et le vecteur
+            {
+                if( !est_membre(boite,i) && !est_membre(nombres_possibles,i))  //Le nombre n'est pas déjà dans la boite et le vecteur
+                {
+                    nombres_possibles.push_back(i);
+                } 
+            }
+        }  
     }
     
+    if(nombres_possibles.size() == 0)
+    {
+        nombres_possibles.push_back(0);
+    }
     
+    return nombres_possibles;
+    
+    //************************IDÉES pour améliorer la fonction
     //Vérifications si il y des doubles dans les boites, colonnes et lignes
     //Un double est lorsque deux nombres peuvent seulement aller dans ces deux cases en particulier
     //Si il y a un double dans la boite, colonne ou ligne: on enlève les autres nombres des possibilités de ces cases
@@ -325,7 +342,6 @@ array<int,9> Grille::respecte_contraintes(const Indice& i)const
     //Est-ce que le temps supplémentaire à trouver ces nouvelles restrictions accélère réellement la résolution?
     
     
-    return nombres_possibles;
 }
 
 
@@ -402,13 +418,42 @@ bool verifier_format_fichier(ifstream& ifs)
 }
 
 /***
+ * \brief Vérifie si vecteur d'entiers contient des éléments en double
+ * \param liste est un vecteur d'entiers
+ * \return true si double, false sinon
+ */
+bool a_double(const vector<int>& liste)
+{
+    if(liste.size() == 0)
+    {
+        return false;
+    }
+    
+    int valeur;
+    for(int i=0;i<liste.size()-1;i++)
+    {
+        valeur=liste.at(i);
+        for(int j=i+1;j<liste.size();j++)
+        {
+            if(valeur==liste.at(j))
+            {
+                return true;
+            }
+        }
+        
+    }
+    return false;
+}
+
+
+
+/***
  * \brief Vérifie si une liste de neuf éléments contient des éléments en double
  * \param liste est un tableau d'entiers de taille 9
  * \return true si double, false sinon
  */
 bool a_double(const array<int,9>& liste)
 {
-    PRECONDITION(liste.size()==9);
     int valeur;
     for(int i=0;i<8;i++)
     {
@@ -424,6 +469,35 @@ bool a_double(const array<int,9>& liste)
     }
     return false;
 }
+
+
+
+
+
+
+/***
+ * \brief Vérifie si un entier est membre d'un vecteur
+ * \param liste est un vecteur d'entiers
+ * \param valeur est l'entier à vérifier si il est membre du vecteur
+ * \return true si l'entier est membre,false sinon et si vecteur vide
+ */
+bool est_membre(const vector<int>& liste,const int valeur)
+{
+    if(liste.size() == 0)
+    {
+        return false;
+    }
+    
+    for(int i=0;i<liste.size();i++)
+    {
+        if(liste.at(i)==valeur)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 
 
 /***
@@ -446,6 +520,31 @@ bool est_membre(const array<int,9>& liste,const int valeur)
 
 
 
+
+/***
+ * \brief Vérifie si un vecteur est composé de seulement des zéros
+ * \param liste est un vecteur d'entiers
+ * \return true si seulement des zéros et false sinon
+ */
+bool est_zero(const vector<int>& liste)
+{
+    if(liste.size() == 0)
+    {
+        return false;
+    }
+    
+    for(int i=0;i<liste.size();i++)
+    {
+        if(liste.at(i)!=0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+
 /***
  * \brief Vérifie si un tableau de taille 9 est composé de seulement des zéros
  * \param liste est un tableau d'entiers de taille 9
@@ -462,5 +561,3 @@ bool est_zero(const array<int,9>& liste)
     }
     return true;
 }
-
-
