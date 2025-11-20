@@ -8,8 +8,6 @@
 #include "Grille.h"
 #include "resoudre.h"
 #include <array>
-#include <iostream>
-#include <tuple>
 using namespace std;
 
 
