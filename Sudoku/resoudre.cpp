@@ -19,7 +19,7 @@ using namespace std;
 Grille resoudre(Grille& g)
 {
     Indice i;
-    return resoudre_recherche(g,i);
+    return resoudre_recherche(Grille,i);
 }
 
 
