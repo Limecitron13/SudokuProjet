@@ -19,7 +19,7 @@ using namespace std;
 Grille resoudre(Grille& g)
 {
     Indice i;
-    return resoudre_recherche(Grille,i);
+    return resoudre_recherche(g,i);
 }
 
 
@@ -73,8 +73,61 @@ Grille resoudre_recherche(Grille g,Indice i)
 
 
 
+/**
+ * 
+ * TODO******************* 
+ * La grille initiale ne doit pas contenir de contradiciton
+ * 
+ */
+bool a_solu_unique(Grille& g)
+{
+    Indice i;
+    int solu = 0;
+    a_solu_unique_recherche(g,i,solu);
+
+    return (solu >= 2) ? false : true;
+}
 
 
+
+/**
+ * TODO******************* 
+ */
+Grille a_solu_unique_recherche(Grille g,Indice i,int& solu)
+{
+    if(g.req_validite())   //Vérifier si la grille est résolue
+    {
+        solu++;  //On a trouvé une autre solution
+        return g;
+    }
+    
+    while(g.req_val(i) != 0)   //Trouver la prochaine case vide
+    {
+        i++;
+    }
+    
+    vector<int>nombres_possibles = g.respecte_contraintes(i); //Les nombres qui peuvent aller dans cette case
+    if(est_zero(nombres_possibles) || solu >=2 )  //Il n'y a plus de possibilités pour cette case ou on a déjà trouvé au mois deux solutions
+    {
+        return g;
+    }
+    
+    int indice_nbr_a_test = 0;
+    Grille g_appel;
+    while(indice_nbr_a_test < nombres_possibles.size() )
+    {
+        g.asg_val(i,nombres_possibles.at(indice_nbr_a_test)); //On test la valeur
+        g_appel = a_solu_unique_recherche(g, i, solu);   //appel récursif
+        indice_nbr_a_test++;    //On a épuisé un autre cas
+        
+        if( (g_appel.req_validite() && indice_nbr_a_test == nombres_possibles.size()-1) || solu >=2 ) //Vérifier si la grille est résolue et que tous les possiblités ont été vérifiées ou si on a déjà trouvé deux solutions
+        {
+            return g_appel;
+        }
+
+    }
+    return g; //On a épuisé la possiblités 
+}
 
 
 

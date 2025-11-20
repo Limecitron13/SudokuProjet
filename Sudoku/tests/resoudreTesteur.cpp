@@ -74,3 +74,59 @@ TEST(TestResoudre,resoudre_grilleARésoudre4_grilleRésolue)
     Grille g_resolue = resoudre(g);
     ASSERT_TRUE(g_resolue==b);
 }
+
+
+
+
+
+/**
+ * 
+ * TODO**************************
+ */
+TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsResoudre/grille4_solu.txt",ifstream::in);
+    g.asg_grille(ifs);
+    
+    
+    bool solu = a_solu_unique(g);
+    ASSERT_TRUE(solu);
+}
+
+
+TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE0)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsResoudre/grille_nbr_solu:plusieurs.txt",ifstream::in);
+    g.asg_grille(ifs);
+    
+    
+    bool solu = a_solu_unique(g);
+    ASSERT_FALSE(solu);
+}
+
+
+
+TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE1)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsResoudre/grille_nbr_solu:plusieurs1.txt",ifstream::in);
+    g.asg_grille(ifs);
+    
+    
+    bool solu = a_solu_unique(g);
+    ASSERT_FALSE(solu);
+}
+
+
+TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE2)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsResoudre/grille_nbr_solu:plusieurs:2.txt",ifstream::in);
+    g.asg_grille(ifs);
+    
+    
+    bool solu = a_solu_unique(g);
+    ASSERT_FALSE(solu);
+}

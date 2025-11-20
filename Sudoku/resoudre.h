@@ -10,8 +10,10 @@
 #define RESOUDRE_H
 
 Grille resoudre(Grille&);
-
 Grille resoudre_recherche(Grille,Indice);
+
+bool a_solu_unique(Grille&);
+Grille a_solu_unique_recherche(Grille,Indice,int& solu);
 
 
 

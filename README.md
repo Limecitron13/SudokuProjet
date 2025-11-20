@@ -17,7 +17,6 @@
 
 
 - Compléter la documentation des tests de Grille
-- Implémenter la fonction qui détermine le nombre de solutions d'une grille incomplète
 - Utiliser la gestion de la mémoire pour diminuer le nombres d'appels au construteur copie à l'aide des pointeurs intelligents
 
 
