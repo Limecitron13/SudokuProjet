@@ -89,9 +89,7 @@ TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE)
     ifstream ifs("fichiersTestsResoudre/grille4_solu.txt",ifstream::in);
     g.asg_grille(ifs);
     
-    
-    bool solu = a_solu_unique(g);
-    ASSERT_TRUE(solu);
+    ASSERT_TRUE(a_solu_unique(g));
 }
 
 
@@ -101,9 +99,7 @@ TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE0)
     ifstream ifs("fichiersTestsResoudre/grille_nbr_solu:plusieurs.txt",ifstream::in);
     g.asg_grille(ifs);
     
-    
-    bool solu = a_solu_unique(g);
-    ASSERT_FALSE(solu);
+    ASSERT_FALSE(a_solu_unique(g)); 
 }
 
 
@@ -114,9 +110,7 @@ TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE1)
     ifstream ifs("fichiersTestsResoudre/grille_nbr_solu:plusieurs1.txt",ifstream::in);
     g.asg_grille(ifs);
     
-    
-    bool solu = a_solu_unique(g);
-    ASSERT_FALSE(solu);
+    ASSERT_FALSE(a_solu_unique(g));
 }
 
 
@@ -126,7 +120,5 @@ TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE2)
     ifstream ifs("fichiersTestsResoudre/grille_nbr_solu:plusieurs:2.txt",ifstream::in);
     g.asg_grille(ifs);
     
-    
-    bool solu = a_solu_unique(g);
-    ASSERT_FALSE(solu);
+    ASSERT_FALSE(a_solu_unique(g));
 }
