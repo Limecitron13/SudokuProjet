@@ -29,9 +29,6 @@
 - Ajouter une algorithme de résolution différent(qui utilise moins de mémoire.)
 - Ajouter des variantes de sudoku(killer,knight move, king move,etc.) et une façon d'encoder les cages dans le fichier texte
 - Ajouter une meilleure analyse des contraintes d'une case (doubles, triples, et autres techniques)
-- Ajouter une façon de générer de nouvelles grilles de sudoku avec des difficultés différentes
-
-
 
 
 ---

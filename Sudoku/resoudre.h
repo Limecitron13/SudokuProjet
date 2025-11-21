@@ -2,7 +2,7 @@
  * \file resoudre.h
  * \author Émil Lavoie-Leullier
  * \date 2025-10-21
- * \brief Contient les prototypes des fonctions permettant la résolution de grilles de sudokus
+ * \brief Contient les prototypes des fonctions permettant la résolution de grilles de sudokus TODO*********************
  */
 #include "Grille.h"
 
@@ -15,7 +15,7 @@ Grille resoudre_recherche(Grille,Indice);
 bool a_solu_unique(Grille&);
 Grille a_solu_unique_recherche(Grille,Indice,int& solu);
 
-
+Grille gen_grille(unsigned difficulte);
 
 
 #endif /* RESOUDRE_H */

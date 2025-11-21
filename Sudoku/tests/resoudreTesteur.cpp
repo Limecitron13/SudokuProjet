@@ -17,7 +17,7 @@ using namespace std;
  * \brief Test de la fonction resoudre\n
  *  Dans le repertoire fichiersTestsResoudre, il y a des grilles de sudoku non résolus et leurs solutions.
  *  Les tests s'assurent que chaque grille est correctement résolu.
- *      
+ *    
  */
 TEST(TestResoudre,resoudre_grilleARésoudre1_grilleRésolue)
 {
@@ -92,7 +92,6 @@ TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE)
     ASSERT_TRUE(a_solu_unique(g));
 }
 
-
 TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE0)
 {
     Grille g;
@@ -101,8 +100,6 @@ TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE0)
     
     ASSERT_FALSE(a_solu_unique(g)); 
 }
-
-
 
 TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE1)
 {
@@ -113,7 +110,6 @@ TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE1)
     ASSERT_FALSE(a_solu_unique(g));
 }
 
-
 TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE2)
 {
     Grille g;
@@ -121,4 +117,16 @@ TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE2)
     g.asg_grille(ifs);
     
     ASSERT_FALSE(a_solu_unique(g));
+}
+
+
+
+/**
+ * TODO******************
+ */
+TEST(TestGenGrille,MeilleurTitre)
+{
+    Grille g = gen_grille(0);
+    cout<<"La grille générée"<<g;
+    ASSERT_TRUE(true);
 }
