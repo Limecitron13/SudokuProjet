@@ -147,6 +147,7 @@ public:
     QFrame *line_3;
     QFrame *line_4;
     QFrame *line_5;
+    QPushButton *Effaceur;
     QMenuBar *menubar;
     QMenu *menuMenu;
     QStatusBar *statusbar;
@@ -170,7 +171,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         verifierGrille = new QPushButton(centralwidget);
         verifierGrille->setObjectName(QString::fromUtf8("verifierGrille"));
-        verifierGrille->setGeometry(QRect(640, 270, 111, 24));
+        verifierGrille->setGeometry(QRect(650, 440, 111, 24));
         gridLayoutWidget_2 = new QWidget(centralwidget);
         gridLayoutWidget_2->setObjectName(QString::fromUtf8("gridLayoutWidget_2"));
         gridLayoutWidget_2->setGeometry(QRect(610, 10, 171, 251));
@@ -987,6 +988,12 @@ public:
         line_5->setLineWidth(3);
         line_5->setFrameShape(QFrame::VLine);
         line_5->setFrameShadow(QFrame::Sunken);
+        Effaceur = new QPushButton(centralwidget);
+        Effaceur->setObjectName(QString::fromUtf8("Effaceur"));
+        Effaceur->setGeometry(QRect(650, 270, 81, 24));
+        QFont font2;
+        font2.setPointSize(15);
+        Effaceur->setFont(font2);
         FenetrePrincipal->setCentralWidget(centralwidget);
         menubar = new QMenuBar(FenetrePrincipal);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -1026,6 +1033,7 @@ public:
         QObject::connect(b0i6, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
         QObject::connect(b0i7, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
         QObject::connect(b0i8, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
+        QObject::connect(Effaceur, SIGNAL(clicked()), FenetrePrincipal, SLOT(selectionnerChiffre()));
 
         QMetaObject::connectSlotsByName(FenetrePrincipal);
     } // setupUi
@@ -1128,6 +1136,7 @@ public:
         b8i5->setText(QCoreApplication::translate("FenetrePrincipal", "5", nullptr));
         b8i7->setText(QCoreApplication::translate("FenetrePrincipal", "7", nullptr));
         b8i8->setText(QCoreApplication::translate("FenetrePrincipal", "8", nullptr));
+        Effaceur->setText(QCoreApplication::translate("FenetrePrincipal", "Effaceur", nullptr));
         menuMenu->setTitle(QCoreApplication::translate("FenetrePrincipal", "Menu", nullptr));
     } // retranslateUi
 

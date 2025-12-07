@@ -260,10 +260,20 @@ void FenetrePrincipal::selectionnerChiffre()
     QObject* boutonClick = sender();
     QPushButton* bouton = qobject_cast<QPushButton*>(boutonClick);
     QString nombreStr = bouton->text();
-    int nombre = nombreStr.toInt();
+    
+    int nombre;
+    if(nombreStr == "Effaceur")
+    {
+        nombre = 0;
+    }
+    else
+    {
+        nombre = nombreStr.toInt();
+    }
     
   
     QFont pasGras("Ubuntu",25);
+    QFont pasGrasTexte("Ubuntu",15);
     widget.chiffre1->setFont(pasGras);
     widget.chiffre2->setFont(pasGras);
     widget.chiffre3->setFont(pasGras);
@@ -273,8 +283,12 @@ void FenetrePrincipal::selectionnerChiffre()
     widget.chiffre7->setFont(pasGras);
     widget.chiffre8->setFont(pasGras);
     widget.chiffre9->setFont(pasGras);
+    widget.Effaceur->setFont(pasGrasTexte);
     
-    
+    if(nombre == 0)
+    {
+        m_nombreAPlacer = 0;
+    }
     if(nombre==1)
     {
         m_nombreAPlacer = 1;
@@ -329,5 +343,12 @@ void FenetrePrincipal::placerChiffre()
 {
     QObject* boutonClick = sender();
     QPushButton* bouton = qobject_cast<QPushButton*>(boutonClick);
-    bouton->setText(QString::number(m_nombreAPlacer));
+    if(m_nombreAPlacer != 0)
+    {
+        bouton->setText(QString::number(m_nombreAPlacer));
+    }
+    else if(m_nombreAPlacer == 0)
+    {
+        bouton->setText(QString(""));
+    }
 }
