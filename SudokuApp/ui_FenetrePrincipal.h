@@ -183,6 +183,8 @@ public:
         pushButton_11->setMaximumSize(QSize(45, 45));
         QFont font;
         font.setPointSize(25);
+        font.setBold(false);
+        font.setWeight(50);
         pushButton_11->setFont(font);
 
         gridLayout_2->addWidget(pushButton_11, 2, 0, 1, 1);
@@ -191,7 +193,9 @@ public:
         pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
         pushButton_4->setMinimumSize(QSize(45, 45));
         pushButton_4->setMaximumSize(QSize(45, 45));
-        pushButton_4->setFont(font);
+        QFont font1;
+        font1.setPointSize(25);
+        pushButton_4->setFont(font1);
 
         gridLayout_2->addWidget(pushButton_4, 1, 0, 1, 1);
 
@@ -199,7 +203,7 @@ public:
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
         pushButton_3->setMinimumSize(QSize(45, 45));
         pushButton_3->setMaximumSize(QSize(45, 45));
-        pushButton_3->setFont(font);
+        pushButton_3->setFont(font1);
 
         gridLayout_2->addWidget(pushButton_3, 0, 1, 1, 1);
 
@@ -207,7 +211,7 @@ public:
         pushButton_10->setObjectName(QString::fromUtf8("pushButton_10"));
         pushButton_10->setMinimumSize(QSize(45, 45));
         pushButton_10->setMaximumSize(QSize(45, 45));
-        pushButton_10->setFont(font);
+        pushButton_10->setFont(font1);
 
         gridLayout_2->addWidget(pushButton_10, 1, 1, 1, 1);
 
@@ -215,7 +219,7 @@ public:
         pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
         pushButton_8->setMinimumSize(QSize(45, 45));
         pushButton_8->setMaximumSize(QSize(45, 45));
-        pushButton_8->setFont(font);
+        pushButton_8->setFont(font1);
 
         gridLayout_2->addWidget(pushButton_8, 2, 1, 1, 1);
 
@@ -223,7 +227,7 @@ public:
         pushButton_1->setObjectName(QString::fromUtf8("pushButton_1"));
         pushButton_1->setMinimumSize(QSize(45, 45));
         pushButton_1->setMaximumSize(QSize(45, 45));
-        pushButton_1->setFont(font);
+        pushButton_1->setFont(font1);
         pushButton_1->setIconSize(QSize(16, 16));
 
         gridLayout_2->addWidget(pushButton_1, 0, 0, 1, 1);
@@ -232,7 +236,7 @@ public:
         pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
         pushButton_5->setMinimumSize(QSize(45, 45));
         pushButton_5->setMaximumSize(QSize(45, 45));
-        pushButton_5->setFont(font);
+        pushButton_5->setFont(font1);
 
         gridLayout_2->addWidget(pushButton_5, 0, 2, 1, 1);
 
@@ -240,7 +244,7 @@ public:
         pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
         pushButton_9->setMinimumSize(QSize(45, 45));
         pushButton_9->setMaximumSize(QSize(45, 45));
-        pushButton_9->setFont(font);
+        pushButton_9->setFont(font1);
 
         gridLayout_2->addWidget(pushButton_9, 1, 2, 1, 1);
 
@@ -248,7 +252,7 @@ public:
         pushButton_12->setObjectName(QString::fromUtf8("pushButton_12"));
         pushButton_12->setMinimumSize(QSize(45, 45));
         pushButton_12->setMaximumSize(QSize(45, 45));
-        pushButton_12->setFont(font);
+        pushButton_12->setFont(font1);
 
         gridLayout_2->addWidget(pushButton_12, 2, 2, 1, 1);
 
@@ -267,7 +271,7 @@ public:
         b0i0->setObjectName(QString::fromUtf8("b0i0"));
         b0i0->setMinimumSize(QSize(45, 45));
         b0i0->setMaximumSize(QSize(45, 45));
-        b0i0->setFont(font);
+        b0i0->setFont(font1);
 
         boite0->addWidget(b0i0, 0, 0, 1, 1);
 
@@ -275,7 +279,7 @@ public:
         b0i3->setObjectName(QString::fromUtf8("b0i3"));
         b0i3->setMinimumSize(QSize(45, 45));
         b0i3->setMaximumSize(QSize(45, 45));
-        b0i3->setFont(font);
+        b0i3->setFont(font1);
 
         boite0->addWidget(b0i3, 1, 0, 1, 1);
 
@@ -283,7 +287,7 @@ public:
         b0i1->setObjectName(QString::fromUtf8("b0i1"));
         b0i1->setMinimumSize(QSize(45, 45));
         b0i1->setMaximumSize(QSize(45, 45));
-        b0i1->setFont(font);
+        b0i1->setFont(font1);
 
         boite0->addWidget(b0i1, 0, 1, 1, 1);
 
@@ -291,7 +295,7 @@ public:
         b0i4->setObjectName(QString::fromUtf8("b0i4"));
         b0i4->setMinimumSize(QSize(45, 45));
         b0i4->setMaximumSize(QSize(45, 45));
-        b0i4->setFont(font);
+        b0i4->setFont(font1);
 
         boite0->addWidget(b0i4, 1, 1, 1, 1);
 
@@ -299,7 +303,7 @@ public:
         b0i6->setObjectName(QString::fromUtf8("b0i6"));
         b0i6->setMinimumSize(QSize(45, 45));
         b0i6->setMaximumSize(QSize(45, 45));
-        b0i6->setFont(font);
+        b0i6->setFont(font1);
 
         boite0->addWidget(b0i6, 2, 0, 1, 1);
 
@@ -307,7 +311,7 @@ public:
         b0i2->setObjectName(QString::fromUtf8("b0i2"));
         b0i2->setMinimumSize(QSize(45, 45));
         b0i2->setMaximumSize(QSize(45, 45));
-        b0i2->setFont(font);
+        b0i2->setFont(font1);
 
         boite0->addWidget(b0i2, 0, 2, 1, 1);
 
@@ -315,7 +319,7 @@ public:
         b0i5->setObjectName(QString::fromUtf8("b0i5"));
         b0i5->setMinimumSize(QSize(45, 45));
         b0i5->setMaximumSize(QSize(45, 45));
-        b0i5->setFont(font);
+        b0i5->setFont(font1);
 
         boite0->addWidget(b0i5, 1, 2, 1, 1);
 
@@ -323,7 +327,7 @@ public:
         b0i7->setObjectName(QString::fromUtf8("b0i7"));
         b0i7->setMinimumSize(QSize(45, 45));
         b0i7->setMaximumSize(QSize(45, 45));
-        b0i7->setFont(font);
+        b0i7->setFont(font1);
 
         boite0->addWidget(b0i7, 2, 1, 1, 1);
 
@@ -331,7 +335,7 @@ public:
         b0i8->setObjectName(QString::fromUtf8("b0i8"));
         b0i8->setMinimumSize(QSize(45, 45));
         b0i8->setMaximumSize(QSize(45, 45));
-        b0i8->setFont(font);
+        b0i8->setFont(font1);
 
         boite0->addWidget(b0i8, 2, 2, 1, 1);
 
@@ -345,7 +349,7 @@ public:
         b1i6->setObjectName(QString::fromUtf8("b1i6"));
         b1i6->setMinimumSize(QSize(45, 45));
         b1i6->setMaximumSize(QSize(45, 45));
-        b1i6->setFont(font);
+        b1i6->setFont(font1);
 
         boite1->addWidget(b1i6, 2, 0, 1, 1);
 
@@ -353,7 +357,7 @@ public:
         b1i2->setObjectName(QString::fromUtf8("b1i2"));
         b1i2->setMinimumSize(QSize(45, 45));
         b1i2->setMaximumSize(QSize(45, 45));
-        b1i2->setFont(font);
+        b1i2->setFont(font1);
 
         boite1->addWidget(b1i2, 0, 2, 1, 1);
 
@@ -361,7 +365,7 @@ public:
         b1i7->setObjectName(QString::fromUtf8("b1i7"));
         b1i7->setMinimumSize(QSize(45, 45));
         b1i7->setMaximumSize(QSize(45, 45));
-        b1i7->setFont(font);
+        b1i7->setFont(font1);
 
         boite1->addWidget(b1i7, 2, 1, 1, 1);
 
@@ -369,7 +373,7 @@ public:
         b1i5->setObjectName(QString::fromUtf8("b1i5"));
         b1i5->setMinimumSize(QSize(45, 45));
         b1i5->setMaximumSize(QSize(45, 45));
-        b1i5->setFont(font);
+        b1i5->setFont(font1);
 
         boite1->addWidget(b1i5, 1, 2, 1, 1);
 
@@ -377,7 +381,7 @@ public:
         b1i1->setObjectName(QString::fromUtf8("b1i1"));
         b1i1->setMinimumSize(QSize(45, 45));
         b1i1->setMaximumSize(QSize(45, 45));
-        b1i1->setFont(font);
+        b1i1->setFont(font1);
 
         boite1->addWidget(b1i1, 0, 1, 1, 1);
 
@@ -385,7 +389,7 @@ public:
         b1i0->setObjectName(QString::fromUtf8("b1i0"));
         b1i0->setMinimumSize(QSize(45, 45));
         b1i0->setMaximumSize(QSize(45, 45));
-        b1i0->setFont(font);
+        b1i0->setFont(font1);
 
         boite1->addWidget(b1i0, 0, 0, 1, 1);
 
@@ -393,7 +397,7 @@ public:
         b1i3->setObjectName(QString::fromUtf8("b1i3"));
         b1i3->setMinimumSize(QSize(45, 45));
         b1i3->setMaximumSize(QSize(45, 45));
-        b1i3->setFont(font);
+        b1i3->setFont(font1);
 
         boite1->addWidget(b1i3, 1, 0, 1, 1);
 
@@ -401,7 +405,7 @@ public:
         b1i4->setObjectName(QString::fromUtf8("b1i4"));
         b1i4->setMinimumSize(QSize(45, 45));
         b1i4->setMaximumSize(QSize(45, 45));
-        b1i4->setFont(font);
+        b1i4->setFont(font1);
 
         boite1->addWidget(b1i4, 1, 1, 1, 1);
 
@@ -409,7 +413,7 @@ public:
         b1i8->setObjectName(QString::fromUtf8("b1i8"));
         b1i8->setMinimumSize(QSize(45, 45));
         b1i8->setMaximumSize(QSize(45, 45));
-        b1i8->setFont(font);
+        b1i8->setFont(font1);
 
         boite1->addWidget(b1i8, 2, 2, 1, 1);
 
@@ -423,7 +427,7 @@ public:
         b2i0->setObjectName(QString::fromUtf8("b2i0"));
         b2i0->setMinimumSize(QSize(45, 45));
         b2i0->setMaximumSize(QSize(45, 45));
-        b2i0->setFont(font);
+        b2i0->setFont(font1);
 
         boite2->addWidget(b2i0, 0, 0, 1, 1);
 
@@ -431,7 +435,7 @@ public:
         b2i3->setObjectName(QString::fromUtf8("b2i3"));
         b2i3->setMinimumSize(QSize(45, 45));
         b2i3->setMaximumSize(QSize(45, 45));
-        b2i3->setFont(font);
+        b2i3->setFont(font1);
 
         boite2->addWidget(b2i3, 1, 0, 1, 1);
 
@@ -439,7 +443,7 @@ public:
         b2i1->setObjectName(QString::fromUtf8("b2i1"));
         b2i1->setMinimumSize(QSize(45, 45));
         b2i1->setMaximumSize(QSize(45, 45));
-        b2i1->setFont(font);
+        b2i1->setFont(font1);
 
         boite2->addWidget(b2i1, 0, 1, 1, 1);
 
@@ -447,7 +451,7 @@ public:
         b2i4->setObjectName(QString::fromUtf8("b2i4"));
         b2i4->setMinimumSize(QSize(45, 45));
         b2i4->setMaximumSize(QSize(45, 45));
-        b2i4->setFont(font);
+        b2i4->setFont(font1);
 
         boite2->addWidget(b2i4, 1, 1, 1, 1);
 
@@ -455,7 +459,7 @@ public:
         b2i6->setObjectName(QString::fromUtf8("b2i6"));
         b2i6->setMinimumSize(QSize(45, 45));
         b2i6->setMaximumSize(QSize(45, 45));
-        b2i6->setFont(font);
+        b2i6->setFont(font1);
 
         boite2->addWidget(b2i6, 2, 0, 1, 1);
 
@@ -463,7 +467,7 @@ public:
         b2i2->setObjectName(QString::fromUtf8("b2i2"));
         b2i2->setMinimumSize(QSize(45, 45));
         b2i2->setMaximumSize(QSize(45, 45));
-        b2i2->setFont(font);
+        b2i2->setFont(font1);
 
         boite2->addWidget(b2i2, 0, 2, 1, 1);
 
@@ -471,7 +475,7 @@ public:
         b2i5->setObjectName(QString::fromUtf8("b2i5"));
         b2i5->setMinimumSize(QSize(45, 45));
         b2i5->setMaximumSize(QSize(45, 45));
-        b2i5->setFont(font);
+        b2i5->setFont(font1);
 
         boite2->addWidget(b2i5, 1, 2, 1, 1);
 
@@ -479,7 +483,7 @@ public:
         b2i7->setObjectName(QString::fromUtf8("b2i7"));
         b2i7->setMinimumSize(QSize(45, 45));
         b2i7->setMaximumSize(QSize(45, 45));
-        b2i7->setFont(font);
+        b2i7->setFont(font1);
 
         boite2->addWidget(b2i7, 2, 1, 1, 1);
 
@@ -487,7 +491,7 @@ public:
         b2i8->setObjectName(QString::fromUtf8("b2i8"));
         b2i8->setMinimumSize(QSize(45, 45));
         b2i8->setMaximumSize(QSize(45, 45));
-        b2i8->setFont(font);
+        b2i8->setFont(font1);
 
         boite2->addWidget(b2i8, 2, 2, 1, 1);
 
@@ -501,7 +505,7 @@ public:
         b3i0->setObjectName(QString::fromUtf8("b3i0"));
         b3i0->setMinimumSize(QSize(45, 45));
         b3i0->setMaximumSize(QSize(45, 45));
-        b3i0->setFont(font);
+        b3i0->setFont(font1);
 
         boite3->addWidget(b3i0, 0, 0, 1, 1);
 
@@ -509,7 +513,7 @@ public:
         b3i3->setObjectName(QString::fromUtf8("b3i3"));
         b3i3->setMinimumSize(QSize(45, 45));
         b3i3->setMaximumSize(QSize(45, 45));
-        b3i3->setFont(font);
+        b3i3->setFont(font1);
 
         boite3->addWidget(b3i3, 1, 0, 1, 1);
 
@@ -517,7 +521,7 @@ public:
         b3i1->setObjectName(QString::fromUtf8("b3i1"));
         b3i1->setMinimumSize(QSize(45, 45));
         b3i1->setMaximumSize(QSize(45, 45));
-        b3i1->setFont(font);
+        b3i1->setFont(font1);
 
         boite3->addWidget(b3i1, 0, 1, 1, 1);
 
@@ -525,7 +529,7 @@ public:
         b3i4->setObjectName(QString::fromUtf8("b3i4"));
         b3i4->setMinimumSize(QSize(45, 45));
         b3i4->setMaximumSize(QSize(45, 45));
-        b3i4->setFont(font);
+        b3i4->setFont(font1);
 
         boite3->addWidget(b3i4, 1, 1, 1, 1);
 
@@ -533,7 +537,7 @@ public:
         b3i6->setObjectName(QString::fromUtf8("b3i6"));
         b3i6->setMinimumSize(QSize(45, 45));
         b3i6->setMaximumSize(QSize(45, 45));
-        b3i6->setFont(font);
+        b3i6->setFont(font1);
 
         boite3->addWidget(b3i6, 2, 0, 1, 1);
 
@@ -541,7 +545,7 @@ public:
         b3i2->setObjectName(QString::fromUtf8("b3i2"));
         b3i2->setMinimumSize(QSize(45, 45));
         b3i2->setMaximumSize(QSize(45, 45));
-        b3i2->setFont(font);
+        b3i2->setFont(font1);
 
         boite3->addWidget(b3i2, 0, 2, 1, 1);
 
@@ -549,7 +553,7 @@ public:
         b3i5->setObjectName(QString::fromUtf8("b3i5"));
         b3i5->setMinimumSize(QSize(45, 45));
         b3i5->setMaximumSize(QSize(45, 45));
-        b3i5->setFont(font);
+        b3i5->setFont(font1);
 
         boite3->addWidget(b3i5, 1, 2, 1, 1);
 
@@ -557,7 +561,7 @@ public:
         b3i7->setObjectName(QString::fromUtf8("b3i7"));
         b3i7->setMinimumSize(QSize(45, 45));
         b3i7->setMaximumSize(QSize(45, 45));
-        b3i7->setFont(font);
+        b3i7->setFont(font1);
 
         boite3->addWidget(b3i7, 2, 1, 1, 1);
 
@@ -565,7 +569,7 @@ public:
         b3i8->setObjectName(QString::fromUtf8("b3i8"));
         b3i8->setMinimumSize(QSize(45, 45));
         b3i8->setMaximumSize(QSize(45, 45));
-        b3i8->setFont(font);
+        b3i8->setFont(font1);
 
         boite3->addWidget(b3i8, 2, 2, 1, 1);
 
@@ -579,7 +583,7 @@ public:
         b4i0->setObjectName(QString::fromUtf8("b4i0"));
         b4i0->setMinimumSize(QSize(45, 45));
         b4i0->setMaximumSize(QSize(45, 45));
-        b4i0->setFont(font);
+        b4i0->setFont(font1);
 
         boite4->addWidget(b4i0, 0, 0, 1, 1);
 
@@ -587,7 +591,7 @@ public:
         b4i3->setObjectName(QString::fromUtf8("b4i3"));
         b4i3->setMinimumSize(QSize(45, 45));
         b4i3->setMaximumSize(QSize(45, 45));
-        b4i3->setFont(font);
+        b4i3->setFont(font1);
 
         boite4->addWidget(b4i3, 1, 0, 1, 1);
 
@@ -595,7 +599,7 @@ public:
         b4i1->setObjectName(QString::fromUtf8("b4i1"));
         b4i1->setMinimumSize(QSize(45, 45));
         b4i1->setMaximumSize(QSize(45, 45));
-        b4i1->setFont(font);
+        b4i1->setFont(font1);
 
         boite4->addWidget(b4i1, 0, 1, 1, 1);
 
@@ -603,7 +607,7 @@ public:
         b4i4->setObjectName(QString::fromUtf8("b4i4"));
         b4i4->setMinimumSize(QSize(45, 45));
         b4i4->setMaximumSize(QSize(45, 45));
-        b4i4->setFont(font);
+        b4i4->setFont(font1);
 
         boite4->addWidget(b4i4, 1, 1, 1, 1);
 
@@ -611,7 +615,7 @@ public:
         b4i6->setObjectName(QString::fromUtf8("b4i6"));
         b4i6->setMinimumSize(QSize(45, 45));
         b4i6->setMaximumSize(QSize(45, 45));
-        b4i6->setFont(font);
+        b4i6->setFont(font1);
 
         boite4->addWidget(b4i6, 2, 0, 1, 1);
 
@@ -619,7 +623,7 @@ public:
         b4i2->setObjectName(QString::fromUtf8("b4i2"));
         b4i2->setMinimumSize(QSize(45, 45));
         b4i2->setMaximumSize(QSize(45, 45));
-        b4i2->setFont(font);
+        b4i2->setFont(font1);
 
         boite4->addWidget(b4i2, 0, 2, 1, 1);
 
@@ -627,7 +631,7 @@ public:
         b4i5->setObjectName(QString::fromUtf8("b4i5"));
         b4i5->setMinimumSize(QSize(45, 45));
         b4i5->setMaximumSize(QSize(45, 45));
-        b4i5->setFont(font);
+        b4i5->setFont(font1);
 
         boite4->addWidget(b4i5, 1, 2, 1, 1);
 
@@ -635,7 +639,7 @@ public:
         b4i7->setObjectName(QString::fromUtf8("b4i7"));
         b4i7->setMinimumSize(QSize(45, 45));
         b4i7->setMaximumSize(QSize(45, 45));
-        b4i7->setFont(font);
+        b4i7->setFont(font1);
 
         boite4->addWidget(b4i7, 2, 1, 1, 1);
 
@@ -643,7 +647,7 @@ public:
         b4i8->setObjectName(QString::fromUtf8("b4i8"));
         b4i8->setMinimumSize(QSize(45, 45));
         b4i8->setMaximumSize(QSize(45, 45));
-        b4i8->setFont(font);
+        b4i8->setFont(font1);
 
         boite4->addWidget(b4i8, 2, 2, 1, 1);
 
@@ -657,7 +661,7 @@ public:
         b5i0->setObjectName(QString::fromUtf8("b5i0"));
         b5i0->setMinimumSize(QSize(45, 45));
         b5i0->setMaximumSize(QSize(45, 45));
-        b5i0->setFont(font);
+        b5i0->setFont(font1);
 
         boite5->addWidget(b5i0, 0, 0, 1, 1);
 
@@ -665,7 +669,7 @@ public:
         b5i3->setObjectName(QString::fromUtf8("b5i3"));
         b5i3->setMinimumSize(QSize(45, 45));
         b5i3->setMaximumSize(QSize(45, 45));
-        b5i3->setFont(font);
+        b5i3->setFont(font1);
 
         boite5->addWidget(b5i3, 1, 0, 1, 1);
 
@@ -673,7 +677,7 @@ public:
         b5i1->setObjectName(QString::fromUtf8("b5i1"));
         b5i1->setMinimumSize(QSize(45, 45));
         b5i1->setMaximumSize(QSize(45, 45));
-        b5i1->setFont(font);
+        b5i1->setFont(font1);
 
         boite5->addWidget(b5i1, 0, 1, 1, 1);
 
@@ -681,7 +685,7 @@ public:
         b5i4->setObjectName(QString::fromUtf8("b5i4"));
         b5i4->setMinimumSize(QSize(45, 45));
         b5i4->setMaximumSize(QSize(45, 45));
-        b5i4->setFont(font);
+        b5i4->setFont(font1);
 
         boite5->addWidget(b5i4, 1, 1, 1, 1);
 
@@ -689,7 +693,7 @@ public:
         b5i6->setObjectName(QString::fromUtf8("b5i6"));
         b5i6->setMinimumSize(QSize(45, 45));
         b5i6->setMaximumSize(QSize(45, 45));
-        b5i6->setFont(font);
+        b5i6->setFont(font1);
 
         boite5->addWidget(b5i6, 2, 0, 1, 1);
 
@@ -697,7 +701,7 @@ public:
         b5i2->setObjectName(QString::fromUtf8("b5i2"));
         b5i2->setMinimumSize(QSize(45, 45));
         b5i2->setMaximumSize(QSize(45, 45));
-        b5i2->setFont(font);
+        b5i2->setFont(font1);
 
         boite5->addWidget(b5i2, 0, 2, 1, 1);
 
@@ -705,7 +709,7 @@ public:
         b5i5->setObjectName(QString::fromUtf8("b5i5"));
         b5i5->setMinimumSize(QSize(45, 45));
         b5i5->setMaximumSize(QSize(45, 45));
-        b5i5->setFont(font);
+        b5i5->setFont(font1);
 
         boite5->addWidget(b5i5, 1, 2, 1, 1);
 
@@ -713,7 +717,7 @@ public:
         b5i7->setObjectName(QString::fromUtf8("b5i7"));
         b5i7->setMinimumSize(QSize(45, 45));
         b5i7->setMaximumSize(QSize(45, 45));
-        b5i7->setFont(font);
+        b5i7->setFont(font1);
 
         boite5->addWidget(b5i7, 2, 1, 1, 1);
 
@@ -721,7 +725,7 @@ public:
         b5i8->setObjectName(QString::fromUtf8("b5i8"));
         b5i8->setMinimumSize(QSize(45, 45));
         b5i8->setMaximumSize(QSize(45, 45));
-        b5i8->setFont(font);
+        b5i8->setFont(font1);
 
         boite5->addWidget(b5i8, 2, 2, 1, 1);
 
@@ -735,7 +739,7 @@ public:
         b6i0->setObjectName(QString::fromUtf8("b6i0"));
         b6i0->setMinimumSize(QSize(45, 45));
         b6i0->setMaximumSize(QSize(45, 45));
-        b6i0->setFont(font);
+        b6i0->setFont(font1);
 
         boite6->addWidget(b6i0, 0, 0, 1, 1);
 
@@ -743,7 +747,7 @@ public:
         b6i3->setObjectName(QString::fromUtf8("b6i3"));
         b6i3->setMinimumSize(QSize(45, 45));
         b6i3->setMaximumSize(QSize(45, 45));
-        b6i3->setFont(font);
+        b6i3->setFont(font1);
 
         boite6->addWidget(b6i3, 1, 0, 1, 1);
 
@@ -751,7 +755,7 @@ public:
         b6i1->setObjectName(QString::fromUtf8("b6i1"));
         b6i1->setMinimumSize(QSize(45, 45));
         b6i1->setMaximumSize(QSize(45, 45));
-        b6i1->setFont(font);
+        b6i1->setFont(font1);
 
         boite6->addWidget(b6i1, 0, 1, 1, 1);
 
@@ -759,7 +763,7 @@ public:
         b6i4->setObjectName(QString::fromUtf8("b6i4"));
         b6i4->setMinimumSize(QSize(45, 45));
         b6i4->setMaximumSize(QSize(45, 45));
-        b6i4->setFont(font);
+        b6i4->setFont(font1);
 
         boite6->addWidget(b6i4, 1, 1, 1, 1);
 
@@ -767,7 +771,7 @@ public:
         b6i6->setObjectName(QString::fromUtf8("b6i6"));
         b6i6->setMinimumSize(QSize(45, 45));
         b6i6->setMaximumSize(QSize(45, 45));
-        b6i6->setFont(font);
+        b6i6->setFont(font1);
 
         boite6->addWidget(b6i6, 2, 0, 1, 1);
 
@@ -775,7 +779,7 @@ public:
         b6i2->setObjectName(QString::fromUtf8("b6i2"));
         b6i2->setMinimumSize(QSize(45, 45));
         b6i2->setMaximumSize(QSize(45, 45));
-        b6i2->setFont(font);
+        b6i2->setFont(font1);
 
         boite6->addWidget(b6i2, 0, 2, 1, 1);
 
@@ -783,7 +787,7 @@ public:
         b6i5->setObjectName(QString::fromUtf8("b6i5"));
         b6i5->setMinimumSize(QSize(45, 45));
         b6i5->setMaximumSize(QSize(45, 45));
-        b6i5->setFont(font);
+        b6i5->setFont(font1);
 
         boite6->addWidget(b6i5, 1, 2, 1, 1);
 
@@ -791,7 +795,7 @@ public:
         b6i7->setObjectName(QString::fromUtf8("b6i7"));
         b6i7->setMinimumSize(QSize(45, 45));
         b6i7->setMaximumSize(QSize(45, 45));
-        b6i7->setFont(font);
+        b6i7->setFont(font1);
 
         boite6->addWidget(b6i7, 2, 1, 1, 1);
 
@@ -799,7 +803,7 @@ public:
         b6i8->setObjectName(QString::fromUtf8("b6i8"));
         b6i8->setMinimumSize(QSize(45, 45));
         b6i8->setMaximumSize(QSize(45, 45));
-        b6i8->setFont(font);
+        b6i8->setFont(font1);
 
         boite6->addWidget(b6i8, 2, 2, 1, 1);
 
@@ -813,7 +817,7 @@ public:
         b7i0->setObjectName(QString::fromUtf8("b7i0"));
         b7i0->setMinimumSize(QSize(45, 45));
         b7i0->setMaximumSize(QSize(45, 45));
-        b7i0->setFont(font);
+        b7i0->setFont(font1);
 
         boite7->addWidget(b7i0, 0, 0, 1, 1);
 
@@ -821,7 +825,7 @@ public:
         b7i3->setObjectName(QString::fromUtf8("b7i3"));
         b7i3->setMinimumSize(QSize(45, 45));
         b7i3->setMaximumSize(QSize(45, 45));
-        b7i3->setFont(font);
+        b7i3->setFont(font1);
 
         boite7->addWidget(b7i3, 1, 0, 1, 1);
 
@@ -829,7 +833,7 @@ public:
         b7i1->setObjectName(QString::fromUtf8("b7i1"));
         b7i1->setMinimumSize(QSize(45, 45));
         b7i1->setMaximumSize(QSize(45, 45));
-        b7i1->setFont(font);
+        b7i1->setFont(font1);
 
         boite7->addWidget(b7i1, 0, 1, 1, 1);
 
@@ -837,7 +841,7 @@ public:
         b7i4->setObjectName(QString::fromUtf8("b7i4"));
         b7i4->setMinimumSize(QSize(45, 45));
         b7i4->setMaximumSize(QSize(45, 45));
-        b7i4->setFont(font);
+        b7i4->setFont(font1);
 
         boite7->addWidget(b7i4, 1, 1, 1, 1);
 
@@ -845,7 +849,7 @@ public:
         b7i6->setObjectName(QString::fromUtf8("b7i6"));
         b7i6->setMinimumSize(QSize(45, 45));
         b7i6->setMaximumSize(QSize(45, 45));
-        b7i6->setFont(font);
+        b7i6->setFont(font1);
 
         boite7->addWidget(b7i6, 2, 0, 1, 1);
 
@@ -853,7 +857,7 @@ public:
         b7i2->setObjectName(QString::fromUtf8("b7i2"));
         b7i2->setMinimumSize(QSize(45, 45));
         b7i2->setMaximumSize(QSize(45, 45));
-        b7i2->setFont(font);
+        b7i2->setFont(font1);
 
         boite7->addWidget(b7i2, 0, 2, 1, 1);
 
@@ -861,7 +865,7 @@ public:
         b7i5->setObjectName(QString::fromUtf8("b7i5"));
         b7i5->setMinimumSize(QSize(45, 45));
         b7i5->setMaximumSize(QSize(45, 45));
-        b7i5->setFont(font);
+        b7i5->setFont(font1);
 
         boite7->addWidget(b7i5, 1, 2, 1, 1);
 
@@ -869,7 +873,7 @@ public:
         b7i7->setObjectName(QString::fromUtf8("b7i7"));
         b7i7->setMinimumSize(QSize(45, 45));
         b7i7->setMaximumSize(QSize(45, 45));
-        b7i7->setFont(font);
+        b7i7->setFont(font1);
 
         boite7->addWidget(b7i7, 2, 1, 1, 1);
 
@@ -877,7 +881,7 @@ public:
         b7i8->setObjectName(QString::fromUtf8("b7i8"));
         b7i8->setMinimumSize(QSize(45, 45));
         b7i8->setMaximumSize(QSize(45, 45));
-        b7i8->setFont(font);
+        b7i8->setFont(font1);
 
         boite7->addWidget(b7i8, 2, 2, 1, 1);
 
@@ -891,7 +895,7 @@ public:
         b8i0->setObjectName(QString::fromUtf8("b8i0"));
         b8i0->setMinimumSize(QSize(45, 45));
         b8i0->setMaximumSize(QSize(45, 45));
-        b8i0->setFont(font);
+        b8i0->setFont(font1);
 
         boite8->addWidget(b8i0, 0, 0, 1, 1);
 
@@ -899,7 +903,7 @@ public:
         b8i3->setObjectName(QString::fromUtf8("b8i3"));
         b8i3->setMinimumSize(QSize(45, 45));
         b8i3->setMaximumSize(QSize(45, 45));
-        b8i3->setFont(font);
+        b8i3->setFont(font1);
 
         boite8->addWidget(b8i3, 1, 0, 1, 1);
 
@@ -907,7 +911,7 @@ public:
         b8i1->setObjectName(QString::fromUtf8("b8i1"));
         b8i1->setMinimumSize(QSize(45, 45));
         b8i1->setMaximumSize(QSize(45, 45));
-        b8i1->setFont(font);
+        b8i1->setFont(font1);
 
         boite8->addWidget(b8i1, 0, 1, 1, 1);
 
@@ -915,7 +919,7 @@ public:
         b8i4->setObjectName(QString::fromUtf8("b8i4"));
         b8i4->setMinimumSize(QSize(45, 45));
         b8i4->setMaximumSize(QSize(45, 45));
-        b8i4->setFont(font);
+        b8i4->setFont(font1);
 
         boite8->addWidget(b8i4, 1, 1, 1, 1);
 
@@ -923,7 +927,7 @@ public:
         b8i6->setObjectName(QString::fromUtf8("b8i6"));
         b8i6->setMinimumSize(QSize(45, 45));
         b8i6->setMaximumSize(QSize(45, 45));
-        b8i6->setFont(font);
+        b8i6->setFont(font1);
 
         boite8->addWidget(b8i6, 2, 0, 1, 1);
 
@@ -931,7 +935,7 @@ public:
         b8i2->setObjectName(QString::fromUtf8("b8i2"));
         b8i2->setMinimumSize(QSize(45, 45));
         b8i2->setMaximumSize(QSize(45, 45));
-        b8i2->setFont(font);
+        b8i2->setFont(font1);
 
         boite8->addWidget(b8i2, 0, 2, 1, 1);
 
@@ -939,7 +943,7 @@ public:
         b8i5->setObjectName(QString::fromUtf8("b8i5"));
         b8i5->setMinimumSize(QSize(45, 45));
         b8i5->setMaximumSize(QSize(45, 45));
-        b8i5->setFont(font);
+        b8i5->setFont(font1);
 
         boite8->addWidget(b8i5, 1, 2, 1, 1);
 
@@ -947,7 +951,7 @@ public:
         b8i7->setObjectName(QString::fromUtf8("b8i7"));
         b8i7->setMinimumSize(QSize(45, 45));
         b8i7->setMaximumSize(QSize(45, 45));
-        b8i7->setFont(font);
+        b8i7->setFont(font1);
 
         boite8->addWidget(b8i7, 2, 1, 1, 1);
 
@@ -955,7 +959,7 @@ public:
         b8i8->setObjectName(QString::fromUtf8("b8i8"));
         b8i8->setMinimumSize(QSize(45, 45));
         b8i8->setMaximumSize(QSize(45, 45));
-        b8i8->setFont(font);
+        b8i8->setFont(font1);
 
         boite8->addWidget(b8i8, 2, 2, 1, 1);
 
@@ -1001,6 +1005,7 @@ public:
         menuMenu->addAction(actionR_soudre_la_grille);
 
         retranslateUi(FenetrePrincipal);
+        QObject::connect(actionCharger_une_grille, SIGNAL(triggered()), FenetrePrincipal, SLOT(chargerFichier()));
 
         QMetaObject::connectSlotsByName(FenetrePrincipal);
     } // setupUi

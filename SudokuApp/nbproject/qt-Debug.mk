@@ -398,10 +398,10 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-build/Debug/GNU-Linux/FenetrePrincipal.o: FenetrePrincipal.cpp FenetrePrincipal.h \
+build/Debug/GNU-Linux/FenetrePrincipal.o: FenetrePrincipal.cpp ../Sudoku/Indice.h \
+		FenetrePrincipal.h \
 		ui_FenetrePrincipal.h \
-		../Sudoku/Grille.h \
-		../Sudoku/Indice.h
+		../Sudoku/Grille.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/GNU-Linux/FenetrePrincipal.o FenetrePrincipal.cpp
 
 build/Debug/GNU-Linux/main.o: main.cpp FenetrePrincipal.h \

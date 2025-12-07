@@ -66,6 +66,8 @@
        <property name="font">
         <font>
          <pointsize>25</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -2446,5 +2448,42 @@
   </action>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionCharger_une_grille</sender>
+   <signal>triggered()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>chargerFichier()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>verifierGrille</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>verifierGrille()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>695</x>
+     <y>302</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>chargerFichier()</slot>
+  <slot>verifierGrille()</slot>
+ </slots>
 </ui>
