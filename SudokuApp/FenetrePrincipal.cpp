@@ -227,11 +227,11 @@ void FenetrePrincipal::verifierGrille()
 {
     if(m_sudoku.req_validite())
     {
-        dialogGrilleValide v;
+        DialogGrilleValide v;
     }
     else
     {
-        dialogGrilleInvalide i;
+        DialogGrilleInvalide i;
     }
 }
 

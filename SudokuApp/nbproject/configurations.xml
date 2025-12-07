@@ -4,16 +4,22 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>DialogGrilleInvalide.h</itemPath>
+      <itemPath>DialogGrilleValide.h</itemPath>
       <itemPath>FenetrePrincipal.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <itemPath>DialogGrilleInvalide.ui</itemPath>
+      <itemPath>DialogGrilleValide.ui</itemPath>
       <itemPath>FenetrePrincipal.ui</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>DialogGrilleInvalide.cpp</itemPath>
+      <itemPath>DialogGrilleValide.cpp</itemPath>
       <itemPath>FenetrePrincipal.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -63,6 +69,18 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="DialogGrilleInvalide.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DialogGrilleInvalide.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DialogGrilleInvalide.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DialogGrilleValide.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DialogGrilleValide.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DialogGrilleValide.ui" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="FenetrePrincipal.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="FenetrePrincipal.h" ex="false" tool="3" flavor2="0">
@@ -96,6 +114,18 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="DialogGrilleInvalide.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DialogGrilleInvalide.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DialogGrilleInvalide.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DialogGrilleValide.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DialogGrilleValide.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DialogGrilleValide.ui" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="FenetrePrincipal.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="FenetrePrincipal.h" ex="false" tool="3" flavor2="0">
