@@ -346,12 +346,12 @@ vector<int> Grille::respecte_contraintes(const Indice& i)const
 
 
 /***
- * \brief Enregistre la grille de sudoku sous le bon format dans un fichier texte dans le dossier GrillesSauvegarde
- * \param nom est une chaîne de caractère du nom du fichier texte
+ * \brief Enregistre la grille de sudoku sous le bon format dans un fichier texte 
+ * \param nom est une chaîne de caractères de l'emplacement et nom du fichier texte
  */
 void Grille::save(string nom)const
 {
-    ofstream ofs("GrillesSauvegarde/"+nom,ofstream::out);
+    ofstream ofs(nom,ofstream::out);
     Indice i;
     for(int nbr_cases=0;nbr_cases<81;nbr_cases++)
     {

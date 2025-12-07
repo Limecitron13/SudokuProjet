@@ -1,12 +1,16 @@
 
 #include <QFileDialog>
 #include <fstream>
+#include <QString>
 #include "Indice.h"
+#include <QFont>
+#include "DialogGrilleValide.h"
+#include "DialogGrilleInvalide.h"
 #include "FenetrePrincipal.h"
 
 using namespace std;
 
-FenetrePrincipal::FenetrePrincipal():m_sudoku(Grille())
+FenetrePrincipal::FenetrePrincipal():m_sudoku(Grille()),m_nombreAPlacer(1)
 {
     widget.setupUi(this);
     afficherGrille();
@@ -32,6 +36,13 @@ void FenetrePrincipal::chargerFichier()
         return;
     }
 
+}
+
+void FenetrePrincipal::sauvegarderFichier()
+{
+    QString nom = QFileDialog::getSaveFileName();
+    string nomFichier = nom.toStdString();
+    m_sudoku.save(nomFichier);
 }
 
 
@@ -228,11 +239,95 @@ void FenetrePrincipal::verifierGrille()
     if(m_sudoku.req_validite())
     {
         DialogGrilleValide v;
+        if(v.exec())
+        {
+            
+        }
     }
     else
     {
         DialogGrilleInvalide i;
+        if(i.exec())
+        {
+            
+        }
     }
 }
 
 
+void FenetrePrincipal::selectionnerChiffre()
+{
+    QObject* boutonClick = sender();
+    QPushButton* bouton = qobject_cast<QPushButton*>(boutonClick);
+    QString nombreStr = bouton->text();
+    int nombre = nombreStr.toInt();
+    
+  
+    QFont pasGras("Ubuntu",25);
+    widget.chiffre1->setFont(pasGras);
+    widget.chiffre2->setFont(pasGras);
+    widget.chiffre3->setFont(pasGras);
+    widget.chiffre4->setFont(pasGras);
+    widget.chiffre5->setFont(pasGras);
+    widget.chiffre6->setFont(pasGras);
+    widget.chiffre7->setFont(pasGras);
+    widget.chiffre8->setFont(pasGras);
+    widget.chiffre9->setFont(pasGras);
+    
+    
+    if(nombre==1)
+    {
+        m_nombreAPlacer = 1;
+    }
+    
+    if(nombre==2)
+    {
+        m_nombreAPlacer = 2;
+    }
+    
+    if(nombre==3)
+    {
+        m_nombreAPlacer = 3;
+    }  
+    
+    if(nombre==4)
+    {
+        m_nombreAPlacer = 4;
+    }
+    
+    if(nombre==5)
+    {
+        m_nombreAPlacer = 5;
+    }
+    
+    if(nombre==6)
+    {
+        m_nombreAPlacer = 6;
+    }
+    
+    if(nombre==7)
+    {
+        m_nombreAPlacer = 7;
+    }
+    
+    if(nombre==8)
+    {
+        m_nombreAPlacer = 8;
+    }
+    
+    if(nombre==9)
+    {
+        m_nombreAPlacer = 9;
+    }
+
+    QFont gras = bouton->font();
+    gras.setBold(true);
+    bouton->setFont(gras);
+}
+
+void FenetrePrincipal::placerChiffre()
+{
+    QObject* boutonClick = sender();
+    QPushButton* bouton = qobject_cast<QPushButton*>(boutonClick);
+    bouton->setText(QString::number(m_nombreAPlacer));
+}

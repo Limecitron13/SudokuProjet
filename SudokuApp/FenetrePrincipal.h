@@ -13,12 +13,16 @@ public:
     
 private slots:
     void chargerFichier();
+    void sauvegarderFichier();
     void afficherGrille();
     void verifierGrille();
+    void selectionnerChiffre();
+    void placerChiffre();
         
 private:
     Ui::FenetrePrincipal widget;
     Grille m_sudoku;
+    int m_nombreAPlacer;
 };
 
 #endif /* _FENETREPRINCIPAL_H */

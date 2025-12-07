@@ -1,19 +1,32 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>DialogGrilleInvalide</class>
- <widget class="QDialog" name="DialogGrilleInvalide" >
-  <property name="geometry" >
+ <widget class="QDialog" name="DialogGrilleInvalide">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>200</width>
+    <height>100</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="minimumSize">
+   <size>
+    <width>200</width>
+    <height>100</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>200</width>
+    <height>100</height>
+   </size>
+  </property>
+  <property name="windowTitle">
    <string>DialogGrilleInvalide</string>
   </property>
-  <widget class="QDialogButtonBox" name="buttonBox" >
-   <property name="geometry" >
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
     <rect>
      <x>30</x>
      <y>240</y>
@@ -21,45 +34,63 @@
      <height>32</height>
     </rect>
    </property>
-   <property name="orientation" >
+   <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
-   <property name="standardButtons" >
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::NoButton|QDialogButtonBox::Ok</set>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>181</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+     <underline>false</underline>
+    </font>
+   </property>
+   <property name="text">
+    <string>La grille est invalide !</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Ok">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>70</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Ok</string>
    </property>
   </widget>
  </widget>
  <resources/>
  <connections>
   <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
+   <sender>Ok</sender>
+   <signal>clicked()</signal>
    <receiver>DialogGrilleInvalide</receiver>
    <slot>accept()</slot>
    <hints>
-    <hint type="sourcelabel" >
-     <x>248</x>
-     <y>254</y>
+    <hint type="sourcelabel">
+     <x>159</x>
+     <y>81</y>
     </hint>
-    <hint type="destinationlabel" >
-     <x>157</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>DialogGrilleInvalide</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>316</x>
-     <y>260</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>286</x>
-     <y>274</y>
+    <hint type="destinationlabel">
+     <x>99</x>
+     <y>49</y>
     </hint>
    </hints>
   </connection>

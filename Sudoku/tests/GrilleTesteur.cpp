@@ -331,7 +331,7 @@ TEST(TestGrille,save_grilleValide_sauvegardeGrille)
     g.asg_grille(ifs);
     Indice i;
     g.asg_val(i,0);
-    g.save("fichierTest.txt");
+    g.save("fichiersTestsGrille","fichierTest.txt");
     
     Grille h;
     ifstream ifs2("GrillesSauvegarde/fichierTest.txt",ifstream::in);
@@ -347,7 +347,7 @@ TEST(TestGrille,save_grilleValide2_sauvegardeGrille)
     g.asg_grille(ifs);
     Indice i(5,5);
     g.asg_val(i,9);
-    g.save("fichierTest1.txt");
+    g.save("fichiersTestsGrille","fichierTest1.txt");
     
     Grille h;
     ifstream ifs2("GrillesSauvegarde/fichierTest1.txt",ifstream::in);

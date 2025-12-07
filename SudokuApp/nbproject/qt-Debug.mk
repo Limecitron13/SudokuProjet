@@ -52,10 +52,18 @@ OBJECTS_DIR   = build/Debug/GNU-Linux/
 
 ####### Files
 
-SOURCES       = FenetrePrincipal.cpp \
-		main.cpp moc_FenetrePrincipal.cpp
-OBJECTS       = build/Debug/GNU-Linux/FenetrePrincipal.o \
+SOURCES       = DialogGrilleInvalide.cpp \
+		DialogGrilleValide.cpp \
+		FenetrePrincipal.cpp \
+		main.cpp moc_DialogGrilleInvalide.cpp \
+		moc_DialogGrilleValide.cpp \
+		moc_FenetrePrincipal.cpp
+OBJECTS       = build/Debug/GNU-Linux/DialogGrilleInvalide.o \
+		build/Debug/GNU-Linux/DialogGrilleValide.o \
+		build/Debug/GNU-Linux/FenetrePrincipal.o \
 		build/Debug/GNU-Linux/main.o \
+		build/Debug/GNU-Linux/moc_DialogGrilleInvalide.o \
+		build/Debug/GNU-Linux/moc_DialogGrilleValide.o \
 		build/Debug/GNU-Linux/moc_FenetrePrincipal.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -138,7 +146,11 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		nbproject/nbproject/qt-Debug.pro FenetrePrincipal.h FenetrePrincipal.cpp \
+		nbproject/nbproject/qt-Debug.pro DialogGrilleInvalide.h \
+		DialogGrilleValide.h \
+		FenetrePrincipal.h DialogGrilleInvalide.cpp \
+		DialogGrilleValide.cpp \
+		FenetrePrincipal.cpp \
 		main.cpp
 QMAKE_TARGET  = SudokuApp
 DESTDIR       = dist/Debug/GNU-Linux/
@@ -148,7 +160,7 @@ TARGET        = dist/Debug/GNU-Linux/SudokuApp
 first: all
 ####### Build rules
 
-dist/Debug/GNU-Linux/SudokuApp: ui_FenetrePrincipal.h $(OBJECTS)  
+dist/Debug/GNU-Linux/SudokuApp: ui_DialogGrilleInvalide.h ui_DialogGrilleValide.h ui_FenetrePrincipal.h $(OBJECTS)  
 	@test -d dist/Debug/GNU-Linux/ || mkdir -p dist/Debug/GNU-Linux/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -332,9 +344,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents FenetrePrincipal.h $(DISTDIR)/
-	$(COPY_FILE) --parents FenetrePrincipal.cpp main.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents FenetrePrincipal.ui $(DISTDIR)/
+	$(COPY_FILE) --parents DialogGrilleInvalide.h DialogGrilleValide.h FenetrePrincipal.h $(DISTDIR)/
+	$(COPY_FILE) --parents DialogGrilleInvalide.cpp DialogGrilleValide.cpp FenetrePrincipal.cpp main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents DialogGrilleInvalide.ui DialogGrilleValide.ui FenetrePrincipal.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -366,9 +378,21 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_FenetrePrincipal.cpp
+compiler_moc_header_make_all: moc_DialogGrilleInvalide.cpp moc_DialogGrilleValide.cpp moc_FenetrePrincipal.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_FenetrePrincipal.cpp
+	-$(DEL_FILE) moc_DialogGrilleInvalide.cpp moc_DialogGrilleValide.cpp moc_FenetrePrincipal.cpp
+moc_DialogGrilleInvalide.cpp: DialogGrilleInvalide.h \
+		ui_DialogGrilleInvalide.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/etudiant/NetBeansProjects/SudokuProject/SudokuProjet/SudokuApp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/etudiant/NetBeansProjects/SudokuProject/SudokuProjet/SudokuApp/nbproject -I/home/etudiant/NetBeansProjects/SudokuProject/SudokuProjet/SudokuApp/Sudoku -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include DialogGrilleInvalide.h -o moc_DialogGrilleInvalide.cpp
+
+moc_DialogGrilleValide.cpp: DialogGrilleValide.h \
+		ui_DialogGrilleValide.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/etudiant/NetBeansProjects/SudokuProject/SudokuProjet/SudokuApp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/etudiant/NetBeansProjects/SudokuProject/SudokuProjet/SudokuApp/nbproject -I/home/etudiant/NetBeansProjects/SudokuProject/SudokuProjet/SudokuApp/Sudoku -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include DialogGrilleValide.h -o moc_DialogGrilleValide.cpp
+
 moc_FenetrePrincipal.cpp: FenetrePrincipal.h \
 		ui_FenetrePrincipal.h \
 		../Sudoku/Grille.h \
@@ -381,9 +405,17 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_FenetrePrincipal.h
+compiler_uic_make_all: ui_DialogGrilleInvalide.h ui_DialogGrilleValide.h ui_FenetrePrincipal.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_FenetrePrincipal.h
+	-$(DEL_FILE) ui_DialogGrilleInvalide.h ui_DialogGrilleValide.h ui_FenetrePrincipal.h
+ui_DialogGrilleInvalide.h: DialogGrilleInvalide.ui \
+		/usr/lib/qt5/bin/uic
+	/usr/lib/qt5/bin/uic DialogGrilleInvalide.ui -o ui_DialogGrilleInvalide.h
+
+ui_DialogGrilleValide.h: DialogGrilleValide.ui \
+		/usr/lib/qt5/bin/uic
+	/usr/lib/qt5/bin/uic DialogGrilleValide.ui -o ui_DialogGrilleValide.h
+
 ui_FenetrePrincipal.h: FenetrePrincipal.ui \
 		/usr/lib/qt5/bin/uic
 	/usr/lib/qt5/bin/uic FenetrePrincipal.ui -o ui_FenetrePrincipal.h
@@ -398,7 +430,19 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
+build/Debug/GNU-Linux/DialogGrilleInvalide.o: DialogGrilleInvalide.cpp DialogGrilleInvalide.h \
+		ui_DialogGrilleInvalide.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/GNU-Linux/DialogGrilleInvalide.o DialogGrilleInvalide.cpp
+
+build/Debug/GNU-Linux/DialogGrilleValide.o: DialogGrilleValide.cpp DialogGrilleValide.h \
+		ui_DialogGrilleValide.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/GNU-Linux/DialogGrilleValide.o DialogGrilleValide.cpp
+
 build/Debug/GNU-Linux/FenetrePrincipal.o: FenetrePrincipal.cpp ../Sudoku/Indice.h \
+		DialogGrilleValide.h \
+		ui_DialogGrilleValide.h \
+		DialogGrilleInvalide.h \
+		ui_DialogGrilleInvalide.h \
 		FenetrePrincipal.h \
 		ui_FenetrePrincipal.h \
 		../Sudoku/Grille.h
@@ -409,6 +453,12 @@ build/Debug/GNU-Linux/main.o: main.cpp FenetrePrincipal.h \
 		../Sudoku/Grille.h \
 		../Sudoku/Indice.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/GNU-Linux/main.o main.cpp
+
+build/Debug/GNU-Linux/moc_DialogGrilleInvalide.o: moc_DialogGrilleInvalide.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/GNU-Linux/moc_DialogGrilleInvalide.o moc_DialogGrilleInvalide.cpp
+
+build/Debug/GNU-Linux/moc_DialogGrilleValide.o: moc_DialogGrilleValide.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/GNU-Linux/moc_DialogGrilleValide.o moc_DialogGrilleValide.cpp
 
 build/Debug/GNU-Linux/moc_FenetrePrincipal.o: moc_FenetrePrincipal.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/GNU-Linux/moc_FenetrePrincipal.o moc_FenetrePrincipal.cpp

@@ -50,7 +50,7 @@
     </property>
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="2" column="0">
-      <widget class="QPushButton" name="pushButton_11">
+      <widget class="QPushButton" name="chiffre7">
        <property name="minimumSize">
         <size>
          <width>45</width>
@@ -76,7 +76,7 @@
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QPushButton" name="chiffre4">
        <property name="minimumSize">
         <size>
          <width>45</width>
@@ -100,7 +100,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="chiffre2">
        <property name="minimumSize">
         <size>
          <width>45</width>
@@ -124,7 +124,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QPushButton" name="pushButton_10">
+      <widget class="QPushButton" name="chiffre5">
        <property name="minimumSize">
         <size>
          <width>45</width>
@@ -148,7 +148,7 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QPushButton" name="pushButton_8">
+      <widget class="QPushButton" name="chiffre8">
        <property name="minimumSize">
         <size>
          <width>45</width>
@@ -172,7 +172,7 @@
       </widget>
      </item>
      <item row="0" column="0">
-      <widget class="QPushButton" name="pushButton_1">
+      <widget class="QPushButton" name="chiffre1">
        <property name="minimumSize">
         <size>
          <width>45</width>
@@ -188,6 +188,8 @@
        <property name="font">
         <font>
          <pointsize>25</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -202,7 +204,7 @@
       </widget>
      </item>
      <item row="0" column="2">
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="chiffre3">
        <property name="minimumSize">
         <size>
          <width>45</width>
@@ -226,7 +228,7 @@
       </widget>
      </item>
      <item row="1" column="2">
-      <widget class="QPushButton" name="pushButton_9">
+      <widget class="QPushButton" name="chiffre6">
        <property name="minimumSize">
         <size>
          <width>45</width>
@@ -250,7 +252,7 @@
       </widget>
      </item>
      <item row="2" column="2">
-      <widget class="QPushButton" name="pushButton_12">
+      <widget class="QPushButton" name="chiffre9">
        <property name="minimumSize">
         <size>
          <width>45</width>
@@ -2481,9 +2483,316 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionSauvegarder_une_grille</sender>
+   <signal>triggered()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>sauvegarderFichier()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chiffre1</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>selectionnerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>638</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chiffre2</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>selectionnerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>694</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chiffre3</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>selectionnerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>750</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chiffre4</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>selectionnerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>638</x>
+     <y>155</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chiffre5</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>selectionnerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>694</x>
+     <y>155</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chiffre6</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>selectionnerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>750</x>
+     <y>155</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chiffre7</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>selectionnerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>638</x>
+     <y>231</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chiffre8</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>selectionnerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>694</x>
+     <y>231</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chiffre9</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>selectionnerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>750</x>
+     <y>231</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b0i0</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>48</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b0i1</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b0i2</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b0i3</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>48</x>
+     <y>125</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b0i4</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>125</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b0i5</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>125</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b0i6</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>48</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b0i7</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b0i8</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>chargerFichier()</slot>
   <slot>verifierGrille()</slot>
+  <slot>sauvegarderFichier()</slot>
+  <slot>selectionnerChiffre()</slot>
+  <slot>placerChiffre()</slot>
  </slots>
 </ui>

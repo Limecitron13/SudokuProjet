@@ -34,15 +34,15 @@ public:
     QPushButton *verifierGrille;
     QWidget *gridLayoutWidget_2;
     QGridLayout *gridLayout_2;
-    QPushButton *pushButton_11;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_10;
-    QPushButton *pushButton_8;
-    QPushButton *pushButton_1;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton_9;
-    QPushButton *pushButton_12;
+    QPushButton *chiffre7;
+    QPushButton *chiffre4;
+    QPushButton *chiffre2;
+    QPushButton *chiffre5;
+    QPushButton *chiffre8;
+    QPushButton *chiffre1;
+    QPushButton *chiffre3;
+    QPushButton *chiffre6;
+    QPushButton *chiffre9;
     QFrame *line;
     QWidget *gridLayoutWidget;
     QGridLayout *boite0;
@@ -177,84 +177,84 @@ public:
         gridLayout_2 = new QGridLayout(gridLayoutWidget_2);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        pushButton_11 = new QPushButton(gridLayoutWidget_2);
-        pushButton_11->setObjectName(QString::fromUtf8("pushButton_11"));
-        pushButton_11->setMinimumSize(QSize(45, 45));
-        pushButton_11->setMaximumSize(QSize(45, 45));
+        chiffre7 = new QPushButton(gridLayoutWidget_2);
+        chiffre7->setObjectName(QString::fromUtf8("chiffre7"));
+        chiffre7->setMinimumSize(QSize(45, 45));
+        chiffre7->setMaximumSize(QSize(45, 45));
         QFont font;
         font.setPointSize(25);
         font.setBold(false);
         font.setWeight(50);
-        pushButton_11->setFont(font);
+        chiffre7->setFont(font);
 
-        gridLayout_2->addWidget(pushButton_11, 2, 0, 1, 1);
+        gridLayout_2->addWidget(chiffre7, 2, 0, 1, 1);
 
-        pushButton_4 = new QPushButton(gridLayoutWidget_2);
-        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
-        pushButton_4->setMinimumSize(QSize(45, 45));
-        pushButton_4->setMaximumSize(QSize(45, 45));
+        chiffre4 = new QPushButton(gridLayoutWidget_2);
+        chiffre4->setObjectName(QString::fromUtf8("chiffre4"));
+        chiffre4->setMinimumSize(QSize(45, 45));
+        chiffre4->setMaximumSize(QSize(45, 45));
         QFont font1;
         font1.setPointSize(25);
-        pushButton_4->setFont(font1);
+        chiffre4->setFont(font1);
 
-        gridLayout_2->addWidget(pushButton_4, 1, 0, 1, 1);
+        gridLayout_2->addWidget(chiffre4, 1, 0, 1, 1);
 
-        pushButton_3 = new QPushButton(gridLayoutWidget_2);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setMinimumSize(QSize(45, 45));
-        pushButton_3->setMaximumSize(QSize(45, 45));
-        pushButton_3->setFont(font1);
+        chiffre2 = new QPushButton(gridLayoutWidget_2);
+        chiffre2->setObjectName(QString::fromUtf8("chiffre2"));
+        chiffre2->setMinimumSize(QSize(45, 45));
+        chiffre2->setMaximumSize(QSize(45, 45));
+        chiffre2->setFont(font1);
 
-        gridLayout_2->addWidget(pushButton_3, 0, 1, 1, 1);
+        gridLayout_2->addWidget(chiffre2, 0, 1, 1, 1);
 
-        pushButton_10 = new QPushButton(gridLayoutWidget_2);
-        pushButton_10->setObjectName(QString::fromUtf8("pushButton_10"));
-        pushButton_10->setMinimumSize(QSize(45, 45));
-        pushButton_10->setMaximumSize(QSize(45, 45));
-        pushButton_10->setFont(font1);
+        chiffre5 = new QPushButton(gridLayoutWidget_2);
+        chiffre5->setObjectName(QString::fromUtf8("chiffre5"));
+        chiffre5->setMinimumSize(QSize(45, 45));
+        chiffre5->setMaximumSize(QSize(45, 45));
+        chiffre5->setFont(font1);
 
-        gridLayout_2->addWidget(pushButton_10, 1, 1, 1, 1);
+        gridLayout_2->addWidget(chiffre5, 1, 1, 1, 1);
 
-        pushButton_8 = new QPushButton(gridLayoutWidget_2);
-        pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
-        pushButton_8->setMinimumSize(QSize(45, 45));
-        pushButton_8->setMaximumSize(QSize(45, 45));
-        pushButton_8->setFont(font1);
+        chiffre8 = new QPushButton(gridLayoutWidget_2);
+        chiffre8->setObjectName(QString::fromUtf8("chiffre8"));
+        chiffre8->setMinimumSize(QSize(45, 45));
+        chiffre8->setMaximumSize(QSize(45, 45));
+        chiffre8->setFont(font1);
 
-        gridLayout_2->addWidget(pushButton_8, 2, 1, 1, 1);
+        gridLayout_2->addWidget(chiffre8, 2, 1, 1, 1);
 
-        pushButton_1 = new QPushButton(gridLayoutWidget_2);
-        pushButton_1->setObjectName(QString::fromUtf8("pushButton_1"));
-        pushButton_1->setMinimumSize(QSize(45, 45));
-        pushButton_1->setMaximumSize(QSize(45, 45));
-        pushButton_1->setFont(font1);
-        pushButton_1->setIconSize(QSize(16, 16));
+        chiffre1 = new QPushButton(gridLayoutWidget_2);
+        chiffre1->setObjectName(QString::fromUtf8("chiffre1"));
+        chiffre1->setMinimumSize(QSize(45, 45));
+        chiffre1->setMaximumSize(QSize(45, 45));
+        chiffre1->setFont(font);
+        chiffre1->setIconSize(QSize(16, 16));
 
-        gridLayout_2->addWidget(pushButton_1, 0, 0, 1, 1);
+        gridLayout_2->addWidget(chiffre1, 0, 0, 1, 1);
 
-        pushButton_5 = new QPushButton(gridLayoutWidget_2);
-        pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
-        pushButton_5->setMinimumSize(QSize(45, 45));
-        pushButton_5->setMaximumSize(QSize(45, 45));
-        pushButton_5->setFont(font1);
+        chiffre3 = new QPushButton(gridLayoutWidget_2);
+        chiffre3->setObjectName(QString::fromUtf8("chiffre3"));
+        chiffre3->setMinimumSize(QSize(45, 45));
+        chiffre3->setMaximumSize(QSize(45, 45));
+        chiffre3->setFont(font1);
 
-        gridLayout_2->addWidget(pushButton_5, 0, 2, 1, 1);
+        gridLayout_2->addWidget(chiffre3, 0, 2, 1, 1);
 
-        pushButton_9 = new QPushButton(gridLayoutWidget_2);
-        pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
-        pushButton_9->setMinimumSize(QSize(45, 45));
-        pushButton_9->setMaximumSize(QSize(45, 45));
-        pushButton_9->setFont(font1);
+        chiffre6 = new QPushButton(gridLayoutWidget_2);
+        chiffre6->setObjectName(QString::fromUtf8("chiffre6"));
+        chiffre6->setMinimumSize(QSize(45, 45));
+        chiffre6->setMaximumSize(QSize(45, 45));
+        chiffre6->setFont(font1);
 
-        gridLayout_2->addWidget(pushButton_9, 1, 2, 1, 1);
+        gridLayout_2->addWidget(chiffre6, 1, 2, 1, 1);
 
-        pushButton_12 = new QPushButton(gridLayoutWidget_2);
-        pushButton_12->setObjectName(QString::fromUtf8("pushButton_12"));
-        pushButton_12->setMinimumSize(QSize(45, 45));
-        pushButton_12->setMaximumSize(QSize(45, 45));
-        pushButton_12->setFont(font1);
+        chiffre9 = new QPushButton(gridLayoutWidget_2);
+        chiffre9->setObjectName(QString::fromUtf8("chiffre9"));
+        chiffre9->setMinimumSize(QSize(45, 45));
+        chiffre9->setMaximumSize(QSize(45, 45));
+        chiffre9->setFont(font1);
 
-        gridLayout_2->addWidget(pushButton_12, 2, 2, 1, 1);
+        gridLayout_2->addWidget(chiffre9, 2, 2, 1, 1);
 
         line = new QFrame(centralwidget);
         line->setObjectName(QString::fromUtf8("line"));
@@ -1006,6 +1006,26 @@ public:
 
         retranslateUi(FenetrePrincipal);
         QObject::connect(actionCharger_une_grille, SIGNAL(triggered()), FenetrePrincipal, SLOT(chargerFichier()));
+        QObject::connect(verifierGrille, SIGNAL(clicked()), FenetrePrincipal, SLOT(verifierGrille()));
+        QObject::connect(actionSauvegarder_une_grille, SIGNAL(triggered()), FenetrePrincipal, SLOT(sauvegarderFichier()));
+        QObject::connect(chiffre1, SIGNAL(clicked()), FenetrePrincipal, SLOT(selectionnerChiffre()));
+        QObject::connect(chiffre2, SIGNAL(clicked()), FenetrePrincipal, SLOT(selectionnerChiffre()));
+        QObject::connect(chiffre3, SIGNAL(clicked()), FenetrePrincipal, SLOT(selectionnerChiffre()));
+        QObject::connect(chiffre4, SIGNAL(clicked()), FenetrePrincipal, SLOT(selectionnerChiffre()));
+        QObject::connect(chiffre5, SIGNAL(clicked()), FenetrePrincipal, SLOT(selectionnerChiffre()));
+        QObject::connect(chiffre6, SIGNAL(clicked()), FenetrePrincipal, SLOT(selectionnerChiffre()));
+        QObject::connect(chiffre7, SIGNAL(clicked()), FenetrePrincipal, SLOT(selectionnerChiffre()));
+        QObject::connect(chiffre8, SIGNAL(clicked()), FenetrePrincipal, SLOT(selectionnerChiffre()));
+        QObject::connect(chiffre9, SIGNAL(clicked()), FenetrePrincipal, SLOT(selectionnerChiffre()));
+        QObject::connect(b0i0, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
+        QObject::connect(b0i1, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
+        QObject::connect(b0i2, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
+        QObject::connect(b0i3, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
+        QObject::connect(b0i4, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
+        QObject::connect(b0i5, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
+        QObject::connect(b0i6, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
+        QObject::connect(b0i7, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
+        QObject::connect(b0i8, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
 
         QMetaObject::connectSlotsByName(FenetrePrincipal);
     } // setupUi
@@ -1018,15 +1038,15 @@ public:
         actionG_n_rer_une_grille->setText(QCoreApplication::translate("FenetrePrincipal", "G\303\251n\303\251rer une grille", nullptr));
         actionR_soudre_la_grille->setText(QCoreApplication::translate("FenetrePrincipal", "R\303\251soudre la grille", nullptr));
         verifierGrille->setText(QCoreApplication::translate("FenetrePrincipal", "V\303\251rifier la grille", nullptr));
-        pushButton_11->setText(QCoreApplication::translate("FenetrePrincipal", "7", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("FenetrePrincipal", "4", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("FenetrePrincipal", "2", nullptr));
-        pushButton_10->setText(QCoreApplication::translate("FenetrePrincipal", "5", nullptr));
-        pushButton_8->setText(QCoreApplication::translate("FenetrePrincipal", "8", nullptr));
-        pushButton_1->setText(QCoreApplication::translate("FenetrePrincipal", "1", nullptr));
-        pushButton_5->setText(QCoreApplication::translate("FenetrePrincipal", "3", nullptr));
-        pushButton_9->setText(QCoreApplication::translate("FenetrePrincipal", "6", nullptr));
-        pushButton_12->setText(QCoreApplication::translate("FenetrePrincipal", "9", nullptr));
+        chiffre7->setText(QCoreApplication::translate("FenetrePrincipal", "7", nullptr));
+        chiffre4->setText(QCoreApplication::translate("FenetrePrincipal", "4", nullptr));
+        chiffre2->setText(QCoreApplication::translate("FenetrePrincipal", "2", nullptr));
+        chiffre5->setText(QCoreApplication::translate("FenetrePrincipal", "5", nullptr));
+        chiffre8->setText(QCoreApplication::translate("FenetrePrincipal", "8", nullptr));
+        chiffre1->setText(QCoreApplication::translate("FenetrePrincipal", "1", nullptr));
+        chiffre3->setText(QCoreApplication::translate("FenetrePrincipal", "3", nullptr));
+        chiffre6->setText(QCoreApplication::translate("FenetrePrincipal", "6", nullptr));
+        chiffre9->setText(QCoreApplication::translate("FenetrePrincipal", "9", nullptr));
         b0i0->setText(QCoreApplication::translate("FenetrePrincipal", "0", nullptr));
         b0i3->setText(QCoreApplication::translate("FenetrePrincipal", "3", nullptr));
         b0i1->setText(QCoreApplication::translate("FenetrePrincipal", "1", nullptr));
