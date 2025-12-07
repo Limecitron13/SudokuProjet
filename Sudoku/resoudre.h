@@ -15,7 +15,6 @@ Grille resoudre_recherche(Grille,Indice);
 bool a_solu_unique(const Grille&);
 Grille a_solu_unique_recherche(Grille,Indice,int& solu);
 
-Grille gen_grille(unsigned difficulte);
 
 
 #endif /* RESOUDRE_H */
