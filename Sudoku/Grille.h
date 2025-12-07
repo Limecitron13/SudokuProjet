@@ -21,7 +21,7 @@ class Grille {
 public:
     Grille();
     Grille(const Grille&);
-    void asg_val(const Indice&,int valeur);
+    void asg_val(const Indice&,const int valeur);
     bool valider_grille()const;
     const int& req_val(const Indice&)const;
     const bool& req_validite()const;

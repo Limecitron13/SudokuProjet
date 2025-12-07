@@ -72,7 +72,7 @@ Grille::Grille(const Grille& g)
  * \param i est un objet Indice qui contient l'indice de la case à modifier
  * \param valeur est la valeur à assigner
  */
-void Grille::asg_val(const Indice& i,int valeur)
+void Grille::asg_val(const Indice& i,const int valeur)
 {
     PRECONDITION(valeur<=9 && valeur>=0);
     m_grille.at(i.req_indice_boite()).at(i.req_indice()) = valeur;

@@ -9,10 +9,10 @@
 #ifndef RESOUDRE_H
 #define RESOUDRE_H
 
-Grille resoudre(Grille&);
+Grille resoudre(const Grille&);
 Grille resoudre_recherche(Grille,Indice);
 
-bool a_solu_unique(Grille&);
+bool a_solu_unique(const Grille&);
 Grille a_solu_unique_recherche(Grille,Indice,int& solu);
 
 Grille gen_grille(unsigned difficulte);

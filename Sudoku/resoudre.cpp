@@ -17,7 +17,7 @@ using namespace std;
  * \param g est une objet Grille de la grille à résoudre
  * \return la grille résolue
  */
-Grille resoudre(Grille& g)
+Grille resoudre(const Grille& g)
 {
     Indice i;
     return resoudre_recherche(g,i);
@@ -80,12 +80,17 @@ Grille resoudre_recherche(Grille g,Indice i)
  * La grille initiale ne doit pas contenir de contradiciton
  * 
  */
-bool a_solu_unique(Grille& g)
+bool a_solu_unique(const Grille& g)
 {
     Indice i;
     int solu = 0;
-    a_solu_unique_recherche(g,i,solu);
-
+    Grille b = a_solu_unique_recherche(g,i,solu);
+    
+    if(!b.req_validite())
+    {
+        return false;
+    }
+    
     return (solu >= 2) ? false : true;
 }
 
@@ -96,7 +101,7 @@ bool a_solu_unique(Grille& g)
  */
 Grille a_solu_unique_recherche(Grille g,Indice i,int& solu)
 {
-    if(g.req_validite())   //Vérifier si la grille est résolue
+    if(g.req_validite() || solu >=2)   //Vérifier si la grille est résolue ou si on a déjà trouvé au moins deux solutions
     {
         solu++;  //On a trouvé une autre solution
         return g;
@@ -132,96 +137,7 @@ Grille a_solu_unique_recherche(Grille g,Indice i,int& solu)
 
 
 
-/**
- * 
- * \param diffculte est un entier qui représente le nombre de chiffres donnés dans la grille initiale.\n
- *        Plus ce nombre est petit, plus le sudoku est difficile.
- * 
- */
-Grille gen_grille(unsigned difficulte)
-{
-    Grille g;   
-    int nombres_donnes = 26;   //Un sudoku doit avoir un minimum de 17 nombres donnés pour avoir une unique solution
-                               //On pose le nombre minimal de nombre à 26 pour réduire la difficulté et le temps d'exécution
-    random_device rd;
-    mt19937 generator(rd()); 
-    uniform_int_distribution<int> distribution(0,8);
-    
-    for(unsigned j=0;j<nombres_donnes + difficulte;j++)
-    {   
-        int nombre;
-        Indice i;
-        vector<int> v;
-        int indice_boite;
-        int indice_dans_boite;
-  
-        indice_boite = distribution(generator); //Génère un indice pseudo aléatoire entre 0 et 8 
-                
-        array<int,9> boite = g.req_boite(Indice(indice_boite,0));
-        vector<int> indices_possibles;
-        for(unsigned k=0;k<9;k++) //Trouver les cases vides
-        {
-            if(boite.at(k) == 0)
-            {
-                indices_possibles.push_back(k);
-            }
-        }
-        uniform_int_distribution<int> distributionI(0,indices_possibles.size()-1);
-        indice_dans_boite = indices_possibles.at(distributionI(generator));   //Génère un indice pseudo aléatoire entre 0 et 8
-        i.asg_indice(indice_boite,indice_dans_boite);   //Génère un indice aléatoire valide
-            
-            
-        v = g.respecte_contraintes(i);
-        uniform_int_distribution<int> distributionI2(0,v.size()-1);
-        nombre = v.at(distributionI2(generator)); //Génère un nombre pseudo qui est dans les nombres possibles à cet indice
-                   
-        g.asg_val(i,nombre);        
-    }
-    
-    
-    
-    if(a_solu_unique(g))   //On a généré une grille avec une solution
-    {
-        return g;
-    }
-    
-    else   //On ajoute des nombres jusqu'à ce qu'elle génère une unique solution
-    {
-        do
-        {
-            int nombre;
-            Indice i;
-            vector<int> v;
-            int indice_boite;
-            int indice_dans_boite;
-  
-            indice_boite = distribution(generator); //Génère un indice pseudo aléatoire entre 0 et 8 
-                
-            array<int,9> boite = g.req_boite(Indice(indice_boite,0));
-            vector<int> indices_possibles;
-            for(unsigned k=0;k<9;k++) //Trouver les cases vides
-            {
-                if(boite.at(k) == 0)
-                {
-                    indices_possibles.push_back(k);
-                }
-            }
-            uniform_int_distribution<int> distributionI(0,indices_possibles.size()-1);
-            indice_dans_boite = indices_possibles.at(distributionI(generator));   //Génère un indice pseudo aléatoire entre 0 et 8
-            i.asg_indice(indice_boite,indice_dans_boite);   //Génère un indice aléatoire valide
-                
-            
-            v = g.respecte_contraintes(i);
-            uniform_int_distribution<int> distributionI2(0,v.size()-1);
-            nombre = v.at(distributionI2(generator)); //Génère un nombre pseudo qui est dans les nombres possibles à cet indice
-                   
-            g.asg_val(i,nombre); 
-            
-        }while(!a_solu_unique(g));       
-        return g;
-    }
 
-}
 
 
 

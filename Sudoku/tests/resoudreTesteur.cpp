@@ -126,7 +126,10 @@ TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE2)
  */
 TEST(TestGenGrille,MeilleurTitre)
 {
-    Grille g = gen_grille(0);
+    Grille g = gen_grille(5);
     cout<<"La grille générée"<<g;
+    cout<<a_solu_unique(g);
+    Grille b = resoudre(g);
+    cout<<"La grille résolue"<<b;
     ASSERT_TRUE(true);
 }
