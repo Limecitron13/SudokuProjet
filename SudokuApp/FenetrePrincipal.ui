@@ -2821,6 +2821,1158 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>b1i0</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>228</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b1i1</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>284</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b1i2</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>340</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b1i3</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>228</x>
+     <y>125</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b1i4</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>284</x>
+     <y>125</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b1i5</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>340</x>
+     <y>125</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b1i6</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>228</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b1i7</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>284</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b1i8</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>340</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b2i0</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>408</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b2i1</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>464</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b2i2</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>520</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b2i3</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>408</x>
+     <y>125</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b2i4</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>464</x>
+     <y>125</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b2i5</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>520</x>
+     <y>125</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b2i6</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>408</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b2i7</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>464</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b2i8</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>520</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b3i0</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>48</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b3i1</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b3i2</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b3i3</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>48</x>
+     <y>305</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b3i4</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>305</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b3i5</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>305</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b3i6</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>48</x>
+     <y>361</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b3i7</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>361</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b3i8</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>361</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b4i0</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>228</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b4i1</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>284</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b4i2</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>340</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b4i3</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>228</x>
+     <y>305</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b4i4</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>284</x>
+     <y>305</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b4i5</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>340</x>
+     <y>305</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b4i6</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>228</x>
+     <y>361</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b4i7</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>284</x>
+     <y>361</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b4i8</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>340</x>
+     <y>361</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b5i0</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>408</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b5i1</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>464</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b5i2</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>520</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b5i3</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>408</x>
+     <y>305</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b5i4</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>464</x>
+     <y>305</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b5i5</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>520</x>
+     <y>305</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b5i6</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>408</x>
+     <y>361</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b5i7</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>464</x>
+     <y>361</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b5i8</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>520</x>
+     <y>361</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b6i0</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>48</x>
+     <y>429</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b6i1</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>429</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b6i2</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>429</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b6i3</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>48</x>
+     <y>485</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b6i4</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>485</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b6i5</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>485</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b6i6</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>48</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b6i7</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b6i8</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b7i0</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>228</x>
+     <y>429</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b7i1</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>284</x>
+     <y>429</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b7i2</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>340</x>
+     <y>429</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b7i3</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>228</x>
+     <y>485</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b7i4</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>284</x>
+     <y>485</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b7i5</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>340</x>
+     <y>485</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b7i6</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>228</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b7i7</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>284</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b7i8</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>340</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b8i0</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>408</x>
+     <y>429</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b8i1</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>464</x>
+     <y>429</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b8i2</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>520</x>
+     <y>429</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b8i3</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>408</x>
+     <y>485</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b8i4</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>464</x>
+     <y>485</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b8i5</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>520</x>
+     <y>485</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b8i6</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>408</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b8i7</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>464</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>b8i8</sender>
+   <signal>clicked()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>placerChiffre()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>520</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>chargerFichier()</slot>
