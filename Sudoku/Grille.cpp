@@ -274,7 +274,7 @@ void Grille::asg_grille(ifstream& ifs)
 {
     if(!verifier_format_fichier(ifs))
     {
-        throw(FichierInvalide("Le fichier n'est pas du bon format"));
+        throw(FichierInvalideException("Le fichier n'est pas du bon format"));
     }
     
     ifs.seekg(0);             //On revient au début du flux de fichier

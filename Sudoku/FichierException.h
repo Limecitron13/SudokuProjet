@@ -17,7 +17,8 @@
  */
 class FichierException:public std::runtime_error
 {
-    FichierException(const std::string& p_raison);
+    public:  
+        FichierException(const std::string& p_raison);
 };
 
 /**
@@ -25,7 +26,8 @@ class FichierException:public std::runtime_error
  */
 class FichierInvalideException:public FichierException
 {
-    FichierInvalideException(const std::string& p_raison);
+    public: 
+        FichierInvalideException(const std::string& p_raison);
 };
 
 

@@ -18,5 +18,5 @@ ResoudreException::ResoudreException(const std::string p_raison):runtime_error(p
  * \brief Constructeur de la classe AucuneSolutionTrouveException
  * \param p_raison est un string de la raison de l'exception
  */
-AucuneSolutionTrouveException(const std::string p_raison):ResoudreException(p_raison)
+AucuneSolutionTrouveException::AucuneSolutionTrouveException(const std::string p_raison):ResoudreException(p_raison)
 {}

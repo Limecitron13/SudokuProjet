@@ -14,9 +14,10 @@
  * \class ResoudreException
  * \brief Gère les exceptions lors de la résolution du sudoku
  */
-class ResoudreException:public runtime_error
+class ResoudreException:public std::runtime_error
 {
-    ResoudreException(const std::string p_raison);
+    public:
+        ResoudreException(const std::string p_raison);
 };
 
 /**
@@ -25,7 +26,8 @@ class ResoudreException:public runtime_error
  */
 class AucuneSolutionTrouveException:public ResoudreException
 {
-    AucuneSolutionTrouveException(const std::string p_raison);
+    public:
+         AucuneSolutionTrouveException(const std::string p_raison);
 };
 
 #endif /* RESOUDREEXCEPTION_H */
