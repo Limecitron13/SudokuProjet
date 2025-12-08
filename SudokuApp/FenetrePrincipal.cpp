@@ -16,6 +16,11 @@ using namespace std;
 FenetrePrincipal::FenetrePrincipal():m_sudoku(Grille()),m_nombreAPlacer(1)
 {
     widget.setupUi(this);
+    
+    QFont Gras("Ubuntu",25);
+    Gras.setBold(true);
+    widget.chiffre1->setFont(Gras);
+    
     afficherGrille();
 }
 

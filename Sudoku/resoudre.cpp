@@ -9,18 +9,25 @@
 #include "resoudre.h"
 #include <array>
 #include <random>
+#include "ResoudreException.h"
 using namespace std;
 
 
 /***
  * \brief Fait une préparation pour la résolution de la grille en initialisant l'indice
  * \param g est une objet Grille de la grille à résoudre
+ * \exception AucuneSolutionTrouveException 
  * \return la grille résolue
  */
 Grille resoudre(const Grille& g)
 {
     Indice i;
-    return resoudre_recherche(g,i);
+    Grille resultat = resoudre_recherche(g,i);
+    if(!resultat.req_validite())
+    {
+        throw(AucuneSolutionTrouveException("La n'a pu être résolue :("));
+    }
+    return resultat;
 }
 
 
