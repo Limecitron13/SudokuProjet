@@ -11,6 +11,7 @@
 #include <array>
 #include <iostream>
 #include <string>
+#include "FichierException.h"
 
 using namespace std;
 
@@ -267,10 +268,14 @@ bool Grille::operator==(const Grille& p_grille)const
 /***
  * \brief ajoute les valeurs d'une grille sudoku qui provient d'un fichier texte
  * \param ifs est un flux de fichier qui contient le fichier texte de la grille
+ * \exception FichierException 
  */
 void Grille::asg_grille(ifstream& ifs)
 {
-    PRECONDITION(verifier_format_fichier(ifs));
+    if(!verifier_format_fichier(ifs))
+    {
+        throw(FichierInvalide("Le fichier n'est pas du bon format"));
+    }
     
     ifs.seekg(0);             //On revient au début du flux de fichier
     for(unsigned boite=0;boite<9;boite++)

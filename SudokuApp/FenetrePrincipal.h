@@ -18,6 +18,7 @@ private slots:
     void verifierGrille();
     void selectionnerChiffre();
     void placerChiffre();
+    void resoudreGrille();
         
 private:
     Ui::FenetrePrincipal widget;

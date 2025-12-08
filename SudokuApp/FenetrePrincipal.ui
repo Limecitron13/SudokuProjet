@@ -3973,6 +3973,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionR_soudre_la_grille</sender>
+   <signal>triggered()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>resoudreGrille()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>chargerFichier()</slot>
@@ -3980,5 +3996,6 @@
   <slot>sauvegarderFichier()</slot>
   <slot>selectionnerChiffre()</slot>
   <slot>placerChiffre()</slot>
+  <slot>resoudreGrille()</slot>
  </slots>
 </ui>

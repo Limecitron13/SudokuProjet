@@ -445,7 +445,8 @@ build/Debug/GNU-Linux/FenetrePrincipal.o: FenetrePrincipal.cpp ../Sudoku/Indice.
 		ui_DialogGrilleInvalide.h \
 		FenetrePrincipal.h \
 		ui_FenetrePrincipal.h \
-		../Sudoku/Grille.h
+		../Sudoku/Grille.h \
+		../Sudoku/resoudre.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/GNU-Linux/FenetrePrincipal.o FenetrePrincipal.cpp
 
 build/Debug/GNU-Linux/main.o: main.cpp FenetrePrincipal.h \

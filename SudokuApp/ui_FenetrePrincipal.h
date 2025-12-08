@@ -1106,6 +1106,7 @@ public:
         QObject::connect(b8i6, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
         QObject::connect(b8i7, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
         QObject::connect(b8i8, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
+        QObject::connect(actionR_soudre_la_grille, SIGNAL(triggered()), FenetrePrincipal, SLOT(resoudreGrille()));
 
         QMetaObject::connectSlotsByName(FenetrePrincipal);
     } // setupUi

@@ -7,6 +7,9 @@
 #include "DialogGrilleValide.h"
 #include "DialogGrilleInvalide.h"
 #include "FenetrePrincipal.h"
+#include "FichierException.h"
+#include "resoudre.h"
+#include <QMessageBox>
 
 using namespace std;
 
@@ -28,7 +31,16 @@ void FenetrePrincipal::chargerFichier()
     if(!cheminFichier.isEmpty())
     {
         ifstream fichierSudoku(cheminFichier.toStdString());
+        
+        try
+        {
         m_sudoku.asg_grille(fichierSudoku);
+        }
+        catch(FichierInvalideException& erreur)
+        {
+            QMessageBox::information(this,"Fichier invalide", "Le fichier que vous tentez de charger est invalide.");
+        }
+        
         afficherGrille();
     }
     else
@@ -351,4 +363,12 @@ void FenetrePrincipal::placerChiffre()
     {
         bouton->setText(QString(""));
     }
+}
+
+
+
+void FenetrePrincipal::resoudreGrille()
+{
+    m_sudoku = resoudre(m_sudoku) ;
+    afficherGrille();
 }
