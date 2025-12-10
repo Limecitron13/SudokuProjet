@@ -487,7 +487,7 @@ bool a_double(const array<int,9>& liste)
  * \param valeur est l'entier à vérifier si il est membre du vecteur
  * \return true si l'entier est membre,false sinon et si vecteur vide
  */
-bool est_membre(const vector<int>& liste,const int valeur)
+bool est_membre(const vector<int>& liste,const int& valeur)
 {
     if(liste.size() == 0)
     {
@@ -512,7 +512,7 @@ bool est_membre(const vector<int>& liste,const int valeur)
  * \param valeur est l'entier à vérifier si il est membre du tableau
  * \return true si l'entier est membre,false sinon
  */
-bool est_membre(const array<int,9>& liste,const int valeur)
+bool est_membre(const array<int,9>& liste,const int& valeur)
 {
     for(int i=0;i<9;i++)
     {

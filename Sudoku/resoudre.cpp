@@ -83,15 +83,34 @@ Grille resoudre_recherche(Grille g,Indice i)
 
 /**
  * 
- * TODO******************* 
- * La grille initiale ne doit pas contenir de contradiciton
+ * \brief Préparation pour la fonction a_solu_unique_recherche(détermine si une grille a une solution unique) La grille initiale ne doit pas contenir de contradiciton.
+ * \param g est la grille à vérifier si elle a une solution
+ * \return true si a une unique solution, false sinon
  * 
  */
 bool a_solu_unique(const Grille& g)
 {
     Indice i;
     int solu = 0;
-    Grille b = a_solu_unique_recherche(g,i,solu);
+    
+    int nombreChiffres = 0;     //nombre de chiffres différents de 0 dans la grille
+    for(size_t nombreCases = 0; nombreCases<81;nombreCases++)
+    {
+        if(g.req_val(i)!=0)
+        {
+            nombreChiffres++;
+        }
+        i++;
+    }
+    
+    if(nombreChiffres<17) //Une grille de sudoku doit avoir au moins 17 nombres pour avoir une solution unique
+    {
+        return false;
+    }
+    
+    Indice j;
+    Grille gcopie = g;
+    Grille b = a_solu_unique_recherche(gcopie,j,solu);  //appel à la fonction récursive
     
     if(!b.req_validite())
     {
@@ -104,7 +123,11 @@ bool a_solu_unique(const Grille& g)
 
 
 /**
- * TODO******************* 
+ * \brief Détermine si une grille a une ou plusieurs solutions à l'aide d'appels récursifs.
+ * \param g est la grille à vérifier le nombre de solutions
+ * \param i est l'indice de la case suivante à résoudre
+ * \param solu est un entier du nombre de solutions trouvées
+ * \return la grille de l'état précédent
  */
 Grille a_solu_unique_recherche(Grille g,Indice i,int& solu)
 {
@@ -133,7 +156,7 @@ Grille a_solu_unique_recherche(Grille g,Indice i,int& solu)
         g_appel = a_solu_unique_recherche(g, i, solu);   //appel récursif
         indice_nbr_a_test++;    //On a épuisé un autre cas
         
-        if( (g_appel.req_validite() && indice_nbr_a_test == nombres_possibles.size()-1) || solu >=2 ) //Vérifier si la grille est résolue et que tous les possiblités ont été vérifiées ou si on a déjà trouvé deux solutions
+        if( (g_appel.req_validite() && indice_nbr_a_test == nombres_possibles.size()) || solu >=2 ) //Vérifier si la grille est résolue et que tous les possiblités ont été vérifiées ou si on a déjà trouvé deux solutions
         {
             return g_appel;
         }
@@ -141,7 +164,6 @@ Grille a_solu_unique_recherche(Grille g,Indice i,int& solu)
     }
     return g; //On a épuisé la possiblités 
 }
-
 
 
 

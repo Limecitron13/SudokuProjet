@@ -9,6 +9,7 @@
 #include "resoudre.h"
 #include "Indice.h"
 #include "Grille.h"
+#include <stdexcept>
 using namespace std;
 
 
@@ -80,10 +81,15 @@ TEST(TestResoudre,resoudre_grilleARésoudre4_grilleRésolue)
 
 
 /**
- * 
- * TODO**************************
+ * \brief Test de la fonciton a_solu_unique\n
+ *  cas valides:\n
+ *      UneSolution: la grille a une solution \n
+ *      PlusieursSolutions: la grilla a plusieurs solutions\n
+ *  cas invalide:\n
+ *      Aucun identifié\n
+      
  */
-TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE)
+TEST(TestASoluUnique,ASoluUnique_UneSolution_vrai)
 {
     Grille g;
     ifstream ifs("fichiersTestsResoudre/grille4_solu.txt",ifstream::in);
@@ -92,7 +98,7 @@ TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE)
     ASSERT_TRUE(a_solu_unique(g));
 }
 
-TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE0)
+TEST(TestASoluUnique,ASoluUnique_PlusieursSolutions_faux)
 {
     Grille g;
     ifstream ifs("fichiersTestsResoudre/grille_nbr_solu:plusieurs.txt",ifstream::in);
@@ -101,7 +107,7 @@ TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE0)
     ASSERT_FALSE(a_solu_unique(g)); 
 }
 
-TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE1)
+TEST(TestASoluUnique,ASoluUnique_PlusieursSolutions2_faux)
 {
     Grille g;
     ifstream ifs("fichiersTestsResoudre/grille_nbr_solu:plusieurs1.txt",ifstream::in);
@@ -110,7 +116,7 @@ TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE1)
     ASSERT_FALSE(a_solu_unique(g));
 }
 
-TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE2)
+TEST(TestASoluUnique,ASoluUnique_PlusieursSolutions3_faux)
 {
     Grille g;
     ifstream ifs("fichiersTestsResoudre/grille_nbr_solu:plusieurs:2.txt",ifstream::in);
@@ -120,16 +126,20 @@ TEST(TestNbrSolu,NbrSolu_MEILLEUR_TITRE2)
 }
 
 
-
 /**
- * TODO******************
+ * \brief Test de la fonciton gen_grille\n
+ *  cas valides:\n
+ *     *************
+ *  cas invalide:\n
+ *      Aucun identifié\n
+      
  */
-TEST(TestGenGrille,MeilleurTitre)
+TEST(TestGenGrille, GenGrille__nouvelleGrille)
 {
-    Grille g = gen_grille(5);
-    cout<<"La grille générée"<<g;
-    cout<<a_solu_unique(g);
-    Grille b = resoudre(g);
-    cout<<"La grille résolue"<<b;
-    ASSERT_TRUE(true);
+    Grille nouvelle = gen_grille2(1);
+    cout<<nouvelle;
+    cout<<a_solu_unique(nouvelle);
+
 }
+
+

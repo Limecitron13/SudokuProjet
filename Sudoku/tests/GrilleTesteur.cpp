@@ -11,6 +11,7 @@
 #include <fstream>
 #include "ContratException.h"
 #include <vector>
+#include "FichierException.h"
 using namespace std;
 
 
@@ -172,11 +173,11 @@ Grille g;
 
 }
 
-TEST(TestGrille,AsgGrille_FormatInvalide_PreconditionException)
+TEST(TestGrille,AsgGrille_FormatInvalide_FichierInvalideException)
 {
 Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_manqueBoite_formatInvalide.txt",ifstream::in);
-    ASSERT_THROW(g.asg_grille(ifs),PreconditionException)<<"Le format est invalide!";
+    ASSERT_THROW(g.asg_grille(ifs),FichierInvalideException)<<"Le format est invalide!";
 }
 
 
@@ -331,7 +332,7 @@ TEST(TestGrille,save_grilleValide_sauvegardeGrille)
     g.asg_grille(ifs);
     Indice i;
     g.asg_val(i,0);
-    g.save("fichiersTestsGrille","fichierTest.txt");
+    g.save("GrillesSauvegarde/fichierTest.txt");
     
     Grille h;
     ifstream ifs2("GrillesSauvegarde/fichierTest.txt",ifstream::in);
@@ -347,19 +348,19 @@ TEST(TestGrille,save_grilleValide2_sauvegardeGrille)
     g.asg_grille(ifs);
     Indice i(5,5);
     g.asg_val(i,9);
-    g.save("fichiersTestsGrille","fichierTest1.txt");
+    g.save("GrillesSauvegarde/fichierTest.txt");
     
     Grille h;
-    ifstream ifs2("GrillesSauvegarde/fichierTest1.txt",ifstream::in);
+    ifstream ifs2("GrillesSauvegarde/fichierTest.txt",ifstream::in);
     h.asg_grille(ifs2);
-    remove("GrillesSauvegarde/fichierTest1.txt");
+    remove("GrillesSauvegarde/fichierTest.txt");
     ASSERT_TRUE(g==h);
 }
 
 
 
 /**
- * \brief Test de la fonction \n
+ * \brief Test de la fonction verifier_format_fichier\n
  *  cas ****TODO******************
  * 
  * 

@@ -17,5 +17,7 @@ Grille a_solu_unique_recherche(Grille,Indice,int& solu);
 
 
 
+
+
 #endif /* RESOUDRE_H */
 
