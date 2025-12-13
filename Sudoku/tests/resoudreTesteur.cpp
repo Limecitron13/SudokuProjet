@@ -126,20 +126,6 @@ TEST(TestASoluUnique,ASoluUnique_PlusieursSolutions3_faux)
 }
 
 
-/**
- * \brief Test de la fonciton gen_grille\n
- *  cas valides:\n
- *     *************
- *  cas invalide:\n
- *      Aucun identifié\n
-      
- */
-TEST(TestGenGrille, GenGrille__nouvelleGrille)
-{
-    Grille nouvelle = gen_grille2(1);
-    cout<<nouvelle;
-    cout<<a_solu_unique(nouvelle);
 
-}
 
 

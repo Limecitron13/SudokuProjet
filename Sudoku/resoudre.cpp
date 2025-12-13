@@ -10,6 +10,7 @@
 #include <array>
 #include <random>
 #include "ResoudreException.h"
+#include "fonctionsUtiles.h"
 using namespace std;
 
 

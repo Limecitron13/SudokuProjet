@@ -9,6 +9,8 @@
       <itemPath>Grille.h</itemPath>
       <itemPath>Indice.h</itemPath>
       <itemPath>ResoudreException.h</itemPath>
+      <itemPath>fonctionsUtiles.h</itemPath>
+      <itemPath>fonctionsUtiles.hpp</itemPath>
       <itemPath>resoudre.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -146,6 +148,10 @@
           <output>${TESTDIR}/TestFiles/f3</output>
         </linkerTool>
       </folder>
+      <item path="fonctionsUtiles.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fonctionsUtiles.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="resoudre.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="resoudre.h" ex="false" tool="3" flavor2="0">
@@ -247,6 +253,10 @@
           <output>${TESTDIR}/TestFiles/f3</output>
         </linkerTool>
       </folder>
+      <item path="fonctionsUtiles.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fonctionsUtiles.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="resoudre.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="resoudre.h" ex="false" tool="3" flavor2="0">

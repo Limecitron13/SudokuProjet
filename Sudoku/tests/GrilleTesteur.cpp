@@ -12,6 +12,7 @@
 #include "ContratException.h"
 #include <vector>
 #include "FichierException.h"
+#include "fonctionsUtiles.h"
 using namespace std;
 
 

@@ -41,12 +41,7 @@ private:
 };
 
 bool verifier_format_fichier(std::ifstream&);
-bool a_double(const std::vector<int>&);
-bool a_double(const std::array<int,9>&);
-bool est_membre(const std::vector<int>&,const int&);
-bool est_membre(const std::array<int,9>&,const int&);
-bool est_zero(const std::vector<int>&);
-bool est_zero(const std::array<int,9>&);
+
 
 #endif /* GRILLE_H */
 
