@@ -165,10 +165,3 @@ Grille a_solu_unique_recherche(Grille g,Indice i,int& solu)
     }
     return g; //On a épuisé la possiblités 
 }
-
-
-
-
-
-
-

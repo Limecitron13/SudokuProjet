@@ -153,7 +153,7 @@ TEST(TestGrille,OperateurEgalite_GrillesDifférentes_faux)
  *  cas valides:\n
  *      FormatValide: La grille est assigner de la bonne façon \n
  *  cas invalide:\n
- *      FormatInvalide: Le format du fichier est invalide (PreconditionException)\n
+ *      FormatInvalide: Le format du fichier est invalide (FichierInvalideException)\n
  */
 TEST(TestGrille,AsgGrille_FormatValide_AssignationCorrecte)
 {
@@ -318,6 +318,37 @@ TEST(TestGrille,RespecteContraintes_grilleRemplie_zero)
     }
 
 }
+
+/**
+ * \brief Test de la méthode req_possibilites_col \n
+ *  cas valides:\n
+ *      grilleIncomplete: La grille est incomplète\n
+ *      grilleComplete: La grille est complète(aucune possibilité)\n
+ *  cas invalide:\n
+ *      Aucun identifié\n
+ */
+TEST(TestGrille,ReqPossibilitesCol_grilleIncomplete_possibilitesAttendues)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_test_possibilités.txt",ifstream::in);
+    g.asg_grille(ifs);
+    Indice i;
+    vector<vector<int>> obtenue = g.req_possibilites_col(i);
+    vector<vector<int>> attendue{ {5,7}, {5,7}, {0}, {0}, {0}, {0}, {0}, {4,5}, {0} };
+    ASSERT_EQ(obtenue, attendue);
+}
+
+TEST(TestGrille,ReqPossibilitesCol_grilleComplete_aucunePossibilite)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
+    g.asg_grille(ifs);
+    Indice i;
+    vector<vector<int>> obtenue = g.req_possibilites_col(i);
+    vector<vector<int>> attendue{ {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0} };
+    ASSERT_EQ(obtenue, attendue);
+}
+
 
 
 /**

@@ -25,14 +25,17 @@ public:
     bool valider_grille()const;
     const int& req_val(const Indice&)const;
     const bool& req_validite()const;
-    std::array<int,9> req_col(Indice)const;
-    std::array<int,9> req_boite(Indice)const;
-    std::array<int,9> req_ligne(Indice)const;
+    std::array<int,9> req_col(const Indice&)const;
+    std::array<int,9> req_boite(const Indice&)const;
+    std::array<int,9> req_ligne(const Indice&)const;
     friend std::ostream& operator<<(std::ostream& p_os,const Grille& p_grille);
     Grille operator=(const Grille& p_grille);
     bool operator==(const Grille& p_grille)const;
     void asg_grille(std::ifstream&);
     std::vector<int>respecte_contraintes(const Indice&)const;
+    std::vector<std::vector<int>> req_possibilites_col(const Indice&)const;
+    std::vector<std::vector<int>> req_possibilites_boite(const Indice&)const;
+    std::vector<std::vector<int>> req_possibilites_ligne(const Indice&)const;
     void save(std::string nom)const;
     
 private:

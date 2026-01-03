@@ -160,8 +160,9 @@ const bool& Grille::req_validite()const
  * \param indice est l'indice de la colonne (0 à 8) 
  * \return Un tableau de neuf entiers correspondant à ième colonne
  */
-array<int,9> Grille::req_col(Indice i)const
+array<int,9> Grille::req_col(const Indice& j)const
 {
+    Indice i(j.req_indice_boite(),j.req_indice());
     array<int,9> colonne;
     while(i.req_indice_dans_col() != 0)  //On revient au début de la colonne
     {
@@ -181,7 +182,7 @@ array<int,9> Grille::req_col(Indice i)const
  * \param indice est l'indice de la boîte (0 à 8) 
  * \return Un tableau de neuf entiers correspondant à ième boîte
  */
-array<int,9> Grille::req_boite(Indice i)const
+array<int,9> Grille::req_boite(const Indice& i)const
 {
     return m_grille.at(i.req_indice_boite());
 }
@@ -191,8 +192,9 @@ array<int,9> Grille::req_boite(Indice i)const
  * \param indice est l'indice de la ligne (0 à 8) 
  * \return Un tableau de neuf entiers correspondant à ième ligne
  */
-array<int,9> Grille::req_ligne(Indice i)const
+array<int,9> Grille::req_ligne(const Indice& j)const
 {
+    Indice i(j.req_indice_boite(),j.req_indice());
     array<int,9> ligne;
     while(i.req_indice_dans_ligne() != 0)  //On revient au début de la ligne
     {
@@ -308,40 +310,50 @@ void Grille::asg_grille(ifstream& ifs)
  * \brief Vérifie quels nombres peuvent être positionés à un certain indice. Rappel: Il peut seulement avoir une copie d'un nombre
  * par boite, colonne et ligne.
  * \param i est un objet Indice qui contient les informations de l'indice d'une case
- * \return un vecteur des nombres qui peuvent être placé dans cette case. Ex:{1,2,4,6} Si aucun nombre peut être placé à cet indice on retourne {0}
+ * \return un vecteur des nombres qui peuvent être placé dans cette case. Ex:{1,2,4,6} Si aucun nombre peut être placé à cet indice ou si l'indice pointe à une case qui contient déjà un nombre, alors on retourne {0}
  */
 vector<int> Grille::respecte_contraintes(const Indice& i)const
 {
-    array<int,9> colonne = this->req_col(i);
-    array<int,9> ligne = this->req_ligne(i);
-    array<int,9> boite = this->req_boite(i);
-    
-    vector<int> nombres_possibles;
-    for(unsigned i=1;i<=9;i++) //i est un nombre possible
+    if(this->req_val(i) == 0) //une case vide
     {
-        if(nombres_possibles.size()==9) //Tous les nombres peuvent aller dans la case
+        array<int,9> colonne = this->req_col(i);
+        array<int,9> ligne = this->req_ligne(i);
+        array<int,9> boite = this->req_boite(i);
+    
+        vector<int> nombres_possibles;
+        for(unsigned i=1;i<=9;i++) //i est un nombre possible
         {
-            break;
-        }
-        
-        if( !est_membre(colonne,i) && !est_membre(nombres_possibles,i))  //Le nombre n'est pas déjà dans la colonne et le vecteur
-        {
-            if( !est_membre(ligne,i) && !est_membre(nombres_possibles,i))  //Le nombre n'est pas déjà dans la ligne et le vecteur
+            if(nombres_possibles.size()==9) //Tous les nombres peuvent aller dans la case
             {
-                if( !est_membre(boite,i) && !est_membre(nombres_possibles,i))  //Le nombre n'est pas déjà dans la boite et le vecteur
-                {
-                    nombres_possibles.push_back(i);
-                } 
+                break;
             }
-        }  
-    }
+        
+            if( !est_membre(colonne,i) && !est_membre(nombres_possibles,i))  //Le nombre n'est pas déjà dans la colonne et le vecteur
+            {
+                if( !est_membre(ligne,i) && !est_membre(nombres_possibles,i))  //Le nombre n'est pas déjà dans la ligne et le vecteur
+                {
+                    if( !est_membre(boite,i) && !est_membre(nombres_possibles,i))  //Le nombre n'est pas déjà dans la boite et le vecteur
+                    {
+                        nombres_possibles.push_back(i);
+                    } 
+                }
+            }  
+        }
+      
     
-    if(nombres_possibles.size() == 0)
+        if(nombres_possibles.size() == 0)
+        {
+            nombres_possibles.push_back(0);  //aucun nombre peut aller dans cette case
+        }
+    
+        return nombres_possibles;
+    
+    }
+    else
     {
-        nombres_possibles.push_back(0);
+        vector<int> nombreDejaDansCase{0};
+        return nombreDejaDansCase;
     }
-    
-    return nombres_possibles;
     
     //************************IDÉES pour améliorer la fonction
     //Vérifications si il y des doubles dans les boites, colonnes et lignes
@@ -359,6 +371,30 @@ vector<int> Grille::respecte_contraintes(const Indice& i)const
     
     
 }
+
+
+/***
+ * \brief Détermine quels nombres peuvent être placés dans chaque case de la colonne spécifié.
+ * \param L'indice qui est dans la bonne colonne.
+ * \return Un vector<vector<int>> qui contient les nombres possible pour chaque case de la colonne.
+ */
+vector<vector<int>> Grille::req_possibilites_col(const Indice& j)const
+{
+    vector<vector<int>> possibilites;
+    Indice i(j.req_indice_boite(),j.req_indice_col(),0);
+    
+    for(int nbrCases = 0; nbrCases < 9; nbrCases++)
+    {
+        possibilites.push_back(this->respecte_contraintes(i));
+        ++i;
+    }
+    return possibilites;
+}
+
+
+std::vector<std::vector<int>> req_possibilites_boite(const Indice&)const;
+
+
 
 
 /***

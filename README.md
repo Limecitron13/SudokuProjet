@@ -20,9 +20,6 @@
 
 ## 🧾 Tâches à compléter
 
-
-- Compléter la documentation des tests de Grille
-- Utiliser la gestion de la mémoire pour diminuer le nombres d'appels au construteur copie à l'aide des pointeurs intelligents
 - Corriger le bug de résoudre (numéros initials sont remplacés)(modifier la classe grille pour avoir des nombres "locked")
 - Utiliser les itérators pour fonctions/méthodes...
 
