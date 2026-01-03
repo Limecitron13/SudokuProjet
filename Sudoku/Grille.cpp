@@ -355,21 +355,6 @@ vector<int> Grille::respecte_contraintes(const Indice& i)const
         return nombreDejaDansCase;
     }
     
-    //************************IDÉES pour améliorer la fonction
-    //Vérifications si il y des doubles dans les boites, colonnes et lignes
-    //Un double est lorsque deux nombres peuvent seulement aller dans ces deux cases en particulier
-    //Si il y a un double dans la boite, colonne ou ligne: on enlève les autres nombres des possibilités de ces cases
-    
-    
-    //Vérifications si il y des triplets dans les boites, colonnes et lignes
-    //Un triplet est lorsque trois nombres peuvent seulement aller dans ces trois cases en particulier
-    //Si il y a un triplet dans la boite, colonne ou ligne: on enlève les autres nombres des possibilités de ces cases
-    
-    
-    //implémenter les x wings?
-    //Est-ce que le temps supplémentaire à trouver ces nouvelles restrictions accélère réellement la résolution?
-    
-    
 }
 
 
@@ -456,7 +441,7 @@ void Grille::save(string nom)const
  * \brief Vérifie les invariants de la classe Grille
  * \invariant Les nombres dans la grille de sudoku doivent être dans l'intervalle [0,9]
  */
-void Grille::verifieInvariant()
+void Grille::verifieInvariant()const
 {
     Indice i;
     for(int nbr_cases=0; nbr_cases<81;nbr_cases++)
