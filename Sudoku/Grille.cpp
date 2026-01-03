@@ -374,25 +374,58 @@ vector<int> Grille::respecte_contraintes(const Indice& i)const
 
 
 /***
- * \brief Détermine quels nombres peuvent être placés dans chaque case de la colonne spécifié.
+ * \brief Détermine quels nombres peuvent être placés dans chaque case de la colonne spécifiée.
  * \param L'indice qui est dans la bonne colonne.
- * \return Un vector<vector<int>> qui contient les nombres possible pour chaque case de la colonne.
+ * \return Un array<vector<int>> qui contient les nombres possible pour chaque case de la colonne.
  */
-vector<vector<int>> Grille::req_possibilites_col(const Indice& j)const
+array<vector<int>,9> Grille::req_possibilites_col(const Indice& j)const
 {
-    vector<vector<int>> possibilites;
-    Indice i(j.req_indice_boite(),j.req_indice_col(),0);
+    array<vector<int>,9> possibilites;
+    Indice i(j.req_indice_boite(),j.req_indice_col(),0); //On commence à la première case de la colonne (haut en bas).
     
     for(int nbrCases = 0; nbrCases < 9; nbrCases++)
     {
-        possibilites.push_back(this->respecte_contraintes(i));
+        possibilites.at(nbrCases) = this->respecte_contraintes(i);
         ++i;
     }
     return possibilites;
 }
 
+/***
+ * \brief Détermine quels nombres peuvent être placés dans chaque case de la boîte spécifiée.
+ * \param L'indice qui est dans la bonne boîte.
+ * \return Un array<vector<int>> qui contient les nombres possible pour chaque case de la boîte.
+ */
+array<vector<int>,9> Grille::req_possibilites_boite(const Indice& j)const
+{
+   array<vector<int>,9> possibilites;
+   Indice i(j.req_indice_boite(),0);  //On commence à la première case de la boite (gauche à droite et haut en bas).
+    for(int nbrCases = 0; nbrCases < 9; nbrCases++)
+    {
+        possibilites.at(nbrCases) = this->respecte_contraintes(i);
+        +i;
+    }
+    return possibilites;
+}
 
-std::vector<std::vector<int>> req_possibilites_boite(const Indice&)const;
+
+
+/***
+ * \brief Détermine quels nombres peuvent être placés dans chaque case de la ligne spécifiée.
+ * \param L'indice qui est dans la bonne ligne.
+ * \return Un array<vector<int>> qui contient les nombres possible pour chaque case de la ligne.
+ */
+array<vector<int>,9> Grille::req_possibilites_ligne(const Indice& j)const
+{
+   array<vector<int>,9> possibilites;
+   Indice i(j.req_indice_boite(), 0, j.req_indice_ligne());  //On commence à la première case de la ligne (gauche à droite et haut en bas).
+    for(int nbrCases = 0; nbrCases < 9; nbrCases++)
+    {
+        possibilites.at(nbrCases) = this->respecte_contraintes(i);
+        i++;
+    }
+    return possibilites;
+}
 
 
 

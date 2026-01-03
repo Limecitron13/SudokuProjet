@@ -333,8 +333,8 @@ TEST(TestGrille,ReqPossibilitesCol_grilleIncomplete_possibilitesAttendues)
     ifstream ifs("fichiersTestsGrille/Grille_test_possibilités.txt",ifstream::in);
     g.asg_grille(ifs);
     Indice i;
-    vector<vector<int>> obtenue = g.req_possibilites_col(i);
-    vector<vector<int>> attendue{ {5,7}, {5,7}, {0}, {0}, {0}, {0}, {0}, {4,5}, {0} };
+    array<vector<int>,9> obtenue = g.req_possibilites_col(i);
+    array<vector<int>,9> attendue{{ {5,7}, {5,7}, {0}, {0}, {0}, {0}, {0}, {4,5}, {0} }};
     ASSERT_EQ(obtenue, attendue);
 }
 
@@ -344,11 +344,75 @@ TEST(TestGrille,ReqPossibilitesCol_grilleComplete_aucunePossibilite)
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
     g.asg_grille(ifs);
     Indice i;
-    vector<vector<int>> obtenue = g.req_possibilites_col(i);
-    vector<vector<int>> attendue{ {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0} };
+    array<vector<int>,9> obtenue = g.req_possibilites_col(i);
+    array<vector<int>,9> attendue{{ {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0} }};
     ASSERT_EQ(obtenue, attendue);
 }
 
+
+
+
+
+/**
+ * \brief Test de la méthode req_possibilites_boite \n
+ *  cas valides:\n
+ *      grilleIncomplete: La grille est incomplète\n
+ *      grilleComplete: La grille est complète(aucune possibilité)\n
+ *  cas invalide:\n
+ *      Aucun identifié\n
+ */
+TEST(TestGrille,ReqPossibilitesBoite_grilleIncomplete_possibilitesAttendues)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_test_possibilités.txt",ifstream::in);
+    g.asg_grille(ifs);
+    Indice i;
+    array<vector<int>,9> obtenue = g.req_possibilites_boite(i);
+    array<vector<int>,9> attendue{{ {5,7}, {5,6,7,9}, {6,7,9}, {5,7}, {0}, {1,7,9}, {0}, {2,5,7,8,9}, {2,7,8,9} }};
+    ASSERT_EQ(obtenue, attendue);
+}
+
+TEST(TestGrille,ReqPossibilitesBoite_grilleComplete_aucunePossibilite)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
+    g.asg_grille(ifs);
+    Indice i;
+    array<vector<int>,9>obtenue = g.req_possibilites_boite(i);
+    array<vector<int>,9> attendue{{ {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0} }};
+    ASSERT_EQ(obtenue, attendue);
+}
+
+
+/**
+ * \brief Test de la méthode req_possibilites_ligne \n
+ *  cas valides:\n
+ *      grilleIncomplete: La grille est incomplète\n
+ *      grilleComplete: La grille est complète(aucune possibilité)\n
+ *  cas invalide:\n
+ *      Aucun identifié\n
+ */
+TEST(TestGrille,ReqPossibilitesLigne_grilleIncomplete_possibilitesAttendues)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_test_possibilités.txt",ifstream::in);
+    g.asg_grille(ifs);
+    Indice i;
+    array<vector<int>,9> obtenue = g.req_possibilites_ligne(i);
+    array<vector<int>,9> attendue{{ {5,7}, {5,6,7,9}, {6,7,9}, {0}, {3,5,7}, {0}, {0}, {0}, {5,9} }};
+    ASSERT_EQ(obtenue, attendue);
+}
+
+TEST(TestGrille,ReqPossibilitesLigne_grilleComplete_aucunePossibilite)
+{
+    Grille g;
+    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
+    g.asg_grille(ifs);
+    Indice i;
+    array<vector<int>,9> obtenue = g.req_possibilites_ligne(i);
+    array<vector<int>,9> attendue{{ {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0} }};
+    ASSERT_EQ(obtenue, attendue);
+}
 
 
 /**

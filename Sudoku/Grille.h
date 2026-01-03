@@ -33,9 +33,9 @@ public:
     bool operator==(const Grille& p_grille)const;
     void asg_grille(std::ifstream&);
     std::vector<int>respecte_contraintes(const Indice&)const;
-    std::vector<std::vector<int>> req_possibilites_col(const Indice&)const;
-    std::vector<std::vector<int>> req_possibilites_boite(const Indice&)const;
-    std::vector<std::vector<int>> req_possibilites_ligne(const Indice&)const;
+    std::array<std::vector<int>,9> req_possibilites_col(const Indice&)const;
+    std::array<std::vector<int>,9> req_possibilites_boite(const Indice&)const;
+    std::array<std::vector<int>,9> req_possibilites_ligne(const Indice&)const;
     void save(std::string nom)const;
     
 private:
@@ -43,6 +43,24 @@ private:
     bool m_est_valide;
     void verifieInvariant();
 };
+
+
+
+/***
+ * \class GrilleAnnote
+ * \brief Hérite de la classe Grille. Ajoute comme fonctionnalité une grille qui contient les possibilitées de chaque cases.
+ */
+class GrilleAnnote
+{
+    
+};
+
+
+
+
+
+
+
 
 bool verifier_format_fichier(std::ifstream&);
 
