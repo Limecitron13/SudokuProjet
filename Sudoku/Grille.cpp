@@ -244,6 +244,16 @@ ostream& operator<<(ostream& os,const Grille& grille)
 }
 
 
+/**
+ * \brief Opérateur d'asignation pour les grilles
+ * \param p_grille est la grille à asigner
+ * \return La grille présente
+ */
+Grille Grille::operator=(const Grille& p_grille)
+{
+    *this = Grille(p_grille);
+    return *this;
+}
 
 
 

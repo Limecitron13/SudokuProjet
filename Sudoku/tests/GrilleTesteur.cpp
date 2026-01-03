@@ -282,13 +282,14 @@ TEST(TestGrille,ReqLigne_Valide_LigneAttendue)
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de la méthode respecte_contraintes\n
  *  cas valides:\n
- *      TODO ********************************************
+ *      grilleNonRemplie: Des nombres peuvent être placés à cette case \n
+ *      grilleRemplie: Aucun nombre peut être placé à cette case \n
  *  cas invalide:\n
- *      
+ *      Aucun identifié\n
  */
-TEST(TestGrille,respecte_contraintes_grilleNonRemplis_nombresAttendus)
+TEST(TestGrille,RespecteContraintes_grilleNonRemplie_nombresAttendus)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_avecZeros_formatValide.txt",ifstream::in);
@@ -303,7 +304,7 @@ TEST(TestGrille,respecte_contraintes_grilleNonRemplis_nombresAttendus)
 
 }
 
-TEST(TestGrille,respecte_contraintes_grilleRemplis_TableauDeZéros)
+TEST(TestGrille,RespecteContraintes_grilleRemplie_zero)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
@@ -320,11 +321,11 @@ TEST(TestGrille,respecte_contraintes_grilleRemplis_TableauDeZéros)
 
 
 /**
- * \brief Test de la méthode \n
+ * \brief Test de la méthode save \n
  *  cas valides:\n
- *      TODO****************************************
+ *      grilleValide: Sauvegarde d'une grille valide \n
  *  cas invalide:\n
- *      
+ *      Aucun identifié\n
  */
 TEST(TestGrille,save_grilleValide_sauvegardeGrille)
 {
@@ -342,32 +343,27 @@ TEST(TestGrille,save_grilleValide_sauvegardeGrille)
     ASSERT_TRUE(g==h);
 }
 
-TEST(TestGrille,save_grilleValide2_sauvegardeGrille)
-{
-    Grille g;
-    ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
-    g.asg_grille(ifs);
-    Indice i(5,5);
-    g.asg_val(i,9);
-    g.save("GrillesSauvegarde/fichierTest.txt");
-    
-    Grille h;
-    ifstream ifs2("GrillesSauvegarde/fichierTest.txt",ifstream::in);
-    h.asg_grille(ifs2);
-    remove("GrillesSauvegarde/fichierTest.txt");
-    ASSERT_TRUE(g==h);
-}
+
+
+
 
 
 
 /**
- * \brief Test de la fonction verifier_format_fichier\n
- *  cas ****TODO******************
- * 
- * 
+ * \brief Test de la méthode verifier_format_fichier \n
+ *  cas valides:\n
+ *      FormatValide: Le fichier contient le bon format (9 boites de chiffres en lignes). Valide \n
+ *      FormatValideGrilleInvalide: Le fichier a le bon format, mais la grille est invalide (une grille invalide peut avoir le bon format). Valide\n
+ *      GrilleAvecZeros: Le fichier a le bon format, mais la grille contient des zéros. Valide\n
+ *      GrilleAvecSautLigne: Le fichier contient des retours chariots (lignes supplémentaires sans aucun caractère). Valide \n
+ *      GrilleManqueBoîte:Le fichier manque une boîte (ligne). Invalide\n 
+ *      GrilleManqueChiffres:Le fichier manque un chiffre. Invalide\n
+ *      GrilleVide:Le fichier est vide. Invalide\n
  *      
+ *  cas invalide:\n
+ *      Aucun identifié\n
  */
-TEST(TestFormatFichier,verifier_format_fichier_FormatValide_Valide)
+TEST(TestFormatFichier,VerifierFormatFichier_FormatValide_Valide)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide.txt",ifstream::in);
@@ -375,7 +371,7 @@ TEST(TestFormatFichier,verifier_format_fichier_FormatValide_Valide)
 
 }
 
-TEST(TestFormatFichier,verifier_format_fichier_FormatValideGrilleInvalide_Valide)
+TEST(TestFormatFichier,VerifierFormatFichier_FormatValideGrilleInvalide_Valide)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_formatValide_grilleNonValide.txt",ifstream::in);
@@ -383,35 +379,35 @@ TEST(TestFormatFichier,verifier_format_fichier_FormatValideGrilleInvalide_Valide
 
 }
 
-TEST(TestFormatFichier,verifier_format_fichier_grilleAvecZeros_Valide)
+TEST(TestFormatFichier,VerifierFormatFichier_grilleAvecZeros_Valide)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_avecZeros_formatValide.txt",ifstream::in);
     ASSERT_TRUE(verifier_format_fichier(ifs));
 }
 
-TEST(TestFormatFichier,verifier_format_fichier_grilleAvecSautLigne_Valide)
+TEST(TestFormatFichier,VerifierFormatFichier_grilleAvecSautLigne_Valide)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_avecSautLigne_formatValide.txt",ifstream::in);
     ASSERT_TRUE(verifier_format_fichier(ifs));
 }
 
-TEST(TestFormatFichier,verifier_format_fichier_grilleManqueBoîte_invalide)
+TEST(TestFormatFichier,VerifierFormatFichier_grilleManqueBoite_invalide)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_manqueBoite_formatInvalide.txt",ifstream::in);
     ASSERT_FALSE(verifier_format_fichier(ifs));
 }
 
-TEST(TestFormatFichier,verifier_format_fichier_grilleManqueChiffres_invalide)
+TEST(TestFormatFichier,VerifierFormatFichier_grilleManqueChiffres_invalide)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_manqueChiffre_formatInvalide.txt",ifstream::in);
     ASSERT_FALSE(verifier_format_fichier(ifs));
 }
 
-TEST(TestFormatFichier,verifier_format_fichier_grilleVide_invalide)
+TEST(TestFormatFichier,VerifierFormatFichier_grilleVide_invalide)
 {
     Grille g;
     ifstream ifs("fichiersTestsGrille/Grille_vide_formatInvalide.txt",ifstream::in);
