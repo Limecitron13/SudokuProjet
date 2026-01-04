@@ -1,4 +1,4 @@
-/***
+/**
  * \file Grille.cpp
  * \author Émil Lavoie-Leullier
  * \date 2025-10-18
@@ -16,7 +16,7 @@
 
 using namespace std;
 
-/***
+/**
  * \brief Constructeur par défaut de la classe Grille. Assigne un zéro à chaque case.
  */
 Grille::Grille():m_est_valide(false)
@@ -40,7 +40,7 @@ Grille::Grille():m_est_valide(false)
 
 
 
-/***
+/**
  * \brief Constructeur copie de la classe Grille
  * \param g est la grille a asigner
  */
@@ -69,7 +69,7 @@ Grille::Grille(const Grille& g)
 
 
 
-/***
+/**
  * \brief Assigne une valeur à un indice spécifique
  * \param i est un objet Indice qui contient l'indice de la case à modifier
  * \param valeur est la valeur à assigner
@@ -83,7 +83,7 @@ void Grille::asg_val(const Indice& i,const int valeur)
     INVARIANTS();
 }
 
-/***
+/**
  * \brief Détermine si la grille est un sudoku valide
  * \return true si la grille est valide et false sinon
  */
@@ -134,7 +134,7 @@ bool Grille::valider_grille()const
 }
 
 
-/***
+/**
  * \brief Accesseur d'une valeur de la grille à un indice spécifique
  * \param i est un objet Indice qui contient l'indice de la case 
  * \return Valeur de la case à l'indice i
@@ -144,7 +144,7 @@ const int& Grille::req_val(const Indice& i)const
     return m_grille.at(i.req_indice_boite()).at(i.req_indice());
 }
 
-/***
+/**
  * \brief Accesseur de la valeur m_est_valide
  * \return m_est_valide
  */
@@ -155,7 +155,7 @@ const bool& Grille::req_validite()const
 
 
 
-/***
+/**
  * \brief Donne la colonne correspondant à l'indice 
  * \param indice est l'indice de la colonne (0 à 8) 
  * \return Un tableau de neuf entiers correspondant à ième colonne
@@ -177,7 +177,7 @@ array<int,9> Grille::req_col(const Indice& j)const
     return colonne;
 }
 
-/***
+/**
  * \brief Donne la boîte correspondant à l'indice 
  * \param indice est l'indice de la boîte (0 à 8) 
  * \return Un tableau de neuf entiers correspondant à ième boîte
@@ -187,7 +187,7 @@ array<int,9> Grille::req_boite(const Indice& i)const
     return m_grille.at(i.req_indice_boite());
 }
 
-/***
+/**
  * \brief Donne la ligne correspondant à l'indice 
  * \param indice est l'indice de la ligne (0 à 8) 
  * \return Un tableau de neuf entiers correspondant à ième ligne
@@ -211,7 +211,7 @@ array<int,9> Grille::req_ligne(const Indice& j)const
 }
 
 
-/***
+/**
  * \brief affiche la grille de sudoku
  * \param os est un flux de sortie ostream
  * \param grille est l'objet grille à afficher
@@ -259,7 +259,7 @@ Grille Grille::operator=(const Grille& p_grille)
 
 
 
-/***
+/**
  * \brief Opérateur de comparaison entre deux grilles
  * \param p_grille est la grille avec qui on compare
  * \return true si tous les éléments sont identique entre les deux grilles, false sinon
@@ -278,7 +278,7 @@ bool Grille::operator==(const Grille& p_grille)const
     return true;
 }
 
-/***
+/**
  * \brief ajoute les valeurs d'une grille sudoku qui provient d'un fichier texte
  * \param ifs est un flux de fichier qui contient le fichier texte de la grille
  * \exception FichierException 
@@ -306,7 +306,7 @@ void Grille::asg_grille(ifstream& ifs)
 
 
 
-/***
+/**
  * \brief Vérifie quels nombres peuvent être positionés à un certain indice. Rappel: Il peut seulement avoir une copie d'un nombre
  * par boite, colonne et ligne.
  * \param i est un objet Indice qui contient les informations de l'indice d'une case
@@ -358,7 +358,7 @@ vector<int> Grille::respecte_contraintes(const Indice& i)const
 }
 
 
-/***
+/**
  * \brief Détermine quels nombres peuvent être placés dans chaque case de la colonne spécifiée.
  * \param L'indice qui est dans la bonne colonne.
  * \return Un array<vector<int>> qui contient les nombres possible pour chaque case de la colonne.
@@ -376,7 +376,7 @@ array<vector<int>,9> Grille::req_possibilites_col(const Indice& j)const
     return possibilites;
 }
 
-/***
+/**
  * \brief Détermine quels nombres peuvent être placés dans chaque case de la boîte spécifiée.
  * \param L'indice qui est dans la bonne boîte.
  * \return Un array<vector<int>> qui contient les nombres possible pour chaque case de la boîte.
@@ -395,7 +395,7 @@ array<vector<int>,9> Grille::req_possibilites_boite(const Indice& j)const
 
 
 
-/***
+/**
  * \brief Détermine quels nombres peuvent être placés dans chaque case de la ligne spécifiée.
  * \param L'indice qui est dans la bonne ligne.
  * \return Un array<vector<int>> qui contient les nombres possible pour chaque case de la ligne.
@@ -415,7 +415,7 @@ array<vector<int>,9> Grille::req_possibilites_ligne(const Indice& j)const
 
 
 
-/***
+/**
  * \brief Enregistre la grille de sudoku sous le bon format dans un fichier texte 
  * \param nom est une chaîne de caractères de l'emplacement et nom du fichier texte
  */
@@ -437,7 +437,7 @@ void Grille::save(string nom)const
 
 
 
-/***
+/**
  * \brief Vérifie les invariants de la classe Grille
  * \invariant Les nombres dans la grille de sudoku doivent être dans l'intervalle [0,9]
  */
@@ -456,8 +456,122 @@ void Grille::verifieInvariant()const
 
 
 
+/**
+ * \brief 
+ * \param 
+ * \return 
+ */
+GrilleAnnote::GrilleAnnote(Grille);
 
-/***
+
+
+/**
+ * \brief 
+ * \param 
+ * \return 
+ */
+GrilleAnnote::GrilleAnnote(GrilleAnnote);
+
+
+
+/**
+ * \brief 
+ * \param 
+ * \return 
+ */
+void GrilleAnnote::asg_val(const Indice&,const int valeur); //override
+
+
+
+/**
+ * \brief 
+ * \param 
+ * \return 
+ */
+Grille GrilleAnnote::operator=(const Grille& p_grille);//override;
+
+
+
+/**
+ * \brief 
+ * \param 
+ * \return 
+ */
+void GrilleAnnote::asg_grille(std::ifstream&);//override;
+
+
+
+/**
+ * \brief Accesseur des possibilités de valeurs d'une case à un indice spécifique
+ * \param i est l'indice de la case
+ * \return Un std::vector<int> qui contient les nombres qui peuvent aller dans cette case
+ */
+vector<int> GrilleAnnote::req_possibilites(const Indice& i)const
+{
+    return m_grilleP.at(i.req_indice_boite()).at(i.req_indice());
+}
+
+
+
+/**
+ * \brief 
+ * \param 
+ * \return 
+ */
+void GrilleAnnote::sup_possibilite(const Indice&,const int& valeur);
+
+
+
+/**
+ * \brief 
+ * \param 
+ * \return 
+ */
+void GrilleAnnote::verifier_possibilites();
+
+
+
+/**
+ * \brief Si un double de possibilités est présent dans une boite ou colonne ou ligne (ou plusieurs de ces configurations), ces deux chiffres sont supprimés des possibilités de la configuration.
+ *        \nPar exemple si les 2 et 6 peuvent seulement être dans la colonne 0 et dans la boîte 0, alors tous les cases de la boîte 0 ne peuvent avoir comme possibilité les 2 et 6. Il va de même pour la colonne 0.
+ * \param 
+ * \return 
+ */
+void GrilleAnnote::eliminerDoubles();
+
+
+
+/**
+ * \brief 
+ * \param 
+ * \return 
+ */
+void GrilleAnnote::eliminerTriples();
+
+/**
+ * \brief Vérifie les invariants de la classe GrilleAnnote
+ * \invariant Les nombres dans m_grilleP doivent être entre 0 et 9 inclusivement
+ */
+void GrilleAnnote::verifieInvariant()const
+{
+    for(const auto& iter = m_grilleP.begin(); iter != m_grilleP.end(); iter++)
+    {
+        for(const auto& iter2 = iter.begin();iter2 != iter.end(); iter2++)
+        {
+            for(const auto& iter3 = iter2.begin();iter3 != iter2.end(); iter3++)
+            { 
+                INVARIANT(*iter3 <= 9 || *iter >= 0);
+            }  
+        }
+    }
+}
+  
+
+//Fin de l'implémentation de la classe GrilleAnnote--------------------
+
+
+
+/**
  * \brief Vérifie si le fichier texte est dans le bon format (chaque ligne représente les valeurs d'une boîte avec les nombres 0 à 9)
  *        Les sauts de lignes sont permis si et seulement si ils ne contiennent que le caractère de retour de chariot
  * \param ifs est un flux qui contient le fichier texte de la grille de sudoku
