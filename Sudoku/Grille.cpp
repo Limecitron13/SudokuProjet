@@ -514,11 +514,21 @@ vector<int> GrilleAnnote::req_possibilites(const Indice& i)const
 
 
 /**
- * \brief 
- * \param 
- * \return 
+ * \brief Supprime  une des possibilité a un indice spécifique.
+ * \param i est l'indice de la case.
+ * \param valeur est le nombre à supprimer(si ce nombre n'est pas présent, rien n'est modifié).
  */
-void GrilleAnnote::sup_possibilite(const Indice&,const int& valeur);
+void GrilleAnnote::sup_possibilite(const Indice& i,const int& valeur)
+{
+    for(const auto& iter = m_grilleP.at(i.req_indice_boite()).at(i.req_indice()).begin(); iter != m_grilleP.at(i.req_indice_boite()).at(i.req_indice()).end(); iter++ )//parcours les possibilités de la case de l'indice spécifié
+    {
+        if(*iter == valeur)
+        {
+           m_grilleP.at(i.req_indice_boite()).at(i.req_indice()).erase(iter); 
+        }
+    }
+       
+}
 
 
 
@@ -532,12 +542,13 @@ void GrilleAnnote::verifier_possibilites();
 
 
 /**
- * \brief Si un double de possibilités est présent dans une boite ou colonne ou ligne (ou plusieurs de ces configurations), ces deux chiffres sont supprimés des possibilités de la configuration.
- *        \nPar exemple si les 2 et 6 peuvent seulement être dans la colonne 0 et dans la boîte 0, alors tous les cases de la boîte 0 ne peuvent avoir comme possibilité les 2 et 6. Il va de même pour la colonne 0.
- * \param 
- * \return 
+ * \brief Si un double de possibilités est présent dans une boite ou colonne ou ligne (ou plusieurs de ces configurations), ces deux chiffres sont supprimés des possibilités de la configuration.\n
+ *        Par exemple si les 2 et 6 peuvent seulement être dans la colonne 0 et ils sont dans la boîte 0, alors tous les cases de la boîte 0 ne peuvent avoir comme possibilité les 2 et 6.
  */
-void GrilleAnnote::eliminerDoubles();
+void GrilleAnnote::eliminerDoubles()
+{
+
+}
 
 
 
@@ -547,6 +558,8 @@ void GrilleAnnote::eliminerDoubles();
  * \return 
  */
 void GrilleAnnote::eliminerTriples();
+
+
 
 /**
  * \brief Vérifie les invariants de la classe GrilleAnnote
