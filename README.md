@@ -1,8 +1,4 @@
-# 🌐 Sudoku app
-
-> **Description du projet**
-> *(Ajoutez ici une présentation concise : objectif, contexte, et fonctionnalités principales.)(TODO)*
-
+# Sudoku app
 
 ---
 
@@ -12,15 +8,14 @@
 - Charger des fichiers de grille de sudoku
 - Sauvegarder des grilles de sudoku
 - Resoudre automatiquement des grilles de sudoku
-- Générer de nouvelles grilles de sudoku
-
+- Générer de nouvelles grilles de sudoku avec des difficultés différentes
 
 
 ---
 
 ## 🧾 Tâches à compléter
 
-
+- Ajouter une classe qui hérite de Grille qui rend les cases «locked» lorsqu'une grille est générée ou chargée
 
 
 ---
@@ -31,6 +26,11 @@
 - Ajouter une meilleure analyse des contraintes d'une case (doubles, triples, et autres techniques)
 
 
+## 🧾 Notes 
+
+- Utilise le framework QT pour l'interface graphique
+- Le QTDesigner a été utiliser pour implémenter l'interface graphique
+- Ce projet m'a permis d'appliquer les compétences apprises dans le cours GIF-1003 Programmation Avancée en C++ pour l'ingénierie
 ---
 
 
