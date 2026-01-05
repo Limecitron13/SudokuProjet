@@ -16,6 +16,9 @@ bool a_solu_unique(const Grille&);
 Grille a_solu_unique_recherche(Grille,Indice,int& solu);
 
 
+Grille gen_grille();
+Grille gen_grille_recherche();
+
 
 
 

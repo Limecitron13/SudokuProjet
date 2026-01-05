@@ -165,3 +165,52 @@ Grille a_solu_unique_recherche(Grille g,Indice i,int& solu)
     }
     return g; //On a épuisé la possiblités 
 }
+
+
+/**
+ * \brief 
+ * \param
+ * \return
+ */
+Grille gen_grille(unsigned int difficulte)
+{
+    Grille g;
+    
+    random_device s; // seed
+    mt19937 gen(s()); // initialization génerateur nombres aléatoires
+    uniform_int_distribution distri(1,9); 
+    
+    //distri(gen);***
+    for(int ajout = 0; ajout < 30; ajout++)
+    {
+        //tant que les nombres possibles dans la case choisie(indice choisie) est equivalent à {0}
+            //tant que l'indice de boîte généré ne contient pas une case vide 
+            //    faire: générer un autre indice de boîte
+            //créer un vecteur qui contient les indices des cases qui sont vides dans la boîte choisie
+            //générer un nombre aléatoire de 0 à la taille du vecteur-1 qui servira pour choisir un des éléments du vecteur
+        
+        //obtenir le vecteur des nombres possibles à cette case
+        //générer un nombre aléatoire de 0 à la taille du vecteur-1 qui servira pour choisir un des éléments du vecteur
+        //assigner la valeur obtenue à cet indice
+    }
+    
+    
+    // trouver une grille résolue
+    // appeler gen_grille_recherche
+    // retourner la grille obtenue
+}
+
+
+/**
+ * \brief 
+ * \param
+ * \return
+ */
+Grille gen_grille_recherche(unsigned int diffuculte)
+{
+    // on reçoie une grille complète 
+    // pour un nombre prédéterminé(par la difficulté) de case à supprimer, faire:
+    //     supprimer une case au hazard
+    //     si la grille n'a plus de solution unique, revenir en arrière
+    // 
+}
