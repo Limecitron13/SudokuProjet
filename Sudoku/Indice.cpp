@@ -156,6 +156,22 @@ const int& Indice::req_indice_dans_boite()const
     return m_indice;
 }
 
+/**
+ * \brief Détermine si l'indice est maximal (8,8)
+ * \return true si l'indice est (8,8) et false sinon 
+ */
+bool Indice::est_maximal()const
+{
+    if(m_indice_boite == 8 && m_indice == 8)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 
 /***
  * \brief Permet l'affichage de l'indice

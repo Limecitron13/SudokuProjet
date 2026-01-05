@@ -26,7 +26,7 @@ Grille resoudre(const Grille& g)
     Grille resultat = resoudre_recherche(g,i);
     if(!resultat.req_validite())
     {
-        throw(AucuneSolutionTrouveException("La n'a pu être résolue :("));
+        throw(AucuneSolutionTrouveException("La grille n'a pas pu être résolue :("));
     }
     return resultat;
 }
@@ -46,7 +46,7 @@ Grille resoudre_recherche(Grille g,Indice i)
         return g;
     }
     
-    while(g.req_val(i) != 0)   //Trouver la prochaine case vide
+    while(g.req_val(i) != 0 && ! i.est_maximal() )   //Trouver la prochaine case vide
     {
         i++;
     }
