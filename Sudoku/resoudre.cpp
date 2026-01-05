@@ -168,9 +168,9 @@ Grille a_solu_unique_recherche(Grille g,Indice i,int& solu)
 
 
 /**
- * \brief 
- * \param
- * \return
+ * \brief Fait la préparation de la création d'une grille unique. Cette fonction génère une grille aléatoir partiellement complète. Ensuite cette grille est résolue et la prochaine tâche est envoyé à la fonction gen_grille_recherche
+ * \param difficulte est un entier positif qui décrit la difficulté de la grille. Plus il est grand, plus la grille va être difficile.(Cette difficulté doit être entre (10 et 50)
+ * \return La grille générée.
  */
 Grille gen_grille(unsigned int difficulte)
 {
@@ -178,26 +178,64 @@ Grille gen_grille(unsigned int difficulte)
     
     random_device s; // seed
     mt19937 gen(s()); // initialization génerateur nombres aléatoires
-    uniform_int_distribution distri(1,9); 
+    uniform_int_distribution distri(0,8); 
     
-    //distri(gen);***
-    for(int ajout = 0; ajout < 30; ajout++)
-    {
-        //tant que les nombres possibles dans la case choisie(indice choisie) est equivalent à {0}
-            //tant que l'indice de boîte généré ne contient pas une case vide 
-            //    faire: générer un autre indice de boîte
-            //créer un vecteur qui contient les indices des cases qui sont vides dans la boîte choisie
-            //générer un nombre aléatoire de 0 à la taille du vecteur-1 qui servira pour choisir un des éléments du vecteur
-        
-        //obtenir le vecteur des nombres possibles à cette case
-        //générer un nombre aléatoire de 0 à la taille du vecteur-1 qui servira pour choisir un des éléments du vecteur
-        //assigner la valeur obtenue à cet indice
+    
+    int nbr_a_ajouter = 9;
+    for(int ajout = 0; ajout < nbr_a_ajouter; ajout++)
+    {   
+        vector<int> pasPossibilite {0};
+
+        Indice i_boite;
+        do
+        {
+            int boite = distri(gen);
+            i_boite.asg_indice(boite,0); //L'indice dans la boite n'importe pas pour ici
+                
+        }while( !est_membre( g.req_boite(i_boite), 0 ) ); //tant qu'on n'a pas une boite avec une case vide
+            
+        array<int,9> boite_choix = g.req_boite(i_boite);
+        vector<int> i_cases_vides;
+        array<int,9>::const_iterator iter;
+        for(iter = boite_choix.begin(); iter != boite_choix.end(); iter++)
+        {
+            if(*iter == 0)
+            {
+                i_cases_vides.push_back( iter - boite_choix.begin() );
+            }
+        }
+            
+        uniform_int_distribution distri_indice(0,(int)i_cases_vides.size()-1);
+        int i_case = distri_indice(gen);
+        i_boite.asg_indice(i_boite.req_indice_boite(), i_cases_vides.at(i_case) );  //on a un indice aléatoire avec une case vide
+            
+        vector<int> valeurs_possibles = g.respecte_contraintes(i_boite);
+        if(valeurs_possibles != pasPossibilite) //si il y a au moins un chiffre qu'on peut mettre dans cette case
+        {
+            uniform_int_distribution distri_indice_valeurs(0,(int)valeurs_possibles.size()-1);
+            int indice_valeur = distri_indice_valeurs(gen);
+            int valeur = valeurs_possibles.at(indice_valeur); 
+            g.asg_val(i_boite,valeur);
+        }
+        else
+        {
+            nbr_a_ajouter++;
+        }
+            
+              
     }
     
-    
-    // trouver une grille résolue
-    // appeler gen_grille_recherche
-    // retourner la grille obtenue
+    try
+    {
+        Grille g_resolue = resoudre(g);
+        return gen_grille_recherche(g_resolue, difficulte);
+    }
+    catch(AucuneSolutionTrouveException& erreur)
+    {
+        cout<<"Erreur lors de la génération de la grille. Veuillez réessayer.";  //une contradiction a été générée
+        Grille h;
+        return h;  //retourne une grille vide
+    }
 }
 
 
@@ -206,11 +244,11 @@ Grille gen_grille(unsigned int difficulte)
  * \param
  * \return
  */
-Grille gen_grille_recherche(unsigned int diffuculte)
+Grille gen_grille_recherche(Grille g, unsigned int diffuculte)
 {
     // on reçoie une grille complète 
     // pour un nombre prédéterminé(par la difficulté) de case à supprimer, faire:
     //     supprimer une case au hazard
     //     si la grille n'a plus de solution unique, revenir en arrière
-    // 
+    // retourner la grille modifiée
 }
