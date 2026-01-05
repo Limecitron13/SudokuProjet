@@ -30,6 +30,7 @@ public:
     std::array<int,9> req_ligne(const Indice&)const;
     friend std::ostream& operator<<(std::ostream& p_os,const Grille& p_grille);
     bool operator==(const Grille& p_grille)const;
+    Grille& operator=(const Grille&)=default;
     void asg_grille(std::ifstream&);
     std::vector<int>respecte_contraintes(const Indice&)const;
     std::array<std::vector<int>,9> req_possibilites_col(const Indice&)const;

@@ -19,6 +19,9 @@ private slots:
     void selectionnerChiffre();
     void placerChiffre();
     void resoudreGrille();
+    void genGrilleD();
+    void genGrilleI();
+    void genGrilleA();
         
 private:
     Ui::FenetrePrincipal widget;

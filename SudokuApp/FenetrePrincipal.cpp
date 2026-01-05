@@ -368,6 +368,12 @@ void FenetrePrincipal::placerChiffre()
     {
         bouton->setText(QString(""));
     }
+    QString nom_bouton = bouton->objectName();
+    string nom_bouton_std = nom_bouton.toStdString();
+    int boite = nom_bouton_std.at(1)-48; //transformer valeur ASCII en son vrai nombre...
+    int cases = nom_bouton_std.at(3)-48;
+    Indice i(boite,cases);
+    m_sudoku.asg_val(i,m_nombreAPlacer);
 }
 
 
@@ -375,5 +381,26 @@ void FenetrePrincipal::placerChiffre()
 void FenetrePrincipal::resoudreGrille()
 {
     m_sudoku = resoudre(m_sudoku) ;
+    afficherGrille();
+}
+
+
+void FenetrePrincipal::genGrilleD()
+{
+    m_sudoku = gen_grille(30);
+    afficherGrille();
+}
+
+
+void FenetrePrincipal::genGrilleI()
+{
+    m_sudoku = gen_grille(40);
+    afficherGrille();
+}
+
+
+void FenetrePrincipal::genGrilleA()
+{
+    m_sudoku = gen_grille(50);
     afficherGrille();
 }

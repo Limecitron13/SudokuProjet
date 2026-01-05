@@ -131,7 +131,7 @@ TEST(TestASoluUnique,ASoluUnique_PlusieursSolutions3_faux)
 
 /**
  */
-TEST(testGen, testTemporaire)
+TEST(TestGenGrille, testTemporaire)
 {
     Grille g = gen_grille(30);
     cout<<g;

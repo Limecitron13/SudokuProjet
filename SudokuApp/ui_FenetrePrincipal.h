@@ -28,8 +28,11 @@ class Ui_FenetrePrincipal
 public:
     QAction *actionCharger_une_grille;
     QAction *actionSauvegarder_une_grille;
-    QAction *actionG_n_rer_une_grille;
     QAction *actionR_soudre_la_grille;
+    QAction *actionDifficult_D_butant;
+    QAction *actionD_butant;
+    QAction *actionInterm_diaire;
+    QAction *actionAvanc;
     QWidget *centralwidget;
     QPushButton *verifierGrille;
     QWidget *gridLayoutWidget_2;
@@ -150,6 +153,7 @@ public:
     QPushButton *Effaceur;
     QMenuBar *menubar;
     QMenu *menuMenu;
+    QMenu *menuG_n_rer_une_grille;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *FenetrePrincipal)
@@ -163,10 +167,16 @@ public:
         actionCharger_une_grille->setObjectName(QString::fromUtf8("actionCharger_une_grille"));
         actionSauvegarder_une_grille = new QAction(FenetrePrincipal);
         actionSauvegarder_une_grille->setObjectName(QString::fromUtf8("actionSauvegarder_une_grille"));
-        actionG_n_rer_une_grille = new QAction(FenetrePrincipal);
-        actionG_n_rer_une_grille->setObjectName(QString::fromUtf8("actionG_n_rer_une_grille"));
         actionR_soudre_la_grille = new QAction(FenetrePrincipal);
         actionR_soudre_la_grille->setObjectName(QString::fromUtf8("actionR_soudre_la_grille"));
+        actionDifficult_D_butant = new QAction(FenetrePrincipal);
+        actionDifficult_D_butant->setObjectName(QString::fromUtf8("actionDifficult_D_butant"));
+        actionD_butant = new QAction(FenetrePrincipal);
+        actionD_butant->setObjectName(QString::fromUtf8("actionD_butant"));
+        actionInterm_diaire = new QAction(FenetrePrincipal);
+        actionInterm_diaire->setObjectName(QString::fromUtf8("actionInterm_diaire"));
+        actionAvanc = new QAction(FenetrePrincipal);
+        actionAvanc->setObjectName(QString::fromUtf8("actionAvanc"));
         centralwidget = new QWidget(FenetrePrincipal);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         verifierGrille = new QPushButton(centralwidget);
@@ -1000,6 +1010,8 @@ public:
         menubar->setGeometry(QRect(0, 0, 800, 21));
         menuMenu = new QMenu(menubar);
         menuMenu->setObjectName(QString::fromUtf8("menuMenu"));
+        menuG_n_rer_une_grille = new QMenu(menuMenu);
+        menuG_n_rer_une_grille->setObjectName(QString::fromUtf8("menuG_n_rer_une_grille"));
         FenetrePrincipal->setMenuBar(menubar);
         statusbar = new QStatusBar(FenetrePrincipal);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -1008,8 +1020,12 @@ public:
         menubar->addAction(menuMenu->menuAction());
         menuMenu->addAction(actionCharger_une_grille);
         menuMenu->addAction(actionSauvegarder_une_grille);
-        menuMenu->addAction(actionG_n_rer_une_grille);
+        menuMenu->addAction(menuG_n_rer_une_grille->menuAction());
         menuMenu->addAction(actionR_soudre_la_grille);
+        menuG_n_rer_une_grille->addAction(actionDifficult_D_butant);
+        menuG_n_rer_une_grille->addAction(actionD_butant);
+        menuG_n_rer_une_grille->addAction(actionInterm_diaire);
+        menuG_n_rer_une_grille->addAction(actionAvanc);
 
         retranslateUi(FenetrePrincipal);
         QObject::connect(actionCharger_une_grille, SIGNAL(triggered()), FenetrePrincipal, SLOT(chargerFichier()));
@@ -1107,6 +1123,9 @@ public:
         QObject::connect(b8i7, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
         QObject::connect(b8i8, SIGNAL(clicked()), FenetrePrincipal, SLOT(placerChiffre()));
         QObject::connect(actionR_soudre_la_grille, SIGNAL(triggered()), FenetrePrincipal, SLOT(resoudreGrille()));
+        QObject::connect(actionD_butant, SIGNAL(triggered()), FenetrePrincipal, SLOT(genGrilleD()));
+        QObject::connect(actionInterm_diaire, SIGNAL(triggered()), FenetrePrincipal, SLOT(genGrilleI()));
+        QObject::connect(actionAvanc, SIGNAL(triggered()), FenetrePrincipal, SLOT(genGrilleA()));
 
         QMetaObject::connectSlotsByName(FenetrePrincipal);
     } // setupUi
@@ -1116,8 +1135,11 @@ public:
         FenetrePrincipal->setWindowTitle(QCoreApplication::translate("FenetrePrincipal", "FenetrePrincipal", nullptr));
         actionCharger_une_grille->setText(QCoreApplication::translate("FenetrePrincipal", "Charger une grille", nullptr));
         actionSauvegarder_une_grille->setText(QCoreApplication::translate("FenetrePrincipal", "Sauvegarder une grille", nullptr));
-        actionG_n_rer_une_grille->setText(QCoreApplication::translate("FenetrePrincipal", "G\303\251n\303\251rer une grille", nullptr));
         actionR_soudre_la_grille->setText(QCoreApplication::translate("FenetrePrincipal", "R\303\251soudre la grille", nullptr));
+        actionDifficult_D_butant->setText(QCoreApplication::translate("FenetrePrincipal", "Difficult\303\251s :", nullptr));
+        actionD_butant->setText(QCoreApplication::translate("FenetrePrincipal", "D\303\251butant", nullptr));
+        actionInterm_diaire->setText(QCoreApplication::translate("FenetrePrincipal", "Interm\303\251diaire", nullptr));
+        actionAvanc->setText(QCoreApplication::translate("FenetrePrincipal", "Avanc\303\251", nullptr));
         verifierGrille->setText(QCoreApplication::translate("FenetrePrincipal", "V\303\251rifier la grille", nullptr));
         chiffre7->setText(QCoreApplication::translate("FenetrePrincipal", "7", nullptr));
         chiffre4->setText(QCoreApplication::translate("FenetrePrincipal", "4", nullptr));
@@ -1211,6 +1233,7 @@ public:
         b8i8->setText(QCoreApplication::translate("FenetrePrincipal", "8", nullptr));
         Effaceur->setText(QCoreApplication::translate("FenetrePrincipal", "Effaceur", nullptr));
         menuMenu->setTitle(QCoreApplication::translate("FenetrePrincipal", "Menu", nullptr));
+        menuG_n_rer_une_grille->setTitle(QCoreApplication::translate("FenetrePrincipal", "G\303\251n\303\251rer une grille", nullptr));
     } // retranslateUi
 
 };

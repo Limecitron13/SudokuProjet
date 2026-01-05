@@ -2438,9 +2438,18 @@
     <property name="title">
      <string>Menu</string>
     </property>
+    <widget class="QMenu" name="menuG_n_rer_une_grille">
+     <property name="title">
+      <string>Générer une grille</string>
+     </property>
+     <addaction name="actionDifficult_D_butant"/>
+     <addaction name="actionD_butant"/>
+     <addaction name="actionInterm_diaire"/>
+     <addaction name="actionAvanc"/>
+    </widget>
     <addaction name="actionCharger_une_grille"/>
     <addaction name="actionSauvegarder_une_grille"/>
-    <addaction name="actionG_n_rer_une_grille"/>
+    <addaction name="menuG_n_rer_une_grille"/>
     <addaction name="actionR_soudre_la_grille"/>
    </widget>
    <addaction name="menuMenu"/>
@@ -2456,14 +2465,29 @@
     <string>Sauvegarder une grille</string>
    </property>
   </action>
-  <action name="actionG_n_rer_une_grille">
-   <property name="text">
-    <string>Générer une grille</string>
-   </property>
-  </action>
   <action name="actionR_soudre_la_grille">
    <property name="text">
     <string>Résoudre la grille</string>
+   </property>
+  </action>
+  <action name="actionDifficult_D_butant">
+   <property name="text">
+    <string>Difficultés :</string>
+   </property>
+  </action>
+  <action name="actionD_butant">
+   <property name="text">
+    <string>Débutant</string>
+   </property>
+  </action>
+  <action name="actionInterm_diaire">
+   <property name="text">
+    <string>Intermédiaire</string>
+   </property>
+  </action>
+  <action name="actionAvanc">
+   <property name="text">
+    <string>Avancé</string>
    </property>
   </action>
  </widget>
@@ -3989,6 +4013,54 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionD_butant</sender>
+   <signal>triggered()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>genGrilleD()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionInterm_diaire</sender>
+   <signal>triggered()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>genGrilleI()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAvanc</sender>
+   <signal>triggered()</signal>
+   <receiver>FenetrePrincipal</receiver>
+   <slot>genGrilleA()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>chargerFichier()</slot>
@@ -3997,5 +4069,8 @@
   <slot>selectionnerChiffre()</slot>
   <slot>placerChiffre()</slot>
   <slot>resoudreGrille()</slot>
+  <slot>genGrilleD()</slot>
+  <slot>genGrilleI()</slot>
+  <slot>genGrilleA()</slot>
  </slots>
 </ui>
