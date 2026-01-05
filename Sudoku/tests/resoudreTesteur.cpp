@@ -134,4 +134,6 @@ TEST(TestASoluUnique,ASoluUnique_PlusieursSolutions3_faux)
 TEST(testGen, testTemporaire)
 {
     Grille g = gen_grille(30);
+    cout<<g;
+    ASSERT_TRUE(a_solu_unique(g));
 }

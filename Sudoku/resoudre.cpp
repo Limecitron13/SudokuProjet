@@ -169,7 +169,7 @@ Grille a_solu_unique_recherche(Grille g,Indice i,int& solu)
 
 /**
  * \brief Fait la préparation de la création d'une grille unique. Cette fonction génère une grille aléatoir partiellement complète. Ensuite cette grille est résolue et la prochaine tâche est envoyé à la fonction gen_grille_recherche
- * \param difficulte est un entier positif qui décrit la difficulté de la grille. Plus il est grand, plus la grille va être difficile.(Cette difficulté doit être entre (10 et 50)
+ * \param difficulte est un entier positif qui décrit la difficulté de la grille. Plus il est grand, plus la grille va être difficile.(Cette difficulté doit être entre (0 et 81)
  * \return La grille générée.
  */
 Grille gen_grille(unsigned int difficulte)
@@ -228,7 +228,7 @@ Grille gen_grille(unsigned int difficulte)
     try
     {
         Grille g_resolue = resoudre(g);
-        return gen_grille_recherche(g_resolue, difficulte);
+        return gen_grille_recherche(g_resolue, difficulte);  //retourne la grille partiellement remplie avec une solution unique
     }
     catch(AucuneSolutionTrouveException& erreur)
     {
@@ -240,13 +240,66 @@ Grille gen_grille(unsigned int difficulte)
 
 
 /**
- * \brief 
- * \param
+ * \brief Enlève des valeurs de cases d'une grille complète en conservant unicité du nombre de solutions de la grille.
+ * \param g est une grille valide complète. La fonction utilise celle-ci comme point de départ.
+ * \param difficulte est un entier positif qui décrit la difficulté de la grille. Plus il est grand, plus la grille va être difficile.(Cette difficulté doit être entre (0 et 81 )
  * \return
  */
-Grille gen_grille_recherche(Grille g, unsigned int diffuculte)
-{
-    // on reçoie une grille complète 
+Grille gen_grille_recherche(Grille g, unsigned int difficulte)
+{   
+    if(difficulte == 0) //on a supprimer tous les cases nécessaires
+    {
+        return g;
+    }
+    
+    random_device s; // seed
+    mt19937 gen(s()); // initialization génerateur nombres aléatoires
+    uniform_int_distribution distri(0,8);
+    
+    for(unsigned nbr_cases_a_sup = 0; nbr_cases_a_sup < difficulte; nbr_cases_a_sup++)
+    {
+        Indice i_boite;
+        bool a_case_pleine = true;
+        do
+        {
+            int boite = distri(gen);
+            i_boite.asg_indice(boite,0); //L'indice dans la boite n'importe pas pour ici
+            
+            for(int chiffres = 1; chiffres <=9 ;chiffres ++)
+            {
+                if( est_membre( g.req_boite(i_boite),chiffres ) ) 
+                {
+                    a_case_pleine = false;
+                }
+            }
+            
+        }while( a_case_pleine ); //tant qu'on n'a pas une boite avec au moins une case pleine
+            
+        array<int,9> boite_choix = g.req_boite(i_boite);
+        vector<int> i_cases_vides;
+        array<int,9>::const_iterator iter;
+        for(iter = boite_choix.begin(); iter != boite_choix.end(); iter++)
+        {
+            if(*iter != 0)
+            {
+                i_cases_vides.push_back( iter - boite_choix.begin() );
+            }
+        }
+            
+        uniform_int_distribution distri_indice(0,(int)i_cases_vides.size()-1);
+        int i_case = distri_indice(gen);
+        i_boite.asg_indice(i_boite.req_indice_boite(), i_cases_vides.at(i_case) ); // on a un indice avec une case qui n'est pas vide
+        
+        int valeur_case = g.req_val(i_boite);
+        g.asg_val(i_boite,0);
+        
+        if(!a_solu_unique(g)) //Si on n'a plus de solution unique on annule notre action
+        {
+            g.asg_val(i_boite,valeur_case);  //on replace l'ancien chiffre
+            difficulte++;  //on doit faire une itération de plus
+        }
+    }
+    return g;
     // pour un nombre prédéterminé(par la difficulté) de case à supprimer, faire:
     //     supprimer une case au hazard
     //     si la grille n'a plus de solution unique, revenir en arrière
