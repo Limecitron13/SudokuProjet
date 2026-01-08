@@ -23,7 +23,6 @@
 ## 💡 Idées à implémenter dans le futur
 
 - Ajouter des variantes de sudoku(killer,knight move, king move,etc.)
-- Ajouter une meilleure analyse des contraintes d'une case (doubles, triples, et autres techniques)
 
 
 ## 🧾 Notes 

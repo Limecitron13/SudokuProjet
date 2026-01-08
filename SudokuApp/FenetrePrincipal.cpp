@@ -394,13 +394,13 @@ void FenetrePrincipal::genGrilleD()
 
 void FenetrePrincipal::genGrilleI()
 {
-    m_sudoku = gen_grille(35);
+    m_sudoku = gen_grille(40);
     afficherGrille();
 }
 
 
 void FenetrePrincipal::genGrilleA()
 {
-    m_sudoku = gen_grille(45);
+    m_sudoku = gen_grille(50);
     afficherGrille();
 }
