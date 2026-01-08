@@ -11,8 +11,9 @@
 
 bool resoudre(Grille& g);
 
+void nbr_solu(Grille& g,int& nbrSolu);
 bool a_solu_unique(const Grille&);
-Grille a_solu_unique_recherche(Grille,Indice,int& solu);
+
 
 
 Grille gen_grille(unsigned int difficulte);

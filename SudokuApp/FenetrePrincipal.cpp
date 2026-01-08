@@ -380,7 +380,7 @@ void FenetrePrincipal::placerChiffre()
 
 void FenetrePrincipal::resoudreGrille()
 {
-    m_sudoku = resoudre(m_sudoku) ;
+    resoudre(m_sudoku) ;
     afficherGrille();
 }
 

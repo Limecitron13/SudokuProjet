@@ -43,96 +43,48 @@ bool resoudre(Grille& g)
 }
 
 
-
-
-
-
-
-
-
-/**
- * 
- * \brief Préparation pour la fonction a_solu_unique_recherche(détermine si une grille a une solution unique) La grille initiale ne doit pas contenir de contradiciton.
- * \param g est la grille à vérifier si elle a une solution
- * \return true si a une unique solution, false sinon
- * 
- */
 bool a_solu_unique(const Grille& g)
 {
-    Indice i;
-    int solu = 0;
+    int nbrSolu = 0;
+    Grille h = g;
+    nbr_solu(h,nbrSolu);
     
-    int nombreChiffres = 0;     //nombre de chiffres différents de 0 dans la grille
-    for(size_t nombreCases = 0; nombreCases<81;nombreCases++)
-    {
-        if(g.req_val(i)!=0)
-        {
-            nombreChiffres++;
-        }
-        i++;
-    }
-    
-    if(nombreChiffres<17) //Une grille de sudoku doit avoir au moins 17 nombres pour avoir une solution unique
-    {
+    if(nbrSolu > 1)
         return false;
-    }
-    
-    Indice j;
-    Grille gcopie = g;
-    Grille b = a_solu_unique_recherche(gcopie,j,solu);  //appel à la fonction récursive
-    
-    if(!b.req_validite())
-    {
-        return false;
-    }
-    
-    return (solu >= 2) ? false : true;
+    else 
+        return true;
 }
 
-
-
-/**
- * \brief Détermine si une grille a une ou plusieurs solutions à l'aide d'appels récursifs.
- * \param g est la grille à vérifier le nombre de solutions
- * \param i est l'indice de la case suivante à résoudre
- * \param solu est un entier du nombre de solutions trouvées
- * \return la grille de l'état précédent
- */
-Grille a_solu_unique_recherche(Grille g,Indice i,int& solu)
+void nbr_solu(Grille& g,int& nbrSolu)
 {
-    if(g.req_validite() || solu >=2)   //Vérifier si la grille est résolue ou si on a déjà trouvé au moins deux solutions
+    if(nbrSolu >= 2)
+        return;
+    Indice i;
+    for(int cases = 0; cases < 81; cases++)
     {
-        solu++;  //On a trouvé une autre solution
-        return g;
-    }
-    
-    while(g.req_val(i) != 0)   //Trouver la prochaine case vide
-    {
+
+        if (g.req_val(i) == 0)
+        {
+            for (int chiffre = 1; chiffre <= 9; chiffre++)
+            {
+                if (g.estPlacementValide(i, chiffre))
+                {
+                    g.asg_val(i,chiffre);
+                    nbr_solu(g,nbrSolu);
+                    g.asg_val(i,0); // backtracking
+                }
+            }
+            return; // aucun chiffre valide ici
+        }
         i++;
     }
-    
-    vector<int>nombres_possibles = g.respecte_contraintes(i); //Les nombres qui peuvent aller dans cette case
-    if(est_zero(nombres_possibles) || solu >=2 )  //Il n'y a plus de possibilités pour cette case ou on a déjà trouvé au mois deux solutions
-    {
-        return g;
-    }
-    
-    int indice_nbr_a_test = 0;
-    Grille g_appel;
-    while(indice_nbr_a_test < nombres_possibles.size() )
-    {
-        g.asg_val(i,nombres_possibles.at(indice_nbr_a_test)); //On test la valeur
-        g_appel = a_solu_unique_recherche(g, i, solu);   //appel récursif
-        indice_nbr_a_test++;    //On a épuisé un autre cas
-        
-        if( (g_appel.req_validite() && indice_nbr_a_test == nombres_possibles.size()) || solu >=2 ) //Vérifier si la grille est résolue et que tous les possiblités ont été vérifiées ou si on a déjà trouvé deux solutions
-        {
-            return g_appel;
-        }
-
-    }
-    return g; //On a épuisé la possiblités 
+    nbrSolu++; // plus de cases vides, solution trouvée
 }
+
+
+
+
+
 
 
 /**
@@ -193,17 +145,11 @@ Grille gen_grille(unsigned int difficulte)
               
     }
     
-    try
-    {
-        resoudre(g);
-        return gen_grille_recherche(g, difficulte);  //retourne la grille partiellement remplie avec une solution unique
-    }
-    catch(AucuneSolutionTrouveException& erreur)
-    {
-        cout<<"Erreur lors de la génération de la grille. Veuillez réessayer.";  //une contradiction a été générée
-        Grille h;
-        return h;  //retourne une grille vide
-    }
+
+    resoudre(g);
+    return gen_grille_recherche(g, difficulte);  //retourne la grille partiellement remplie avec une solution unique
+
+
 }
 
 

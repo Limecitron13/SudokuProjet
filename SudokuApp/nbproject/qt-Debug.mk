@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = SudokuApp1.0.0
-DISTDIR = /home/etudiant/NetBeansProjects/Sudoku/SudokuProjet/SudokuApp/build/Debug/GNU-Linux/SudokuApp1.0.0
+DISTDIR = /home/etudiant/NetBeansProjects/SudokuProject/SudokuProjet/SudokuApp/build/Debug/GNU-Linux/SudokuApp1.0.0
 LINK          = g++
 LFLAGS        = 
 LIBS          = $(SUBLIBS) ../Sudoku/dist/Debug/GNU-Linux/libsudoku.a /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Core.so -lGL -lpthread   
@@ -385,13 +385,13 @@ moc_DialogGrilleInvalide.cpp: DialogGrilleInvalide.h \
 		ui_DialogGrilleInvalide.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/etudiant/NetBeansProjects/Sudoku/SudokuProjet/SudokuApp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/etudiant/NetBeansProjects/Sudoku/SudokuProjet/SudokuApp/nbproject -I/home/etudiant/NetBeansProjects/Sudoku/SudokuProjet/SudokuApp/Sudoku -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include DialogGrilleInvalide.h -o moc_DialogGrilleInvalide.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/etudiant/NetBeansProjects/SudokuProject/SudokuProjet/SudokuApp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/etudiant/NetBeansProjects/SudokuProject/SudokuProjet/SudokuApp/nbproject -I/home/etudiant/NetBeansProjects/SudokuProject/SudokuProjet/SudokuApp/Sudoku -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include DialogGrilleInvalide.h -o moc_DialogGrilleInvalide.cpp
 
 moc_DialogGrilleValide.cpp: DialogGrilleValide.h \
 		ui_DialogGrilleValide.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/etudiant/NetBeansProjects/Sudoku/SudokuProjet/SudokuApp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/etudiant/NetBeansProjects/Sudoku/SudokuProjet/SudokuApp/nbproject -I/home/etudiant/NetBeansProjects/Sudoku/SudokuProjet/SudokuApp/Sudoku -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include DialogGrilleValide.h -o moc_DialogGrilleValide.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/etudiant/NetBeansProjects/SudokuProject/SudokuProjet/SudokuApp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/etudiant/NetBeansProjects/SudokuProject/SudokuProjet/SudokuApp/nbproject -I/home/etudiant/NetBeansProjects/SudokuProject/SudokuProjet/SudokuApp/Sudoku -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include DialogGrilleValide.h -o moc_DialogGrilleValide.cpp
 
 moc_FenetrePrincipal.cpp: FenetrePrincipal.h \
 		ui_FenetrePrincipal.h \
@@ -399,7 +399,7 @@ moc_FenetrePrincipal.cpp: FenetrePrincipal.h \
 		../Sudoku/Indice.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/etudiant/NetBeansProjects/Sudoku/SudokuProjet/SudokuApp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/etudiant/NetBeansProjects/Sudoku/SudokuProjet/SudokuApp/nbproject -I/home/etudiant/NetBeansProjects/Sudoku/SudokuProjet/SudokuApp/Sudoku -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include FenetrePrincipal.h -o moc_FenetrePrincipal.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/etudiant/NetBeansProjects/SudokuProject/SudokuProjet/SudokuApp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/etudiant/NetBeansProjects/SudokuProject/SudokuProjet/SudokuApp/nbproject -I/home/etudiant/NetBeansProjects/SudokuProject/SudokuProjet/SudokuApp/Sudoku -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include FenetrePrincipal.h -o moc_FenetrePrincipal.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
