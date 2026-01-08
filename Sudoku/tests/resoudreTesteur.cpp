@@ -30,8 +30,8 @@ TEST(TestResoudre,resoudre_grilleARésoudre1_grilleRésolue)
     ifstream ifs2("fichiersTestsResoudre/grille1_solu.txt",ifstream::in);
     b.asg_grille(ifs2);
     
-    Grille g_resolue = resoudre(g);
-    ASSERT_TRUE(g_resolue==b);
+    resoudre(g);
+    ASSERT_TRUE(g==b);
 }
 
 TEST(TestResoudre,resoudre_grilleARésoudre2_grilleRésolue)
@@ -44,8 +44,8 @@ TEST(TestResoudre,resoudre_grilleARésoudre2_grilleRésolue)
     ifstream ifs2("fichiersTestsResoudre/grille2_solu.txt",ifstream::in);
     b.asg_grille(ifs2);
     
-    Grille g_resolue = resoudre(g);
-    ASSERT_TRUE(g_resolue==b);
+    resoudre(g);
+    ASSERT_TRUE(g==b);
 }
 
 TEST(TestResoudre,resoudre_grilleARésoudre3_grilleRésolue)
@@ -58,8 +58,8 @@ TEST(TestResoudre,resoudre_grilleARésoudre3_grilleRésolue)
     ifstream ifs2("fichiersTestsResoudre/grille3_solu.txt",ifstream::in);
     b.asg_grille(ifs2);
     
-    Grille g_resolue = resoudre(g);
-    ASSERT_TRUE(g_resolue==b);
+    resoudre(g);
+    ASSERT_TRUE(g==b);
 }
 
 TEST(TestResoudre,resoudre_grilleARésoudre4_grilleRésolue)
@@ -72,8 +72,8 @@ TEST(TestResoudre,resoudre_grilleARésoudre4_grilleRésolue)
     ifstream ifs2("fichiersTestsResoudre/grille4_solu.txt",ifstream::in);
     b.asg_grille(ifs2);
     
-    Grille g_resolue = resoudre(g);
-    ASSERT_TRUE(g_resolue==b);
+    resoudre(g);
+    ASSERT_TRUE(g==b);
 }
 
 
@@ -134,6 +134,5 @@ TEST(TestASoluUnique,ASoluUnique_PlusieursSolutions3_faux)
 TEST(TestGenGrille, testTemporaire)
 {
     Grille g = gen_grille(30);
-    cout<<g;
     ASSERT_TRUE(a_solu_unique(g));
 }

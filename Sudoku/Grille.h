@@ -33,6 +33,7 @@ public:
     Grille& operator=(const Grille&)=default;
     void asg_grille(std::ifstream&);
     std::vector<int>respecte_contraintes(const Indice&)const;
+    bool estPlacementValide(const Indice&, const int& val)const;
     std::array<std::vector<int>,9> req_possibilites_col(const Indice&)const;
     std::array<std::vector<int>,9> req_possibilites_boite(const Indice&)const;
     std::array<std::vector<int>,9> req_possibilites_ligne(const Indice&)const;

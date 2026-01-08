@@ -14,66 +14,34 @@
 using namespace std;
 
 
-/***
- * \brief Fait une préparation pour la résolution de la grille en initialisant l'indice
- * \param g est une objet Grille de la grille à résoudre
- * \exception AucuneSolutionTrouveException 
- * \return la grille résolue
- */
-Grille resoudre(const Grille& g)
+
+bool resoudre(Grille& g)
 {
     Indice i;
-    Grille resultat = resoudre_recherche(g,i);
-    if(!resultat.req_validite())
+    for(int cases = 0; cases < 81; cases++)
     {
-        throw(AucuneSolutionTrouveException("La grille n'a pas pu être résolue :("));
-    }
-    return resultat;
-}
 
+        if (g.req_val(i) == 0)
+        {
+            for (int chiffre = 1; chiffre <= 9; chiffre++)
+            {
+                if (g.estPlacementValide(i, chiffre))
+                {
+                    g.asg_val(i,chiffre);
+                    if (resoudre(g))
+                        return true;
 
-
-/***
- * \brief Fonction qui permet la résolution d'une grille de sudoku à l'aide d'un algorithme de backtracking.
- * \param g est un objet Grille qui représente la grille de sudoku à résoudre
- * \param i est un objet Indice qui indique à quelle case le programme tente de deviner la valeur
- * \return retourne la première grille trouvé avec une solution valide (Une grille pourrait avoir plusieurs solutions)
- */
-Grille resoudre_recherche(Grille g,Indice i)
-{
-    if(g.req_validite())   //Vérifier si la grille est résolue
-    {
-        return g;
-    }
-    
-    while(g.req_val(i) != 0 && ! i.est_maximal() )   //Trouver la prochaine case vide
-    {
+                        // backtracking
+                    g.asg_val(i,0);
+                }
+            }
+            return false; // aucun chiffre valide ici
+        }
         i++;
     }
-    
-    vector<int>nombres_possibles = g.respecte_contraintes(i); //Les nombres qui peuvent aller dans cette case
-    if(est_zero(nombres_possibles) )  //Il n'y a plus de possibilités pour cette case
-    {
-        return g;
-    }
-    
-    int indice_nbr_a_test = 0;
-    Grille g_appel;
-    while(indice_nbr_a_test < nombres_possibles.size() )
-    {
-        g.asg_val(i,nombres_possibles.at(indice_nbr_a_test)); //On test la valeur
-        g_appel = resoudre_recherche(g, i);   //appel récursif
-        indice_nbr_a_test++;    //On a épuisé un autre cas
-        
-        if(g_appel.req_validite())    //Vérifier si la grille est résolue
-        {
-            return g_appel;
-        }
-
-    }
-    return g; //On a épuisé la possiblités 
-   
+    return true; // plus de cases vides, solution trouvée
 }
+
 
 
 
@@ -227,8 +195,8 @@ Grille gen_grille(unsigned int difficulte)
     
     try
     {
-        Grille g_resolue = resoudre(g);
-        return gen_grille_recherche(g_resolue, difficulte);  //retourne la grille partiellement remplie avec une solution unique
+        resoudre(g);
+        return gen_grille_recherche(g, difficulte);  //retourne la grille partiellement remplie avec une solution unique
     }
     catch(AucuneSolutionTrouveException& erreur)
     {

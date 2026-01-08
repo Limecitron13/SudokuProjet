@@ -347,6 +347,28 @@ vector<int> Grille::respecte_contraintes(const Indice& i)const
     
 }
 
+/**
+ * \brief Détermine si un placement est valide
+ * \param i est l'indice de la case
+ * \param val est la valeur a poser entre(0 et 9)
+ * \return true si le placement est valide, false sinon
+ */
+bool Grille::estPlacementValide(const Indice& i, const int& val)const
+{
+    if( val > 9 || val < 0 || this->req_val(i) != 0)
+    {
+        return false;
+    }
+    if( est_membre( this->respecte_contraintes(i), val ) )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 
 /**
  * \brief Détermine quels nombres peuvent être placés dans chaque case de la colonne spécifiée.
@@ -442,7 +464,7 @@ void Grille::verifieInvariant()const
 }
 
 
-//Fin de l'implantation de la classe Grille---------------------
+//Fin de l'implémentation de la classe Grille----------------------------------------
 
 
 
